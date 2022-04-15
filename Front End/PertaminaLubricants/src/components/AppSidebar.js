@@ -5,8 +5,6 @@ import { AppSidebarNav } from './AppSidebarNav'
 import SimpleBar from 'simplebar-react'
 import 'simplebar/dist/simplebar.min.css'
 import Logo from 'src/assets/brand/logo.jpg'
-
-// sidebar nav config
 import navigation from '../_nav'
 
 const AppSidebar = () => {

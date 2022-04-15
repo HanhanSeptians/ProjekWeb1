@@ -1,6 +1,7 @@
 import React from 'react'
 import CIcon from '@coreui/icons-react'
 import {
+  cilAccountLogout,
   cilDelete,
   cilList,
   cilMoney,
@@ -12,6 +13,10 @@ import {
 import { CNavGroup, CNavItem, CNavTitle } from '@coreui/react'
 
 const _nav = [
+  {
+    component: CNavTitle,
+    name: 'NAVIGATION ',
+  },
   {
     component: CNavItem,
     name: 'Dashboard',
@@ -70,6 +75,12 @@ const _nav = [
     name: 'Cetak Report PDF',
     to: '/cetakreport',
     icon: <CIcon icon={cilPrint} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavItem,
+    name: 'Logout',
+    to: '/logout',
+    icon: <CIcon icon={cilAccountLogout} customClassName="nav-icon" />,
   },
 ]
 

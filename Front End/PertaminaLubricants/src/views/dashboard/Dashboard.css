@@ -1,9 +1,11 @@
 .card {
     height: 7rem;
-    width: 25rem;
+    width: 24rem;
     margin-right: 3rem;
+    margin-top: 2rem;
     background-color: #ffffff;
-    border-radius: 2px;
+    border-color:#21aff8 ;
+    border-radius: 5px;
     display: inline-block;
 }
 .subcard {
@@ -18,6 +20,7 @@
 .cardicon {
     display: inline-block;
     margin-top: 35px;
+    margin-left: 20px;
     color: #ffffff;
     
 }
@@ -31,7 +34,13 @@
     width: 20rem;
     margin-right: 3rem;
     margin-top: 3rem;
+    border-color: #21aff8 ;
+    border-radius: 5px;
     background-color: #ffffff;
-    border-radius: 2px;
     display: inline-block;
+}
+.text {
+    align-items: center;
+    text-align: inherit;
+    
 }

@@ -23,6 +23,9 @@ const PencarianAsset = React.lazy(() => import('./views/pencarianasset/Pencarian
 //Cetak Report PDF
 const CetakReport = React.lazy(() => import('./views/cetakreport/CetakReport'))
 
+//Logout
+const Logout = React.lazy(() => import('./views/logout/Logout'))
+
 
 
 
@@ -44,6 +47,8 @@ const routes = [
   { path: '/pencarianasset', name: 'Pencarian Asset', element: PencarianAsset },
 
   { path: '/cetakreport', name: 'Cetak Report', element: CetakReport },
+
+  { path: '/logout', name: 'Logout', element: Logout },
 
 ]
 
