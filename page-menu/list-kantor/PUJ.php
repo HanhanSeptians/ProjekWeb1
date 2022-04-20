@@ -10,12 +10,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Kantor Jakarta</h1>
+            <h1 class="m-0">PUJ</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">List Kantor</a></li>
-              <li class="breadcrumb-item active">Kantor Jakarta</li>
+              <li class="breadcrumb-item active">PUJ</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->

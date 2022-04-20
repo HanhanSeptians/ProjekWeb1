@@ -94,21 +94,27 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../list-kantor/bandung.php" class="nav-link">
+                <a href="../list-kantor/OC.php" class="nav-link">
                   <i class="nav-icon fa-solid fa-location-dot ml-4 text-white"></i>
-                  <p class="text-white">Bandung</p>
+                  <p class="text-white">Kantor Pusat OC</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../list-kantor/jakarta.php" class="nav-link">
+                <a href="../list-kantor/PUC.php" class="nav-link">
                   <i class="nav-icon fa-solid fa-location-dot ml-4 text-white"></i>
-                  <p class="text-white">Jakarta</p>
+                  <p class="text-white">PUC</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../list-kantor/surabaya.php" class="nav-link">
+                <a href="../list-kantor/PUG.php" class="nav-link">
                   <i class="nav-icon fa-solid fa-location-dot ml-4 text-white"></i>
-                  <p class="text-white">Surabaya</p>
+                  <p class="text-white">PUG</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../list-kantor/PUJ.php" class="nav-link">
+                  <i class="nav-icon fa-solid fa-location-dot ml-4 text-white"></i>
+                  <p class="text-white">PUJ</p>
                 </a>
               </li>
             </ul>
@@ -122,18 +128,10 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="../input-data/inputData.php" class="nav-link">
-              <i class="nav-icon fa-solid fa-square-pen text-white"></i>
-              <p class="text-white">
-                Input Data Inventaris
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
             <a href="../delete-data/deleteData.php" class="nav-link">
               <i class="nav-icon fa-solid fa-trash-can text-white"></i>
               <p class="text-white">
-                Hapus Data Inventaris
+                Penghapusan Asset
               </p>
             </a>
           </li>
@@ -141,7 +139,7 @@
             <a href="../cari-data/cariData.php" class="nav-link">
               <i class="nav-icon fa-solid fa-magnifying-glass text-white"></i>
               <p class="text-white">
-                Pencarian Inventaris
+                Pencarian Asset
               </p>
             </a>
           </li>
