@@ -1,6 +1,7 @@
 <?php
 
     include '../navbar/navbar.php';
+    $nilai=10
 
 ?>
 <html>
@@ -29,29 +30,28 @@
     <section class="content">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
-        <div class="row">
+        <div class="row ">
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-info">
+            <div class="small-box bg-primary mr-3">
               <div class="inner">
-                <h3>150</h3>
-
-                <p>New Orders</p>
+                  <h3><?php echo $nilai ?></h3>
+                <p><b>Total Asset</b></p>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="../inventaris/inventaris.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-success">
+            <div class="small-box bg-primary mr-3">
               <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
+                <h3>53</h3>
 
-                <p>Bounce Rate</p>
+                <p><b>Total Asset Baru</b></p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -62,11 +62,11 @@
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-warning">
+            <div class="small-box bg-primary mr-3">
               <div class="inner">
                 <h3>44</h3>
 
-                <p>User Registrations</p>
+                <p><b>Total Asset Dihapus</b></p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
@@ -75,24 +75,68 @@
             </div>
           </div>
           <!-- ./col -->
+        </div>
+
+        <div class="row ml-3 mr-3 mt-4">
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-danger">
+            <div class="small-box bg-primary mr-3 ml-3">
               <div class="inner">
-                <h3>65</h3>
-
-                <p>Unique Visitors</p>
+                  <h3><?php echo $nilai ?></h3>
+                <p><b>Kantor Pusat OC</b></p>
               </div>
               <div class="icon">
-                <i class="ion ion-pie-graph"></i>
+                <i class="ion ion-bag"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="../list-kantor/OC.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-primary mr-3 ml-3">
+              <div class="inner">
+                <h3>100</h3>
+
+                <p><b>PUC</b></p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="../list-kantor/PUC.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-primary mr-3 ml-3">
+              <div class="inner">
+                <h3>144</h3>
+
+                <p><b>PUG</b></p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <a href="../list-kantor/PUG.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-primary mr-3 ml-3">
+              <div class="inner">
+                <h3>204</h3>
+
+                <p><b>PUJ</b></p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <a href="../list-kantor/PUJ.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
         </div>
-        <!-- /.row -->
-        <!-- Main row -->
   </div>
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">

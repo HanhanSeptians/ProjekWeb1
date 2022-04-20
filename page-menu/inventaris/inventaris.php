@@ -10,7 +10,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Inventaris</h1>
+            <h1 class="m-0 ml-2">Inventaris</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -21,4 +21,13 @@
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
+    <div class="ml-4">
+    <table>
+    <th>hanhan</th>
+  </table>
+    </div>
+
+  </div>
+  
+
 </html>
