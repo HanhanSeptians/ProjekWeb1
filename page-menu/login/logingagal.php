@@ -29,6 +29,7 @@
         <!-- /.login-logo -->
         <div class="card">
           <div class="card-body login-card-body">
+            <p class="login-box-msg text-danger"> Username atau Password Salah !!! </p>
             <p class="login-box-msg">Silahkan Login terlebih dahulu</p>
             <form action="../dashboard/dashboard.php" method="post">
               <div class="input-group mb-3">

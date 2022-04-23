@@ -3,8 +3,12 @@
     include '../navbar/navbar.php';
 
 ?>
-
 <html>
+  <style>
+    .mt--5 {
+      margin-top : -30px;
+    }
+  </style>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -73,15 +77,14 @@
           <div class="col-md-6">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">
-                  
+                <h3 class="card-title"> 
                   Add Item
                 </h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
               <i class="fas fa-plus-square"></i>
-                <a href="input_item.php" style="color:black;">Register New Items</a> <br>
+              <a href="../input-data/inputData.php" style="color:black;">Register New Items</a> <br>
               <i class="fa-solid fa-file-excel"></i>  
                 <a href="input_item.php" style="color:black;">Register by Excel Files</a> <br>
                 
@@ -129,78 +132,45 @@
                 <table class="table table-bordered table-striped">
                   <thead>
                     <tr>
-                      <th style="width: 10px">No</th>
-                      <th>No.Inventaris</th>
-                      <th>Deskripsi Inventaris</th>
-                      <th>Tahun Perolehan</th>
-                      <th>Acquis Val / Nilai Perolehan</th>
-                      <th>Cost Center</th>
-                      <th>Location</th>
-                      <th>Kondisi</th>
-                      <th>Paraf</th>
-                      <th>Keterangan</th>
+                      <th align = center style="width: 10px"><h6 align="center"><b>No</b></h6></th>
+                      <th><h6 align="center"><b>Jenis Asset</b></h6></th>
+                      <th><h6 align="center"><b>Deskripsi Asset</b></h6></th>
+                      <th><h6 align="center"><b>Kode Asset</b></h6></th>
+                      <th><h6 align="center"><b>Merk/ Type</b></h6></th>
+                      <th><h6 align="center"><b>Jumlah</b></h6></th>
+                      <th><h6 align="center"><b>Ukuran</b></h6></th>
+                      <th><h6 align="center"><b>Tahun Pengadaan</b></h6></th>
+                      <th><h6 align="center"><b>Status Kepemilikan</b></h6></th>
+                      <th><h6 align="center"><b>Lokasi</b></h6></th>
+                      <th><h6 align="center"><b>Kondisi</b></h6></th>
+                      <th><h6 align="center"><b>Asal-usul</b></h6></th>
+                      <th><h6 align="center"><b>Harga</b></h6></th>
+                      <th><h6 align="center"><b>Gambar</b></h6></th>
+                      <th><h6 align="center"><b>Keterangan</b></h6></th>
+                      <th><h6 align="center"><b>Aksi</b></h6></th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <td>1.</td>
-                      <td>101</td>
+                      <td>Asset Pribadi</td>
                       <td>Kursi tamu merah 1 set</td>
-                      <td>2020</td>
-                      <td>12345</td>
-                      <td>12345</td>
-                      <td>Gedung Utama PUJ Lt. 1</td>
-                      <td>DB</td>
-                      <td> in paraf</td>
-                      <td>Aset Berharga</td>
-                    </tr>
-                    <tr>
-                      <td>1.</td>
-                      <td>101</td>
-                      <td>Kursi tamu merah 1 set</td>
-                      <td>2020</td>
-                      <td>12345</td>
-                      <td>12345</td>
-                      <td>Gedung Utama PUJ Lt. 1</td>
-                      <td>DB</td>
-                      <td> in paraf</td>
-                      <td>Aset Berharga</td>
-                    </tr>
-                    <tr>
-                      <td>1.</td>
-                      <td>101</td>
-                      <td>Kursi tamu merah 1 set</td>
-                      <td>2020</td>
-                      <td>12345</td>
-                      <td>12345</td>
-                      <td>Gedung Utama PUJ Lt. 1</td>
-                      <td>DB</td>
-                      <td> in paraf</td>
-                      <td>Aset Berharga</td>
-                    </tr>
-                    <tr>
-                      <td>1.</td>
-                      <td>101</td>
-                      <td>Kursi tamu merah 1 set</td>
-                      <td>2020</td>
-                      <td>12345</td>
-                      <td>12345</td>
-                      <td>Gedung Utama PUJ Lt. 1</td>
-                      <td>DB</td>
-                      <td> in paraf</td>
-                      <td>Aset Berharga</td>
-                    </tr>
-                    <tr>
-                      <td>1.</td>
-                      <td>101</td>
-                      <td>Kursi tamu merah 1 set</td>
-                      <td>2020</td>
-                      <td>12345</td>
-                      <td>12345</td>
-                      <td>Gedung Utama PUJ Lt. 1</td>
-                      <td>DB</td>
-                      <td> in paraf</td>
-                      <td>Aset Berharga</td>
+                      <td>FN001</td>
+                      <td>Fujiko</td>
+                      <td>200</td>
+                      <td>300 meter</td>
+                      <td>2009</td>
+                      <td>Hak Milik</td>
+                      <td>Jakarta</td>
+                      <td>RB</td>
+                      <td>Ini berasal dari kang ukir</td>
+                      <td>Rp. 1000000</td>
+                      <td>Belum ada</td>
+                      <td>Tidak ada keterangan</td>
+                      <td>
+                        <button class="bg-primary mr-4" style=" float:left"><i class="fa-solid fa-pen-to-square fa-sm"></i></button>
+                        <button class="bg-danger mt--5" style=" float:right"><i class="fa-solid fa-trash"></i></button>
+                      </td>
                     </tr>
                   </tbody>
                 </table>
