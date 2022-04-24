@@ -21,7 +21,7 @@
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
-    <div class="container-fluid">
+    <div class="container-fluid ml-2 mr-2">
       <div class="row ">
         <div class="col-lg-3 col-6">
           <div class="small-box bg-primary mr-3">
