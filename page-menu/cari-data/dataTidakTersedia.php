@@ -40,4 +40,7 @@
               </div>
           </div>
       </section>
+      <div class="mt-3">
+        <h3 align="center" ><b>Asset Tidak Ditemukan</b></h3>
+      </div>
 </html>

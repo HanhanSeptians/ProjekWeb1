@@ -10,92 +10,50 @@
     }
   </style>
   <div class="content-wrapper">
-    <section class="content-header">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Kantor Production Unit Gresik</h1>
-          </div>
+            <h1 class="m-0">Pencarian Asset</h1>
+          </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">List Kantor</a></li>
-              <li class="breadcrumb-item active">Kantor Production Unit Gresik</li>
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Pencarian Asset</li>
             </ol>
-          </div>
-        </div>
-      </div>
-    </section>
-    <div class="row">
-      <div class="col-12">
-        <div class="card text-white bg-primary mb-3">
-          <div class="card-header d-flex p-0">
-            <h3 class="card-title p-2">Today</h3>
-            <h3 class="card-title p-2" id="date" style="color:lightgrey;"></h3>
-          </div>
-          <div class="card-body">
-            <div class="tab-content">
-              <div class="tab-pane active" id="tab_1">
-                <table class="table table-borderless">
-                  <thead>
-                    <tr>
-                      <th scope="col">0</th>
-                      <th scope="col">0</th>
-                      <th scope="col">0</th>
-                    </tr>
-                  </thead>
-                  <tfoot>
-                      <tr>
-                        <th>Total</th>
-                        <th>Stock In</th>
-                        <th>Stock Out</th>
-                      </tr>
-                  </tfoot>
-                </table> 
-              </div>  
-            </div>
-          </div>
-        </div>
-      </div>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
     </div>
-    <div class="row">
-      <div class="col-md-6">
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title"> 
-              <b>Add Item</b>
-            </h3>
+      <section class="content">
+          <div class="container-fluid">
+              <h3 class="text-center display-5"><b>Search</b></h3>
+              <div class="row">
+                  <div class="col-md-8 offset-md-2">
+                      <form action="dataTersedia.php">
+                          <div class="input-group">
+                              <input type="search" class="form-control form-control-lg" placeholder="Masukkan Kata Kunci">
+                              <div class="input-group-append">
+                                  <button type="submit" class="btn btn-lg btn-default">
+                                      <i class="fa fa-search"></i>
+                                  </button>
+                              </div>
+                          </div>
+                      </form>
+                  </div>
+              </div>
           </div>
-          <div class="card-body">
-            <i class="fas fa-plus-square"></i>
-              <a href="../input-data/inputData.php" style="color:black;">Tambah Asset Baru</a> <br>
-            <i class="fa-solid fa-file-excel"></i>  
-              <a href="input_item.php" style="color:black;">Tambah Asset dengan Excel</a> <br>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card ">
-          <div class="card-header">
-            <h3 class="card-title">
-              <b>Low Stock Reminder</b>
-            </h3>
-          </div>
-        <div class="card-body clearfix">
-          <i class="fa-solid fa-house-crack fa-sm"></i>
-            <a href="../delete-data/assetRusakBerat.php"style="color:black;">Asset Rusak Berat</a> <br>
-          <i class="fa-solid fa-hourglass-end mr-1"></i>
-            <a href="../delete-data/assetUmurHabis.php"style="color:black;">Asset Umur Habis</a>  <br>
-        </div>
-      </div>
-    </div>
-    <section class="content">
+      </section>
+      <section class="content mt-5">
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Production Unit Gresik</h3>
+                <h3 class="card-title">Production Unit Jakarta</h3>
               </div>
+              <!-- /.card-header -->
               <div class="card-body">
                 <table class="table table-bordered table-striped">
                   <thead>
@@ -143,6 +101,7 @@
                   </tbody>
                 </table>
               </div>
+              <!-- /.card-body -->
               <div class="card-footer clearfix">
                 <ul class="pagination pagination-sm m-0 float-right">
                   <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
@@ -153,17 +112,14 @@
                 </ul>
               </div>
             </div>
+            <!-- /.card -->
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
           </div>
         </div>
-      </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
     </section>
-  </div>
 </html>
-
-<script>
-      n =  new Date();
-      y = n.getFullYear();
-      m = n.getMonth() + 1;
-      d = n.getDate();
-      document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
-</script>

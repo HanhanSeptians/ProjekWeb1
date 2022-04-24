@@ -31,7 +31,7 @@
                 <p><b>Total Asset</b></p>
               </div>
               <div class="icon">
-                <i class="ion ion-bag"></i>
+                <i class="fa-solid fa-coins"></i>
               </div>
               <a href="../inventaris/inventaris.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
@@ -43,9 +43,9 @@
                 <p><b>Total Asset Baru</b></p>
               </div>
               <div class="icon">
-                <i class="ion ion-stats-bars"></i>
+                <i class="fa-solid fa-coins"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="#" class="small-box-footer">~</a>
             </div>
           </div>
           <div class="col-lg-3 col-6">
@@ -55,9 +55,9 @@
                 <p><b>Total Asset Dihapus</b></p>
               </div>
               <div class="icon">
-                <i class="ion ion-person-add"></i>
+                <i class="fa-solid fa-coins"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="#" class="small-box-footer">~</a>
             </div>
           </div>
         </div>
@@ -69,7 +69,7 @@
                 <p><b>Kantor Pusat OC</b></p>
               </div>
               <div class="icon">
-                <i class="ion ion-bag"></i>
+                <i class="fa-solid fa-coins"></i>
               </div>
               <a href="../list-kantor/OC.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
@@ -78,10 +78,10 @@
             <div class="small-box bg-primary mr-3 ml-3">
               <div class="inner">
                 <h3>100</h3>
-                <p><b>PUC</b></p>
+                <p><b>Production Unit Cilacap</b></p>
               </div>
               <div class="icon">
-                <i class="ion ion-stats-bars"></i>
+                <i class="fa-solid fa-coins"></i>
               </div>
               <a href="../list-kantor/PUC.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
@@ -90,10 +90,10 @@
             <div class="small-box bg-primary mr-3 ml-3">
               <div class="inner">
                 <h3>144</h3>
-                <p><b>PUG</b></p>
+                <p><b>Production Unit Gresik</b></p>
               </div>
               <div class="icon">
-                <i class="ion ion-person-add"></i>
+                <i class="fa-solid fa-coins"></i>
               </div>
               <a href="../list-kantor/PUG.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
@@ -102,10 +102,10 @@
             <div class="small-box bg-primary mr-3 ml-3">
               <div class="inner">
                 <h3>204</h3>
-                <p><b>PUJ</b></p>
+                <p><b>Production Unit Jakarta</b></p>
               </div>
               <div class="icon">
-                <i class="ion ion-person-add"></i>
+                <i class="fa-solid fa-coins"></i>
               </div>
               <a href="../list-kantor/PUJ.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>

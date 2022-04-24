@@ -119,8 +119,12 @@
                     </tr>
                   </thead>
                   <tbody>
+                    <?php
+                      $i;
+                      for ($i=1; $i<=10; $i++){
+                    ?>   
                     <tr>
-                      <td>1.</td>
+                      <td><?php echo $i ?></td>
                       <td>Asset Pribadi</td>
                       <td>Kursi tamu merah 1 set</td>
                       <td>FN001</td>
@@ -140,6 +144,9 @@
                         <button class="bg-danger mt--5" style=" float:right"><i class="fa-solid fa-trash"></i></button>
                       </td>
                     </tr>
+                      <?php
+                        }
+                      ?>
                   </tbody>
                 </table>
               </div>
