@@ -1,6 +1,7 @@
 <?php
 
     include '../navbar/navbar.php';
+    include './conn.php';
 
 ?>
 <html>
@@ -120,26 +121,41 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td>1.</td>
-                      <td>Asset Pribadi</td>
-                      <td>Kursi tamu merah 1 set</td>
-                      <td>FN001</td>
-                      <td>Fujiko</td>
-                      <td>200</td>
-                      <td>300 meter</td>
-                      <td>2009</td>
-                      <td>Hak Milik</td>
-                      <td>Jakarta</td>
-                      <td>RB</td>
-                      <td>Ini berasal dari kang ukir</td>
-                      <td>Rp. 1000000</td>
-                      <td>Belum ada</td>
-                      <td>Tidak ada keterangan</td>
+                    <?php
+                      $sql = "SELECT * FROM `asset_puj`";
+                      $result = $conn->query($sql);
+                      $no = 0;
+                      if ($result->num_rows > 0) {
+                          while ($row = $result->fetch_assoc()) {
+                            $no += 1;
+                      ?>
+                      <td><?php echo $no ?>.</td>
+                      <td><?php echo $row["jenis-asset"] ?></td>
+                      <td><?php echo $row["deskripsi-asset"] ?></td>
+                      <td><?php echo $row["kode-asset"] ?></td>
+                      <td><?php echo $row["merk-type"] ?></td>
+                      <td><?php echo $row["jumlah"] ?></td>
+                      <td><?php echo $row["ukuran"] ?></td>
+                      <td><?php echo $row["tahun-pengadaan"] ?></td>
+                      <td><?php echo $row["status-kepemilikan"] ?></td>
+                      <td><?php echo $row["lokasi"] ?></td>
+                      <td><?php echo $row["kondisi"] ?></td>
+                      <td><?php echo $row["asal-usul"] ?></td>
+                      <td><?php echo $row["harga"] ?></td>
+                      <td><?php echo $row["gambar"] ?></td>
+                      <td><?php echo $row["keterangan"] ?></td>
                       <td>
                         <button class="bg-primary mr-4" style=" float:left"><i class="fa-solid fa-pen-to-square fa-sm"></i></button>
                         <button class="bg-danger mt--5" style=" float:right"><i class="fa-solid fa-trash"></i></button>
                       </td>
                     </tr>
+                    <?php
+                          }
+                      } else {
+                          echo "0 results";
+                      }
+                      $conn->close();
+                    ?>
                   </tbody>
                 </table>
               </div>
