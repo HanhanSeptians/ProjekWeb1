@@ -9,9 +9,7 @@
       margin-top : -30px;
     }
   </style>
-  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
@@ -25,109 +23,79 @@
             </ol>
           </div>
         </div>
-      </div><!-- /.container-fluid -->
+      </div>
     </section>
-     <!-- /.row -->
-
-  
-
-<div class="row">
-  <div class="col-12">
-    <!-- Custom Tabs -->
-    <div class="card text-white bg-primary mb-3">
-      <div class="card-header d-flex p-0">
-        <h3 class="card-title p-3">Today</h3>
-        <h3 class="card-title p-3" id="date" style="color:lightgrey;"></h3>
-
-      </div><!-- /.card-header -->
-      <div class="card-body">
-        <div class="tab-content">
-          <div class="tab-pane active" id="tab_1">
-          <table class="table table-borderless">
-  <thead>
-    <tr>
-      
-      <th scope="col">0</th>
-      <th scope="col">0</th>
-      <th scope="col">0</th>
-    </tr>
-  </thead>
-  <tfoot>
-      <tr>
-        <th>Total</th>
-        <th>Stock In</th>
-        <th>Stock Out</th>
-      </tr>
-  </tfoot>
-</table>
-            
-          </div>  
+    <div class="row">
+      <div class="col-12">
+        <div class="card text-white bg-primary mb-3">
+          <div class="card-header d-flex p-0">
+            <h3 class="card-title p-2">Today</h3>
+            <h3 class="card-title p-2" id="date" style="color:lightgrey;"></h3>
+          </div>
+          <div class="card-body">
+            <div class="tab-content">
+              <div class="tab-pane active" id="tab_1">
+                <table class="table table-borderless">
+                  <thead>
+                    <tr>
+                      <th scope="col">0</th>
+                      <th scope="col">0</th>
+                      <th scope="col">0</th>
+                    </tr>
+                  </thead>
+                  <tfoot>
+                      <tr>
+                        <th>Total</th>
+                        <th>Stock In</th>
+                        <th>Stock Out</th>
+                      </tr>
+                  </tfoot>
+                </table> 
+              </div>  
+            </div>
+          </div>
         </div>
-        <!-- /.tab-content -->
-      </div><!-- /.card-body -->
+      </div>
     </div>
-    <!-- ./card -->
-  </div>
-  <!-- /.col -->
-</div>
-<!-- /.row -->
-<!-- END CUSTOM TABS -->
-
-     <div class="row">
-          <div class="col-md-6">
-            <div class="card">
-              <div class="card-header">
-                <h3 class="card-title"> 
-                  Add Item
-                </h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-              <i class="fas fa-plus-square"></i>
-                <a href="../input-data/inputData.php" style="color:black;">Register New Items</a> <br>
-              <i class="fa-solid fa-file-excel"></i>  
-                <a href="input_item.php" style="color:black;">Register by Excel Files</a> <br>
-                
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title"> 
+              <b>Add Item</b>
+            </h3>
           </div>
-          <!-- ./col -->
-          <div class="col-md-6">
-          <div class="card ">
-              <div class="card-header">
-                <h3 class="card-title">
-                  Stock In / Out
-                </h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body clearfix">
-              <i class="fa-solid fa-circle-down"></i>
-                <a href="input_item.php"style="color:black;">Stock IN</a> <br>
-                <i class="fa-solid fa-circle-up"></i>
-                <a href="input_item.php"style="color:black;">Stock Out</a>  <br>
-                <i class="fa-solid fa-file-lines"></i>
-                <a href="input_item.php"style="color:black;">Audit</a>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
+          <div class="card-body">
+            <i class="fas fa-plus-square"></i>
+              <a href="../input-data/inputData.php" style="color:black;">Tambah Asset Baru</a> <br>
+            <i class="fa-solid fa-file-excel"></i>  
+              <a href="input_item.php" style="color:black;">Tambah Asset dengan Excel</a> <br>
           </div>
-          <!-- ./col -->
         </div>
-        <!-- /.row -->
-
-    <!-- Main content -->
+      </div>
+      <div class="col-md-6">
+        <div class="card ">
+          <div class="card-header">
+            <h3 class="card-title">
+              <b>Low Stock Reminder</b>
+            </h3>
+          </div>
+        <div class="card-body clearfix">
+          <i class="fa-solid fa-house-crack fa-sm"></i>
+            <a href="../delete-data/assetRusakBerat.php"style="color:black;">Asset Rusak Berat</a> <br>
+          <i class="fa-solid fa-hourglass-end mr-1"></i>
+            <a href="../delete-data/assetUmurHabis.php"style="color:black;">Asset Umur Habis</a>  <br>
+        </div>
+      </div>
+    </div>
     <section class="content">
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Production Unit Jakarta</h3>
+                <h3 class="card-title">Production Unit PUG</h3>
               </div>
-              <!-- /.card-header -->
               <div class="card-body">
                 <table class="table table-bordered table-striped">
                   <thead>
@@ -175,7 +143,6 @@
                   </tbody>
                 </table>
               </div>
-              <!-- /.card-body -->
               <div class="card-footer clearfix">
                 <ul class="pagination pagination-sm m-0 float-right">
                   <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
@@ -186,23 +153,14 @@
                 </ul>
               </div>
             </div>
-            <!-- /.card -->
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
           </div>
         </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
+      </div>
     </section>
-    <!-- /.content -->
   </div>
 </html>
 
-
 <script>
-  //Date
       n =  new Date();
       y = n.getFullYear();
       m = n.getMonth() + 1;
