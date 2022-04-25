@@ -54,9 +54,9 @@
       <?php
         if(isset($_POST['keyword'])){
           $keyword = $_POST['keyword'];
-          $sql = "SELECT * FROM asset WHERE `jenis-asset` LIKE '%$keyword%' OR `deskripsi-asset` LIKE '%$keyword%' OR `kode-asset` LIKE '%$keyword%' 
-                  OR `merk-type` LIKE '%$keyword%' OR `jumlah` LIKE '%$keyword%' OR `ukuran` LIKE '%$keyword%' OR `tahun-pengadaan` LIKE '%$keyword%' 
-                  OR `status-kepemilikan` LIKE '%$keyword%' OR `lokasi` LIKE '%$keyword%' OR kondisi LIKE '%$keyword%' OR `asal-usul` LIKE '%$keyword%' 
+          $sql = "SELECT * FROM asset WHERE `jenis_asset` LIKE '%$keyword%' OR `deskripsi_asset` LIKE '%$keyword%' OR `kode_asset` LIKE '%$keyword%' 
+                  OR `merk_type` LIKE '%$keyword%' OR `jumlah` LIKE '%$keyword%' OR `ukuran` LIKE '%$keyword%' OR `tahun_pengadaan` LIKE '%$keyword%' 
+                  OR `status_kepemilikan` LIKE '%$keyword%' OR `lokasi` LIKE '%$keyword%' OR kondisi LIKE '%$keyword%' OR `asal_usul` LIKE '%$keyword%' 
                   OR `harga` LIKE '%$keyword%'";
           $result = $conn->query($sql);
           $no = 0;

@@ -152,7 +152,7 @@
                       <td><?php echo $row["gambar"] ?></td>
                       <td><?php echo $row["keterangan"] ?></td>
                       <td>
-                        <button class="bg-primary mr-4" style=" float:left"><i class="fa-solid fa-pen-to-square fa-sm"></i></button>
+                        <a href="../input-data/editAsset.php? kode_asset=<?=$row["kode_asset"]?>"><button class="bg-primary mr-4" style=" float:left"><i class="fa-solid fa-pen-to-square fa-sm"></i></button></a>
                         <button class="bg-danger mt--5" style=" float:right"><i class="fa-solid fa-trash"></i></button>
                       </td>
                     </tr>
