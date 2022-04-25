@@ -31,29 +31,29 @@
             <div class="row">
               <div class="col-12">
                 <div class="card">
-                  <div class="card-header">
+                  <div class="card-header bg-dark">
                     <h3 class="card-title"><b>Asset Rusak Berat</b></h3>
                   </div>
                   <div class="card-body">
                     <table class="table table-bordered table-striped">
                       <thead>
-                        <tr>
+                        <tr class="bg-primary">
                           <th align = center style="width: 10px"><h6 align="center"><b>No</b></h6></th>
-                          <th><h6 align="center"><b>Jenis Asset</b></h6></th>
-                          <th><h6 align="center"><b>Deskripsi Asset</b></h6></th>
-                          <th><h6 align="center"><b>Kode Asset</b></h6></th>
-                          <th><h6 align="center"><b>Merk/ Type</b></h6></th>
-                          <th><h6 align="center"><b>Jumlah</b></h6></th>
-                          <th><h6 align="center"><b>Ukuran</b></h6></th>
-                          <th><h6 align="center"><b>Tahun Pengadaan</b></h6></th>
-                          <th><h6 align="center"><b>Status Kepemilikan</b></h6></th>
-                          <th><h6 align="center"><b>Lokasi</b></h6></th>
-                          <th><h6 align="center"><b>Kondisi</b></h6></th>
-                          <th><h6 align="center"><b>Asal-usul</b></h6></th>
-                          <th><h6 align="center"><b>Harga</b></h6></th>
-                          <th><h6 align="center"><b>Gambar</b></h6></th>
-                          <th><h6 align="center"><b>Keterangan</b></h6></th>
-                          <th><h6 align="center"><b>Delete</b></h6></th>
+                          <th style="width: 150px"><h6 align="center"><b>Jenis Asset</b></h6></th>
+                          <th style="width: 150px"><h6 align="center"><b>Deskripsi Asset</b></h6></th>
+                          <th style="width: 120px"><h6 align="center"><b>Kode Asset</b></h6></th>
+                          <th style="width: 120px"><h6 align="center"><b>Merk/ Type</b></h6></th>
+                          <th style="width: 30px"><h6 align="center"><b>Jumlah</b></h6></th>
+                          <th style="width: 30px"><h6 align="center"><b>Ukuran</b></h6></th>
+                          <th style="width: 100px"><h6 align="center"><b>Tahun Pengadaan</b></h6></th>
+                          <th style="width: 250px"><h6 align="center"><b>Status Kepemilikan</b></h6></th>
+                          <th style="width: 100px"><h6 align="center"><b>Lokasi</b></h6></th>
+                          <th style="width: 150px"><h6 align="center"><b>Kondisi</b></h6></th>
+                          <th style="width: 200px"><h6 align="center"><b>Asal-usul</b></h6></th>
+                          <th style="width: 150px"><h6 align="center"><b>Harga</b></h6></th>
+                          <th style="width: 120px"><h6 align="center"><b>Gambar</b></h6></th>
+                          <th style="width: 120px"><h6 align="center"><b>Keterangan</b></h6></th>
+                          <th style="width: 120px"><h6 align="center"><b>Aksi</b></h6></th>
                         </tr>
                       </thead>
                   <?php
@@ -62,21 +62,21 @@
                   ?>                
                           <tbody>
                             <tr>
-                            <td><?php echo $no ?>.</td>
-                            <td><?php echo $row["jenis_asset"] ?></td>
-                            <td><?php echo $row["deskripsi_asset"] ?></td>
-                            <td><?php echo $row["kode_asset"] ?></td>
-                            <td><?php echo $row["merk_type"] ?></td>
-                            <td><?php echo $row["jumlah"] ?></td>
-                            <td><?php echo $row["ukuran"] ?></td>
-                            <td><?php echo $row["tahun_pengadaan"] ?></td>
-                            <td><?php echo $row["status_kepemilikan"] ?></td>
-                            <td><?php echo $row["lokasi"] ?></td>
-                            <td><?php echo $row["kondisi"] ?></td>
-                            <td><?php echo $row["asal_usul"] ?></td>
-                            <td><?php echo $row["harga"] ?></td>
-                            <td><?php echo $row["gambar"] ?></td>
-                            <td><?php echo $row["keterangan"] ?></td>
+                              <td><center><?php echo $no ?></center></td>
+                              <td><?php echo $row["jenis_asset"] ?></td>
+                              <td><?php echo $row["deskripsi_asset"] ?></td>
+                              <td><center><?php echo $row["kode_asset"] ?></center></td>
+                              <td><?php echo $row["merk_type"] ?></td>
+                              <td><center><?php echo $row["jumlah"] ?></center></td>
+                              <td><center><?php echo $row["ukuran"] ?></center></td>
+                              <td><center><?php echo $row["tahun_pengadaan"] ?></center></td>
+                              <td><?php echo $row["status_kepemilikan"] ?></td>
+                              <td><?php echo $row["lokasi"] ?></td>
+                              <td><center><?php echo $row["kondisi"] ?></center></td>
+                              <td><?php echo $row["asal_usul"] ?></td>
+                              <td>Rp. <?php echo $row["harga"] ?></td>
+                              <td><?php echo $row["gambar"] ?></td>
+                              <td><?php echo $row["keterangan"] ?></td>
                               <td>
                                 <center>
                                   <button class="bg-danger"><i class="fa-solid fa-trash"></i></button>
