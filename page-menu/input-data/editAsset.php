@@ -1,8 +1,15 @@
+<?php 
+	session_start();
+	if($_SESSION['status']!="login"){
+		header("location:../login/login.php?pesan=belum_login");
+	}
+	?>
 <?php
     include '../database/koneksi.php';
     include '../navbar/navbar.php';
 
 ?>
+
 <html>
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
