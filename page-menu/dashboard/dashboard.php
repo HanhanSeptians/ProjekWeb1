@@ -120,7 +120,7 @@
             <div class="small-box bg-primary mr-3 ml-3">
               <div class="inner">
                   <?php
-                    $sql = "SELECT * FROM asset_puc";
+                    $sql = "SELECT * FROM asset_puJ";
                     $resultTotalPUJ = $conn->query($sql);
                     $totalAssetPUJ = mysqli_num_rows($resultTotalPUJ);
                   ?>
