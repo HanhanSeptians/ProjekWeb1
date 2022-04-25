@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 24, 2022 at 06:42 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.2
+-- Generation Time: Apr 25, 2022 at 02:31 PM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 8.0.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,22 +24,40 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `account`
+--
+
+CREATE TABLE `account` (
+  `email` varchar(50) NOT NULL,
+  `password` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `account`
+--
+
+INSERT INTO `account` (`email`, `password`) VALUES
+('adminpertamina@gmail.com', 'admin12345');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `asset`
 --
 
 CREATE TABLE `asset` (
   `kantor` varchar(10) NOT NULL,
-  `jenis-asset` varchar(30) NOT NULL,
-  `deskripsi-asset` varchar(50) NOT NULL,
-  `kode-asset` varchar(10) NOT NULL,
-  `merk-type` varchar(30) NOT NULL,
+  `jenis_asset` varchar(30) NOT NULL,
+  `deskripsi_asset` varchar(50) NOT NULL,
+  `kode_asset` varchar(10) NOT NULL,
+  `merk_type` varchar(30) NOT NULL,
   `jumlah` int(11) NOT NULL,
   `ukuran` int(11) NOT NULL,
-  `tahun-pengadaan` year(4) NOT NULL,
-  `status-kepemilikan` varchar(30) NOT NULL,
+  `tahun_pengadaan` year(4) NOT NULL,
+  `status_kepemilikan` varchar(30) NOT NULL,
   `lokasi` varchar(30) NOT NULL,
   `kondisi` varchar(20) NOT NULL,
-  `asal-usul` varchar(30) NOT NULL,
+  `asal_usul` varchar(30) NOT NULL,
   `harga` int(11) NOT NULL,
   `gambar` varchar(30) NOT NULL,
   `keterangan` varchar(30) NOT NULL
@@ -49,7 +67,7 @@ CREATE TABLE `asset` (
 -- Dumping data for table `asset`
 --
 
-INSERT INTO `asset` (`kantor`, `jenis-asset`, `deskripsi-asset`, `kode-asset`, `merk-type`, `jumlah`, `ukuran`, `tahun-pengadaan`, `status-kepemilikan`, `lokasi`, `kondisi`, `asal-usul`, `harga`, `gambar`, `keterangan`) VALUES
+INSERT INTO `asset` (`kantor`, `jenis_asset`, `deskripsi_asset`, `kode_asset`, `merk_type`, `jumlah`, `ukuran`, `tahun_pengadaan`, `status_kepemilikan`, `lokasi`, `kondisi`, `asal_usul`, `harga`, `gambar`, `keterangan`) VALUES
 ('OC-6', '', 'Kursi Sova Hitam', '0001', '', 3, 0, 0000, '', 'Ruang Lobby lt.6', 'DB', '', 0, '', ''),
 ('OC-6', '', 'Meja Sofa', '0002', '', 1, 0, 0000, '', 'Ruang Lobby lt.6', 'DB', '', 0, '', ''),
 ('OC-6', '', 'TV', '0003', '', 1, 0, 0000, '', 'Ruang Lobby lt.6', 'DB', '', 0, '', ''),
@@ -547,8 +565,8 @@ INSERT INTO `asset` (`kantor`, `jenis-asset`, `deskripsi-asset`, `kode-asset`, `
 ('OC-8', '', 'Laci Cokelat', '0178', '', 1, 0, 0000, '', 'Lobby Selatan', 'DB', '', 0, '', ''),
 ('OC-8', '', 'Kursi tunggu', '0179', '', 3, 0, 0000, '', 'Lobby Selatan', 'DB', '', 0, '', ''),
 ('OC-8', '', 'Lemari Mushola', '0180', '', 1, 0, 0000, '', 'Lobby Selatan', 'DB', '', 0, '', '');
-INSERT INTO `asset` (`kantor`, `jenis-asset`, `deskripsi-asset`, `kode-asset`, `merk-type`, `jumlah`, `ukuran`, `tahun-pengadaan`, `status-kepemilikan`, `lokasi`, `kondisi`, `asal-usul`, `harga`, `gambar`, `keterangan`) VALUES
-('PUC', '', 'Meja Kantor ', '0001', '', 0, 0, 0000, '', 'Office MWH', 'DS', '', 0, '', 'Dimensi (150 x 70 x 75)'),
+INSERT INTO `asset` (`kantor`, `jenis_asset`, `deskripsi_asset`, `kode_asset`, `merk_type`, `jumlah`, `ukuran`, `tahun_pengadaan`, `status_kepemilikan`, `lokasi`, `kondisi`, `asal_usul`, `harga`, `gambar`, `keterangan`) VALUES
+('PUC', '', 'Meja Kantor ', '0001', '', 0, 0, 0000, '', 'Office MWH', 'RB', '', 0, '', 'Dimensi (150 x 70 x 75)'),
 ('PUC', '', 'Meja Kantor ', '0002', '', 0, 0, 0000, '', 'Office MWH', 'DS', '', 0, '', 'Dimensi (150 x 70 x 75)'),
 ('PUC', '', 'Meja Kantor ', '0003', '', 0, 0, 0000, '', 'Office MWH', 'DS', '', 0, '', 'Dimensi (140 x 70 x70)'),
 ('PUC', '', 'Meja Kantor ', '0004', '', 0, 0, 0000, '', 'Office MWH', 'DS', '', 0, '', 'Dimensi (160 x 70 x 73)'),
@@ -1047,7 +1065,7 @@ INSERT INTO `asset` (`kantor`, `jenis-asset`, `deskripsi-asset`, `kode-asset`, `
 ('PUJ', '', 'Kursi biriu 1 set', '0103', '', 0, 0, 0000, '', 'Control  Room', 'DB', '', 0, '', '8 pcs'),
 ('PUJ', '', 'Lemari berkas', '0104', '', 0, 0, 0000, '', 'Control  Room', 'DB', '', 0, '', ''),
 ('PUJ', '', 'Lemari berkas', '0105', '', 0, 0, 0000, '', 'Control  Room', 'DB', '', 0, '', '');
-INSERT INTO `asset` (`kantor`, `jenis-asset`, `deskripsi-asset`, `kode-asset`, `merk-type`, `jumlah`, `ukuran`, `tahun-pengadaan`, `status-kepemilikan`, `lokasi`, `kondisi`, `asal-usul`, `harga`, `gambar`, `keterangan`) VALUES
+INSERT INTO `asset` (`kantor`, `jenis_asset`, `deskripsi_asset`, `kode_asset`, `merk_type`, `jumlah`, `ukuran`, `tahun_pengadaan`, `status_kepemilikan`, `lokasi`, `kondisi`, `asal_usul`, `harga`, `gambar`, `keterangan`) VALUES
 ('PUJ', '', 'Kursi kerja 1 set', '0106', '', 0, 0, 0000, '', 'Control  Room', 'DB', '', 0, '', '6 pcs'),
 ('PUJ', '', 'Kursi kerja 1 set', '0107', '', 0, 0, 0000, '', 'MWH', 'DJ', '', 0, '', '7 pcs'),
 ('PUJ', '', 'Meja kerja 1 set', '0108', '', 0, 0, 0000, '', 'MWH', 'DJ', '', 0, '', '4 pcs'),
@@ -1168,17 +1186,17 @@ INSERT INTO `asset` (`kantor`, `jenis-asset`, `deskripsi-asset`, `kode-asset`, `
 --
 CREATE TABLE `asset_oc_678` (
 `kantor` varchar(10)
-,`jenis-asset` varchar(30)
-,`deskripsi-asset` varchar(50)
-,`kode-asset` varchar(10)
-,`merk-type` varchar(30)
+,`jenis_asset` varchar(30)
+,`deskripsi_asset` varchar(50)
+,`kode_asset` varchar(10)
+,`merk_type` varchar(30)
 ,`jumlah` int(11)
 ,`ukuran` int(11)
-,`tahun-pengadaan` year(4)
-,`status-kepemilikan` varchar(30)
+,`tahun_pengadaan` year(4)
+,`status_kepemilikan` varchar(30)
 ,`lokasi` varchar(30)
 ,`kondisi` varchar(20)
-,`asal-usul` varchar(30)
+,`asal_usul` varchar(30)
 ,`harga` int(11)
 ,`gambar` varchar(30)
 ,`keterangan` varchar(30)
@@ -1192,17 +1210,17 @@ CREATE TABLE `asset_oc_678` (
 --
 CREATE TABLE `asset_puc` (
 `kantor` varchar(10)
-,`jenis-asset` varchar(30)
-,`deskripsi-asset` varchar(50)
-,`kode-asset` varchar(10)
-,`merk-type` varchar(30)
+,`jenis_asset` varchar(30)
+,`deskripsi_asset` varchar(50)
+,`kode_asset` varchar(10)
+,`merk_type` varchar(30)
 ,`jumlah` int(11)
 ,`ukuran` int(11)
-,`tahun-pengadaan` year(4)
-,`status-kepemilikan` varchar(30)
+,`tahun_pengadaan` year(4)
+,`status_kepemilikan` varchar(30)
 ,`lokasi` varchar(30)
 ,`kondisi` varchar(20)
-,`asal-usul` varchar(30)
+,`asal_usul` varchar(30)
 ,`harga` int(11)
 ,`gambar` varchar(30)
 ,`keterangan` varchar(30)
@@ -1216,17 +1234,17 @@ CREATE TABLE `asset_puc` (
 --
 CREATE TABLE `asset_pug` (
 `kantor` varchar(10)
-,`jenis-asset` varchar(30)
-,`deskripsi-asset` varchar(50)
-,`kode-asset` varchar(10)
-,`merk-type` varchar(30)
+,`jenis_asset` varchar(30)
+,`deskripsi_asset` varchar(50)
+,`kode_asset` varchar(10)
+,`merk_type` varchar(30)
 ,`jumlah` int(11)
 ,`ukuran` int(11)
-,`tahun-pengadaan` year(4)
-,`status-kepemilikan` varchar(30)
+,`tahun_pengadaan` year(4)
+,`status_kepemilikan` varchar(30)
 ,`lokasi` varchar(30)
 ,`kondisi` varchar(20)
-,`asal-usul` varchar(30)
+,`asal_usul` varchar(30)
 ,`harga` int(11)
 ,`gambar` varchar(30)
 ,`keterangan` varchar(30)
@@ -1240,17 +1258,17 @@ CREATE TABLE `asset_pug` (
 --
 CREATE TABLE `asset_puj` (
 `kantor` varchar(10)
-,`jenis-asset` varchar(30)
-,`deskripsi-asset` varchar(50)
-,`kode-asset` varchar(10)
-,`merk-type` varchar(30)
+,`jenis_asset` varchar(30)
+,`deskripsi_asset` varchar(50)
+,`kode_asset` varchar(10)
+,`merk_type` varchar(30)
 ,`jumlah` int(11)
 ,`ukuran` int(11)
-,`tahun-pengadaan` year(4)
-,`status-kepemilikan` varchar(30)
+,`tahun_pengadaan` year(4)
+,`status_kepemilikan` varchar(30)
 ,`lokasi` varchar(30)
 ,`kondisi` varchar(20)
-,`asal-usul` varchar(30)
+,`asal_usul` varchar(30)
 ,`harga` int(11)
 ,`gambar` varchar(30)
 ,`keterangan` varchar(30)
@@ -1286,7 +1304,7 @@ INSERT INTO `kantor` (`id_kantor`, `nama_kantor`) VALUES
 --
 DROP TABLE IF EXISTS `asset_oc_678`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `asset_oc_678`  AS SELECT `asset`.`kantor` AS `kantor`, `asset`.`jenis-asset` AS `jenis-asset`, `asset`.`deskripsi-asset` AS `deskripsi-asset`, `asset`.`kode-asset` AS `kode-asset`, `asset`.`merk-type` AS `merk-type`, `asset`.`jumlah` AS `jumlah`, `asset`.`ukuran` AS `ukuran`, `asset`.`tahun-pengadaan` AS `tahun-pengadaan`, `asset`.`status-kepemilikan` AS `status-kepemilikan`, `asset`.`lokasi` AS `lokasi`, `asset`.`kondisi` AS `kondisi`, `asset`.`asal-usul` AS `asal-usul`, `asset`.`harga` AS `harga`, `asset`.`gambar` AS `gambar`, `asset`.`keterangan` AS `keterangan` FROM `asset` WHERE `asset`.`kantor` = 'OC-6' OR `asset`.`kantor` = 'OC-7' OR `asset`.`kantor` = 'OC-8' ORDER BY `asset`.`kantor`<> 0 and `asset`.`kode-asset` <> 0 ASC ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `asset_oc_678`  AS SELECT `asset`.`kantor` AS `kantor`, `asset`.`jenis_asset` AS `jenis_asset`, `asset`.`deskripsi_asset` AS `deskripsi_asset`, `asset`.`kode_asset` AS `kode_asset`, `asset`.`merk_type` AS `merk_type`, `asset`.`jumlah` AS `jumlah`, `asset`.`ukuran` AS `ukuran`, `asset`.`tahun_pengadaan` AS `tahun_pengadaan`, `asset`.`status_kepemilikan` AS `status_kepemilikan`, `asset`.`lokasi` AS `lokasi`, `asset`.`kondisi` AS `kondisi`, `asset`.`asal_usul` AS `asal_usul`, `asset`.`harga` AS `harga`, `asset`.`gambar` AS `gambar`, `asset`.`keterangan` AS `keterangan` FROM `asset` WHERE `asset`.`kantor` = 'OC-6' OR `asset`.`kantor` = 'OC-7' OR `asset`.`kantor` = 'OC-8' ORDER BY `asset`.`kantor`<> 0 and `asset`.`kode_asset` <> 0 ASC ;
 
 -- --------------------------------------------------------
 
@@ -1295,7 +1313,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `asset_puc`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `asset_puc`  AS SELECT `asset`.`kantor` AS `kantor`, `asset`.`jenis-asset` AS `jenis-asset`, `asset`.`deskripsi-asset` AS `deskripsi-asset`, `asset`.`kode-asset` AS `kode-asset`, `asset`.`merk-type` AS `merk-type`, `asset`.`jumlah` AS `jumlah`, `asset`.`ukuran` AS `ukuran`, `asset`.`tahun-pengadaan` AS `tahun-pengadaan`, `asset`.`status-kepemilikan` AS `status-kepemilikan`, `asset`.`lokasi` AS `lokasi`, `asset`.`kondisi` AS `kondisi`, `asset`.`asal-usul` AS `asal-usul`, `asset`.`harga` AS `harga`, `asset`.`gambar` AS `gambar`, `asset`.`keterangan` AS `keterangan` FROM `asset` WHERE `asset`.`kantor` = 'PUC' ORDER BY `asset`.`kode-asset` ASC ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `asset_puc`  AS SELECT `asset`.`kantor` AS `kantor`, `asset`.`jenis_asset` AS `jenis_asset`, `asset`.`deskripsi_asset` AS `deskripsi_asset`, `asset`.`kode_asset` AS `kode_asset`, `asset`.`merk_type` AS `merk_type`, `asset`.`jumlah` AS `jumlah`, `asset`.`ukuran` AS `ukuran`, `asset`.`tahun_pengadaan` AS `tahun_pengadaan`, `asset`.`status_kepemilikan` AS `status_kepemilikan`, `asset`.`lokasi` AS `lokasi`, `asset`.`kondisi` AS `kondisi`, `asset`.`asal_usul` AS `asal_usul`, `asset`.`harga` AS `harga`, `asset`.`gambar` AS `gambar`, `asset`.`keterangan` AS `keterangan` FROM `asset` WHERE `asset`.`kantor` = 'PUC' ORDER BY `asset`.`kode_asset` ASC ;
 
 -- --------------------------------------------------------
 
@@ -1304,7 +1322,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `asset_pug`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `asset_pug`  AS SELECT `asset`.`kantor` AS `kantor`, `asset`.`jenis-asset` AS `jenis-asset`, `asset`.`deskripsi-asset` AS `deskripsi-asset`, `asset`.`kode-asset` AS `kode-asset`, `asset`.`merk-type` AS `merk-type`, `asset`.`jumlah` AS `jumlah`, `asset`.`ukuran` AS `ukuran`, `asset`.`tahun-pengadaan` AS `tahun-pengadaan`, `asset`.`status-kepemilikan` AS `status-kepemilikan`, `asset`.`lokasi` AS `lokasi`, `asset`.`kondisi` AS `kondisi`, `asset`.`asal-usul` AS `asal-usul`, `asset`.`harga` AS `harga`, `asset`.`gambar` AS `gambar`, `asset`.`keterangan` AS `keterangan` FROM `asset` WHERE `asset`.`kantor` = 'PUG' ORDER BY `asset`.`kode-asset` ASC ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `asset_pug`  AS SELECT `asset`.`kantor` AS `kantor`, `asset`.`jenis_asset` AS `jenis_asset`, `asset`.`deskripsi_asset` AS `deskripsi_asset`, `asset`.`kode_asset` AS `kode_asset`, `asset`.`merk_type` AS `merk_type`, `asset`.`jumlah` AS `jumlah`, `asset`.`ukuran` AS `ukuran`, `asset`.`tahun_pengadaan` AS `tahun_pengadaan`, `asset`.`status_kepemilikan` AS `status_kepemilikan`, `asset`.`lokasi` AS `lokasi`, `asset`.`kondisi` AS `kondisi`, `asset`.`asal_usul` AS `asal_usul`, `asset`.`harga` AS `harga`, `asset`.`gambar` AS `gambar`, `asset`.`keterangan` AS `keterangan` FROM `asset` WHERE `asset`.`kantor` = 'PUG' ORDER BY `asset`.`kode_asset` ASC ;
 
 -- --------------------------------------------------------
 
@@ -1313,7 +1331,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `asset_puj`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `asset_puj`  AS SELECT `asset`.`kantor` AS `kantor`, `asset`.`jenis-asset` AS `jenis-asset`, `asset`.`deskripsi-asset` AS `deskripsi-asset`, `asset`.`kode-asset` AS `kode-asset`, `asset`.`merk-type` AS `merk-type`, `asset`.`jumlah` AS `jumlah`, `asset`.`ukuran` AS `ukuran`, `asset`.`tahun-pengadaan` AS `tahun-pengadaan`, `asset`.`status-kepemilikan` AS `status-kepemilikan`, `asset`.`lokasi` AS `lokasi`, `asset`.`kondisi` AS `kondisi`, `asset`.`asal-usul` AS `asal-usul`, `asset`.`harga` AS `harga`, `asset`.`gambar` AS `gambar`, `asset`.`keterangan` AS `keterangan` FROM `asset` WHERE `asset`.`kantor` = 'PUJ' ORDER BY `asset`.`kode-asset` ASC ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `asset_puj`  AS SELECT `asset`.`kantor` AS `kantor`, `asset`.`jenis_asset` AS `jenis_asset`, `asset`.`deskripsi_asset` AS `deskripsi_asset`, `asset`.`kode_asset` AS `kode_asset`, `asset`.`merk_type` AS `merk_type`, `asset`.`jumlah` AS `jumlah`, `asset`.`ukuran` AS `ukuran`, `asset`.`tahun_pengadaan` AS `tahun_pengadaan`, `asset`.`status_kepemilikan` AS `status_kepemilikan`, `asset`.`lokasi` AS `lokasi`, `asset`.`kondisi` AS `kondisi`, `asset`.`asal_usul` AS `asal_usul`, `asset`.`harga` AS `harga`, `asset`.`gambar` AS `gambar`, `asset`.`keterangan` AS `keterangan` FROM `asset` WHERE `asset`.`kantor` = 'PUJ' ORDER BY `asset`.`kode_asset` ASC ;
 
 --
 -- Indexes for dumped tables
@@ -1323,7 +1341,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- Indexes for table `asset`
 --
 ALTER TABLE `asset`
-  ADD PRIMARY KEY (`kantor`,`kode-asset`);
+  ADD PRIMARY KEY (`kantor`,`kode_asset`);
 
 --
 -- Indexes for table `kantor`

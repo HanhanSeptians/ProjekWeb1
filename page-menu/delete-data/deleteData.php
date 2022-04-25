@@ -1,5 +1,5 @@
 <?php
-
+    include '../database/koneksi.php';
     include '../navbar/navbar.php';
 
 ?>
@@ -26,99 +26,98 @@
         </div>
       </div><!-- /.container-fluid -->
     </section>
-     <!-- /.row -->
-<!-- /.row -->
-<!-- END CUSTOM TABS -->
-
-    <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-12">
-            <div class="card">
-              <div class="card-header">
-                <h3 class="card-title"><b>Asset Rusak Berat atau Umur Habis</b></h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <table class="table table-bordered table-striped">
-                  <thead>
-                    <tr>
-                      <th align = center style="width: 10px"><h6 align="center"><b>No</b></h6></th>
-                      <th><h6 align="center"><b>Jenis Asset</b></h6></th>
-                      <th><h6 align="center"><b>Deskripsi Asset</b></h6></th>
-                      <th><h6 align="center"><b>Kode Asset</b></h6></th>
-                      <th><h6 align="center"><b>Merk/ Type</b></h6></th>
-                      <th><h6 align="center"><b>Jumlah</b></h6></th>
-                      <th><h6 align="center"><b>Ukuran</b></h6></th>
-                      <th><h6 align="center"><b>Tahun Pengadaan</b></h6></th>
-                      <th><h6 align="center"><b>Status Kepemilikan</b></h6></th>
-                      <th><h6 align="center"><b>Lokasi</b></h6></th>
-                      <th><h6 align="center"><b>Kondisi</b></h6></th>
-                      <th><h6 align="center"><b>Asal-usul</b></h6></th>
-                      <th><h6 align="center"><b>Harga</b></h6></th>
-                      <th><h6 align="center"><b>Gambar</b></h6></th>
-                      <th><h6 align="center"><b>Keterangan</b></h6></th>
-                      <th><h6 align="center"><b>Delete</b></h6></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>1.</td>
-                      <td>Asset Pribadi</td>
-                      <td>Kursi tamu merah 1 set</td>
-                      <td>FN001</td>
-                      <td>Fujiko</td>
-                      <td>200</td>
-                      <td>300 meter</td>
-                      <td>2009</td>
-                      <td>Hak Milik</td>
-                      <td>Jakarta</td>
-                      <td>RB</td>
-                      <td>Ini berasal dari kang ukir</td>
-                      <td>Rp. 1000000</td>
-                      <td>Belum ada</td>
-                      <td>Tidak ada keterangan</td>
-                      <td>
-                        <center>
-                          <button class="bg-danger"><i class="fa-solid fa-trash"></i></button>
-                        </center>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <!-- /.card-body -->
-              <div class="card-footer clearfix">
-                <ul class="pagination pagination-sm m-0 float-right">
-                  <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
-                </ul>
+    <?php
+      $sql = "SELECT * FROM `asset` WHERE kondisi ='RB' OR `tahun_pengadaan` < 2012";
+      $result = $conn->query($sql);
+      $total = mysqli_num_rows($result);
+      $no = 0;
+        if ($result->num_rows > 0) {
+    ?>
+          <section class="content">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title"><b>Asset Rusak Berat</b></h3>
+                  </div>
+                  <div class="card-body">
+                    <table class="table table-bordered table-striped">
+                      <thead>
+                        <tr>
+                          <th align = center style="width: 10px"><h6 align="center"><b>No</b></h6></th>
+                          <th><h6 align="center"><b>Jenis Asset</b></h6></th>
+                          <th><h6 align="center"><b>Deskripsi Asset</b></h6></th>
+                          <th><h6 align="center"><b>Kode Asset</b></h6></th>
+                          <th><h6 align="center"><b>Merk/ Type</b></h6></th>
+                          <th><h6 align="center"><b>Jumlah</b></h6></th>
+                          <th><h6 align="center"><b>Ukuran</b></h6></th>
+                          <th><h6 align="center"><b>Tahun Pengadaan</b></h6></th>
+                          <th><h6 align="center"><b>Status Kepemilikan</b></h6></th>
+                          <th><h6 align="center"><b>Lokasi</b></h6></th>
+                          <th><h6 align="center"><b>Kondisi</b></h6></th>
+                          <th><h6 align="center"><b>Asal-usul</b></h6></th>
+                          <th><h6 align="center"><b>Harga</b></h6></th>
+                          <th><h6 align="center"><b>Gambar</b></h6></th>
+                          <th><h6 align="center"><b>Keterangan</b></h6></th>
+                          <th><h6 align="center"><b>Delete</b></h6></th>
+                        </tr>
+                      </thead>
+                  <?php
+                    while ($row = $result->fetch_assoc()) {
+                      $no += 1;           
+                  ?>                
+                          <tbody>
+                            <tr>
+                            <td><?php echo $no ?>.</td>
+                            <td><?php echo $row["jenis_asset"] ?></td>
+                            <td><?php echo $row["deskripsi_asset"] ?></td>
+                            <td><?php echo $row["kode_asset"] ?></td>
+                            <td><?php echo $row["merk_type"] ?></td>
+                            <td><?php echo $row["jumlah"] ?></td>
+                            <td><?php echo $row["ukuran"] ?></td>
+                            <td><?php echo $row["tahun_pengadaan"] ?></td>
+                            <td><?php echo $row["status_kepemilikan"] ?></td>
+                            <td><?php echo $row["lokasi"] ?></td>
+                            <td><?php echo $row["kondisi"] ?></td>
+                            <td><?php echo $row["asal_usul"] ?></td>
+                            <td><?php echo $row["harga"] ?></td>
+                            <td><?php echo $row["gambar"] ?></td>
+                            <td><?php echo $row["keterangan"] ?></td>
+                              <td>
+                                <center>
+                                  <button class="bg-danger"><i class="fa-solid fa-trash"></i></button>
+                                </center>
+                              </td>
+                            </tr>
+                            <?php
+                                  }
+                              } else {
+                            ?>
+                            <div class="mt-5">
+                              <center><h4>Tidak ada Asset Rusak Berat</h4></center>
+                              </div> 
+                            <?php   
+                              }
+                              $conn->close();
+                            ?>
+                          </tbody>
+                        </table>
+                        </div>
+                        <div class="card-footer clearfix">
+                          <ul class="pagination pagination-sm m-0 float-right">
+                            <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <!-- /.card -->
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
+          </section>
           </div>
-        </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
-  </div>
-</html>
-
-
-<script>
-  //Date
-      n =  new Date();
-      y = n.getFullYear();
-      m = n.getMonth() + 1;
-      d = n.getDate();
-      document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
-</script>

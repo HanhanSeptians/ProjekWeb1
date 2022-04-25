@@ -22,19 +22,18 @@
       </div><!-- /.container-fluid -->
     </div>
     <?php
-      if(isset($_GET['kode-asset'])){
-        $kode = $_GET['kode-asset'];
+      if(isset($_GET['kode_asset'])){
+        $kode = $_GET['kode_asset'];
       }else{
           die("Error! Asset tidak ditemukan");
       }
-      $query = mysqli_query($conn, "SELECT * FROM asset WHERE `kode-asset` = '$kode'");
+      $query = mysqli_query($conn, "SELECT * FROM asset WHERE kode_asset = '$kode'");
       $data = mysqli_fetch_array($query);
     ?>
     <div class="card-body ml-1 mr-1">
                 <table class="table table-bordered table-striped">
                   <thead>
                     <tr>
-                      <!-- <th align = center style="width: 10px"><h6 align="center"><b>No</b></h6></th> -->
                       <th><h6 align="center"><b>Jenis Asset</b></h6></th>
                       <th><h6 align="center"><b>Deskripsi Asset</b></h6></th>
                       <th><h6 align="center"><b>Kode Asset</b></h6></th>
@@ -53,18 +52,17 @@
                   </thead>
                   <tbody>
                   <tr>
-                      <!-- <td><?php echo $no ?>.</td> -->
-                      <td><?php echo $data["jenis-asset"] ?></td>
-                      <td><?php echo $data["deskripsi-asset"] ?></td>
-                      <td><?php echo $data["kode-asset"] ?></td>
-                      <td><?php echo $data["merk-type"] ?></td>
+                      <td><?php echo $data["jenis_asset"] ?></td>
+                      <td><?php echo $data["deskripsi_asset"] ?></td>
+                      <td><?php echo $data["kode_asset"] ?></td>
+                      <td><?php echo $data["merk_type"] ?></td>
                       <td><?php echo $data["jumlah"] ?></td>
                       <td><?php echo $data["ukuran"] ?></td>
-                      <td><?php echo $data["tahun-pengadaan"] ?></td>
-                      <td><?php echo $data["status-kepemilikan"] ?></td>
+                      <td><?php echo $data["tahun_pengadaan"] ?></td>
+                      <td><?php echo $data["status_kepemilikan"] ?></td>
                       <td><?php echo $data["lokasi"] ?></td>
                       <td><?php echo $data["kondisi"] ?></td>
-                      <td><?php echo $data["asal-usul"] ?></td>
+                      <td><?php echo $data["asal_usul"] ?></td>
                       <td><?php echo $data["harga"] ?></td>
                       <td><?php echo $data["gambar"] ?></td>
                       <td><?php echo $data["keterangan"] ?></td>
@@ -75,7 +73,7 @@
    
     <div class="card card-primary ml-4 mr-4">
       <div class="card-header">
-        <h3 align="center" class="card-title">Form Pengisian Asset Baru</h3>
+        <h3 align="center" class="card-title">Form Edit Asset</h3>
       </div>
       <div class="card-body">
         <form>

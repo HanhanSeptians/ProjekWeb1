@@ -131,22 +131,22 @@
                             $no += 1;
                       ?>
                       <td><?php echo $no ?>.</td>
-                      <td><?php echo $row["jenis-asset"] ?></td>
-                      <td><?php echo $row["deskripsi-asset"] ?></td>
-                      <td><?php echo $row["kode-asset"] ?></td>
-                      <td><?php echo $row["merk-type"] ?></td>
+                      <td><?php echo $row["jenis_asset"] ?></td>
+                      <td><?php echo $row["deskripsi_asset"] ?></td>
+                      <td><?php echo $row["kode_asset"] ?></td>
+                      <td><?php echo $row["merk_type"] ?></td>
                       <td><?php echo $row["jumlah"] ?></td>
                       <td><?php echo $row["ukuran"] ?></td>
-                      <td><?php echo $row["tahun-pengadaan"] ?></td>
-                      <td><?php echo $row["status-kepemilikan"] ?></td>
+                      <td><?php echo $row["tahun_pengadaan"] ?></td>
+                      <td><?php echo $row["status_kepemilikan"] ?></td>
                       <td><?php echo $row["lokasi"] ?></td>
                       <td><?php echo $row["kondisi"] ?></td>
-                      <td><?php echo $row["asal-usul"] ?></td>
+                      <td><?php echo $row["asal_usul"] ?></td>
                       <td><?php echo $row["harga"] ?></td>
                       <td><?php echo $row["gambar"] ?></td>
                       <td><?php echo $row["keterangan"] ?></td>
                       <td>
-                        <a href="../input-data/editAsset.php? `kode-asset`=<?=$row["kode-asset"]?>"><button class="bg-primary mr-4" style=" float:left"><i class="fa-solid fa-pen-to-square fa-sm"></i></button></a> 
+                        <a href="../input-data/editAsset.php? kode_asset=<?=$row["kode_asset"]?>"><button class="bg-primary mr-4" style=" float:left"><i class="fa-solid fa-pen-to-square fa-sm"></i></button></a> 
                         <button class="bg-danger mt--5" style=" float:right"><i class="fa-solid fa-trash"></i></button>
                       </td>
                     </tr>
