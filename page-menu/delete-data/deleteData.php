@@ -45,7 +45,7 @@
               <div class="col-12">
                 <div class="card">
                   <div class="card-header bg-dark">
-                    <h3 class="card-title"><b>Asset Rusak Berat</b></h3>
+                    <h3 class="card-title"><b>Asset Rusak Berat atau Umur Habis</b></h3>
                   </div>
                   <div class="card-body">
                     <table class="table table-bordered table-striped">

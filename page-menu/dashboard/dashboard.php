@@ -5,10 +5,8 @@
 	}
   ?>
 <?php
-
+    include '../database/koneksi.php';
     include '../navbar/navbar.php';
-    $nilai=10
-
 ?>
 <html>
   <div class="content-wrapper">
@@ -33,7 +31,12 @@
           <div class="col-lg-3 col-6">
             <div class="small-box bg-primary mr-3">
               <div class="inner">
-                  <h3><?php echo $nilai ?></h3>
+                  <?php
+                    $sql = "SELECT * FROM asset";
+                    $resultTotal = $conn->query($sql);
+                    $totalAsset = mysqli_num_rows($resultTotal);
+                  ?>
+                  <h3><?php echo $totalAsset ?></h3>
                 <p><b>Total Asset</b></p>
               </div>
               <div class="icon">
@@ -71,7 +74,12 @@
           <div class="col-lg-3 col-6">
             <div class="small-box bg-primary mr-3 ml-3">
               <div class="inner">
-                  <h3><?php echo $nilai ?></h3>
+                  <?php
+                    $sql = "SELECT * FROM asset_oc_678";
+                    $resultTotalOC = $conn->query($sql);
+                    $totalAssetOC = mysqli_num_rows($resultTotalOC);
+                  ?>
+                  <h3><?php echo $totalAssetOC ?></h3>
                 <p><b>Kantor Pusat OC</b></p>
               </div>
               <div class="icon">
@@ -83,7 +91,12 @@
           <div class="col-lg-3 col-6">
             <div class="small-box bg-primary mr-3 ml-3">
               <div class="inner">
-                <h3>100</h3>
+                  <?php
+                    $sql = "SELECT * FROM asset_puc";
+                    $resultTotalPUC = $conn->query($sql);
+                    $totalAssetPUC = mysqli_num_rows($resultTotalPUC);
+                  ?>
+                  <h3><?php echo $totalAssetPUC ?></h3>
                 <p><b>Production Unit Cilacap</b></p>
               </div>
               <div class="icon">
@@ -95,7 +108,12 @@
           <div class="col-lg-3 col-6">
             <div class="small-box bg-primary mr-3 ml-3">
               <div class="inner">
-                <h3>144</h3>
+                  <?php
+                    $sql = "SELECT * FROM asset_pug";
+                    $resultTotalPUG = $conn->query($sql);
+                    $totalAssetPUG = mysqli_num_rows($resultTotalPUG);
+                  ?>
+                  <h3><?php echo $totalAssetPUG ?></h3>
                 <p><b>Production Unit Gresik</b></p>
               </div>
               <div class="icon">
@@ -107,7 +125,12 @@
           <div class="col-lg-3 col-6">
             <div class="small-box bg-primary mr-3 ml-3">
               <div class="inner">
-                <h3>204</h3>
+                  <?php
+                    $sql = "SELECT * FROM asset_puc";
+                    $resultTotalPUJ = $conn->query($sql);
+                    $totalAssetPUJ = mysqli_num_rows($resultTotalPUJ);
+                  ?>
+                  <h3><?php echo $totalAssetPUJ ?></h3>
                 <p><b>Production Unit Jakarta</b></p>
               </div>
               <div class="icon">
