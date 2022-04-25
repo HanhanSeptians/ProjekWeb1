@@ -1,8 +1,6 @@
 <?php
-
+    include '../database/koneksi.php';
     include '../navbar/navbar.php';
-    include './conn.php'
-
 ?>
 <html>
   <style>
@@ -26,6 +24,11 @@
         </div>
       </div>
     </section>
+    <?php
+      $sql = "SELECT * FROM `asset_oc_678`";
+      $result = $conn->query($sql);
+      $total = mysqli_num_rows($result);
+    ?>
     <div class="row ml-2 mr-2">
       <div class="col-12">
         <div class="card text-white bg-primary mb-3">
@@ -39,9 +42,9 @@
                 <table class="table table-borderless">
                   <thead>
                     <tr>
-                      <th scope="col">0</th>
-                      <th scope="col">0</th>
-                      <th scope="col">0</th>
+                      <th scope="col"><h2><?php echo $total ?></h2></th>
+                      <th scope="col"><h2><?php echo $total ?></h2></th>
+                      <th scope="col"><h2><?php echo $total ?></h2></th>
                     </tr>
                   </thead>
                   <tfoot>
@@ -120,14 +123,8 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <?php
-                      $i;
-                      for ($i=1; $i<=10; $i++){
-                    ?>   
                     <tr>
                     <?php
-                      $sql = "SELECT * FROM `asset_oc_678`";
-                      $result = $conn->query($sql);
                       $no = 0;
                       if ($result->num_rows > 0) {
                           while ($row = $result->fetch_assoc()) {
@@ -160,9 +157,6 @@
                       }
                       $conn->close();
                     ?>
-                      <?php
-                        }
-                      ?>
                   </tbody>
                 </table>
               </div>
