@@ -75,7 +75,7 @@
             <div class="small-box bg-primary mr-3 ml-3">
               <div class="inner">
                   <?php
-                    $sql = "SELECT * FROM asset_oc_678";
+                    $sql = "SELECT * FROM asset_oc";
                     $resultTotalOC = $conn->query($sql);
                     $totalAssetOC = mysqli_num_rows($resultTotalOC);
                   ?>

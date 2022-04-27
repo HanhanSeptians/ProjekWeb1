@@ -38,11 +38,11 @@
       $previous = $halaman - 1;
       $next = $halaman + 1;
 
-      $sql = "SELECT * FROM `asset_oc_678`";
+      $sql = "SELECT * FROM `asset_oc`";
       $result = $conn->query($sql);
       $total = mysqli_num_rows($result);
       $total_halaman = ceil($total / $batas);
-      $data_asset = mysqli_query($conn,"SELECT * FROM asset_oc_678 limit $halaman_awal, $batas");
+      $data_asset = mysqli_query($conn,"SELECT * FROM asset_oc limit $halaman_awal, $batas");
       $no = $halaman_awal+1;
     ?>
     <div class="row ml-2 mr-2">
