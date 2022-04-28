@@ -38,7 +38,7 @@
             <div class="icon">
               <i class="fa-solid fa-book"></i>
             </div>
-              <a href="../inventaris/inventaris.php" class="small-box-footer">Cetak PDF <i class="fa-solid fa-print"></i></i></a>
+              <a href="pdfoc.php" class="small-box-footer">Cetak PDF <i class="fa-solid fa-print"></i></i></a>
           </div>
         </div>
         <div class="col-lg-3 col-6">
@@ -50,7 +50,7 @@
             <div class="icon">
               <i class="fa-solid fa-book"></i>
             </div>
-              <a href="../inventaris/inventaris.php" class="small-box-footer">Cetak PDF <i class="fa-solid fa-print"></i></i></a>
+              <a href="pdfpuc.php" class="small-box-footer">Cetak PDF <i class="fa-solid fa-print"></i></i></a>
           </div>
         </div>
         <div class="col-lg-3 col-6">
@@ -62,7 +62,7 @@
             <div class="icon">
               <i class="fa-solid fa-book"></i>
             </div>
-              <a href="../inventaris/inventaris.php" class="small-box-footer">Cetak PDF <i class="fa-solid fa-print"></i></i></a>
+              <a href="pdfpug.php" class="small-box-footer">Cetak PDF <i class="fa-solid fa-print"></i></i></a>
           </div>
         </div>
         <div class="col-lg-3 col-6">
@@ -74,7 +74,7 @@
             <div class="icon">
               <i class="fa-solid fa-book"></i>
             </div>
-              <a href="../inventaris/inventaris.php" class="small-box-footer">Cetak PDF <i class="fa-solid fa-print"></i></i></a>
+              <a href="pdfpuj.php" class="small-box-footer">Cetak PDF <i class="fa-solid fa-print"></i></i></a>
           </div>
         </div>
         </div>
