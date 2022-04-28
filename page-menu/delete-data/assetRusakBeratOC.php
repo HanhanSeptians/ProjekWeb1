@@ -23,7 +23,7 @@
       </div>
     </section>
     <?php
-      $sql = "SELECT * FROM `asset` WHERE kondisi = 'RB' OR tahun_pengadaan < 2012";
+      $sql = "SELECT * FROM `asset_oc_678` WHERE kondisi ='RB'";
       $result = $conn->query($sql);
       $total = mysqli_num_rows($result);
       $no = 0;
@@ -35,7 +35,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header bg-dark">
-                <h3 class="card-title"><b>Asset Rusak Berat atau Umur Habis</b></h3>
+                <h3 class="card-title"><b>Asset Rusak Berat</b></h3>
               </div>
               <div class="card-body">
                 <table class="table table-bordered table-striped">
@@ -105,7 +105,7 @@
         }else {
       ?>
           <div class="mt-5">
-              <center><h4>Tidak ada Asset Rusak Berat atau Umur Habis</h4></center>
+              <center><h4>Tidak ada Asset Rusak Berat</h4></center>
           </div> 
       <?php   
         }

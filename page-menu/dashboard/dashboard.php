@@ -1,12 +1,10 @@
 <?php 
 	session_start();
-	if($_SESSION['status']!="login"){
-		header("location:../login/login.php?pesan=belum_login");
-	}
-  ?>
-<?php
-    include '../database/koneksi.php';
-    include '../navbar/navbar.php';
+    if($_SESSION['status']!="login"){
+      header("location:../login/login.php?pesan=belum_login");
+    }
+  include '../database/koneksi.php';
+  include '../navbar/navbar.php';
 ?>
 <html>
   <div class="content-wrapper">
@@ -48,25 +46,35 @@
           <div class="col-lg-3 col-6">
             <div class="small-box bg-primary mr-3">
               <div class="inner">
-                <h3>53</h3>
-                <p><b>Total Asset Baru</b></p>
+                  <?php
+                    $sql = "SELECT * FROM asset WHERE kondisi='RB'";
+                    $resultTotal = $conn->query($sql);
+                    $totalAssetRusakBerat = mysqli_num_rows($resultTotal);
+                  ?>
+                <h3><?php echo $totalAssetRusakBerat ?></h3>
+                <p><b>Asset Rusak Berat</b></p>
               </div>
               <div class="icon">
                 <i class="fa-solid fa-coins"></i>
               </div>
-              <a href="#" class="small-box-footer">~</a>
+              <a href="../delete-data/AssetRusakBerat.php" class="small-box-footer">More Info<i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <div class="col-lg-3 col-6">
             <div class="small-box bg-primary mr-3">
               <div class="inner">
-                <h3>44</h3>
-                <p><b>Total Asset Dihapus</b></p>
+                  <?php
+                    $sql = "SELECT * FROM asset WHERE tahun_pengadaan < 2012";
+                    $resultTotal = $conn->query($sql);
+                    $totalAssetUmurHabis = mysqli_num_rows($resultTotal);
+                  ?>
+                <h3><?php echo $totalAssetUmurHabis ?></h3>
+                <p><b>Asset Umur Habis</b></p>
               </div>
               <div class="icon">
                 <i class="fa-solid fa-coins"></i>
               </div>
-              <a href="#" class="small-box-footer">~</a>
+              <a href="../delete-data/AssetUmurHabis.php" class="small-box-footer">More Info<i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
         </div>
