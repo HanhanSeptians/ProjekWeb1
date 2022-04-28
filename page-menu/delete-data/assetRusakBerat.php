@@ -23,7 +23,7 @@
       </div>
     </section>
     <?php
-      $sql = "SELECT * FROM `asset` WHERE kondisi ='RB'";
+      $sql = "SELECT * FROM `asset_rusak`";
       $result = $conn->query($sql);
       $total = mysqli_num_rows($result);
       $no = 0;
