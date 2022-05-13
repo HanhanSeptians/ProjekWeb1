@@ -1,12 +1,10 @@
 <?php 
 	session_start();
-	if($_SESSION['status']!="login"){
-		header("location:../login/login.php?pesan=belum_login");
-	}
-  ?>
-<?php
-    include '../database/koneksi.php';
-    include '../navbar/navbar.php';
+    if($_SESSION['status']!="login"){
+      header("location:../login/login.php?pesan=belum_login");
+    }
+  include '../database/koneksi.php';
+  include '../navbar/navbar.php';
 ?>
 <html>
   <style>
@@ -34,10 +32,8 @@
       $batas = 50;
       $halaman = isset($_GET['halaman'])?(int)$_GET['halaman'] : 1;
       $halaman_awal = ($halaman>1) ? ($halaman * $batas) - $batas : 0;	
-
       $previous = $halaman - 1;
       $next = $halaman + 1;
-
       $sql = "SELECT * FROM `asset_puc`";
       $result = $conn->query($sql);
       $total = mysqli_num_rows($result);
@@ -58,16 +54,26 @@
                 <table class="table table-borderless">
                   <thead>
                     <tr>
-                      <th scope="col"><h2><?php echo $total?></h2></th>
-                      <th scope="col"><h2>0</h2></th>
-                      <th scope="col"><h2>0</h2></th>
+                      <th scope="col"><h2><?php echo $total ?></h2></th>
+                        <?php
+                          $sql1 = "SELECT * FROM `asset_rusak` WHERE kantor = 'PUC' ";
+                          $result1 = $conn->query($sql1);
+                          $totalAssetRusakBerat = mysqli_num_rows($result1);
+                        ?>
+                      <th scope="col"><h2><?php echo $totalAssetRusakBerat ?></h2></th>
+                        <?php
+                          $sql2 = "SELECT * FROM `asset_kadaluwarsa` WHERE kantor = 'PUC' ";
+                          $result2 = $conn->query($sql2);
+                          $totalAssetUmurHabis = mysqli_num_rows($result2);
+                        ?>
+                      <th scope="col"><h2><?php echo $totalAssetUmurHabis ?></h2></th>
                     </tr>
                   </thead>
                   <tfoot>
                       <tr>
                         <th>Total</th>
-                        <th>Stock In</th>
-                        <th>Stock Out</th>
+                        <th>Asset Rusak Berat</th>
+                        <th>Asset Umur Habis</th>
                       </tr>
                   </tfoot>
                 </table> 
@@ -102,9 +108,9 @@
           </div>
         <div class="card-body clearfix">
           <i class="fa-solid fa-house-crack fa-sm"></i>
-            <a href="../delete-data/assetRusakBerat.php"style="color:black;">Asset Rusak Berat</a> <br>
+            <a href="../delete-data/assetRusakBeratPUC.php"style="color:black;">Asset Rusak Berat</a> <br>
           <i class="fa-solid fa-hourglass-end mr-1"></i>
-            <a href="../delete-data/assetUmurHabis.php"style="color:black;">Asset Umur Habis</a>  <br>
+            <a href="../delete-data/assetUmurHabisPUC.php"style="color:black;">Asset Umur Habis</a>  <br>
         </div>
       </div>
     </div>
@@ -140,14 +146,14 @@
                   </thead>
                   <tbody>
                     <tr>
-                    <?php
-                      if ($result->num_rows > 0) {
+                      <?php
+                        if ($result->num_rows > 0) {
                           while ($row = $data_asset->fetch_assoc()) {
                       ?>
                       <td><center><?php echo $no++ ; ?></center></td>
                       <td><?php echo $row["jenis_asset"] ?></td>
                       <td><?php echo $row["deskripsi_asset"] ?></td>
-                      <td><center><?php echo $row["kode_asset"] ?></center></td>
+                      <td><center><?php echo $row["view_kode_asset"] ?></center></td>
                       <td><?php echo $row["merk_type"] ?></td>
                       <td><center><?php echo $row["jumlah"] ?></center></td>
                       <td><center><?php echo $row["ukuran"] ?></center></td>
@@ -157,20 +163,38 @@
                       <td><center><?php echo $row["kondisi"] ?></center></td>
                       <td><?php echo $row["asal_usul"] ?></td>
                       <td>Rp. <?php echo $row["harga"] ?></td>
-                      <td><?php echo $row["gambar"] ?></td>
+                      <td>
+                        <?php 
+                          if ( $row["gambar"] == ''){
+                        ?>
+                          <center>
+                          <?php
+                            echo "No Image";
+                          ?>
+                          </center>
+                        <?php  
+                          }else{
+                            echo "<img src='../input-data/GambarAsset/$row[gambar]' width='100'/>";
+                          }
+                        ?>
+                      </td>
                       <td><?php echo $row["keterangan"] ?></td>
                       <td>
-                        <a href="../input-data/editAsset.php? kode_asset=<?=$row["kode_asset"]?>"><button class="bg-primary mr-4" style=" float:left"><i class="fa-solid fa-pen-to-square fa-sm"></i></button></a>
+                        <a href="../input-data/editAssetPUC.php? kode_asset=<?=$row["kode_asset"]?>">
+                          <button class="bg-primary mr-4" style=" float:left">
+                            <i class="fa-solid fa-pen-to-square fa-sm"></i>
+                          </button>
+                        </a>
                         <button class="bg-danger mt--5" style=" float:right"><i class="fa-solid fa-trash"></i></button>
                       </td>
                     </tr>
-                    <?php
+                      <?php
                           }
-                      } else {
+                        }else {
                           echo "0 results";
-                      }
-                      $conn->close();
-                    ?>
+                        }
+                        $conn->close();
+                      ?>
                   </tbody>
                 </table>
               </div>
@@ -181,9 +205,9 @@
                   </li>
                   <?php 
                     for($x=1;$x<=$total_halaman;$x++){
-                      ?> 
+                  ?> 
                       <li class="page-item"><a class="page-link" href="?halaman=<?php echo $x ?>"><?php echo $x; ?></a></li>
-                      <?php
+                  <?php
                     }
                   ?>				
                   <li class="page-item">
@@ -200,9 +224,9 @@
 </html>
 
 <script>
-      n =  new Date();
-      y = n.getFullYear();
-      m = n.getMonth() + 1;
-      d = n.getDate();
-      document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
+  n =  new Date();
+  y = n.getFullYear();
+  m = n.getMonth() + 1;
+  d = n.getDate();
+  document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
 </script>
