@@ -27,7 +27,7 @@
             <p class="login-box-msg">Silahkan Login terlebih dahulu</p>
             <form action="login_sc.php" method="post">
               <div class="input-group mb-3">
-                <input type="email" class="form-control" placeholder="Email" name="email">
+                <input type="text" class="form-control" placeholder="Email" name="username">
                   <div class="input-group-append">
                     <div class="input-group-text">
                       <span class="fas fa-envelope"></span>
