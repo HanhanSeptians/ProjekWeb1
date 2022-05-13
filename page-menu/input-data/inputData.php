@@ -103,7 +103,6 @@
                   <textarea class="form-control" name="keterangan" rows="3" placeholder="Masukkan Keterangan"></textarea>
               </div>
               <div class="form-group">
-                <label>Kantor</label>
                   <select type="varchar" class="custom-select rounded-0" name="kantor">
                     <option>Office Center</option>
                     <option>PUC</option>

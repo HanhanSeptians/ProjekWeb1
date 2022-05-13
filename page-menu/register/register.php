@@ -15,40 +15,42 @@
           <div class="col-md-6">
             <div class="card mb-4 mx-4">
               <div class="card-body p-4">
-                <h1>Register</h1>
-                <p class="text-medium-emphasis">Silahkan registrasi akun untuk masuk kedalam aplikasi</p>
+                <h1 class="text-primary"><center>Register</center></h1><hr>
+                <p class="text-medium-emphasis">*Silahkan registrasi akun untuk masuk kedalam aplikasi</p>
                 <form action="register_sc.php" method="post">
+              <p>Nama :</p>
               <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Nama" name="nama">
+                <input type="text" class="form-control" placeholder="Masukkan Nama" name="nama">
                   <div class="input-group-append">
                     <div class="input-group-text">
                       <span class="fa-solid fa-font">
                     </div>
                   </div>
               </div>
-              <!-- <p>Jenis Kelamin</p>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                <label class="form-check-label" for="exampleRadios2">
-                  Laki-Laki
-                </label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                <label class="form-check-label" for="exampleRadios2">
-                  Perempuan
-                </label>
-              </div> -->
+              <p>Jenis Kelamin :</p>
               <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Username" name="username">
+                  <select type="varchar" class="custom-select rounded-0" name="kantor">
+                    <option>Laki-laki</option>
+                    <option>Perempuan</option>
+                  </select>
                   <div class="input-group-append">
                     <div class="input-group-text">
-                      <span class="fas fa-envelope"></span>
+                      <span class="fa-solid fa-venus">
                     </div>
                   </div>
               </div>
+              <p>Username :</p>
               <div class="input-group mb-3">
-                <input type="password" class="form-control" placeholder="Password" name="password">
+                <input type="text" class="form-control" placeholder="Masukkan Username" name="username">
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fas fa-user"></span>
+                    </div>
+                  </div>
+              </div>
+              <p>Password :</p>
+              <div class="input-group mb-3">
+                <input type="password" class="form-control" placeholder="Masukkan Password" name="password">
                   <div class="input-group-append">
                     <div class="input-group-text">
                       <span class="fas fa-lock"></span>
@@ -56,7 +58,7 @@
                   </div>
               </div>
               <div>
-                  <button type="submit" class="btn btn-primary btn-block"> Sign In</button>
+                  <button type="submit" class="btn btn-primary btn-block">Register</button>
                 </a>
               </div>
               </div>

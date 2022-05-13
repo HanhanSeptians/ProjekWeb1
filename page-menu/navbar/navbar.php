@@ -111,7 +111,7 @@
                 <a href="../inventaris/inventaris.php" class="nav-link">
                   <i class="nav-icon fa-solid fa-coins text-white"></i>
                   <p class="text-white">
-                    Inventaris
+                    Rekapitulasi Inventaris
                   </p>
                 </a>
               </li>
