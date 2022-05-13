@@ -47,7 +47,7 @@
             <div class="small-box bg-primary mr-3">
               <div class="inner">
                   <?php
-                    $sql = "SELECT * FROM asset WHERE kondisi='RB'";
+                    $sql = "SELECT * FROM asset_rusak";
                     $resultTotal = $conn->query($sql);
                     $totalAssetRusakBerat = mysqli_num_rows($resultTotal);
                   ?>
@@ -64,7 +64,7 @@
             <div class="small-box bg-primary mr-3">
               <div class="inner">
                   <?php
-                    $sql = "SELECT * FROM asset WHERE tahun_pengadaan < 2012";
+                    $sql = "SELECT * FROM asset_kadaluwarsa";
                     $resultTotal = $conn->query($sql);
                     $totalAssetUmurHabis = mysqli_num_rows($resultTotal);
                   ?>
@@ -83,12 +83,12 @@
             <div class="small-box bg-primary mr-3 ml-3">
               <div class="inner">
                   <?php
-                    $sql = "SELECT * FROM asset_oc_678";
+                    $sql = "SELECT * FROM asset_oc";
                     $resultTotalOC = $conn->query($sql);
                     $totalAssetOC = mysqli_num_rows($resultTotalOC);
                   ?>
                   <h3><?php echo $totalAssetOC ?></h3>
-                <p><b>Kantor Pusat OC</b></p>
+                <p><b>Office Center</b></p>
               </div>
               <div class="icon">
                 <i class="fa-solid fa-coins"></i>

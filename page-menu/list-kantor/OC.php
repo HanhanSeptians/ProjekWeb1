@@ -17,12 +17,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Kantor Pusat OC</h1>
+            <h1>Office Center</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">List Kantor</a></li>
-              <li class="breadcrumb-item active">Kantor Pusat OC</li>
+              <li class="breadcrumb-item active">Office Center</li>
             </ol>
           </div>
         </div>
@@ -34,12 +34,7 @@
       $halaman_awal = ($halaman>1) ? ($halaman * $batas) - $batas : 0;	
       $previous = $halaman - 1;
       $next = $halaman + 1;
-<<<<<<< HEAD
-      $sql = "SELECT * FROM `asset_oc_678`";
-=======
-
       $sql = "SELECT * FROM `asset_oc`";
->>>>>>> 9e9a2f5ab5946c10e981152c19ec1fc9e9e7b69e
       $result = $conn->query($sql);
       $total = mysqli_num_rows($result);
       $total_halaman = ceil($total / $batas);
@@ -61,15 +56,15 @@
                     <tr>
                       <th scope="col"><h2><?php echo $total ?></h2></th>
                         <?php
-                          $sql = "SELECT * FROM `asset_oc_678` WHERE kondisi ='RB'";
-                          $result = $conn->query($sql);
-                          $totalAssetRusakBerat = mysqli_num_rows($result);
+                          $sql1 = "SELECT * FROM `asset_rusak` WHERE kantor = 'OC' ";
+                          $result1 = $conn->query($sql1);
+                          $totalAssetRusakBerat = mysqli_num_rows($result1);
                         ?>
                       <th scope="col"><h2><?php echo $totalAssetRusakBerat ?></h2></th>
                         <?php
-                          $sql = "SELECT * FROM `asset_oc_678` WHERE tahun_pengadaan < 2012";
-                          $result = $conn->query($sql);
-                          $totalAssetUmurHabis = mysqli_num_rows($result);
+                          $sql2 = "SELECT * FROM `asset_kadaluwarsa` WHERE kantor = 'OC' ";
+                          $result2 = $conn->query($sql2);
+                          $totalAssetUmurHabis = mysqli_num_rows($result2);
                         ?>
                       <th scope="col"><h2><?php echo $totalAssetUmurHabis ?></h2></th>
                     </tr>
@@ -113,9 +108,9 @@
           </div>
         <div class="card-body clearfix">
           <i class="fa-solid fa-house-crack fa-sm"></i>
-            <a href="../delete-data/assetRusakBeratOC.php"style="color:black;">Asset Rusak Berat</a> <br>
+            <a href="../delete-data/assetRusakBeratPUC.php"style="color:black;">Asset Rusak Berat</a> <br>
           <i class="fa-solid fa-hourglass-end mr-1"></i>
-            <a href="../delete-data/assetUmurHabisOC.php"style="color:black;">Asset Umur Habis</a>  <br>
+            <a href="../delete-data/assetUmurHabisPUC.php"style="color:black;">Asset Umur Habis</a>  <br>
         </div>
       </div>
     </div>
@@ -125,7 +120,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header bg-dark">
-                <h3 class="card-title">Production Unit Kantor Pusat OC</h3>
+                <h3 class="card-title">Production Unit Office Center</h3>
               </div>
               <div class="card-body">
                 <table class="table table-bordered table-striped">
@@ -158,7 +153,7 @@
                       <td><center><?php echo $no++ ; ?></center></td>
                       <td><?php echo $row["jenis_asset"] ?></td>
                       <td><?php echo $row["deskripsi_asset"] ?></td>
-                      <td><center><?php echo $row["kode_asset"] ?></center></td>
+                      <td><center><?php echo $row["view_kode_asset"] ?></center></td>
                       <td><?php echo $row["merk_type"] ?></td>
                       <td><center><?php echo $row["jumlah"] ?></center></td>
                       <td><center><?php echo $row["ukuran"] ?></center></td>
@@ -185,18 +180,17 @@
                       </td>
                       <td><?php echo $row["keterangan"] ?></td>
                       <td>
-                        <a href="../input-data/editAsset.php? kode_asset=<?=$row["kode_asset"]?>">
+                        <a href="../input-data/editAssetOC.php? kode_asset=<?=$row["kode_asset"]?>">
                           <button class="bg-primary mr-4" style=" float:left">
                             <i class="fa-solid fa-pen-to-square fa-sm"></i>
                           </button>
-                        </a> 
                         </a>
                         <button class="bg-danger mt--5" style=" float:right"><i class="fa-solid fa-trash"></i></button>
                       </td>
                     </tr>
                       <?php
                           }
-                        } else {
+                        }else {
                           echo "0 results";
                         }
                         $conn->close();
@@ -211,9 +205,9 @@
                   </li>
                   <?php 
                     for($x=1;$x<=$total_halaman;$x++){
-                      ?> 
+                  ?> 
                       <li class="page-item"><a class="page-link" href="?halaman=<?php echo $x ?>"><?php echo $x; ?></a></li>
-                      <?php
+                  <?php
                     }
                   ?>				
                   <li class="page-item">

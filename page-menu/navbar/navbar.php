@@ -84,7 +84,7 @@
                   <li class="nav-item">
                     <a href="../list-kantor/OC.php" class="nav-link">
                       <i class="nav-icon fa-solid fa-location-dot ml-4 text-white"></i>
-                      <p class="text-white">Kantor Pusat OC</p>
+                      <p class="text-white">Office Center</p>
                     </a>
                   </li>
                   <li class="nav-item">

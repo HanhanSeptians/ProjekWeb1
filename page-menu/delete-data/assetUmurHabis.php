@@ -23,11 +23,7 @@
       </div>
     </section>
     <?php
-<<<<<<< HEAD
-      $sql = "SELECT * FROM `asset` WHERE tahun_pengadaan < 2012";
-=======
       $sql = "SELECT * FROM `asset_kadaluwarsa`";
->>>>>>> 9e9a2f5ab5946c10e981152c19ec1fc9e9e7b69e
       $result = $conn->query($sql);
       $total = mysqli_num_rows($result);
       $no = 0;

@@ -86,7 +86,7 @@
               $no += 1;
           ?>   
           <tr>
-            <td><center><?php echo $no++ ; ?></center></td>
+            <td><center><?php echo $no ; ?></center></td>
             <td><?php echo $row["jenis_asset"] ?></td>
             <td><?php echo $row["deskripsi_asset"] ?></td>
             <td><center><?php echo $row["kode_asset"] ?></center></td>

@@ -34,11 +34,11 @@
       $halaman_awal = ($halaman>1) ? ($halaman * $batas) - $batas : 0;	
       $previous = $halaman - 1;
       $next = $halaman + 1;
-      $sql = "SELECT * FROM `asset`";
+      $sql = "SELECT * FROM `asset_inventaris`";
       $result = $conn->query($sql);
       $total = mysqli_num_rows($result);
       $total_halaman = ceil($total / $batas);
-      $data_asset = mysqli_query($conn,"SELECT * FROM asset limit $halaman_awal, $batas");
+      $data_asset = mysqli_query($conn,"SELECT * FROM `asset_inventaris` limit $halaman_awal, $batas");
       $no = $halaman_awal+1;
     ?>
     <div class="row ml-2 mr-2">
@@ -56,15 +56,15 @@
                     <tr>
                       <th scope="col"><h2><?php echo $total ?></h2></th>
                         <?php
-                          $sql = "SELECT * FROM `asset` WHERE kondisi ='RB'";
-                          $result = $conn->query($sql);
-                          $totalAssetRusakBerat = mysqli_num_rows($result);
+                          $sql1 = "SELECT * FROM `asset_rusak`";
+                          $result1 = $conn->query($sql1);
+                          $totalAssetRusakBerat = mysqli_num_rows($result1);
                         ?>
                       <th scope="col"><h2><?php echo $totalAssetRusakBerat ?></h2></th>
                         <?php
-                          $sql = "SELECT * FROM `asset` WHERE tahun_pengadaan < 2012";
-                          $result = $conn->query($sql);
-                          $totalAssetUmurHabis = mysqli_num_rows($result);
+                          $sql2 = "SELECT * FROM `asset_kadaluwarsa`";
+                          $result2 = $conn->query($sql2);
+                          $totalAssetUmurHabis = mysqli_num_rows($result2);
                         ?>
                       <th scope="col"><h2><?php echo $totalAssetUmurHabis ?></h2></th>
                     </tr>
@@ -152,7 +152,7 @@
                       <td><center><?php echo $no++ ; ?></center></td>
                       <td><?php echo $row["jenis_asset"] ?></td>
                       <td><?php echo $row["deskripsi_asset"] ?></td>
-                      <td><center><?php echo $row["kode_asset"] ?></center></td>
+                      <td><center><?php echo $row["view_kode_asset"] ?></center></td>
                       <td><?php echo $row["merk_type"] ?></td>
                       <td><center><?php echo $row["jumlah"] ?></center></td>
                       <td><center><?php echo $row["ukuran"] ?></center></td>

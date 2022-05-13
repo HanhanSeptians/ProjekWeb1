@@ -23,7 +23,7 @@
       </div>
     </section>
     <?php
-      $sql = "SELECT * FROM `asset` WHERE kondisi = 'RB' OR tahun_pengadaan < 2012";
+      $sql = "SELECT * FROM `asset_hapus`";
       $result = $conn->query($sql);
       $total = mysqli_num_rows($result);
       $no = 0;

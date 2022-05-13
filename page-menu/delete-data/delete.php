@@ -7,7 +7,7 @@
         die("Error! Asset tidak ditemukan");
     }
 
-    $query = mysqli_query($conn, " SELECT * FROM asset WHERE kode_asset = '$kode'");
+    $query = mysqli_query($conn, " SELECT * FROM asset_hapus WHERE kode_asset = '$kode'");
     $data = mysqli_fetch_array($query);
 
 

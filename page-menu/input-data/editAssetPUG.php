@@ -30,7 +30,7 @@
       }else{
           die("Error! Asset tidak ditemukan");
       }
-      $query = mysqli_query($conn, "SELECT * FROM asset WHERE kode_asset = $kode AND kantor= $kantor");
+      $query = mysqli_query($conn, "SELECT * FROM asset WHERE kode_asset = $kode AND kantor='PUG'");
       $data = mysqli_fetch_array($query);
     ?>
     <div class="card card-primary ml-4 mr-4">

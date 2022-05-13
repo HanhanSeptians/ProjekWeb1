@@ -105,7 +105,7 @@
               <div class="form-group">
                 <label>Kantor</label>
                   <select type="varchar" class="custom-select rounded-0" name="kantor">
-                    <option>Kantor Pusat OC</option>
+                    <option>Office Center</option>
                     <option>PUC</option>
                     <option>PUG</option>
                     <option>PUJ</option>
