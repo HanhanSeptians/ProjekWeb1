@@ -51,7 +51,7 @@
       if(isset($_POST['keyword'])){
         $keyword = $_POST['keyword'];
         $sql = "SELECT * FROM asset_inventaris WHERE `jenis_asset` LIKE '%$keyword%' OR `deskripsi_asset` LIKE '%$keyword%' OR `kode_asset` LIKE '%$keyword%' 
-                OR `merk/type` LIKE '%$keyword%' OR `jumlah` LIKE '%$keyword%' OR `ukuran` LIKE '%$keyword%' OR `tahun_pengadaan` LIKE '%$keyword%' 
+                OR `merk_type` LIKE '%$keyword%' OR `jumlah` LIKE '%$keyword%' OR `ukuran` LIKE '%$keyword%' OR `tahun_pengadaan` LIKE '%$keyword%' 
                 OR `id_status_kepemilikan` LIKE '%$keyword%' OR `deskripsi_lokasi` LIKE '%$keyword%' OR id_kondisi LIKE '%$keyword%' OR `asal_usul` LIKE '%$keyword%' 
                 OR `harga` LIKE '%$keyword%'";
         $result = $conn->query($sql);
@@ -90,7 +90,7 @@
             <td><?php echo $row["jenis_asset"] ?></td>
             <td><?php echo $row["deskripsi_asset"] ?></td>
             <td><center><?php echo $row["kode_asset"] ?></center></td>
-            <td><?php echo $row["merk/type"] ?></td>
+            <td><?php echo $row["merk_type"] ?></td>
             <td><center><?php echo $row["jumlah"] ?></center></td>
             <td><center><?php echo $row["ukuran"] ?></center></td>
             <td><center><?php echo $row["tahun_pengadaan"] ?></center></td>

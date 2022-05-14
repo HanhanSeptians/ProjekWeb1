@@ -155,7 +155,7 @@
                       <td><?php echo $row["jenis_asset"] ?></td>
                       <td><?php echo $row["deskripsi_asset"] ?></td>
                       <td><center><?php echo $row["kode_asset"] ?></center></td>
-                      <td><?php echo $row["merk/type"] ?></td>
+                      <td><?php echo $row["merk_type"] ?></td>
                       <td><center><?php echo $row["jumlah"] ?></center></td>
                       <td><center><?php echo $row["ukuran"] ?></center></td>
                       <td><center><?php echo $row["tahun_pengadaan"] ?></center></td>

@@ -35,16 +35,14 @@
             <div class="col-sm-6">
               <div class="form-group">
                 <label>Jenis Asset</label>
-                  <select type="varchar" class="custom-select rounded-0" name="jenis_asset">
+                  <select type="varchar" class="custom-select rounded-0" name="id_jenis_asset">
                       <option class="bg-secondary" value="" disabled selected>Pilih Jenis Asset</option>
                       <?php
                         $sql = "SELECT * FROM jenis_asset";
                         $result = $conn->query($sql);
                           if ($result->num_rows > 0) {
                             while ($row = $result->fetch_assoc()) {
-                      ?>
-                      <option><?php echo $row["nama_jenis_asset"]?></option>
-                      <?php
+                              echo "<option value= $row[id_jenis_asset]>$row[nama_jenis_asset]</option>";
                             }
                           }
                       ?>
@@ -60,7 +58,7 @@
               </div>
               <div class="form-group">
                 <label>Merk/ Type</label>
-                  <input type="varchar" name="merk/type" class="form-control" placeholder="Masukkan Merk/ Type Asset">
+                  <input type="varchar" name="merk_type" class="form-control" placeholder="Masukkan Merk/ Type Asset">
               </div>
               <div class="form-group">
                 <label>Jumlah</label>
@@ -83,9 +81,7 @@
                       $result = $conn->query($sql);
                         if ($result->num_rows > 0) {
                           while ($row = $result->fetch_assoc()) {
-                    ?>
-                    <option><?php echo $row["deskripsi_status_kepemilikan"]?></option>
-                    <?php
+                            echo"<option value=$row[id_status_kepemilikan]>$row[deskripsi_status_kepemilikan]</option>";
                           }
                         }
                     ?>
@@ -95,32 +91,63 @@
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="exampleInputEmail1">Lokasi</label>
-                  <select type="varchar" class="custom-select rounded-0" name="lokasi">
+                  <select type="varchar" class="custom-select rounded-0" name="id_lokasi">
                   <option class="bg-secondary" value="" disabled selected>Pilih Lokasi</option>
-                  <?php
-                      $sql = "SELECT * FROM lokasi";
+                  <optgroup label="Office Center">
+                    <?php
+                      $sql = "SELECT * FROM lokasi WHERE id_kantor= 'OC'";
                       $result = $conn->query($sql);
                         if ($result->num_rows > 0) {
                           while ($row = $result->fetch_assoc()) {
-                    ?>
-                    <option><?php echo $row["deskripsi_lokasi"]?></option>
-                    <?php
+                            echo "<option value=$row[id_lokasi]>$row[deskripsi_lokasi]</option>";
                           }
                         }
                     ?>
+                  </optgroup><hr>
+                  <optgroup label="Kantor Production Unit Cilacap">
+                    <?php
+                      $sql = "SELECT * FROM lokasi WHERE id_kantor= 'PUC'";
+                      $result = $conn->query($sql);
+                        if ($result->num_rows > 0) {
+                          while ($row = $result->fetch_assoc()) {
+                            echo "<option value=$row[id_lokasi]>$row[deskripsi_lokasi]</option>";
+                          }
+                        }
+                    ?>
+                  </optgroup><hr>
+                  <optgroup label="Kantor Production Unit Gresik">
+                    <?php
+                      $sql = "SELECT * FROM lokasi WHERE id_kantor= 'PUG'";
+                      $result = $conn->query($sql);
+                        if ($result->num_rows > 0) {
+                          while ($row = $result->fetch_assoc()) {
+                            echo "<option value=$row[id_lokasi]>$row[deskripsi_lokasi]</option>";
+                          }
+                        }
+                    ?>
+                  </optgroup><hr>
+                  <optgroup label="Kantor Production Unit Jakarta">
+                    <?php
+                      $sql = "SELECT * FROM lokasi WHERE id_kantor= 'PUJ'";
+                      $result = $conn->query($sql);
+                        if ($result->num_rows > 0) {
+                          while ($row = $result->fetch_assoc()) {
+                            echo "<option value=$row[id_lokasi]>$row[deskripsi_lokasi]</option>";
+                          }
+                        }
+                    ?>
+                  </optgroup>
                   </select>
               </div>
               <div class="form-group">
                 <label>Kondisi</label>
-                  <select type="varchar" class="custom-select rounded-0" name="kondisi">
+                  <select type="varchar" class="custom-select rounded-0" name="id_kondisi">
                   <?php
                       $sql = "SELECT * FROM kondisi";
                       $result = $conn->query($sql);
                         if ($result->num_rows > 0) {
                           while ($row = $result->fetch_assoc()) {
-                    ?>
-                    <option><?php echo $row["id_kondisi"]?></option>
-                    <?php
+                            echo "<option value=$row[id_kondisi]>$row[id_kondisi]</option>";
                           }
                         }
                     ?>
@@ -145,23 +172,6 @@
               <div class="form-group">
                 <label>Keterangan</label>
                   <textarea class="form-control" name="keterangan" rows="3" placeholder="Masukkan Keterangan"></textarea>
-              </div>
-              <div class="form-group">
-                <label>Kantor</label>
-                  <select type="varchar" class="custom-select rounded-0" name="kantor">
-                  <option class="bg-secondary" value="" disabled selected>Pilih Kantor</option>
-                    <?php
-                      $sql = "SELECT * FROM kantor";
-                      $result = $conn->query($sql);
-                        if ($result->num_rows > 0) {
-                          while ($row = $result->fetch_assoc()) {
-                    ?>
-                    <option><?php echo $row["nama_kantor"]?></option>
-                    <?php
-                          }
-                        }
-                    ?>
-                  </select>
               </div>
             </div>
           </div>
