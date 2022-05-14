@@ -55,7 +55,7 @@
               </div>
               <div class="form-group">
                 <label>Merk/ Type</label>
-                  <input type="varchar" class="form-control" name="merk_type" value="<?php echo $data["merk_type"] ?>">
+                  <input type="varchar" class="form-control" name="merk/type" value="<?php echo $data["merk/type"] ?>">
               </div>
               <div class="form-group">
                 <label>Jumlah</label>
@@ -71,7 +71,7 @@
               </div>
               <div class="form-group">
                 <label>Status Kepemilikan Asset</label>
-                  <input type="varchar" class="form-control" name="status_kepemilikan" value="<?php echo $data["status_kepemilikan"] ?>">
+                  <input type="varchar" class="form-control" name="id_status_kepemilikan" value="<?php echo $data["id_status_kepemilikan"] ?>">
               </div>  
             </div>
             <div class="col-sm-6">
@@ -137,11 +137,11 @@
       $jenis_asset = $_POST['jenis_asset'];
       $deskripsi_asset = $_POST['deskripsi_asset'];
       $kode_asset = $_POST['kode_asset'];
-      $merk_type = $_POST['merk_type'];
+      $merk/type = $_POST['merk/type'];
       $jumlah = $_POST['jumlah'];
       $ukuran = $_POST['ukuran'];
       $tahun_pengadaan = $_POST['tahun_pengadaan'];
-      $status_kepemilikan = $_POST['status_kepemilikan'];
+      $id_status_kepemilikan = $_POST['id_status_kepemilikan'];
       $lokasi = $_POST['lokasi'];
       $kondisi = $_POST['kondisi'];
       $asal_usul = $_POST['asal_usul'];
@@ -154,8 +154,8 @@
       $folder = "GambarAsset/".$gambar;
         move_uploaded_file($temp_name, 'GambarAsset/'.$gambar);
         unlink("./GambarAsset/$data[gambar]");
-        $query="UPDATE `asset` SET jenis_asset='$jenis_asset', deskripsi_asset='$deskripsi_asset',kode_asset='$kode_asset', merk_type='$merk_type', 
-                                   jumlah='$jumlah', ukuran='$ukuran', tahun_pengadaan='$tahun_pengadaan', status_kepemilikan='$status_kepemilikan', lokasi='$lokasi', 
+        $query="UPDATE `asset` SET jenis_asset='$jenis_asset', deskripsi_asset='$deskripsi_asset',kode_asset='$kode_asset', merk/type='$merk/type', 
+                                   jumlah='$jumlah', ukuran='$ukuran', tahun_pengadaan='$tahun_pengadaan', id_status_kepemilikan='$id_status_kepemilikan', lokasi='$lokasi', 
                                    kondisi='$kondisi',asal_usul='$asal_usul', harga='$harga', gambar= '$gambar', keterangan='$keterangan' WHERE kode_asset='$kode_asset'";
         $result = mysqli_query($conn, $query);
         if($result){
@@ -171,8 +171,8 @@
             echo '<meta http-equiv="refresh" content="0.1;url=editAsset.php">';
         }
       }else{
-        $query="UPDATE `asset` SET jenis_asset='$jenis_asset', deskripsi_asset='$deskripsi_asset',kode_asset='$kode_asset', merk_type='$merk_type', 
-                                   jumlah='$jumlah', ukuran='$ukuran', tahun_pengadaan='$tahun_pengadaan', status_kepemilikan='$status_kepemilikan', lokasi='$lokasi', 
+        $query="UPDATE `asset` SET jenis_asset='$jenis_asset', deskripsi_asset='$deskripsi_asset',kode_asset='$kode_asset', merk/type='$merk/type', 
+                                   jumlah='$jumlah', ukuran='$ukuran', tahun_pengadaan='$tahun_pengadaan', id_status_kepemilikan='$id_status_kepemilikan', lokasi='$lokasi', 
                                    kondisi='$kondisi',asal_usul='$asal_usul', harga='$harga', keterangan='$keterangan' WHERE kode_asset='$kode_asset'";
         $result = mysqli_query($conn, $query);
         if($result){

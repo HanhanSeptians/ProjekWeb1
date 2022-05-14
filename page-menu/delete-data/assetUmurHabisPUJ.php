@@ -23,7 +23,7 @@
       </div>
     </section>
     <?php
-      $sql = "SELECT * FROM `asset_puj` WHERE tahun_pengadaan < 2012";
+      $sql = "SELECT * FROM `asset_waktu_habis` WHERE id_kantor = 'PUJ'";
       $result = $conn->query($sql);
       $total = mysqli_num_rows($result);
       $no = 0;
@@ -65,17 +65,17 @@
                   ?>                
                   <tbody>
                     <tr>
-                      <td><center><?php echo $no ?></center></td>
-                      <td><?php echo $row["jenis_asset"] ?></td>
+                      <td><center><?php echo $no ; ?></center></td>
+                      <td><?php echo $row["$no"] ?></td>
                       <td><?php echo $row["deskripsi_asset"] ?></td>
                       <td><center><?php echo $row["kode_asset"] ?></center></td>
-                      <td><?php echo $row["merk_type"] ?></td>
+                      <td><?php echo $row["merk/type"] ?></td>
                       <td><center><?php echo $row["jumlah"] ?></center></td>
                       <td><center><?php echo $row["ukuran"] ?></center></td>
                       <td><center><?php echo $row["tahun_pengadaan"] ?></center></td>
-                      <td><?php echo $row["status_kepemilikan"] ?></td>
-                      <td><?php echo $row["lokasi"] ?></td>
-                      <td><center><?php echo $row["kondisi"] ?></center></td>
+                      <td><?php echo $row["id_status_kepemilikan"] ?></td>
+                      <td><?php echo $row["deskripsi_lokasi"] ?></td>
+                      <td><center><?php echo $row["id_kondisi"] ?></center></td>
                       <td><?php echo $row["asal_usul"] ?></td>
                       <td>Rp. <?php echo $row["harga"] ?></td>
                       <td>

@@ -29,7 +29,7 @@
               </div>
               <p>Jenis Kelamin :</p>
               <div class="input-group mb-3">
-                  <select type="varchar" class="custom-select rounded-0" name="kantor">
+                  <select type="varchar" class="custom-select rounded-0" name="jenis_kelamin">
                     <option>Laki-laki</option>
                     <option>Perempuan</option>
                   </select>

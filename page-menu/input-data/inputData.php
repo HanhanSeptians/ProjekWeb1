@@ -47,7 +47,7 @@
               </div>
               <div class="form-group">
                 <label>Merk/ Type</label>
-                  <input type="varchar" name="merk_type" class="form-control" placeholder="Masukkan Merk/ Type Asset">
+                  <input type="varchar" name="merk/type" class="form-control" placeholder="Masukkan Merk/ Type Asset">
               </div>
               <div class="form-group">
                 <label>Jumlah</label>
@@ -63,7 +63,7 @@
               </div>
               <div class="form-group">
                 <label>Status Kepemilikan Asset</label>
-                  <input type="varchar" name="status_kepemilikan" class="form-control" placeholder="Masukkan Status Kepemilikan Asset">
+                  <input type="varchar" name="id_status_kepemilikan" class="form-control" placeholder="Masukkan Status Kepemilikan Asset">
               </div>  
             </div>
             <div class="col-sm-6">
