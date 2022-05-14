@@ -30,7 +30,7 @@
       }else{
           die("Error! Asset tidak ditemukan");
       }
-      $query = mysqli_query($conn, "SELECT * FROM asset WHERE kode_asset = $kode AND kantor= $kantor");
+      $query = mysqli_query($conn, "SELECT * FROM asset JOIN kantor kantor.id_kantor = asset.id_kantor WHERE kode_asset = $kode");
       $data = mysqli_fetch_array($query);
     ?>
     <div class="card card-primary ml-4 mr-4">
@@ -137,7 +137,7 @@
       $jenis_asset = $_POST['jenis_asset'];
       $deskripsi_asset = $_POST['deskripsi_asset'];
       $kode_asset = $_POST['kode_asset'];
-      $merk/type = $_POST['merk/type'];
+      $merk_type = $_POST['merk/type'];
       $jumlah = $_POST['jumlah'];
       $ukuran = $_POST['ukuran'];
       $tahun_pengadaan = $_POST['tahun_pengadaan'];

@@ -34,11 +34,11 @@
       $halaman_awal = ($halaman>1) ? ($halaman * $batas) - $batas : 0;	
       $previous = $halaman - 1;
       $next = $halaman + 1;
-      $sql = "SELECT * FROM `asset_inventaris`";
+      $sql = "SELECT * FROM `asset_all`";
       $result = $conn->query($sql);
       $total = mysqli_num_rows($result);
       $total_halaman = ceil($total / $batas);
-      $data_asset = mysqli_query($conn,"SELECT * FROM `asset_inventaris` limit $halaman_awal, $batas");
+      $data_asset = mysqli_query($conn,"SELECT * FROM `asset_all` limit $halaman_awal, $batas");
       $no = $halaman_awal+1;
     ?>
     <div class="row ml-2 mr-2">
