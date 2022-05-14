@@ -53,13 +53,13 @@
             $pdf->Cell(25 ,5,$row['jenis_asset'],1,0,'C');
             $pdf->Cell(50 ,5,$row['deskripsi_asset'],1,0,'C');
             $pdf->Cell(25 ,5,$row['kode_asset'],1,0,'C');
-            $pdf->Cell(25 ,5,$row['merk/type'],1,0,'C');
+            $pdf->Cell(25 ,5,$row['merk_type'],1,0,'C');
             $pdf->Cell(18 ,5,$row['jumlah'],1,0,'C');
             $pdf->Cell(18 ,5,$row['ukuran'],1,0,'C');
             $pdf->Cell(35 ,5,$row['tahun_pengadaan'],1,0,'C');
-            $pdf->Cell(35 ,5,$row['id_status_kepemilikan'],1,0,'C');
-            $pdf->Cell(45 ,5,$row['deskripsi_lokasi'],1,0,'C');
-            $pdf->Cell(18 ,5,$row['id_kondisi'],1,0,'C');
+            $pdf->Cell(35 ,5,$row['status_kepemilikan'],1,0,'C');
+            $pdf->Cell(45 ,5,$row['lokasi'],1,0,'C');
+            $pdf->Cell(18 ,5,$row['kondisi'],1,0,'C');
             $pdf->Cell(35 ,5,$row['asal_usul'],1,0,'C');
             $pdf->Cell(18 ,5,$row['harga'],1,0,'C');
             //$pdf->Image("../../dist/img/".$row['gambar'],18,$pdf->GetY()+3,25,15);

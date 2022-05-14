@@ -4,8 +4,8 @@
   $result = $conn->query($sql);
 
   $kode_asset = $_POST['kode_asset'];
-  $id_kondisi = $_POST['id_kondisi'];
-  $id_status_kepemilikan = $_POST['id_status_kepemilikan'];
+  $kondisi = $_POST['kondisi'];
+  $status_kepemilikan = $_POST['status_kepemilikan'];
   $id_lokasi = $_POST['id_lokasi'];
   $id_jenis_asset = $_POST['id_jenis_asset'];
   $deskripsi_asset = $_POST['deskripsi_asset'];
@@ -20,8 +20,8 @@
   $temp_name = $_FILES["gambar"]["tmp_name"];    
   $folder = "GambarAsset/".$gambar;
     move_uploaded_file($temp_name, 'GambarAsset/'.$gambar);
-    mysqli_query($conn,"INSERT INTO `asset` (`kode_asset`, `id_kondisi`, `id_status_kepemilikan`, `id_lokasi`, `id_jenis_asset`, `deskripsi_asset`, `jumlah`, `ukuran`, `tahun_pengadaan`, `asal_usul`, `harga`, `gambar`, `keterangan`, `merk_type`) 
-                                     VALUES ('$kode_asset', '$id_kondisi', '$id_status_kepemilikan', '$id_lokasi', '$id_jenis_asset', '$deskripsi_asset', '$jumlah', '$ukuran', '$tahun_pengadaan', '$asal_usul', '$harga', '$gambar', '$keterangan', '$merk_type')") ;
+    mysqli_query($conn,"INSERT INTO `asset` (`kode_asset`, `kondisi`, `status_kepemilikan`, `id_lokasi`, `id_jenis_asset`, `deskripsi_asset`, `jumlah`, `ukuran`, `tahun_pengadaan`, `asal_usul`, `harga`, `gambar`, `keterangan`, `merk_type`) 
+                                     VALUES ('$kode_asset', '$kondisi', '$status_kepemilikan', '$id_lokasi', '$id_jenis_asset', '$deskripsi_asset', '$jumlah', '$ukuran', '$tahun_pengadaan', '$asal_usul', '$harga', '$gambar', '$keterangan', '$merk_type')") ;
     echo '<script type ="text/JavaScript">';  
     echo 'alert("Asset Berhasil Ditambahkan !!!")';  
     echo '</script>'; 
