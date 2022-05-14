@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 27, 2022 at 06:50 PM
+-- Generation Time: May 14, 2022 at 09:46 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -18,26 +18,8 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_pertamina`
+-- Database: `db_pertamina_2`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `account`
---
-
-CREATE TABLE `account` (
-  `email` varchar(50) NOT NULL,
-  `password` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `account`
---
-
-INSERT INTO `account` (`email`, `password`) VALUES
-('adminpertamina@gmail.com', 'admin12345');
 
 -- --------------------------------------------------------
 
@@ -46,1137 +28,1162 @@ INSERT INTO `account` (`email`, `password`) VALUES
 --
 
 CREATE TABLE `asset` (
-  `kantor` varchar(10) NOT NULL,
-  `jenis_asset` varchar(30) NOT NULL,
+  `kode_asset` varchar(10) NOT NULL,
+  `id_kondisi` varchar(10) DEFAULT NULL,
+  `id_status_kepemilikan` varchar(10) DEFAULT NULL,
+  `id_lokasi` int(11) DEFAULT NULL,
+  `id_jenis_asset` varchar(10) DEFAULT NULL,
   `deskripsi_asset` varchar(255) NOT NULL,
-  `no_asset` varchar(10) NOT NULL,
-  `merk_type` varchar(30) NOT NULL,
-  `jumlah` int(11) NOT NULL,
-  `ukuran` varchar(30) NOT NULL,
-  `tahun_pengadaan` year(4) NOT NULL,
-  `status_kepemilikan` varchar(30) NOT NULL,
-  `lokasi` varchar(30) NOT NULL,
-  `kondisi` varchar(20) NOT NULL,
-  `asal_usul` varchar(30) NOT NULL,
-  `harga` int(30) NOT NULL,
-  `gambar` varchar(30) NOT NULL,
-  `keterangan` varchar(30) NOT NULL
+  `jumlah` int(11) DEFAULT NULL,
+  `ukuran` varchar(100) DEFAULT NULL,
+  `tahun_pengadaan` year(4) DEFAULT NULL,
+  `asal_usul` varchar(255) DEFAULT NULL,
+  `harga` double DEFAULT NULL,
+  `gambar` varchar(255) DEFAULT NULL,
+  `keterangan` varchar(255) DEFAULT NULL,
+  `merk/type` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `asset`
 --
 
-INSERT INTO `asset` (`kantor`, `jenis_asset`, `deskripsi_asset`, `no_asset`, `merk_type`, `jumlah`, `ukuran`, `tahun_pengadaan`, `status_kepemilikan`, `lokasi`, `kondisi`, `asal_usul`, `harga`, `gambar`, `keterangan`) VALUES
-('OC', '', 'Kursi Sova Hitam', '0001', '', 3, '0', 2020, '', 'Ruang Lobby lt.6', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Sofa', '0002', '', 1, '0', 2020, '', 'Ruang Lobby lt.6', 'DB', '', 0, '', ''),
-('OC', '', 'TV', '0003', '', 1, '0', 2020, '', 'Ruang Lobby lt.6', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Penerima Tamu', '0004', '', 1, '0', 2020, '', 'Ruang Lobby lt.6', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Sofa Hitam', '0005', '', 2, '0', 2020, '', 'Ruang Lobby lt.6', 'DB', '', 0, '', ''),
-('OC', '', 'Emergency Box', '0006', '', 1, '0', 2020, '', 'Ruang Lobby lt.6', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Sandaran Merah Tua', '0007', '', 4, '0', 2020, '', 'Ruang Lobby lt.6', 'DB', '', 0, '', ''),
-('OC', '', 'Laci Kecil Kuning Muda', '0008', '', 1, '0', 2020, '', 'Ruang Lobby lt.6', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Rapat Warna Cokelat', '0009', '', 1, '0', 2020, '', 'Ruang Rapat 6B', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Hitam Kulit', '0010', '', 8, '0', 2020, '', 'Ruang Rapat 6B', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Sandaran Merah', '0011', '', 4, '0', 2020, '', 'Ruang Rapat 6B', 'DB', '', 0, '', ''),
-('OC', '', 'TV', '0012', '', 1, '0', 2020, '', 'Ruang Rapat 6B', 'DB', '', 0, '', ''),
-('OC', '', 'Rak Tempat Piala', '0013', '', 2, '0', 2020, '', 'Ruang Rapat 6B', 'DB', '', 0, '', ''),
-('OC', '', 'Piagam Visi & Misi', '0014', '', 1, '0', 2020, '', 'Ruang Rapat 6B', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Rapat Warna Cokelat', '0015', '', 1, '0', 2020, '', 'Ruang Rapat 6C', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Hitam Kulit', '0016', '', 4, '0', 2020, '', 'Ruang Rapat 6C', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Sandaran Merah Tua', '0017', '', 1, '0', 2020, '', 'Ruang Rapat 6C', 'DB', '', 0, '', ''),
-('OC', '', 'TV & Kabel', '0018', '', 1, '0', 2020, '', 'Ruang Rapat 6A', 'DB', '', 0, '', ''),
-('OC', '', 'Rak Tempat Piala', '0019', '', 2, '0', 2020, '', 'Ruang Rapat 6A', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Rapat Warna Cokelat', '0020', '', 1, '0', 2020, '', 'Ruang Rapat 6A', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Hitam', '0021', '', 19, '0', 2020, '', 'Ruang Rapat 6A', 'DB', '', 0, '', ''),
-('OC', '', 'Credense', '0022', '', 1, '0', 2020, '', 'Ruang Rapat 6A', 'DB', '', 0, '', ''),
-('OC', '', 'Dispenser', '0023', '', 1, '0', 2020, '', 'Ruang Rapat 6A', 'DB', '', 0, '', ''),
-('OC', '', 'Credensa', '0024', '', 1, '0', 2020, '', 'Ruang Rapat 6A', 'DB', '', 0, '', ''),
-('OC', '', 'Printer', '0025', '', 1, '0', 2020, '', 'Ruang Rapat 6A', 'DB', '', 0, '', ''),
-('OC', '', 'Pemanas Air', '0026', '', 1, '0', 2020, '', 'Ruang Rapat 6A', 'DB', '', 0, '', ''),
-('OC', '', 'White Board', '0027', '', 2, '0', 2020, '', 'Ruang Rapat 6A', 'DB', '', 0, '', ''),
-('OC', '', 'Projektor', '0028', '', 1, '0', 2020, '', 'Ruang Rapat 6A', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Rapat Warna Cokelat', '0029', '', 1, '0', 2020, '', 'Ruang Rapat 6D', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Hitam', '0030', '', 8, '0', 2020, '', 'Ruang Rapat 6D', 'DB', '', 0, '', ''),
-('OC', '', 'TV & Kabelnya', '0031', '', 1, '0', 2020, '', 'Ruang Rapat 6D', 'DB', '', 0, '', ''),
-('OC', '', 'White Board', '0032', '', 1, '0', 2020, '', 'Ruang Rapat 6D', 'DB', '', 0, '', ''),
-('OC', '', 'Credensa Warna Cokelat', '0033', '', 1, '0', 2020, '', 'Ruang Rapat 6D', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Rapat Warna Cokelat', '0034', '', 1, '0', 2020, '', 'Ruang Rapat 6E', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Hitam', '0035', '', 8, '0', 2020, '', 'Ruang Rapat 6E', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Sandaran Merah Tua', '0036', '', 4, '0', 2020, '', 'Ruang Rapat 6E', 'DB', '', 0, '', ''),
-('OC', '', 'White Board', '0037', '', 1, '0', 2020, '', 'Ruang Rapat 6E', 'DB', '', 0, '', ''),
-('OC', '', 'Credensa Warna Cokelat', '0038', '', 1, '0', 2020, '', 'Ruang Rapat 6E', 'DB', '', 0, '', ''),
-('OC', '', 'Kubikal Kotak Bagian Tengah', '0039', '', 67, '0', 2020, '', 'Ruang Sales', 'DB', '', 0, '', ''),
-('OC', '', 'Kubikal Kotak Sebelah Timur', '0040', '', 11, '0', 2020, '', 'Kubikal Sebelah Timur', 'DB', '', 0, '', ''),
-('OC', '', 'Kubikal', '0041', '', 2, '0', 2020, '', 'Kubikal Sekretaris Direktur Ut', 'DB', '', 0, '', ''),
-('OC', '', 'Bufet Laci / Cradensa', '0042', '', 1, '0', 2020, '', 'Kubikal Sekretaris Direktur Ut', 'DB', '', 0, '', ''),
-('OC', '', 'Kubikal', '0043', '', 2, '0', 2020, '', 'Kubikal Sekre. Dir. S & M', 'DB', '', 0, '', ''),
-('OC', '', 'Credensa', '0044', '', 10, '0', 2020, '', 'Ruang Sales', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Hitam', '0045', '', 72, '0', 2020, '', 'Ruang Sales', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Hitam Kulit', '0046', '', 13, '0', 2020, '', 'Ruang Sales', 'DB', '', 0, '', ''),
-('OC', '', 'Rak Abu Kecil', '0047', '', 2, '0', 2020, '', 'Ruang Sales', 'DB', '', 0, '', ''),
-('OC', '', 'Dispenser Sanken', '0048', '', 1, '0', 2020, '', 'Ruang Sales', 'DB', '', 0, '', ''),
-('OC', '', 'Kulkas LG', '0049', '', 1, '0', 2020, '', 'Ruang Sales', 'DB', '', 0, '', ''),
-('OC', '', 'Printer HP', '0050', '', 2, '0', 2020, '', 'Ruang Sales', 'DB', '', 0, '', ''),
-('OC', '', 'Mesin Tik ', '0051', '', 1, '0', 2020, '', 'Ruang Sales', 'DB', '', 0, '', ''),
-('OC', '', 'Rak Kayu Kaca', '0052', '', 1, '0', 2020, '', 'Ruang Sales', 'DB', '', 0, '', ''),
-('OC', '', 'Lemari Abu Kayu ', '0053', '', 11, '0', 2020, '', 'Ruang Sales', 'DB', '', 0, '', ''),
-('OC', '', 'Rak dinding', '0054', '', 8, '0', 2020, '', 'Ruang Sales', 'DB', '', 0, '', ''),
-('OC', '', 'Printer Epson Hitam', '0055', '', 1, '0', 2020, '', 'Ruang Sales', 'DB', '', 0, '', ''),
-('OC', '', 'Rak Piring Gelas Merah', '0056', '', 2, '0', 2020, '', 'Pantry Utara', 'DB', '', 0, '', ''),
-('OC', '', 'Kompor Listrik', '0057', '', 1, '0', 2020, '', 'Pantry Utara', 'DB', '', 0, '', ''),
-('OC', '', 'Laci Piring', '0058', '', 1, '0', 2020, '', 'Pantry Utara', 'DB', '', 0, '', ''),
-('OC', '', 'Sofa Oranye', '0059', '', 1, '0', 2020, '', 'Pantry Utara', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Sender Merah ', '0060', '', 2, '0', 2020, '', 'Pantry Utara', 'DB', '', 0, '', ''),
-('OC', '', 'Sofa Hitam 2', '0061', '', 2, '0', 2020, '', 'Pantry Utara', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Panjang ', '0062', '', 1, '0', 2020, '', 'Pantry Utara', 'DB', '', 0, '', ''),
-('OC', '', 'Rak Abu Cokelat Kecil', '0063', '', 4, '0', 2020, '', 'Pantry Selatan', 'DB', '', 0, '', ''),
-('OC', '', 'Rak Abu Cokelat Besar', '0064', '', 1, '0', 2020, '', 'Pantry Selatan', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Kerja', '0065', '', 1, '0', 2020, '', 'Ruang Trial', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Kerja', '0066', '', 1, '0', 2020, '', 'Ruang Trial', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Tamu', '0067', '', 1, '0', 2020, '', 'Ruang Trial', 'DB', '', 0, '', ''),
-('OC', '', 'PC HP', '0068', '', 1, '0', 2020, '', 'Lobby Selatan', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Penerima Tamu', '0069', '', 1, '0', 2020, '', 'Lobby Selatan', 'DB', '', 0, '', ''),
-('OC', '', 'PC HP', '0070', '', 1, '0', 2020, '', 'Lobby Selatan', 'DB', '', 0, '', ''),
-('OC', '', 'Sofa Cokelat Panjang', '0071', '', 1, '0', 2020, '', 'Lobby Selatan', 'DB', '', 0, '', ''),
-('OC', '', 'Sofa Cokelat Pendek', '0072', '', 2, '0', 2020, '', 'Lobby Selatan', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Tamu', '0073', '', 1, '0', 2020, '', 'Lobby Selatan', 'DB', '', 0, '', ''),
-('OC', '', 'Rak Cokelat Muda', '0074', '', 1, '0', 2020, '', 'Lobby Selatan', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Drum PTPL', '0075', '', 3, '0', 2020, '', 'Lobby Selatan', 'DB', '', 0, '', ''),
-('OC', '', 'Emergency Box', '0076', '', 1, '0', 2020, '', 'Lobby Selatan', 'DB', '', 0, '', ''),
-('OC', '', 'Box Cokelat 2', '0077', '', 2, '0', 2020, '', 'Lobby Selatan', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Rak Abu Abu', '0078', '', 1, '0', 2020, '', 'Lobby Selatan', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Sandar Merah ', '0079', '', 1, '0', 2020, '', 'Lobby Selatan', 'DB', '', 0, '', ''),
-('OC', '', 'Lampu Hias', '0080', '', 1, '0', 2020, '', 'Lobby Selatan', 'DB', '', 0, '', ''),
-('OC', '', 'TV', '0081', '', 1, '0', 2020, '', 'Lobby Selatan', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Kerja', '0082', '', 1, '0', 2020, '', 'Ruang Direktur Utama', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Kerja Kulit Hitam', '0083', '', 1, '0', 2020, '', 'Ruang Direktur Utama', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Tamu Hitam', '0084', '', 2, '0', 2020, '', 'Ruang Direktur Utama', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Rapat  ', '0085', '', 3, '0', 2020, '', 'Ruang Direktur Utama', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi kerja ', '0086', '', 1, '0', 2020, '', 'Ruang Direktur Utama', 'DB', '', 0, '', ''),
-('OC', '', 'White Board', '0087', '', 1, '0', 2020, '', 'Ruang Direktur Utama', 'DB', '', 0, '', ''),
-('OC', '', 'Projektor', '0088', '', 1, '0', 2020, '', 'Ruang Direktur Utama', 'DB', '', 0, '', ''),
-('OC', '', 'TV', '0089', '', 1, '0', 2020, '', 'Ruang Direktur Utama', 'DB', '', 0, '', ''),
-('OC', '', 'Glassboard', '0090', '', 1, '0', 2020, '', 'Ruang Direktur Utama', 'DB', '', 0, '', ''),
-('OC', '', 'Credensa Warna Cokelat', '0091', '', 1, '0', 2020, '', 'Ruang Direktur Utama', 'DB', '', 0, '', ''),
-('OC', '', 'Sofa Cokelat Pendek', '0092', '', 2, '0', 2020, '', 'Ruang Direktur Utama', 'DB', '', 0, '', ''),
-('OC', '', 'Sofa Cokelat Panjang', '0093', '', 1, '0', 2020, '', 'Ruang Direktur Utama', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Tamu', '0094', '', 1, '0', 2020, '', 'Ruang Direktur Utama', 'DB', '', 0, '', ''),
-('OC', '', 'Rak Kayu Kuning', '0095', '', 1, '0', 2020, '', 'Ruang Direktur Utama', 'DB', '', 0, '', ''),
-('OC', '', 'Rak Dinding', '0096', '', 1, '0', 2020, '', 'Ruang Direktur Utama', 'DB', '', 0, '', ''),
-('OC', '', 'Gantungan', '0097', '', 1, '0', 2020, '', 'Ruang Direktur Utama', 'DB', '', 0, '', ''),
-('OC', '', 'Lemari Besar Cokelat', '0098', '', 1, '0', 2020, '', 'Ruang Direktur Utama', 'DB', '', 0, '', ''),
-('OC', '', 'Credense Besar Cokelat', '0099', '', 1, '0', 2020, '', 'Ruang Direktur Utama', 'DB', '', 0, '', ''),
-('OC', '', 'Kulkas Samsung', '0100', '', 1, '0', 2020, '', 'Ruang Direktur Utama', 'DB', '', 0, '', ''),
-('OC', '', 'Rak Dinding', '0101', '', 2, '0', 2020, '', 'Ruang Direktur Utama', 'DB', '', 0, '', ''),
-('OC', '', 'Sofa merah besar', '0102', '', 2, '0', 2020, '', 'Ruang Direktur Sales&Marketing', 'DB', '', 0, '', ''),
-('OC', '', 'Sofa merah kecil', '0103', '', 1, '0', 2020, '', 'Ruang Direktur Sales&Marketing', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Tamu', '0104', '', 1, '0', 2020, '', 'Ruang Direktur Sales&Marketing', 'DB', '', 0, '', ''),
-('OC', '', 'Rak Kuning', '0105', '', 1, '0', 2020, '', 'Ruang Direktur Sales&Marketing', 'DB', '', 0, '', ''),
-('OC', '', 'Credense Cokelat Besar', '0106', '', 1, '0', 2020, '', 'Ruang Direktur Sales&Marketing', 'DB', '', 0, '', ''),
-('OC', '', 'Kulkas Glacio', '0107', '', 1, '0', 2020, '', 'Ruang Direktur Sales&Marketing', 'DB', '', 0, '', ''),
-('OC', '', 'Dispenser', '0108', '', 1, '0', 2020, '', 'Ruang Direktur Sales&Marketing', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Kerja ', '0109', '', 1, '0', 2020, '', 'Ruang Direktur Sales&Marketing', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Kerja Hitam', '0110', '', 1, '0', 2020, '', 'Ruang Direktur Sales&Marketing', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Tamu Hitam', '0111', '', 2, '0', 2020, '', 'Ruang Direktur Sales&Marketing', 'DB', '', 0, '', ''),
-('OC', '', 'PC HP', '0112', '', 1, '0', 2020, '', 'Ruang Direktur Sales&Marketing', 'DB', '', 0, '', ''),
-('OC', '', 'TV', '0113', '', 1, '0', 2020, '', 'Ruang Direktur Sales&Marketing', 'DB', '', 0, '', ''),
-('OC', '', 'Rak ', '0114', '', 1, '0', 2020, '', 'Ruang Direktur Sales&Marketing', 'DB', '', 0, '', ''),
-('OC', '', 'Printer', '0115', '', 1, '0', 2020, '', 'Ruang Direktur Sales&Marketing', 'DB', '', 0, '', ''),
-('OC', '', 'Rak Dinding', '0116', '', 2, '0', 2020, '', 'Ruang Direktur Sales&Marketing', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Kerja', '0117', '', 1, '0', 2020, '', 'Ruang VP SMT ', '', '', 0, '', ''),
-('OC', '', 'Kursi Sender Merah ', '0118', '', 3, '0', 2020, '', 'Ruang VP SMT ', '', '', 0, '', ''),
-('OC', '', 'Meja Kerja', '0119', '', 1, '0', 2020, '', 'Ruang VP SMT ', '', '', 0, '', ''),
-('OC', '', 'Credensa', '0120', '', 2, '0', 2020, '', 'Ruang VP SMT ', '', '', 0, '', ''),
-('OC', '', 'Rak Dinding', '0121', '', 1, '0', 2020, '', 'Ruang VP SMT ', '', '', 0, '', ''),
-('OC', '', 'Glassboard', '0122', '', 1, '0', 2020, '', 'Ruang VP SMT ', '', '', 0, '', ''),
-('OC', '', 'TV LG', '0123', '', 1, '0', 2020, '', 'Ruang VP SMT ', '', '', 0, '', ''),
-('OC', '', 'Kursi Kerja', '0124', '', 1, '0', 2020, '', 'Ruang VP Sales ', '', '', 0, '', ''),
-('OC', '', 'Kursi Sender Merah ', '0125', '', 2, '0', 2020, '', 'Ruang VP Sales ', '', '', 0, '', ''),
-('OC', '', 'Meja Kerja', '0126', '', 1, '0', 2020, '', 'Ruang VP Sales ', '', '', 0, '', ''),
-('OC', '', 'Credensa', '0127', '', 1, '0', 2020, '', 'Ruang VP Sales ', '', '', 0, '', ''),
-('OC', '', 'Rak Dinding', '0128', '', 2, '0', 2020, '', 'Ruang VP Sales ', '', '', 0, '', ''),
-('OC', '', 'Glassboard', '0129', '', 1, '0', 2020, '', 'Ruang VP Sales ', '', '', 0, '', ''),
-('OC', '', 'TV LG', '0130', '', 1, '0', 2020, '', 'Ruang VP Sales ', '', '', 0, '', ''),
-('OC', '', 'Kursi Kerja', '0131', '', 1, '0', 2020, '', 'Ruang VP A', '', '', 0, '', ''),
-('OC', '', 'Kursi Sender Merah ', '0132', '', 2, '0', 2020, '', 'Ruang VP A', '', '', 0, '', ''),
-('OC', '', 'Meja Kerja', '0133', '', 1, '0', 2020, '', 'Ruang VP A', '', '', 0, '', ''),
-('OC', '', 'Credensa', '0134', '', 1, '0', 2020, '', 'Ruang VP A', '', '', 0, '', ''),
-('OC', '', 'Rak Dinding', '0135', '', 2, '0', 2020, '', 'Ruang VP A', '', '', 0, '', ''),
-('OC', '', 'Glassboard', '0136', '', 1, '0', 2020, '', 'Ruang VP A', '', '', 0, '', ''),
-('OC', '', 'TV LG', '0137', '', 1, '0', 2020, '', 'Ruang VP A', '', '', 0, '', ''),
-('OC', '', 'Kursi Kerja', '0138', '', 1, '0', 2020, '', 'Ruang VP B', '', '', 0, '', ''),
-('OC', '', 'Kursi Sender Merah ', '0139', '', 2, '0', 2020, '', 'Ruang VP B', '', '', 0, '', ''),
-('OC', '', 'Meja Kerja', '0140', '', 1, '0', 2020, '', 'Ruang VP B', '', '', 0, '', ''),
-('OC', '', 'Credensa', '0141', '', 1, '0', 2020, '', 'Ruang VP B', '', '', 0, '', ''),
-('OC', '', 'Rak Dinding', '0142', '', 2, '0', 2020, '', 'Ruang VP B', '', '', 0, '', ''),
-('OC', '', 'Glassboard', '0143', '', 1, '0', 2020, '', 'Ruang VP B', '', '', 0, '', ''),
-('OC', '', 'TV LG', '0144', '', 1, '0', 2020, '', 'Ruang VP B', '', '', 0, '', ''),
-('OC', '', 'Kursi Kerja', '0145', '', 1, '0', 2020, '', 'Ruang VP C', '', '', 0, '', ''),
-('OC', '', 'Kursi Sender Merah ', '0146', '', 2, '0', 2020, '', 'Ruang VP C', '', '', 0, '', ''),
-('OC', '', 'Meja Kerja', '0147', '', 1, '0', 2020, '', 'Ruang VP C', '', '', 0, '', ''),
-('OC', '', 'Credensa', '0148', '', 1, '0', 2020, '', 'Ruang VP C', '', '', 0, '', ''),
-('OC', '', 'Rak Dinding', '0149', '', 2, '0', 2020, '', 'Ruang VP C', '', '', 0, '', ''),
-('OC', '', 'Glassboard', '0150', '', 1, '0', 2020, '', 'Ruang VP C', '', '', 0, '', ''),
-('OC', '', 'TV LG', '0151', '', 1, '0', 2020, '', 'Ruang VP C', '', '', 0, '', ''),
-('OC', '', 'Meja Receptionist', '0152', '', 1, '0', 2020, '', 'Ruang Lobby lt.7 Utara', 'DB', '', 0, '', ''),
-('OC', '', 'Sofa Kursi Warna Hitam', '0153', '', 5, '0', 2020, '', 'Ruang Lobby lt.7 Utara', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Hitam Gagang Besi Alumunium', '0154', '', 11, '0', 2020, '', 'Ruang Lobby lt.7 Utara', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Makan', '0155', '', 1, '0', 2020, '', 'Ruang Lobby lt.7 Utara', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Sandaran Merah Tua', '0156', '', 1, '0', 2020, '', 'Ruang Lobby lt.7 Utara', 'DB', '', 0, '', ''),
-('OC', '', 'Laci Kecil Warna Kuning Muda', '0157', '', 2, '0', 2020, '', 'Ruang Lobby lt.7 Utara', 'DB', '', 0, '', ''),
-('OC', '', 'Tempat untuk Photo', '0158', '', 1, '0', 2020, '', 'Ruang Lobby lt.7 Utara', 'DB', '', 0, '', ''),
-('OC', '', 'TV', '0159', '', 1, '0', 2020, '', 'Ruang Lobby lt.7 Utara', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Cokelat', '0160', '', 2, '0', 2020, '', 'Ruang Lobby lt.7 Utara', 'DB', '', 0, '', ''),
-('OC', '', 'Emergency Box', '0161', '', 1, '0', 2020, '', 'Ruang Lobby lt.7 Utara', 'DB', '', 0, '', ''),
-('OC', '', 'Rak Kaca', '0162', '', 2, '0', 2020, '', 'Lorong Utara', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Pajangan Bunga', '0163', '', 3, '0', 2020, '', 'Lorong Utara', 'DB', '', 0, '', ''),
-('OC', '', 'Screen Pajangan PTPL', '0164', '', 3, '0', 2020, '', 'Lorong Utara', 'DB', '', 0, '', ''),
-('OC', '', 'Timbangan', '0165', '', 1, '0', 2020, '', 'Lorong Utara', 'DB', '', 0, '', ''),
-('OC', '', 'Laci Biru', '0166', '', 1, '0', 2020, '', 'Lorong Utara', 'DB', '', 0, '', ''),
-('OC', '', 'Pajangan In line Blending', '0167', '', 1, '0', 2020, '', 'Lorong Utara', 'DB', '', 0, '', ''),
-('OC', '', 'Pajangan Mechanical', '0168', '', 1, '0', 2020, '', 'Lorong Utara', 'DB', '', 0, '', ''),
-('OC', '', 'Pajangan Oil Hidraulic Trainer', '0169', '', 1, '0', 2020, '', 'Lorong Utara', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Receptionist', '0170', '', 1, '0', 2020, '', 'Ruang Lobby lt.7 Selatan', 'DB', '', 0, '', ''),
-('OC', '', 'Emergency Box', '0171', '', 1, '0', 2020, '', 'Ruang Lobby lt.7 Selatan', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Tenis Meja', '0172', '', 4, '0', 2020, '', 'Ruang Lobby lt.7 Selatan', 'DB', '', 0, '', ''),
-('OC', '', 'White Board ', '0173', '', 2, '0', 2020, '', 'Ruang Lobby lt.7 Selatan', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Cokelat ', '0174', '', 3, '0', 2020, '', 'Ruang Lobby lt.7 Selatan', 'TR', '', 0, '', ''),
-('OC', '', 'Kursi Kerja Hitam', '0175', '', 1, '0', 2020, '', 'Ruang VP 1', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Tamu Hitam', '0176', '', 2, '0', 2020, '', 'Ruang VP 1', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Kerja ', '0177', '', 1, '0', 2020, '', 'Ruang VP 1', 'DB', '', 0, '', ''),
-('OC', '', 'Credense Hitam Kayu Panjang', '0178', '', 1, '0', 2020, '', 'Ruang VP 1', 'DB', '', 0, '', ''),
-('OC', '', 'Lemari Dinding', '0179', '', 2, '0', 2020, '', 'Ruang VP 1', 'DB', '', 0, '', ''),
-('OC', '', 'TV', '0180', '', 1, '0', 2020, '', 'Ruang VP 1', 'DB', '', 0, '', ''),
-('OC', '', 'Glassboard', '0181', '', 1, '0', 2020, '', 'Ruang VP 1', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Kerja Hitam', '0182', '', 1, '0', 2020, '', 'Ruang VP Corporate Development', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Tamu Hitam', '0183', '', 2, '0', 2020, '', 'Ruang VP Corporate Development', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Kerja ', '0184', '', 1, '0', 2020, '', 'Ruang VP Corporate Development', 'DB', '', 0, '', ''),
-('OC', '', 'Credense Hitam Kayu Panjang', '0185', '', 1, '0', 2020, '', 'Ruang VP Corporate Development', 'DB', '', 0, '', ''),
-('OC', '', 'Lemari Dinding', '0186', '', 2, '0', 2020, '', 'Ruang VP Corporate Development', 'DB', '', 0, '', ''),
-('OC', '', 'TV', '0187', '', 1, '0', 2020, '', 'Ruang VP Corporate Development', 'DB', '', 0, '', ''),
-('OC', '', 'Glassboard', '0188', '', 1, '0', 2020, '', 'Ruang VP Corporate Development', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Kerja Hitam', '0189', '', 1, '0', 2020, '', 'Ruang VP 2', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Tamu Hitam', '0190', '', 2, '0', 2020, '', 'Ruang VP 2', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Kerja ', '0191', '', 1, '0', 2020, '', 'Ruang VP 2', 'DB', '', 0, '', ''),
-('OC', '', 'Credense Hitam Kayu Panjang', '0192', '', 1, '0', 2020, '', 'Ruang VP 2', 'DB', '', 0, '', ''),
-('OC', '', 'Lemari Dinding', '0193', '', 2, '0', 2020, '', 'Ruang VP 2', 'DB', '', 0, '', ''),
-('OC', '', 'TV', '0194', '', 1, '0', 2020, '', 'Ruang VP 2', 'DB', '', 0, '', ''),
-('OC', '', 'Glassboard', '0195', '', 1, '0', 2020, '', 'Ruang VP 2', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Kerja Hitam', '0196', '', 1, '0', 2020, '', 'Ruang VP 3', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Tamu Hitam', '0197', '', 2, '0', 2020, '', 'Ruang VP 3', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Kerja ', '0198', '', 1, '0', 2020, '', 'Ruang VP 3', 'DB', '', 0, '', ''),
-('OC', '', 'Credense Hitam Kayu Panjang', '0199', '', 1, '0', 2020, '', 'Ruang VP 3', 'DB', '', 0, '', ''),
-('OC', '', 'Lemari Dinding', '0200', '', 2, '0', 2020, '', 'Ruang VP 3', 'DB', '', 0, '', ''),
-('OC', '', 'TV', '0201', '', 1, '0', 2020, '', 'Ruang VP 3', 'DB', '', 0, '', ''),
-('OC', '', 'Glassboard', '0202', '', 1, '0', 2020, '', 'Ruang VP 3', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Biru', '0203', '', 1, '0', 2020, '', 'Ruang VP 3', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Kerja Hitam', '0204', '', 1, '0', 2020, '', 'Ruang VP 4', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Tamu Hitam', '0205', '', 2, '0', 2020, '', 'Ruang VP 4', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Kerja ', '0206', '', 1, '0', 2020, '', 'Ruang VP 4', 'DB', '', 0, '', ''),
-('OC', '', 'Credense Hitam Kayu Panjang', '0207', '', 1, '0', 2020, '', 'Ruang VP 4', 'DB', '', 0, '', ''),
-('OC', '', 'Lemari Dinding', '0208', '', 2, '0', 2020, '', 'Ruang VP 4', 'DB', '', 0, '', ''),
-('OC', '', 'TV', '0209', '', 1, '0', 2020, '', 'Ruang VP 4', 'DB', '', 0, '', ''),
-('OC', '', 'Glassboard', '0210', '', 1, '0', 2020, '', 'Ruang VP 4', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Hitam  ', '0211', '', 2, '0', 2020, '', 'Ruang VP 4', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Merah', '0212', '', 1, '0', 2020, '', 'Ruang VP 4', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Kerja Hitam', '0213', '', 1, '0', 2020, '', 'Ruang Manager 1', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Tamu  ', '0214', '', 1, '0', 2020, '', 'Ruang Manager 1', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Kerja ', '0215', '', 1, '0', 2020, '', 'Ruang Manager 1', 'DB', '', 0, '', ''),
-('OC', '', 'Credense Kayu ', '0216', '', 2, '0', 2020, '', 'Ruang Manager 1', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Kerja Hitam', '0217', '', 1, '0', 2020, '', 'Ruang Manager 2', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Tamu  ', '0218', '', 1, '0', 2020, '', 'Ruang Manager 2', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Kerja ', '0219', '', 1, '0', 2020, '', 'Ruang Manager 2', 'DB', '', 0, '', ''),
-('OC', '', 'Credense Kayu ', '0220', '', 2, '0', 2020, '', 'Ruang Manager 2', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Kerja Hitam', '0221', '', 1, '0', 2020, '', 'Ruang Manager 3', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Tamu  ', '0222', '', 1, '0', 2020, '', 'Ruang Manager 3', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Kerja ', '0223', '', 1, '0', 2020, '', 'Ruang Manager 3', 'DB', '', 0, '', ''),
-('OC', '', 'Credense Kayu ', '0224', '', 2, '0', 2020, '', 'Ruang Manager 3', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Kerja Hitam', '0225', '', 1, '0', 2020, '', 'Ruang Manager 4', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Tamu  ', '0226', '', 1, '0', 2020, '', 'Ruang Manager 4', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Kerja ', '0227', '', 1, '0', 2020, '', 'Ruang Manager 4', 'DB', '', 0, '', ''),
-('OC', '', 'Credense Kayu ', '0228', '', 2, '0', 2020, '', 'Ruang Manager 4', 'DB', '', 0, '', ''),
-('OC', '', 'Brankas Besar', '0229', '', 8, '0', 2020, '', 'Gudang Dokumen', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Putih Kecil', '0230', '', 1, '0', 2020, '', 'Gudang Dokumen', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Rapat ', '0231', '', 1, '0', 2020, '', 'Ruang Rapat Komite Audit ', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Rapat', '0232', '', 7, '0', 2020, '', 'Ruang Rapat Komite Audit ', 'DB', '', 0, '', ''),
-('OC', '', 'Laci Kayu', '0233', '', 1, '0', 2020, '', 'Ruang Rapat Komite Audit ', 'DB', '', 0, '', ''),
-('OC', '', 'TV', '0234', '', 1, '0', 2020, '', 'Ruang Rapat Komite Audit ', 'DB', '', 0, '', ''),
-('OC', '', 'Glassboard', '0235', '', 1, '0', 2020, '', 'Ruang Rapat Komite Audit ', 'DB', '', 0, '', ''),
-('OC', '', 'Rak Dinding', '0236', '', 2, '0', 2020, '', 'Ruang Rapat Komite Audit ', 'DB', '', 0, '', ''),
-('OC', '', 'Rak Dinding Kayu', '0237', '', 2, '0', 2020, '', 'Ruang Komisaris Utama', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Kerja Hitam', '0238', '', 1, '0', 2020, '', 'Ruang Komisaris Utama', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Tamu', '0239', '', 2, '0', 2020, '', 'Ruang Komisaris Utama', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Kerja ', '0240', '', 1, '0', 2020, '', 'Ruang Komisaris Utama', 'DB', '', 0, '', ''),
-('OC', '', 'TV', '0241', '', 1, '0', 2020, '', 'Ruang Komisaris Utama', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Kerja ', '0242', '', 2, '0', 2020, '', 'Ruang Sekretaris Dewan Komisar', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Kerja  ', '0243', '', 2, '0', 2020, '', 'Ruang Sekretaris Dewan Komisar', 'DB', '', 0, '', ''),
-('OC', '', 'Credense ', '0244', '', 1, '0', 2020, '', 'Ruang Sekretaris Dewan Komisar', 'DB', '', 0, '', ''),
-('OC', '', 'TV', '0245', '', 1, '0', 2020, '', 'Ruang Sekretaris Dewan Komisar', 'DB', '', 0, '', ''),
-('OC', '', 'Glassboard', '0246', '', 1, '0', 2020, '', 'Ruang Sekretaris Dewan Komisar', 'DB', '', 0, '', ''),
-('OC', '', 'Rak Dinding', '0247', '', 2, '0', 2020, '', 'Ruang Sekretaris Dewan Komisar', 'DB', '', 0, '', ''),
-('OC', '', 'Credense ', '0248', '', 1, '0', 2020, '', 'Aula Lantai 7', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Kaca', '0249', '', 2, '0', 2020, '', 'Aula Lantai 7', 'DB', '', 0, '', ''),
-('OC', '', 'Set Speaker', '0250', '', 1, '0', 2020, '', 'Aula Lantai 7', 'DB', '', 0, '', ''),
-('OC', '', 'Infokus', '0251', '', 1, '0', 2020, '', 'Aula Lantai 7', 'DB', '', 0, '', ''),
-('OC', '', 'Screen Proyektor', '0252', '', 1, '0', 2020, '', 'Aula Lantai 7', 'DB', '', 0, '', ''),
-('OC', '', 'Mimbar Plastik Bening', '0253', '', 1, '0', 2020, '', 'Aula Lantai 7', 'DB', '', 0, '', ''),
-('OC', '', 'Stand Mic', '0254', '', 2, '0', 2020, '', 'Aula Lantai 7', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi acara', '0255', '', 72, '0', 2020, '', 'Aula Lantai 7', 'DB', '', 0, '', ''),
-('OC', '', 'Karpet Merah Sajadah', '0256', '', 14, '0', 2020, '', 'Aula Lantai 7', 'DB', '', 0, '', ''),
-('OC', '', 'Karpet Hijau Sejadah', '0257', '', 6, '0', 2020, '', 'Aula Lantai 7', 'DB', '', 0, '', ''),
-('OC', '', 'Meja ', '0258', '', 1, '0', 2020, '', 'Ruang Rapat Dewan Komisaris', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Hitam', '0259', '', 3, '0', 2020, '', 'Ruang Rapat Dewan Komisaris', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Merah Hitam ', '0260', '', 5, '0', 2020, '', 'Ruang Rapat Dewan Komisaris', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Merah', '0261', '', 5, '0', 2020, '', 'Ruang Rapat Dewan Komisaris', 'DB', '', 0, '', ''),
-('OC', '', 'TV', '0262', '', 1, '0', 2020, '', 'Ruang Rapat Dewan Komisaris', 'DB', '', 0, '', ''),
-('OC', '', 'Meja TV', '0263', '', 1, '0', 2020, '', 'Ruang Rapat Dewan Komisaris', 'DB', '', 0, '', ''),
-('OC', '', 'Rak Cokelat', '0264', '', 1, '0', 2020, '', 'Ruang Rapat Dewan Komisaris', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Registrasi ', '0265', '', 1, '0', 2020, '', 'Ruang Corporate Development', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Cokelat Besar', '0266', '', 1, '0', 2020, '', 'Ruang Corporate Development', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Hitam', '0267', '', 29, '0', 2020, '', 'Ruang Corporate Development', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Merah', '0268', '', 36, '0', 2020, '', 'Ruang Corporate Development', 'DB', '', 0, '', ''),
-('OC', '', 'Kubikal ', '0269', '', 69, '0', 2020, '', 'Ruang Corporate Development', 'DB', '', 0, '', ''),
-('OC', '', 'Dispenser Sanken', '0270', '', 2, '0', 2020, '', 'Ruang Corporate Development', 'DB', '', 0, '', ''),
-('OC', '', 'Lemari Kayu ', '0271', '', 5, '0', 2020, '', 'Ruang Corporate Development', 'DB', '', 0, '', ''),
-('OC', '', 'Brankas Uchihan', '0272', '', 1, '0', 2020, '', 'Ruang Corporate Development', 'DB', '', 0, '', ''),
-('OC', '', 'Lemari Cokelat Muda', '0273', '', 3, '0', 2020, '', 'Ruang Corporate Development', 'DB', '', 0, '', ''),
-('OC', '', 'Credense Penghargaan Besar', '0274', '', 1, '0', 2020, '', 'Ruang Corporate Development', 'DB', '', 0, '', ''),
-('OC', '', 'Credense Penghargaan Kecil', '0275', '', 1, '0', 2020, '', 'Ruang Corporate Development', 'DB', '', 0, '', ''),
-('OC', '', 'Kulkas Electrolux', '0276', '', 1, '0', 2020, '', 'Ruang Corporate Development', 'DB', '', 0, '', ''),
-('OC', '', 'Lemari Kayu Besar 12 Pintu', '0277', '', 1, '0', 2020, '', 'Ruang Corporate Development', 'DB', '', 0, '', ''),
-('OC', '', 'Paper Breaker', '0278', '', 1, '0', 2020, '', 'Ruang Corporate Development', 'DB', '', 0, '', ''),
-('OC', '', 'Printer HP', '0279', '', 4, '0', 2020, '', 'Ruang Corporate Development', 'DB', '', 0, '', ''),
-('OC', '', 'Printer EPSON Hitam', '0280', '', 1, '0', 2020, '', 'Ruang Corporate Development', 'DB', '', 0, '', ''),
-('OC', '', 'Rak Dinding', '0281', '', 4, '0', 2020, '', 'Ruang Corporate Development', 'DB', '', 0, '', ''),
-('OC', '', 'Credense Cokelat Muda', '0282', '', 7, '0', 2020, '', 'Ruang Corporate Development', 'DB', '', 0, '', ''),
-('OC', '', 'Meja  ', '0283', '', 7, '0', 2020, '', 'Ruang ILMA', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Hitam', '0284', '', 30, '0', 2020, '', 'Ruang ILMA', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Kerja Hitam ', '0285', '', 3, '0', 2020, '', 'Ruang ILMA', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Merah', '0286', '', 3, '0', 2020, '', 'Ruang ILMA', 'DB', '', 0, '', ''),
-('OC', '', 'TV', '0287', '', 1, '0', 2020, '', 'Ruang ILMA', 'DB', '', 0, '', ''),
-('OC', '', 'Infokus', '0288', '', 1, '0', 2020, '', 'Ruang ILMA', 'DB', '', 0, '', ''),
-('OC', '', 'Router ', '0289', '', 1, '0', 2020, '', 'Ruang ILMA', 'DB', '', 0, '', ''),
-('OC', '', 'Speaker', '0290', '', 2, '0', 2020, '', 'Ruang ILMA', 'DB', '', 0, '', ''),
-('OC', '', 'Stand Mic', '0291', '', 1, '0', 2020, '', 'Ruang ILMA', 'DB', '', 0, '', ''),
-('OC', '', 'Rak Panjang ', '0292', '', 4, '0', 2020, '', 'Ruang ILMA', 'DB', '', 0, '', ''),
-('OC', '', 'TV', '0293', '', 1, '0', 2020, '', 'Ruang Rapat C', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Rapat ', '0294', '', 1, '0', 2020, '', 'Ruang Rapat C', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Rapat', '0295', '', 5, '0', 2020, '', 'Ruang Rapat C', 'DB', '', 0, '', ''),
-('OC', '', 'TV', '0296', '', 1, '0', 2020, '', 'Ruang Rapat C', 'DB', '', 0, '', ''),
-('OC', '', 'Lemari Dinding', '0297', '', 2, '0', 2020, '', 'Ruang Rapat C', 'DB', '', 0, '', ''),
-('OC', '', 'Lukisan ', '0298', '', 1, '0', 2020, '', 'Ruang Rapat C', 'DB', '', 0, '', ''),
-('OC', '', 'Aquarium', '0299', '', 1, '0', 2020, '', 'Ruang Rapat C', 'DB', '', 0, '', ''),
-('OC', '', 'TV ', '0300', '', 6, '0', 2020, '', 'Ruang CCTV', 'DB', '', 0, '', ''),
-('OC', '', 'Kubikal ', '0301', '', 3, '0', 2020, '', 'Ruang CCTV', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Kerja Hitam', '0302', '', 1, '0', 2020, '', 'Ruang CCTV', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Kerja Oranye', '0303', '', 1, '0', 2020, '', 'Ruang CCTV', 'DB', '', 0, '', ''),
-('OC', '', 'PC HP', '0304', '', 1, '0', 2020, '', 'Ruang CCTV', 'DB', '', 0, '', ''),
-('OC', '', 'Lemari Dinding', '0305', '', 2, '0', 2020, '', 'Ruang CCTV', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Biru', '0306', '', 2, '0', 2020, '', 'Ruang CCTV', 'DB', '', 0, '', ''),
-('OC', '', 'Lemari Cokelat Muda', '0307', '', 1, '0', 2020, '', 'Ruang CCTV', 'DB', '', 0, '', ''),
-('OC', '', 'TV ', '0308', '', 1, '0', 2020, '', 'Ruang Rapat A', 'DB', '', 0, '', ''),
-('OC', '', 'Meja ', '0309', '', 1, '0', 2020, '', 'Ruang Rapat A', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Hitam', '0310', '', 1, '0', 2020, '', 'Ruang Rapat A', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Merah', '0311', '', 1, '0', 2020, '', 'Ruang Rapat A', 'DB', '', 0, '', ''),
-('OC', '', 'Tempat Tidur Periksa Dokter', '0312', '', 1, '0', 2020, '', 'Ruang Rapat A', 'DB', '', 0, '', ''),
-('OC', '', 'TV', '0313', '', 1, '0', 2020, '', 'Ruang Rapat A', 'DB', '', 0, '', ''),
-('OC', '', 'Lemari Dinding', '0314', '', 1, '0', 2020, '', 'Ruang Rapat A', 'DB', '', 0, '', ''),
-('OC', '', 'Tabung Oksigen', '0315', '', 1, '0', 2020, '', 'Ruang Rapat A', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Roda', '0316', '', 1, '0', 2020, '', 'Ruang Rapat A', 'DB', '', 0, '', ''),
-('OC', '', 'Tangga kecil', '0317', '', 1, '0', 2020, '', 'Ruang Rapat A', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Sofa', '0318', '', 1, '0', 2020, '', 'Ruang Lobby lt. 8 Sebelah Utar', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Warna Hitam', '0319', '', 3, '0', 2020, '', 'Ruang Lobby lt. 8 Sebelah Utar', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Penerima Tamu', '0320', '', 1, '0', 2020, '', 'Ruang Lobby lt. 8 Sebelah Utar', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Warna Hitam', '0321', '', 1, '0', 2020, '', 'Ruang Lobby lt. 8 Sebelah Utar', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Warna Hitam Sandaran', '0322', '', 1, '0', 2020, '', 'Ruang Lobby lt. 8 Sebelah Utar', 'DB', '', 0, '', ''),
-('OC', '', 'Laci Warna Kuning Muda', '0323', '', 1, '0', 2020, '', 'Ruang Lobby lt. 8 Sebelah Utar', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Sofa Warna Hitam', '0324', '', 1, '0', 2020, '', 'Ruang Lobby lt. 8 Sebelah Utar', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Merah ', '0325', '', 1, '0', 2020, '', 'Ruang Lobby lt. 8 Sebelah Utar', 'DB', '', 0, '', ''),
-('OC', '', 'Emergency Box ', '0326', '', 1, '0', 2020, '', 'Ruang Lobby lt. 8 Sebelah Utar', 'DB', '', 0, '', ''),
-('OC', '', 'Credensa Warna Cokelat Tua', '0327', '', 1, '0', 2020, '', 'Ruang Tamu', 'DB', '', 0, '', ''),
-('OC', '', 'Sofa Warna Cokelat Muda', '0328', '', 3, '0', 2020, '', 'Ruang Tamu', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Kerja Kuning Muda', '0329', '', 1, '0', 2020, '', 'Ruang Tempat ATK', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Kerja Kuning Muda / Credensa', '0330', '', 1, '0', 2020, '', 'Ruang Kerja Manager Strategic ', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Hitam Kerja', '0331', '', 1, '0', 2020, '', 'Ruang Kerja Manager Strategic ', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Hitam Biru untuk Tamu', '0332', '', 2, '0', 2020, '', 'Ruang Kerja Manager Strategic ', 'DB', '', 0, '', ''),
-('OC', '', 'Laci Warna Kuning Muda', '0333', '', 2, '0', 2020, '', 'Ruang Kerja Manager Strategic ', 'DB', '', 0, '', ''),
-('OC', '', 'Kotak Kubikal Warna Hijau Muda Pekerja/OS', '0334', '', 44, '0', 2020, '', 'Ruang General Affairs', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Warna Orange Tua', '0335', '', 20, '0', 2020, '', 'Ruang General Affairs', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi sandaran Biru', '0336', '', 9, '0', 2020, '', 'Ruang General Affairs', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Kulit warna hitam', '0337', '', 10, '0', 2020, '', 'Ruang General Affairs', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi sandaran merah tua', '0338', '', 4, '0', 2020, '', 'Ruang General Affairs', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi hitam kecil', '0339', '', 2, '0', 2020, '', 'Ruang General Affairs', 'DB', '', 0, '', ''),
-('OC', '', 'Dispenser', '0340', '', 2, '0', 2020, '', 'Ruang General Affairs', 'DB', '', 0, '', ''),
-('OC', '', 'Credensa warna putih', '0341', '', 1, '0', 2020, '', 'Ruang General Affairs', 'DB', '', 0, '', ''),
-('OC', '', 'Bufet/lemari tempat arsip warna putih', '0342', '', 8, '0', 2020, '', 'Ruang General Affairs', 'DB', '', 0, '', ''),
-('OC', '', 'Printer Merk HP', '0343', '', 4, '0', 2020, '', 'Ruang General Affairs', 'DB', '', 0, '', ''),
-('OC', '', 'Printer Merk Epson', '0344', '', 3, '0', 2020, '', 'Ruang General Affairs', 'DB', '', 0, '', ''),
-('OC', '', 'PC merk HP', '0345', '', 7, '0', 2020, '', 'Ruang General Affairs', 'DB', '', 0, '', ''),
-('OC', '', 'PC merk Dell', '0346', '', 9, '0', 2020, '', 'Ruang General Affairs', 'DB', '', 0, '', ''),
-('OC', '', 'Printer merk Brother APS-2400N', '0347', '', 1, '0', 2020, '', 'Ruang General Affairs', 'DB', '', 0, '', ''),
-('OC', '', 'Tempat sampah', '0348', '', 11, '0', 2020, '', 'Ruang General Affairs', 'DB', '', 0, '', ''),
-('OC', '', 'TV', '0349', '', 2, '0', 2020, '', 'Ruang General Affairs', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Kerja Kuning Muda / Credensa', '0350', '', 1, '0', 2020, '', 'Ruang Kerja Manager Asset Mana', 'DB', '', 0, '', ''),
-('OC', '', 'Credensa warna putih', '0351', '', 1, '0', 2020, '', 'Ruang Kerja Manager Asset Mana', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Tamu Biru', '0352', '', 1, '0', 2020, '', 'Ruang Kerja Manager Asset Mana', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Kerja Hitam', '0353', '', 1, '0', 2020, '', 'Ruang Kerja Manager Asset Mana', 'DB', '', 0, '', ''),
-('OC', '', 'Laci Putih', '0354', '', 1, '0', 2020, '', 'Ruang Kerja Manager Asset Mana', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Kerja Kuning Muda / Credensa', '0355', '', 1, '0', 2020, '', 'Ruang Kerja Manager IT', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Oranye', '0356', '', 2, '0', 2020, '', 'Ruang Kerja Manager IT', 'DB', '', 0, '', ''),
-('OC', '', 'TV', '0357', '', 1, '0', 2020, '', 'Ruang Kerja Manager IT', 'DB', '', 0, '', ''),
-('OC', '', 'Lemari Kayu', '0358', '', 1, '0', 2020, '', 'Ruang Kerja Manager IT', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Merah ', '0359', '', 1, '0', 2020, '', 'Ruang Kerja Manager IT', 'DB', '', 0, '', ''),
-('OC', '', 'PC Dell', '0360', '', 1, '0', 2020, '', 'Ruang Kerja Manager IT', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi hitam kulit', '0361', '', 2, '0', 2020, '', 'Ruang Kerja Manager IT', 'DB', '', 0, '', ''),
-('OC', '', 'Kotak Kubikal', '0362', '', 5, '0', 2020, '', 'Lorong Sebelah Timur', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Kulit Hitam besar', '0363', '', 1, '0', 2020, '', 'Lorong sebelah Barat', 'DB', '', 0, '', ''),
-('OC', '', 'Bufet lemari kaca', '0364', '', 1, '0', 2020, '', 'Ruang Sholat ', 'DB', '', 0, '', ''),
-('OC', '', 'Meja kerja warna Cokelat Muda', '0365', '', 1, '0', 2020, '', 'Ruang VP General Affairs', 'DB', '', 0, '', ''),
-('OC', '', 'Credensa Warna Cokelat muda', '0366', '', 1, '0', 2020, '', 'Ruang VP General Affairs', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Tamu', '0367', '', 2, '0', 2020, '', 'Ruang VP General Affairs', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Kerja', '0368', '', 1, '0', 2020, '', 'Ruang VP General Affairs', 'DB', '', 0, '', ''),
-('OC', '', 'TV', '0369', '', 1, '0', 2020, '', 'Ruang VP General Affairs', 'DB', '', 0, '', ''),
-('OC', '', 'Cermin', '0370', '', 1, '0', 2020, '', 'Ruang VP General Affairs', 'DB', '', 0, '', ''),
-('OC', '', 'tempat sampah', '0371', '', 1, '0', 2020, '', 'Ruang VP General Affairs', 'DB', '', 0, '', ''),
-('OC', '', 'Glassboard', '0372', '', 1, '0', 2020, '', 'Ruang VP General Affairs', 'DB', '', 0, '', ''),
-('OC', '', 'Lemari Dinding', '0373', '', 1, '0', 2020, '', 'Ruang VP General Affairs', 'DB', '', 0, '', ''),
-('OC', '', 'Laci kecil', '0374', '', 1, '0', 2020, '', 'Ruang VP General Affairs', 'DB', '', 0, '', ''),
-('OC', '', 'Meja kerja warna Cokelat Muda', '0375', '', 1, '0', 2020, '', 'Ruang Manager HRD', 'DB', '', 0, '', ''),
-('OC', '', 'Credensa Warna Cokelat muda', '0376', '', 1, '0', 2020, '', 'Ruang Manager HRD', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Tamu', '0377', '', 3, '0', 2020, '', 'Ruang Manager HRD', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Kerja', '0378', '', 1, '0', 2020, '', 'Ruang Manager HRD', 'DB', '', 0, '', ''),
-('OC', '', 'TV', '0379', '', 1, '0', 2020, '', 'Ruang Manager HRD', 'DB', '', 0, '', ''),
-('OC', '', 'tempat sampah', '0380', '', 1, '0', 2020, '', 'Ruang Manager HRD', 'DB', '', 0, '', ''),
-('OC', '', 'Glassboard', '0381', '', 1, '0', 2020, '', 'Ruang Manager HRD', 'DB', '', 0, '', ''),
-('OC', '', 'Lemari Dinding', '0382', '', 1, '0', 2020, '', 'Ruang Manager HRD', 'DB', '', 0, '', ''),
-('OC', '', 'Laci kecil', '0383', '', 1, '0', 2020, '', 'Ruang Manager HRD', 'DB', '', 0, '', ''),
-('OC', '', 'Set Laci Cokelat', '0384', '', 1, '0', 2020, '', 'Ruang Direktur FBS', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Kayu Kerja Cokelat', '0385', '', 1, '0', 2020, '', 'Ruang Direktur FBS', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Tamu Hitam', '0386', '', 2, '0', 2020, '', 'Ruang Direktur FBS', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Kerja Hitam', '0387', '', 1, '0', 2020, '', 'Ruang Direktur FBS', 'DB', '', 0, '', ''),
-('OC', '', 'Sofa Hitam ', '0388', '', 2, '0', 2020, '', 'Ruang Direktur FBS', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Kaca Cokelat ', '0389', '', 1, '0', 2020, '', 'Ruang Direktur FBS', 'DB', '', 0, '', ''),
-('OC', '', 'Set Lemari Kayu ', '0390', '', 1, '0', 2020, '', 'Ruang Direktur FBS', 'DB', '', 0, '', ''),
-('OC', '', 'Showcase Kecil Putih 1', '0391', '', 1, '0', 2020, '', 'Ruang Direktur FBS', 'DB', '', 0, '', ''),
-('OC', '', 'TV Samsung ', '0392', '', 1, '0', 2020, '', 'Ruang Direktur FBS', 'DB', '', 0, '', ''),
-('OC', '', 'Set Indovision 1', '0393', '', 1, '0', 2020, '', 'Ruang Direktur FBS', 'DB', '', 0, '', ''),
-('OC', '', 'Telefon ', '0394', '', 1, '0', 2020, '', 'Ruang Direktur FBS', 'DB', '', 0, '', ''),
-('OC', '', 'Router Cisco ', '0395', '', 1, '0', 2020, '', 'Ruang Direktur FBS', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Kerja Hitam ', '0396', '', 1, '0', 2020, '', 'Ruang Direktur FBS', 'DB', '', 0, '', ''),
-('OC', '', 'Sofa Hitam Panjang ', '0397', '', 2, '0', 2020, '', 'Ruang Direktur FBS', 'DB', '', 0, '', ''),
-('OC', '', 'Sofa Hitam Kecil ', '0398', '', 1, '0', 2020, '', 'Ruang Direktur FBS', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Tamu 1', '0399', '', 1, '0', 2020, '', 'Ruang Direktur FBS', 'DB', '', 0, '', ''),
-('OC', '', 'Infocus', '0400', '', 1, '0', 2020, '', 'Ruang Direktur FBS', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Kerja Hitam ', '0401', '', 1, '0', 2020, '', 'Ruang Direktur FBS', 'DB', '', 0, '', ''),
-('OC', '', 'White board', '0402', '', 1, '0', 2020, '', 'Ruang Direktur FBS', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Kerja Cokelat ', '0403', '', 1, '0', 2020, '', 'Ruang Direktur FBS', 'DB', '', 0, '', ''),
-('OC', '', 'Brankas Putih', '0404', '', 1, '0', 2020, '', 'Ruang Direktur FBS', 'DB', '', 0, '', ''),
-('OC', '', 'Set Lemari Kayu Kaca', '0405', '', 1, '0', 2020, '', 'Ruang Direktur FBS', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Hitam', '0406', '', 0, '0', 2020, '', 'Ruang Direktur FBS', 'DB', '', 0, '', ''),
-('OC', '', 'Mesin TIK Putih', '0407', '', 1, '0', 2020, '', 'Ruang Direktur FBS', 'DB', '', 0, '', ''),
-('OC', '', 'Laci Kayu', '0408', '', 1, '0', 2020, '', 'Ruang Direktur FBS', 'DB', '', 0, '', ''),
-('OC', '', 'Lemari Kayu Kaca Hitam', '0409', '', 1, '0', 2020, '', 'Ruang Direktur FBS', 'DB', '', 0, '', ''),
-('OC', '', 'Sofa Hitam', '0410', '', 1, '0', 2020, '', 'Ruang Direktur FBS', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Kayu Kaca', '0411', '', 1, '0', 2020, '', 'Ruang Direktur FBS', 'DB', '', 0, '', ''),
-('OC', '', 'Gantungan', '0412', '', 1, '0', 2020, '', 'Ruang Direktur FBS', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Kerja ', '0413', '', 1, '0', 2020, '', 'Ruang  Manager Financial Accou', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Kerja  ', '0414', '', 1, '0', 2020, '', 'Ruang  Manager Financial Accou', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Tamu  ', '0415', '', 1, '0', 2020, '', 'Ruang  Manager Financial Accou', 'DB', '', 0, '', ''),
-('OC', '', 'Laci Kaca Abu-Abu', '0416', '', 1, '0', 2020, '', 'Ruang  Manager Financial Accou', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Kerja ', '0417', '', 1, '0', 2020, '', 'Ruang Manager Tax', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Kerja  ', '0418', '', 1, '0', 2020, '', 'Ruang Manager Tax', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Tamu  ', '0419', '', 1, '0', 2020, '', 'Ruang Manager Tax', 'DB', '', 0, '', ''),
-('OC', '', 'Laci Kaca Abu-Abu', '0420', '', 1, '0', 2020, '', 'Ruang Manager Tax', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Kerja ', '0421', '', 1, '0', 2020, '', 'Ruang Manager Treasury', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Kerja  ', '0422', '', 1, '0', 2020, '', 'Ruang Manager Treasury', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Tamu  ', '0423', '', 1, '0', 2020, '', 'Ruang Manager Treasury', 'DB', '', 0, '', ''),
-('OC', '', 'Laci Kaca Abu-Abu', '0424', '', 1, '0', 2020, '', 'Ruang Manager Treasury', 'DB', '', 0, '', ''),
-('OC', '', 'Set Meja Kerja ', '0425', '', 1, '0', 2020, '', 'Ruang Manager Control Group & ', 'DB', '', 0, '', ''),
-('OC', '', 'Lemari Kayu  ', '0426', '', 1, '0', 2020, '', 'Ruang Manager Control Group & ', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Hitam', '0427', '', 2, '0', 2020, '', 'Ruang Manager Control Group & ', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Kerja ', '0428', '', 1, '0', 2020, '', 'Ruang Manager Accounting', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Tamu', '0429', '', 2, '0', 2020, '', 'Ruang Manager Accounting', 'DB', '', 0, '', ''),
-('OC', '', 'White Board', '0430', '', 1, '0', 2020, '', 'Ruang Manager Accounting', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Kerja  ', '0431', '', 1, '0', 2020, '', 'Ruang Manager Accounting', 'DB', '', 0, '', ''),
-('OC', '', 'Lemari Hitam', '0432', '', 1, '0', 2020, '', 'Ruang Manager Accounting', 'DB', '', 0, '', ''),
-('OC', '', 'Lemari Dinding ', '0433', '', 2, '0', 2020, '', 'Ruang VP Finance', 'DB', '', 0, '', ''),
-('OC', '', 'TV  ', '0434', '', 1, '0', 2020, '', 'Ruang VP Finance', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Kerja ', '0435', '', 2, '0', 2020, '', 'Ruang VP Finance', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Tamu', '0436', '', 1, '0', 2020, '', 'Ruang VP Finance', 'DB', '', 0, '', ''),
-('OC', '', 'Credensa ', '0437', '', 1, '0', 2020, '', 'Ruang VP Finance', 'DB', '', 0, '', ''),
-('OC', '', 'White board', '0438', '', 1, '0', 2020, '', 'Ruang VP Finance', 'DB', '', 0, '', ''),
-('OC', '', 'Lemari Kayu Dinding', '0439', '', 2, '0', 2020, '', 'Ruang Millenial', 'DB', '', 0, '', ''),
-('OC', '', 'Laci Kayu', '0440', '', 1, '0', 2020, '', 'Ruang Millenial', 'DB', '', 0, '', ''),
-('OC', '', 'White Board ', '0441', '', 2, '0', 2020, '', 'Ruang Millenial', 'DB', '', 0, '', ''),
-('OC', '', 'Credense', '0442', '', 1, '0', 2020, '', 'Gudang ATK', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Kayu Kaca', '0443', '', 1, '0', 2020, '', 'Gudang ATK', 'DB', '', 0, '', ''),
-('OC', '', 'Credense', '0444', '', 1, '0', 2020, '', 'Ruang Meeting Finance', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Kayu Kaca', '0445', '', 1, '0', 2020, '', 'Ruang Meeting Finance', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Hitam', '0446', '', 1, '0', 2020, '', 'Ruang Meeting Finance', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Oranye', '0447', '', 1, '0', 2020, '', 'Ruang Meeting Finance', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Biru', '0448', '', 1, '0', 2020, '', 'Ruang Meeting Finance', 'DB', '', 0, '', ''),
-('OC', '', 'Lemari Dinding ', '0449', '', 1, '0', 2020, '', 'Ruang Meeting Finance', 'DB', '', 0, '', ''),
-('OC', '', 'White board', '0450', '', 1, '0', 2020, '', 'Ruang Meeting Finance', 'DB', '', 0, '', ''),
-('OC', '', 'Lemari Dinding ', '0451', '', 2, '0', 2020, '', 'Ruang Meeting C', 'DB', '', 0, '', ''),
-('OC', '', 'Credense Cokelat ', '0452', '', 1, '0', 2020, '', 'Ruang Meeting C', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Meeting', '0453', '', 1, '0', 2020, '', 'Ruang Meeting C', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Hitam I', '0454', '', 4, '0', 2020, '', 'Ruang Meeting C', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Hitam II', '0455', '', 1, '0', 2020, '', 'Ruang Meeting C', 'DB', '', 0, '', ''),
-('OC', '', 'White Board Roda', '0456', '', 1, '0', 2020, '', 'Ruang Meeting C', 'DB', '', 0, '', ''),
-('OC', '', 'TV', '0457', '', 1, '0', 2020, '', 'Ruang Meeting C', 'DB', '', 0, '', ''),
-('OC', '', 'Lemari Putih', '0458', '', 1, '0', 2020, '', 'Ruang Finance', 'DB', '', 0, '', ''),
-('OC', '', 'Laci Hitam Besar', '0459', '', 3, '0', 2020, '', 'Ruang Finance', 'DB', '', 0, '', ''),
-('OC', '', 'Laci Hitam Kecil', '0460', '', 1, '0', 2020, '', 'Ruang Finance', 'DB', '', 0, '', ''),
-('OC', '', 'Kotak Kubikal Warna Biru  Pekerja/OS', '0461', '', 32, '0', 2020, '', 'Ruang Finance', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi Kerja ', '0462', '', 33, '0', 2020, '', 'Ruang Finance', 'DB', '', 0, '', ''),
-('OC', '', 'Credense Kayu Besar', '0463', '', 2, '0', 2020, '', 'Ruang Finance', 'DB', '', 0, '', ''),
-('OC', '', 'Laci Hitam Kecil', '0464', '', 2, '0', 2020, '', 'Ruang Finance', 'DB', '', 0, '', ''),
-('OC', '', 'Lemari Kayu Putih', '0465', '', 1, '0', 2020, '', 'Ruang Finance', 'DB', '', 0, '', ''),
-('OC', '', 'Lemari Dinding ', '0466', '', 2, '0', 2020, '', 'Ruang Finance', 'DB', '', 0, '', ''),
-('OC', '', 'Kubikal Finance Besar', '0467', '', 1, '0', 2020, '', 'Ruang Finance', 'DB', '', 0, '', ''),
-('OC', '', 'Printer HP', '0468', '', 2, '0', 2020, '', 'Ruang Finance', 'DB', '', 0, '', ''),
-('OC', '', 'PC Finance Lenovo', '0469', '', 1, '0', 2020, '', 'Ruang Finance', 'DB', '', 0, '', ''),
-('OC', '', 'PC Staff ', '0470', '', 26, '0', 2020, '', 'Ruang Finance', 'DB', '', 0, '', ''),
-('OC', '', 'Kulkas Aqua', '0471', '', 1, '0', 2020, '', 'Ruang Finance', 'DB', '', 0, '', ''),
-('OC', '', 'Rak Krisbow Oranye Biru', '0472', '', 1, '0', 2020, '', 'Ruang Finance', 'DB', '', 0, '', ''),
-('OC', '', 'Laci Putih', '0473', '', 1, '0', 2020, '', 'Ruang Finance', 'DB', '', 0, '', ''),
-('OC', '', 'Laci Putih Kecil', '0474', '', 1, '0', 2020, '', 'Ruang Finance', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi ', '0475', '', 5, '0', 2020, '', 'Ruang Meeting Samping B', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Meeting', '0476', '', 1, '0', 2020, '', 'Ruang Meeting Samping B', 'DB', '', 0, '', ''),
-('OC', '', 'TV ', '0477', '', 1, '0', 2020, '', 'Ruang Meeting Samping B', 'DB', '', 0, '', ''),
-('OC', '', 'Credense Hitam', '0478', '', 1, '0', 2020, '', 'Ruang Meeting B', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Meeting', '0479', '', 1, '0', 2020, '', 'Ruang Meeting B', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi ', '0480', '', 8, '0', 2020, '', 'Ruang Meeting B', 'DB', '', 0, '', ''),
-('OC', '', 'TV', '0481', '', 1, '0', 2020, '', 'Ruang Meeting B', 'DB', '', 0, '', ''),
-('OC', '', 'Meja TV', '0482', '', 1, '0', 2020, '', 'Ruang Meeting B', 'DB', '', 0, '', ''),
-('OC', '', 'Lemari Dinding ', '0483', '', 1, '0', 2020, '', 'Ruang Meeting B', 'DB', '', 0, '', ''),
-('OC', '', 'Meja 1', '0484', '', 1, '0', 2020, '', 'Ruang Meeting A', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi ', '0485', '', 16, '0', 2020, '', 'Ruang Meeting A', 'DB', '', 0, '', ''),
-('OC', '', 'TV ', '0486', '', 1, '0', 2020, '', 'Ruang Meeting A', 'DB', '', 0, '', ''),
-('OC', '', 'Infocus', '0487', '', 1, '0', 2020, '', 'Ruang Meeting A', 'DB', '', 0, '', ''),
-('OC', '', 'Lemari Hitam', '0488', '', 1, '0', 2020, '', 'Ruang Meeting A', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Gudang', '0489', '', 1, '0', 2020, '', 'Ruang Meeting A', 'TR', '', 0, '', ''),
-('OC', '', 'Meja Tamu  ', '0490', '', 1, '0', 2020, '', 'Lobby Selatan', 'DB', '', 0, '', ''),
-('OC', '', 'Sofa Tamu', '0491', '', 5, '0', 2020, '', 'Lobby Selatan', 'DB', '', 0, '', ''),
-('OC', '', 'Meja Receptionist', '0492', '', 1, '0', 2020, '', 'Lobby Selatan', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi ', '0493', '', 1, '0', 2020, '', 'Lobby Selatan', 'DB', '', 0, '', ''),
-('OC', '', 'Laci Hitam', '0494', '', 1, '0', 2020, '', 'Lobby Selatan', 'DB', '', 0, '', ''),
-('OC', '', 'Laci Cokelat', '0495', '', 1, '0', 2020, '', 'Lobby Selatan', 'DB', '', 0, '', ''),
-('OC', '', 'Kursi tunggu', '0496', '', 3, '0', 2020, '', 'Lobby Selatan', 'DB', '', 0, '', ''),
-('OC', '', 'Lemari Mushola', '0497', '', 1, '0', 2020, '', 'Lobby Selatan', 'DB', '', 0, '', '');
-INSERT INTO `asset` (`kantor`, `jenis_asset`, `deskripsi_asset`, `no_asset`, `merk_type`, `jumlah`, `ukuran`, `tahun_pengadaan`, `status_kepemilikan`, `lokasi`, `kondisi`, `asal_usul`, `harga`, `gambar`, `keterangan`) VALUES
-('PUC', '', 'Meja Kantor ', '0001', '', 0, '0', 2012, '', 'Office MWH', 'RB', '', 0, '', 'Dimensi (150 x 70 x 75)'),
-('PUC', '', 'Meja Kantor ', '0002', '', 0, '0', 2021, '', 'Office MWH', 'DS', '', 0, '', 'Dimensi (150 x 70 x 75)'),
-('PUC', '', 'Meja Kantor ', '0003', '', 0, '0', 2021, '', 'Office MWH', 'DS', '', 0, '', 'Dimensi (140 x 70 x70)'),
-('PUC', '', 'Meja Kantor ', '0004', '', 0, '0', 2021, '', 'Office MWH', 'DS', '', 0, '', 'Dimensi (160 x 70 x 73)'),
-('PUC', '', 'Kursi Kantor', '0005', '', 0, '0', 2021, '', 'Office MWH', 'DS', '', 0, '', ''),
-('PUC', '', 'Kursi Kantor', '0006', '', 0, '0', 2021, '', 'Office MWH', 'DS', '', 0, '', ''),
-('PUC', '', 'Kursi Kantor', '0007', '', 0, '0', 2021, '', 'Office MWH', 'DS', '', 0, '', ''),
-('PUC', '', 'Kursi Kantor', '0008', '', 0, '0', 2021, '', 'Office MWH', 'DS', '', 0, '', ''),
-('PUC', '', 'Kursi Kantor', '0009', '', 0, '0', 2021, '', 'Office MWH', 'DS', '', 0, '', ''),
-('PUC', '', 'Kursi Kantor', '0010', '', 0, '0', 2021, '', 'Office MWH', 'DJ', '', 0, '', 'Warna Biru'),
-('PUC', '', 'Kursi Kantor', '0011', '', 0, '0', 2021, '', 'Office MWH', 'DJ', '', 0, '', 'Warna Biru'),
-('PUC', '', 'Lemari Kaca', '0012', '', 0, '0', 2021, '', 'Office MWH', 'DB', '', 0, '', 'Dimensi (130 x 40 x 140)'),
-('PUC', '', 'Lemari Kaca', '0013', '', 0, '0', 2021, '', 'Office MWH', 'DB', '', 0, '', 'Dimensi (200 x 50 x 107)'),
-('PUC', '', 'Lemari Dokumen', '0014', '', 0, '0', 2021, '', 'Office MWH', 'DB', '', 0, '', 'Dimensi (92 x 46 x 183)'),
-('PUC', '', 'Lemari Dokumen', '0015', '', 0, '0', 2021, '', 'Office MWH', 'DB', '', 0, '', 'Dimensi (92 x 46 x 183)'),
-('PUC', '', 'Lemari Kayu', '0016', '', 0, '0', 2021, '', 'Office MWH', 'DS', '', 0, '', 'Dimensi (200 x 47 x 83)'),
-('PUC', '', 'Lemari Kecil', '0017', '', 0, '0', 2021, '', 'Office MWH', 'DB', '', 0, '', 'Dimensi (40 x 50 x 63)'),
-('PUC', '', 'Lemari Kecil', '0018', '', 0, '0', 2021, '', 'Office MWH', 'DB', '', 0, '', 'Dimensi (40 x 50 x 63)'),
-('PUC', '', 'Lemari Loker', '0019', '', 0, '0', 2021, '', 'Office MWH', 'DS', '', 0, '', ''),
-('PUC', '', 'Lemari Loker', '0020', '', 0, '0', 2021, '', 'Office MWH', 'DS', '', 0, '', ''),
-('PUC', '', 'Meja Kantor ', '0021', '', 0, '0', 2021, '', 'Office Blending', 'DS', '', 0, '', 'Dimensi (160 x 70 x 76)'),
-('PUC', '', 'Meja Kantor ', '0022', '', 0, '0', 2021, '', 'Office Blending', 'DS', '', 0, '', 'Dimensi (120 x 75 x 76)'),
-('PUC', '', 'Meja Kantor ', '0023', '', 0, '0', 2021, '', 'Office Blending', 'DS', '', 0, '', 'Dimensi (80 x 60 x 75)'),
-('PUC', '', 'Kursi Kantor', '0024', '', 0, '0', 2021, '', 'Office Blending', 'DS', '', 0, '', ''),
-('PUC', '', 'Kursi Kantor', '0025', '', 0, '0', 2021, '', 'Office Blending', 'DS', '', 0, '', ''),
-('PUC', '', 'Kursi Kantor', '0026', '', 0, '0', 2021, '', 'Office Blending', 'DS', '', 0, '', ''),
-('PUC', '', 'Lemari Dokumen', '0027', '', 0, '0', 2021, '', 'Office Blending', 'DS', '', 0, '', 'Dimensi (92 x 46 x 92)'),
-('PUC', '', 'Lemari Dokumen', '0028', '', 0, '0', 2021, '', 'Office Blending', 'DS', '', 0, '', 'Dimensi (92 x 46 x 92)'),
-('PUC', '', 'Lemari Dokumen', '0029', '', 0, '0', 2021, '', 'Office Blending', 'DS', '', 0, '', 'Dimensi (92 x 46 x 92)'),
-('PUC', '', 'Lemari Dokumen', '0030', '', 0, '0', 2021, '', 'Office Blending', 'DS', '', 0, '', 'Dimensi (92 x 46 x 92)'),
-('PUC', '', 'Lemari Loker', '0031', '', 0, '0', 2021, '', 'Office Blending', 'DS', '', 0, '', ''),
-('PUC', '', 'Lemari Loker', '0032', '', 0, '0', 2021, '', 'Office Blending', 'DS', '', 0, '', ''),
-('PUC', '', 'Meja Kantor ', '0033', '', 0, '0', 2021, '', 'Office DFO', 'DS', '', 0, '', 'Dimensi (150 x 75 x 76)'),
-('PUC', '', 'Meja Kantor ', '0034', '', 0, '0', 2021, '', 'Office DFO', 'DS', '', 0, '', 'Dimensi (80 x 60 x 75)'),
-('PUC', '', 'Kursi Kantor', '0035', '', 0, '0', 2021, '', 'Office DFO', 'DS', '', 0, '', ''),
-('PUC', '', 'Kursi Kantor', '0036', '', 0, '0', 2021, '', 'Office DFO', 'DS', '', 0, '', ''),
-('PUC', '', 'Lemari Dokumen', '0037', '', 0, '0', 2021, '', 'Office DFO', 'DS', '', 0, '', 'Dimensi (92 x 46 x 92)'),
-('PUC', '', 'Loker', '0038', '', 0, '0', 2021, '', 'Office DFO', 'DS', '', 0, '', ''),
-('PUC', '', 'Meja Kantor ', '0039', '', 0, '0', 2021, '', 'Office P2', 'DB', '', 0, '', 'Dimensi (152 x 75 x 76)'),
-('PUC', '', 'Meja Kantor ', '0040', '', 0, '0', 2021, '', 'Office P2', 'DS', '', 0, '', 'Dimensi (152 x 75 x 76)'),
-('PUC', '', 'Meja Kantor ', '0041', '', 0, '0', 2021, '', 'Office P2', 'DS', '', 0, '', 'Dimensi (152 x 75 x 76)'),
-('PUC', '', 'Meja Kantor ', '0042', '', 0, '0', 2021, '', 'Office P2', 'DJ', '', 0, '', 'Dimensi (152 x 75 x 76)'),
-('PUC', '', 'Meja Kantor ', '0043', '', 0, '0', 2021, '', 'Office P2', 'DB', '', 0, '', ''),
-('PUC', '', 'Meja Kantor ', '0044', '', 0, '0', 2021, '', 'Office P2', 'DB', '', 0, '', 'Dimensi (120 x 60 x 75)'),
-('PUC', '', 'Kursi Kantor', '0045', '', 0, '0', 2021, '', 'Office P2', 'DS', '', 0, '', ''),
-('PUC', '', 'Kursi Kantor', '0046', '', 0, '0', 2021, '', 'Office P2', 'DS', '', 0, '', ''),
-('PUC', '', 'Kursi Kantor', '0047', '', 0, '0', 2021, '', 'Office P2', 'DS', '', 0, '', ''),
-('PUC', '', 'Kursi Kantor', '0048', '', 0, '0', 2021, '', 'Office P2', 'DS', '', 0, '', ''),
-('PUC', '', 'Kursi Kantor', '0049', '', 0, '0', 2021, '', 'Office P2', 'DS', '', 0, '', ''),
-('PUC', '', 'Lemari Dokumen', '0050', '', 0, '0', 2021, '', 'Office P2', 'DS', '', 0, '', 'Dimensi (120 x 40 x 180)'),
-('PUC', '', 'Lemari Dokumen', '0051', '', 0, '0', 2021, '', 'Office P2', 'DS', '', 0, '', 'Dimensi (92 x 46 x 183)'),
-('PUC', '', 'Loker', '0052', '', 0, '0', 2021, '', 'Office P2', 'DS', '', 0, '', ''),
-('PUC', '', 'Loker', '0053', '', 0, '0', 2021, '', 'Office P2', 'DS', '', 0, '', ''),
-('PUC', '', 'Meja Kantor ', '0054', '', 0, '0', 2021, '', 'Office Admin LOBP', 'DS', '', 0, '', 'Dimensi (152 x 75 x 76)'),
-('PUC', '', 'Meja Kantor ', '0055', '', 0, '0', 2021, '', 'Office Admin LOBP', 'DS', '', 0, '', 'Dimensi (120 x 60 x 75)'),
-('PUC', '', 'Kursi Kantor', '0056', '', 0, '0', 2021, '', 'Office Admin LOBP', 'DS', '', 0, '', ''),
-('PUC', '', 'Lemari Dokumen', '0057', '', 0, '0', 2021, '', 'Office Admin LOBP', 'DS', '', 0, '', 'Dimensi (92 x 46 x 183)'),
-('PUC', '', 'Lemari Dokumen', '0058', '', 0, '0', 2021, '', 'Office Admin LOBP', 'DS', '', 0, '', 'Dimensi (92 x 46 x 183)'),
-('PUC', '', 'Meja Kantor ', '0059', '', 0, '0', 2021, '', 'Office Lithos', 'DS', '', 0, '', 'Dimensi (160 x 70 x 76)'),
-('PUC', '', 'Meja Kantor ', '0060', '', 0, '0', 2021, '', 'Office Lithos', 'DS', '', 0, '', 'Dimensi (120 x 60 x 75)'),
-('PUC', '', 'Meja Kantor ', '0061', '', 0, '0', 2021, '', 'Office Lithos', 'DS', '', 0, '', 'Dimensi (120 x 60 x 75)'),
-('PUC', '', 'Meja Kantor ', '0062', '', 0, '0', 2021, '', 'Office Lithos', 'DS', '', 0, '', 'Dimensi (120 x 75 x 75)'),
-('PUC', '', 'Meja Kantor ', '0063', '', 0, '0', 2021, '', 'Office Lithos', 'DS', '', 0, '', 'Dimensi (80 x 60 x 74)'),
-('PUC', '', 'Meja Kantor ', '0064', '', 0, '0', 2021, '', 'Office Lithos', 'DS', '', 0, '', 'Dimensi (183 x 85 x 76)'),
-('PUC', '', 'Lemari Dokumen', '0065', '', 0, '0', 2021, '', 'Office Lithos', 'DS', '', 0, '', 'Dimensi (92 x 46 x 183)'),
-('PUC', '', 'Lemari Dokumen', '0066', '', 0, '0', 2021, '', 'Office Lithos', 'DS', '', 0, '', 'Dimensi (92 x 46 x 92)'),
-('PUC', '', 'Lemari Dokumen', '0067', '', 0, '0', 2021, '', 'Office Lithos', 'DS', '', 0, '', 'Dimensi (92 x 46 x 92)'),
-('PUC', '', 'Lemari Dokumen', '0068', '', 0, '0', 2021, '', 'Office Lithos', 'DS', '', 0, '', 'Dimensi (92 x 46 x 92)'),
-('PUC', '', 'Loker', '0069', '', 0, '0', 2021, '', 'Office Lithos', 'DS', '', 0, '', 'Dimensi (38 x 38 x 180)'),
-('PUC', '', 'Loker', '0070', '', 0, '0', 2021, '', 'Office Lithos', 'DS', '', 0, '', 'Dimensi (38 x 38 x 180)'),
-('PUC', '', 'Loker', '0071', '', 0, '0', 2021, '', 'Office Lithos', 'DS', '', 0, '', ''),
-('PUC', '', 'Loker', '0072', '', 0, '0', 2021, '', 'Office Lithos', 'DS', '', 0, '', ''),
-('PUC', '', 'Loker', '0073', '', 0, '0', 2021, '', 'Office Lithos', 'DJ', '', 0, '', ''),
-('PUC', '', 'Meja Kantor ', '0074', '', 0, '0', 2021, '', 'Ruang Label', 'DS', '', 0, '', 'Dimensi (180 x 80 x 76)'),
-('PUC', '', 'Lemari Kaca', '0075', '', 0, '0', 2021, '', 'Ruang Label', 'DS', '', 0, '', 'Dimensi (200 x 50 x 117)'),
-('PUC', '', 'Lemari Kaca', '0076', '', 0, '0', 2021, '', 'Ruang Label', 'DS', '', 0, '', 'Dimensi (200 x 45 x 188)'),
-('PUC', '', 'Lemari Kaca', '0077', '', 0, '0', 2021, '', 'Ruang Label', 'DJ', '', 0, '', 'Dimensi (200 x 45 x 188)'),
-('PUC', '', 'Lemari Sampel', '0078', '', 0, '0', 2021, '', 'Ruang Label', 'DS', '', 0, '', 'Dimensi (70 x 95 x 102)'),
-('PUC', '', 'Lemari Sampel', '0079', '', 0, '0', 2021, '', 'Ruang Label', 'DS', '', 0, '', 'Dimensi (70 x 95 x 102)'),
-('PUC', '', 'Loker', '0080', '', 0, '0', 2021, '', 'Ruang Label', 'DS', '', 0, '', ''),
-('PUC', '', 'Meja Kantor ', '0081', '', 0, '0', 2021, '', 'Office Teknik', 'DS', '', 0, '', 'Dimensi (183 x 88 x 76)'),
-('PUC', '', 'Meja Kantor ', '0082', '', 0, '0', 2021, '', 'Office Teknik', 'DS', '', 0, '', 'Dimensi (183 x 88 x 76)'),
-('PUC', '', 'Meja Kantor ', '0083', '', 0, '0', 2021, '', 'Office Teknik', 'DS', '', 0, '', 'Dimensi (162 x 61 x 76)'),
-('PUC', '', 'Meja Kantor ', '0084', '', 0, '0', 2021, '', 'Office Teknik', 'DS', '', 0, '', 'Dimensi (120 x 60 x 74)'),
-('PUC', '', 'Meja Kantor ', '0085', '', 0, '0', 2021, '', 'Office Teknik', 'DS', '', 0, '', 'Dimensi (80 x 60 x74)'),
-('PUC', '', 'Meja Kantor ', '0086', '', 0, '0', 2021, '', 'Office Teknik', 'DS', '', 0, '', 'Dimensi (160 x 70 x76)'),
-('PUC', '', 'Meja Kantor ', '0087', '', 0, '0', 2021, '', 'Office Teknik', 'DS', '', 0, '', 'Dimensi (150 x 75 x 75)'),
-('PUC', '', 'Meja Kantor ', '0088', '', 0, '0', 2021, '', 'Office Teknik', 'DS', '', 0, '', 'Dimensi (120 x 70 x 74)'),
-('PUC', '', 'Meja Kantor ', '0089', '', 0, '0', 2021, '', 'Office Teknik', 'DS', '', 0, '', 'Dimensi (180 x 80 x 76)'),
-('PUC', '', 'Meja Kantor ', '0090', '', 0, '0', 2021, '', 'Office Teknik', 'DS', '', 0, '', 'Dimensi (240 x 120 x 75)'),
-('PUC', '', 'Kursi Kantor', '0091', '', 0, '0', 2021, '', 'Office Teknik', 'DS', '', 0, '', ''),
-('PUC', '', 'Kursi Kantor', '0092', '', 0, '0', 2021, '', 'Office Teknik', 'DS', '', 0, '', ''),
-('PUC', '', 'Kursi Kantor', '0093', '', 0, '0', 2021, '', 'Office Teknik', 'DS', '', 0, '', ''),
-('PUC', '', 'Kursi Kantor', '0094', '', 0, '0', 2021, '', 'Office Teknik', 'DS', '', 0, '', ''),
-('PUC', '', 'Kursi Kantor', '0095', '', 0, '0', 2021, '', 'Office Teknik', 'DS', '', 0, '', ''),
-('PUC', '', 'Lemari Kaca', '0096', '', 0, '0', 2021, '', '', 'DB', '', 0, '', 'Dimensi (250 x 45 x 97)'),
-('PUC', '', 'Lemari Kaca', '0097', '', 0, '0', 2021, '', '', 'DB', '', 0, '', 'Dimensi (200 x 45 x 180)'),
-('PUC', '', 'Lemari Kaca', '0098', '', 0, '0', 2021, '', '', 'DB', '', 0, '', 'Dimensi (165 x 60 x 115)'),
-('PUC', '', 'Lemari Dokumen', '0099', '', 0, '0', 2021, '', '', 'DS', '', 0, '', 'Dimensi (92 x 46 x 183)'),
-('PUC', '', 'Lemari Dokumen', '0100', '', 0, '0', 2021, '', '', 'DS', '', 0, '', 'Dimensi (92 x 46 x 183)'),
-('PUC', '', 'Lemari Dokumen', '0101', '', 0, '0', 2021, '', '', 'DS', '', 0, '', 'Dimensi (92 x 46 x 183)'),
-('PUC', '', 'Lemari Dokumen', '0102', '', 0, '0', 2021, '', '', 'DS', '', 0, '', 'Dimensi (92 x 46 x 92)'),
-('PUC', '', 'Lemari Dokumen', '0103', '', 0, '0', 2021, '', '', 'DS', '', 0, '', 'Dimensi (92 x 46 x 92)'),
-('PUC', '', 'Lemari Dokumen', '0104', '', 0, '0', 2021, '', '', 'DS', '', 0, '', 'Dimensi (92 x 46 x 92)'),
-('PUC', '', 'Lemari Dokumen', '0105', '', 0, '0', 2021, '', '', 'DS', '', 0, '', 'Dimensi (92 x 46 x 92)'),
-('PUC', '', 'Loker', '0106', '', 0, '0', 2021, '', '', 'DB', '', 0, '', 'Dimensi (46 x 63 x 132)'),
-('PUC', '', 'Loker', '0107', '', 0, '0', 2021, '', '', 'DS', '', 0, '', 'Dimensi (46 x 63 x 132)'),
-('PUC', '', 'Loker', '0108', '', 0, '0', 2021, '', '', 'DS', '', 0, '', 'Dimensi (46 x 63 x 132)'),
-('PUC', '', 'Loker', '0109', '', 0, '0', 2021, '', '', 'DS', '', 0, '', 'Dimensi (46 x 63 x 132)'),
-('PUC', '', 'Loker', '0110', '', 0, '0', 2021, '', '', 'DS', '', 0, '', 'Dimensi (46 x 63 x 132)'),
-('PUC', '', 'Loker', '0111', '', 0, '0', 2021, '', '', 'DS', '', 0, '', 'Dimensi (83 x 83 x 180)'),
-('PUC', '', 'Loker', '0112', '', 0, '0', 2021, '', '', 'DS', '', 0, '', 'Dimensi (83 x 83 x 180)'),
-('PUC', '', 'Loker', '0113', '', 0, '0', 2021, '', '', 'DS', '', 0, '', 'Dimensi (83 x 83 x 180)'),
-('PUC', '', 'Loker', '0114', '', 0, '0', 2021, '', '', 'DS', '', 0, '', 'Dimensi (83 x 83 x 180)'),
-('PUC', '', 'Lemari Data', '0115', '', 0, '0', 2021, '', 'Kantor', 'DB', '', 0, '', 'Dimensi (8,4 x 3 x 0,5) meter'),
-('PUC', '', 'Kursi Kantor', '0116', '', 0, '0', 2021, '', 'Kantor', 'DB', '', 0, '', 'Indachi Type D 581 AL HDT'),
-('PUC', '', 'Kursi Kantor', '0117', '', 0, '0', 2021, '', 'Kantor', 'DB', '', 0, '', 'Indachi Type D 581 AL HDT'),
-('PUC', '', 'Kursi Kantor', '0118', '', 0, '0', 2021, '', 'Kantor', 'DB', '', 0, '', 'Indachi Type D 581 AL HDT'),
-('PUC', '', 'Kursi Kantor', '0119', '', 0, '0', 2021, '', 'Kantor', 'DB', '', 0, '', 'Indachi Type D 2013 CR'),
-('PUC', '', 'Kursi Kantor', '0120', '', 0, '0', 2021, '', 'Kantor', 'DB', '', 0, '', 'Indachi Type D 2013 CR'),
-('PUC', '', 'Kursi Kantor', '0121', '', 0, '0', 2021, '', 'Kantor', 'DB', '', 0, '', 'Indachi Type D 2013 CR'),
-('PUC', '', 'Kursi Kantor', '0122', '', 0, '0', 2021, '', 'Kantor', 'DB', '', 0, '', 'Indachi Type D 2013 CR'),
-('PUC', '', 'Kursi Kantor', '0123', '', 0, '0', 2021, '', 'Kantor', 'DB', '', 0, '', 'Indachi Type D 2013 CR'),
-('PUC', '', 'Kursi Kantor', '0124', '', 0, '0', 2021, '', 'Kantor', 'DB', '', 0, '', 'Indachi Type D 2013 CR'),
-('PUC', '', 'Kursi Kantor', '0125', '', 0, '0', 2021, '', 'Kantor', 'DB', '', 0, '', 'Chairman SC 1109'),
-('PUC', '', 'Kursi Kantor', '0126', '', 0, '0', 2021, '', 'Kantor', 'DB', '', 0, '', 'Chairman SC 1109'),
-('PUC', '', 'Kursi Kantor', '0127', '', 0, '0', 2021, '', 'Kantor', 'DB', '', 0, '', 'Chairman SC 1109'),
-('PUC', '', 'Kursi Kantor', '0128', '', 0, '0', 2021, '', 'Kantor', 'DB', '', 0, '', 'Chairman SC 1109'),
-('PUC', '', 'Kursi Kantor', '0129', '', 0, '0', 2021, '', 'Kantor', 'DB', '', 0, '', 'Chairman SC 1109'),
-('PUC', '', 'Kursi Kantor', '0130', '', 0, '0', 2021, '', 'Kantor', 'DB', '', 0, '', 'Chairman SC 1109'),
-('PUC', '', 'Screen Proyektor', '0131', '', 0, '0', 2021, '', 'Kantor', 'DB', '', 0, '', 'Uk 84 inchi'),
-('PUC', '', 'Proyektor', '0132', '', 0, '0', 2021, '', 'Kantor', 'DB', '', 0, '', 'EPSON EB-1780W'),
-('PUC', '', 'Tangga Lipat Aluminium', '0133', '', 0, '0', 2021, '', 'Kantor', 'DB', '', 0, '', 'Panjang 5 meter'),
-('PUC', '', 'Lemari Aluminium Kaca', '0134', '', 0, '0', 2021, '', 'Kantor', 'DS', '', 0, '', 'Merk Brother'),
-('PUC', '', 'Lemari Aluminium Kaca', '0135', '', 0, '0', 2021, '', 'Kantor', 'DS', '', 0, '', 'Merk Brother'),
-('PUC', '', 'Lemari Aluminium Kaca', '0136', '', 0, '0', 2021, '', 'Kantor', 'DS', '', 0, '', 'Merk Brother'),
-('PUC', '', 'Lemari Aluminium Kaca', '0137', '', 0, '0', 2021, '', 'Kantor', 'DS', '', 0, '', 'Merk Lions'),
-('PUC', '', 'Lemari Aluminium Kaca', '0138', '', 0, '0', 2021, '', 'Kantor', 'DS', '', 0, '', 'Tempat Piring'),
-('PUC', '', 'Lemari Aluminium Kaca', '0139', '', 0, '0', 2021, '', 'Kantor', 'DS', '', 0, '', 'Tempat Helm dan rompi'),
-('PUC', '', 'Lemari Aluminium Kaca', '0140', '', 0, '0', 2021, '', 'Kantor', 'DS', '', 0, '', 'File'),
-('PUC', '', 'Lemari Aluminium Kaca', '0141', '', 0, '0', 2021, '', 'Kantor', 'DS', '', 0, '', 'File'),
-('PUC', '', 'Lemari Aluminium Kaca', '0142', '', 0, '0', 2021, '', 'Kantor', 'DS', '', 0, '', 'Rak Sepatu'),
-('PUC', '', 'Rak Air Minum Kemasan Galon', '0143', '', 0, '0', 2021, '', 'Kantor', 'DS', '', 0, '', ''),
-('PUC', '', 'Brankas', '0144', '', 0, '0', 2021, '', 'Kantor', 'TR', '', 0, '', ''),
-('PUC', '', 'Dispenser', '0145', '', 0, '0', 2021, '', 'Kantor', 'DB', '', 0, '', ''),
-('PUC', '', 'Pesawat Telepon', '0146', '', 0, '0', 2021, '', 'Receiptionist', 'DS', '', 0, '', ''),
-('PUC', '', 'Pesawat Telepon', '0147', '', 0, '0', 2021, '', 'Dapur', 'DS', '', 0, '', ''),
-('PUC', '', 'Pesawat Telepon', '0148', '', 0, '0', 2021, '', 'R. Man. PUC', 'DS', '', 0, '', ''),
-('PUC', '', 'Pesawat Telepon', '0149', '', 0, '0', 2021, '', 'Kantor', 'DS', '', 0, '', ''),
-('PUC', '', 'Pesawat Telepon', '0150', '', 0, '0', 2021, '', 'Kantor', 'DS', '', 0, '', ''),
-('PUC', '', 'Pesawat Telepon', '0151', '', 0, '0', 2021, '', 'Kantor', 'DS', '', 0, '', ''),
-('PUC', '', 'Pesawat Telepon', '0152', '', 0, '0', 2021, '', 'Kantor', 'DS', '', 0, '', ''),
-('PUC', '', 'Pesawat Telepon', '0153', '', 0, '0', 2021, '', 'Kantor', 'DS', '', 0, '', ''),
-('PUC', '', 'Pesawat Telepon', '0154', '', 0, '0', 2021, '', 'Kantor', 'DS', '', 0, '', ''),
-('PUC', '', 'Pesawat Telepon', '0155', '', 0, '0', 2021, '', 'Kantor', 'DS', '', 0, '', ''),
-('PUC', '', 'Pesawat Telepon', '0156', '', 0, '0', 2021, '', 'Kantor', 'DS', '', 0, '', ''),
-('PUC', '', 'Pesawat Telepon', '0157', '', 0, '0', 2021, '', 'Kantor', 'DS', '', 0, '', ''),
-('PUC', '', 'Lemari', '0158', '', 0, '0', 2021, '', 'Kantor', 'TR', '', 0, '', ''),
-('PUC', '', 'Kursi Sofa', '0159', '', 0, '0', 2021, '', 'R. Man. PUC', 'DS', '', 0, '', ''),
-('PUG', '', 'AC', '0001', '', 0, '0', 2019, '', 'ADM TEKNIK', 'RB', '', 0, '', 'Lobby (2 pcs)'),
-('PUG', '', 'AC', '0002', '', 0, '0', 2019, '', 'ADM TEKNIK', 'DB', '', 0, '', 'Lobby'),
-('PUG', '', 'AC', '0003', '', 0, '0', 2019, '', 'ADM HR', 'TR', '', 0, '', 'Lobby'),
-('PUG', '', 'AC', '0004', '', 0, '0', 2019, '', 'ADM HR', 'DB', '', 0, '', 'Lobby (2 pcs)'),
-('PUG', '', 'AC', '0005', '', 0, '0', 2019, '', 'ADM HR', 'DB', '', 0, '', 'Lobby'),
-('PUG', '', 'KULKAS', '0006', '', 0, '0', 2019, '', 'ADM HR', 'DB', '', 0, '', 'Lobby ( SARANA PROMOSI )'),
-('PUG', '', 'TV 42\"', '0007', '', 0, '0', 2019, '', 'ADM HR', 'TR', '', 0, '', 'Ruang tamu (3 pcs)'),
-('PUG', '', 'MEJA', '0008', '', 0, '0', 2019, '', 'ADM HR', 'DB', '', 0, '', 'Ruang tamu'),
-('PUG', '', 'MEJA', '0009', '', 0, '0', 2019, '', 'ADM HR', 'DB', '', 0, '', 'Samping ruang tamu'),
-('PUG', '', 'MEJA', '0010', '', 0, '0', 2019, '', 'ADM HR', 'DB', '', 0, '', 'Ruang Sekretaris'),
-('PUG', '', 'MEJA', '0011', '', 0, '0', 2019, '', 'ADM HR', 'DB', '', 0, '', 'Ruang Sekretaris (2 pcs)'),
-('PUG', '', 'MEJA', '0012', '', 0, '0', 2019, '', 'ADM HR', 'DB', '', 0, '', 'Ruang Sekretaris'),
-('PUG', '', 'MESIN KETIK ELEKTRIK', '0013', '', 0, '0', 2019, '', 'ADM HR', 'DB', '', 0, '', 'Ruang Manager PUJ ( CCTV )'),
-('PUG', '', 'DISEPENSER', '0014', '', 0, '0', 2019, '', 'ADM HR', 'DB', '', 0, '', 'Ruang Manager PUJ ( ATG )'),
-('PUG', '', 'MEJA ', '0015', '', 0, '0', 2020, '', 'SEK MAN PUG', 'DB', '', 0, '', 'Ruang Manager PUJ'),
-('PUG', '', 'AC', '0016', '', 0, '0', 2019, '', 'SEK MAN PUG', 'DB', '', 0, '', 'Ruang Manager PUJ'),
-('PUG', '', 'AC', '0017', '', 0, '0', 2019, '', 'MAN PUG', 'DB', '', 0, '', 'Ruang Manager PUJ (4 pcs)'),
-('PUG', '', 'KULKAS', '0018', '', 0, '0', 2019, '', 'MAN PUG', 'DB', '', 0, '', 'Ruang rapat'),
-('PUG', '', 'DISEPENSER', '0019', '', 0, '0', 2019, '', 'MAN PUG', 'DB', '', 0, '', 'Ruang rapat'),
-('PUG', '', 'BU', '0020', '', 0, '0', 2019, '', 'MAN PUG', 'TX', '', 0, '', 'Ruang rapat (23 pcs)'),
-('PUG', '', 'BUFFET', '0021', '', 0, '0', 2019, '', 'MAN PUG', 'DB', '', 0, '', 'Ruang cozy HR'),
-('PUG', '', 'BUFFET', '0022', '', 0, '0', 2019, '', 'MAN PUG', 'DB', '', 0, '', 'Office lantai 2'),
-('PUG', '', 'AC', '0023', '', 0, '0', 2019, '', 'MAN PUG', 'DB', '', 0, '', 'Office lantai 2'),
-('PUG', '', 'AC', '0024', '', 0, '0', 2019, '', 'RAPAT ENDURO', 'DB', '', 0, '', 'Ruang HR'),
-('PUG', '', 'AC', '0025', '', 0, '0', 2019, '', 'RAPAT ENDURO', 'DB', '', 0, '', 'Ruang HR'),
-('PUG', '', 'AC', '0026', '', 0, '0', 2019, '', 'RAPAT ENDURO', 'DB', '', 0, '', 'Ruang HR'),
-('PUG', '', 'DISEPENSER', '0027', '', 0, '0', 2019, '', 'RAPAT ENDURO', 'DB', '', 0, '', 'Ruang HR'),
-('PUG', '', 'TV 21\"', '0028', '', 0, '0', 2019, '', 'RAPAT ENDURO', 'DB', '', 0, '', 'Ruang HR (7 pcs)'),
-('PUG', '', 'MEJA RAPAT', '0029', '', 0, '0', 2019, '', 'RAPAT ENDURO', 'DB', '', 0, '', 'Ruang mbak Jo'),
-('PUG', '', 'LCD PROJECTOR PANASONIC', '0030', '', 0, '0', 2019, '', 'RAPAT ENDURO', 'DB', '', 0, '', 'Ruang Logistik'),
-('PUG', '', 'WIHITE BOARD', '0031', '', 0, '0', 2019, '', 'RAPAT ENDURO', 'DB', '', 0, '', 'Ruang Teknik'),
-('PUG', '', 'LAYAR PROJECTOR', '0032', '', 0, '0', 2019, '', 'RAPAT ENDURO', 'DB', '', 0, '', 'Ruang Teknik'),
-('PUG', '', 'AC', '0033', '', 0, '0', 2019, '', 'RAPAT ENDURO', 'DB', '', 0, '', 'Depan ruang brainz (2 pcs)'),
-('PUG', '', 'MEJA', '0034', '', 0, '0', 2019, '', 'RAPAT ENDURO', 'DB', '', 0, '', 'Ruang brainz'),
-('PUG', '', 'LEMARI BESI', '0035', '', 0, '0', 2019, '', 'HSSE', 'DB', '', 0, '', 'Ruang brainz'),
-('PUG', '', 'LEMARI BESI', '0036', '', 0, '0', 2019, '', 'HSSE', 'DB', '', 0, '', 'Ruang brainz'),
-('PUG', '', 'LEMARI BESI', '0037', '', 0, '0', 2019, '', 'HSSE', 'DB', '', 0, '', 'Ruang rapat'),
-('PUG', '', 'LEMARI KACA', '0038', '', 0, '0', 2019, '', 'HSSE', 'DB', '', 0, '', 'Ruang rapat'),
-('PUG', '', 'LEMARI KACA', '0039', '', 0, '0', 2019, '', 'HSSE', 'DB', '', 0, '', 'Ruang rapat (5 pcs)'),
-('PUG', '', 'MEJA', '0040', '', 0, '0', 2019, '', 'HSSE PUSKODAL', 'DB', '', 0, '', 'Ruang rokok (6 pcs)'),
-('PUG', '', 'MEJA', '0041', '', 0, '0', 2019, '', 'HSSE PUSKODAL', 'DB', '', 0, '', 'Ruang rokok'),
-('PUG', '', 'MEJA', '0042', '', 0, '0', 2019, '', 'HSSE PUSKODAL', 'DB', '', 0, '', '61 pcs'),
-('PUG', '', 'MEJA', '0043', '', 0, '0', 2019, '', 'HSSE PUSKODAL', 'DB', '', 0, '', ''),
-('PUG', '', 'AC', '0044', '', 0, '0', 2019, '', 'HSSE', 'DB', '', 0, '', ''),
-('PUG', '', 'AC', '0045', '', 0, '0', 2019, '', 'HSSE', 'DB', '', 0, '', ''),
-('PUG', '', 'DISEPENSER', '0046', '', 0, '0', 2019, '', 'HSSE PUSKODAL', 'DB', '', 0, '', ''),
-('PUG', '', 'MEJA', '0047', '', 0, '0', 2019, '', 'HSSE', 'DB', '', 0, '', ''),
-('PUG', '', 'MEJA', '0048', '', 0, '0', 2019, '', 'HSSE', 'DB', '', 0, '', 'Gudang ATK'),
-('PUG', '', 'LEMARI DOC', '0049', '', 0, '0', 2019, '', 'HSSE', 'DB', '', 0, '', 'Ruang musik'),
-('PUG', '', 'LEMARI DOC', '0050', '', 0, '0', 2019, '', 'HSSE', 'DB', '', 0, '', 'Ruang musik'),
-('PUG', '', 'AC', '0051', '', 0, '0', 2019, '', 'HSSE', 'DB', '', 0, '', '3 unit'),
-('PUG', '', 'AC', '0052', '', 0, '0', 2019, '', 'PUSKODAL', 'DB', '', 0, '', 'Ruang Adm (6 pcs)'),
-('PUG', '', 'AC', '0053', '', 0, '0', 2019, '', 'PUSKODAL', 'DB', '', 0, '', 'Ruang Pak Tantra (2 pcs)'),
-('PUG', '', 'AC', '0054', '', 0, '0', 2019, '', 'PUSKODAL', 'DB', '', 0, '', 'Ruang Pak Tantra'),
-('PUG', '', 'MEJA OVAL', '0055', '', 0, '0', 2019, '', 'PUSKODAL', 'DB', '', 0, '', 'Ruang Pak Tantra'),
-('PUG', '', 'MEJA OVAL', '0056', '', 0, '0', 2019, '', 'PUSKODAL', 'DB', '', 0, '', 'Ruang Pak Tantra'),
-('PUG', '', 'KULKAS', '0057', '', 0, '0', 2019, '', 'PUSKODAL', 'DB', '', 0, '', 'Ruang Pak Karel'),
-('PUG', '', 'TREADMILL', '0058', '', 0, '0', 2019, '', 'PUSKODAL', 'DB', '', 0, '', 'Ruang Pak Karel'),
-('PUG', '', 'KARAOKE', '0059', '', 0, '0', 2019, '', 'PUSKODAL', 'DB', '', 0, '', 'Ruang Pak Karel'),
-('PUG', '', 'LOKER', '0060', '', 0, '0', 2019, '', 'PUSKODAL', 'DB', '', 0, '', 'Ruang Rapat (7 pcs)'),
-('PUG', '', 'LEMARI DOC', '0061', '', 0, '0', 2019, '', 'PUSKODAL', 'DB', '', 0, '', 'Ruang Rapat'),
-('PUG', '', 'AC', '0062', '', 0, '0', 2019, '', 'SECURITY', 'DB', '', 0, '', 'Ruang Rapat'),
-('PUG', '', 'AC', '0063', '', 0, '0', 2019, '', 'SECURITY', 'TR', '', 0, '', 'Ruang PLC  GP (5 pcs)'),
-('PUG', '', 'KIPAS', '0064', '', 0, '0', 2019, '', 'SECURITY', 'DB', '', 0, '', 'Ruang PLC  GP'),
-('PUG', '', 'TV CCTV', '0065', '', 0, '0', 2019, '', 'SECURITY', 'DB', '', 0, '', 'Ruang PLC  GP (2 pcs)'),
-('PUG', '', 'TV CCTV', '0066', '', 0, '0', 2019, '', 'SECURITY', 'DB', '', 0, '', '5 pcs'),
-('PUG', '', 'LEMARI KAYU', '0067', '', 0, '0', 2019, '', 'SECURITY', 'DB', '', 0, '', '3 pcs'),
-('PUG', '', 'MEJA', '0068', '', 0, '0', 2019, '', 'SECURITY', 'DB', '', 0, '', ''),
-('PUG', '', 'MEJA', '0069', '', 0, '0', 2019, '', 'SECURITY', 'DB', '', 0, '', ''),
-('PUG', '', 'MEJA KACA', '0070', '', 0, '0', 2019, '', 'SECURITY', 'DB', '', 0, '', '2 pcs'),
-('PUG', '', 'LEMARI ', '0071', '', 0, '0', 2019, '', 'POS 2', 'DB', '', 0, '', ''),
-('PUG', '', 'MEJA', '0072', '', 0, '0', 2019, '', 'POS 2', 'DB', '', 0, '', 'New LOBP bawah (4 pcs)'),
-('PUG', '', 'MEJA', '0073', '', 0, '0', 2019, '', 'POS 2', 'DB', '', 0, '', 'New LOBP bawah (2 pcs)'),
-('PUG', '', 'AC', '0074', '', 0, '0', 2019, '', 'POS 2', 'DB', '', 0, '', 'New LOBP Atas (3 unit)'),
-('PUG', '', 'DISEPENSER', '0075', '', 0, '0', 2019, '', 'WORKSHOP', 'DJ', '', 0, '', 'New LOBP Atas (21 pcs)'),
-('PUG', '', 'TREADMILL', '0076', '', 0, '0', 2019, '', 'WORKSHOP', 'DB', '', 0, '', 'New LOBP Atas'),
-('PUG', '', 'HOME GYM', '0077', '', 0, '0', 2019, '', 'WORKSHOP', 'DB', '', 0, '', 'New LOBP Atas'),
-('PUG', '', 'BENCH PRESS', '0078', '', 0, '0', 2019, '', 'WORKSHOP', 'DB', '', 0, '', 'New LOBP Atas'),
-('PUG', '', 'PREACHER CURL', '0079', '', 0, '0', 2019, '', 'WORKSHOP', 'DB', '', 0, '', 'New LOBP Atas'),
-('PUG', '', 'SMITH MACHINE', '0080', '', 0, '0', 2019, '', 'WORKSHOP', 'DB', '', 0, '', 'New LOBP Atas'),
-('PUG', '', 'MEJA PINGPONG', '0081', '', 0, '0', 2019, '', 'WORKSHOP', 'DB', '', 0, '', 'New LOBP Atas'),
-('PUG', '', 'DUMBBLE SET RACK', '0082', '', 0, '0', 2019, '', 'WORKSHOP', 'DB', '', 0, '', 'New LOBP Atas'),
-('PUG', '', 'MEJA', '0083', '', 0, '0', 2019, '', 'ADM MWH', 'DB', '', 0, '', 'New LOBP Atas'),
-('PUG', '', 'AC', '0084', '', 0, '0', 2019, '', 'ADM MWH', 'DS', '', 0, '', 'New LOBP Atas'),
-('PUG', '', 'LEMARI', '0085', '', 0, '0', 2019, '', 'ADM MWH', 'DB', '', 0, '', 'New LOBP Atas'),
-('PUG', '', 'MEJA', '0086', '', 0, '0', 2019, '', 'ADM MWH', 'DB', '', 0, '', 'Ruang Rapat Ex ruang pak setyo'),
-('PUG', '', 'AC', '0087', '', 0, '0', 2019, '', 'ADM MWH', 'DS', '', 0, '', 'Ruang Rapat Ex ruang pak setyo'),
-('PUG', '', 'MEJA', '0088', '', 0, '0', 2019, '', 'ADM MWH ATAS', 'DB', '', 0, '', 'Ruang Rapat Ex ruang pak setyo'),
-('PUG', '', 'MEJA', '0089', '', 0, '0', 2019, '', 'ADM MWH ATAS', 'DB', '', 0, '', 'Ruang Rapat Ex ruang pak setyo'),
-('PUG', '', 'MEJA', '0090', '', 0, '0', 2019, '', 'ADM MWH ATAS', 'DB', '', 0, '', 'Ruang rapat'),
-('PUG', '', 'AC', '0091', '', 0, '0', 2019, '', 'ADM MWH ATAS', 'DB', '', 0, '', 'Ruang rapat'),
-('PUG', '', 'AC', '0092', '', 0, '0', 2019, '', 'ADM MWH ATAS', 'DB', '', 0, '', 'Ruang rapat'),
-('PUG', '', 'AC', '0093', '', 0, '0', 2019, '', 'ADM MWH ATAS', 'DB', '', 0, '', 'Ruang rapat (13 pcs)'),
-('PUG', '', 'MEJA', '0094', '', 0, '0', 2019, '', 'ADM MWH ATAS', 'DB', '', 0, '', 'Ruang rapat'),
-('PUG', '', 'AC', '0095', '', 0, '0', 2019, '', 'SPV ADM LOBP', 'DB', '', 0, '', 'Ruang rapat'),
-('PUG', '', 'MEJA', '0096', '', 0, '0', 2019, '', 'SPV ADM LOBP', 'DB', '', 0, '', 'Ruang rapat'),
-('PUG', '', 'PRINTER EPSON', '0097', '', 0, '0', 2019, '', 'SPV ADM LOBP', 'TR', '', 0, '', 'Ruang rapat'),
-('PUG', '', 'BUFFET', '0098', '', 0, '0', 2019, '', 'SPV ADM LOBP', 'DB', '', 0, '', 'Ruang rapat'),
-('PUG', '', 'LEMARI KACA', '0099', '', 0, '0', 2019, '', 'SPV ADM LOBP', 'DB', '', 0, '', 'Ruang teknik maintenance'),
-('PUG', '', 'KABINET', '0100', '', 0, '0', 2019, '', 'SPV ADM LOBP', 'DB', '', 0, '', 'Ruang teknik maintenance'),
-('PUG', '', 'PRINTER EPSON', '0101', '', 0, '0', 2019, '', 'ADM LOBP', 'DS', '', 0, '', 'Ruang teknik maintenance'),
-('PUG', '', 'KULKAS', '0102', '', 0, '0', 2019, '', 'ADM LOBP', 'DS', '', 0, '', '8 pcs'),
-('PUG', '', 'MEJA', '0103', '', 0, '0', 2019, '', 'ADM LOBP', 'DS', '', 0, '', '8 pcs'),
-('PUG', '', 'MEJA ', '0104', '', 0, '0', 2019, '', 'ADM LOBP', 'DS', '', 0, '', ''),
-('PUG', '', 'MEJA', '0105', '', 0, '0', 2019, '', 'ADM LOBP', 'DS', '', 0, '', ''),
-('PUG', '', 'MEJA', '0106', '', 0, '0', 2019, '', 'ADM LOBP', 'DS', '', 0, '', '6 pcs'),
-('PUG', '', 'DISEPENSER', '0107', '', 0, '0', 2019, '', 'ADM LOBP', 'DB', '', 0, '', '7 pcs'),
-('PUG', '', 'LEMARI DOC', '0108', '', 0, '0', 2019, '', 'ADM LOBP', 'DB', '', 0, '', '4 pcs'),
-('PUG', '', 'LEMARI DOC', '0109', '', 0, '0', 2019, '', 'ADM LOBP', 'DJ', '', 0, '', '2 pcs'),
-('PUG', '', 'LEMARI DOC', '0110', '', 0, '0', 2019, '', 'ADM LOBP', 'DJ', '', 0, '', '5 pcs'),
-('PUG', '', 'AC', '0111', '', 0, '0', 2019, '', 'ADM LOBP', 'DB', '', 0, '', '5 pcs'),
-('PUG', '', 'AC', '0112', '', 0, '0', 2019, '', 'ADM LOBP', 'DB', '', 0, '', '4 pcs'),
-('PUG', '', 'TV SONY 32\"', '0113', '', 0, '0', 2019, '', 'ADM LOBP', 'DB', '', 0, '', ''),
-('PUG', '', 'TV', '0114', '', 0, '0', 2019, '', 'SPV FILLING LITHOS& DRUM', 'TR', '', 0, '', '4 pcs'),
-('PUG', '', 'AC', '0115', '', 0, '0', 2019, '', 'SPV FILLING LITHOS& DRUM', 'TR', '', 0, '', ''),
-('PUG', '', 'LEMARI DOC', '0116', '', 0, '0', 2019, '', 'SPV FILLING LITHOS& DRUM', 'DB', '', 0, '', '2 pcs'),
-('PUG', '', 'LEMARI', '0117', '', 0, '0', 2019, '', 'SPV FILLING LITHOS& DRUM', 'DB', '', 0, '', '2 pcs'),
-('PUG', '', 'PRINTER HP', '0118', '', 0, '0', 2019, '', 'SPV FILLING LITHOS& DRUM', 'DB', '', 0, '', ''),
-('PUG', '', 'DESK ', '0119', '', 0, '0', 2019, '', 'SPV FILLING LITHOS& DRUM', 'DB', '', 0, '', ''),
-('PUG', '', 'DESK ', '0120', '', 0, '0', 2019, '', 'SPV FILLING LITHOS& DRUM', 'DB', '', 0, '', ''),
-('PUG', '', 'KABINET BESI', '0121', '', 0, '0', 2019, '', 'SPV FILLING LITHOS& DRUM', 'DB', '', 0, '', ''),
-('PUG', '', 'PRINTER', '0122', '', 0, '0', 2019, '', 'OPERATION HEAD', 'DB', '', 0, '', ''),
-('PUG', '', 'AC', '0123', '', 0, '0', 2019, '', 'OPERATION HEAD', 'DB', '', 0, '', '6 pcs'),
-('PUG', '', 'DESK', '0124', '', 0, '0', 2019, '', 'OPERATION HEAD', 'DB', '', 0, '', ''),
-('PUG', '', 'DESK', '0125', '', 0, '0', 2019, '', 'OPERATION HEAD', 'DB', '', 0, '', ''),
-('PUG', '', 'DESK', '0126', '', 0, '0', 2019, '', 'OPERATION HEAD', 'DB', '', 0, '', ''),
-('PUG', '', 'LEMARI', '0127', '', 0, '0', 2019, '', 'OPERATION HEAD', 'DB', '', 0, '', ''),
-('PUG', '', 'LEMARI', '0128', '', 0, '0', 2019, '', 'OPERATION HEAD', 'DB', '', 0, '', '4 pcs'),
-('PUG', '', 'DESK', '0129', '', 0, '0', 2019, '', 'MAIN CONTROL ROOM', 'DB', '', 0, '', ''),
-('PUG', '', 'DESK', '0130', '', 0, '0', 2019, '', 'MAIN CONTROL ROOM', 'DB', '', 0, '', ''),
-('PUG', '', 'ROUND DESK', '0131', '', 0, '0', 2019, '', 'MAIN CONTROL ROOM', 'DB', '', 0, '', ''),
-('PUG', '', 'LEMARI', '0132', '', 0, '0', 2019, '', 'MAIN CONTROL ROOM', 'DB', '', 0, '', ''),
-('PUG', '', 'LEMARI', '0133', '', 0, '0', 2019, '', 'MAIN CONTROL ROOM', 'DB', '', 0, '', ''),
-('PUG', '', 'LEMARI', '0134', '', 0, '0', 2019, '', 'MAIN CONTROL ROOM', 'DB', '', 0, '', ''),
-('PUG', '', 'LEMARI', '0135', '', 0, '0', 2019, '', 'MAIN CONTROL ROOM', 'DB', '', 0, '', ''),
-('PUG', '', 'LEMARI', '0136', '', 0, '0', 2019, '', 'MAIN CONTROL ROOM', 'DB', '', 0, '', ''),
-('PUG', '', 'LEMARI', '0137', '', 0, '0', 2019, '', 'MAIN CONTROL ROOM', 'DB', '', 0, '', ''),
-('PUG', '', 'LEMARI', '0138', '', 0, '0', 2019, '', 'MAIN CONTROL ROOM', 'DB', '', 0, '', ''),
-('PUG', '', 'LEMARI', '0139', '', 0, '0', 2019, '', 'MAIN CONTROL ROOM', 'DB', '', 0, '', ''),
-('PUG', '', 'AC', '0140', '', 0, '0', 2019, '', 'MAIN CONTROL ROOM', 'DB', '', 0, '', ''),
-('PUG', '', 'AC', '0141', '', 0, '0', 2019, '', 'MAIN CONTROL ROOM', 'DB', '', 0, '', ''),
-('PUG', '', 'AC', '0142', '', 0, '0', 2019, '', 'MAIN CONTROL ROOM', 'DB', '', 0, '', ''),
-('PUG', '', 'L DESK', '0143', '', 0, '0', 2019, '', 'TEKNIK OBP', 'DS', '', 0, '', ''),
-('PUG', '', 'L DESK', '0144', '', 0, '0', 2019, '', 'TEKNIK OBP', 'DS', '', 0, '', '5 pcs'),
-('PUG', '', 'DESK', '0145', '', 0, '0', 2019, '', 'TEKNIK OBP', 'DS', '', 0, '', ''),
-('PUG', '', 'DESK', '0146', '', 0, '0', 2019, '', 'TEKNIK OBP', 'DS', '', 0, '', ''),
-('PUG', '', 'LEMARI BESI', '0147', '', 0, '0', 2019, '', 'TEKNIK OBP', 'DJ', '', 0, '', ''),
-('PUG', '', 'LEMARI BESI', '0148', '', 0, '0', 2019, '', 'TEKNIK OBP', 'DB', '', 0, '', ''),
-('PUG', '', 'AC', '0149', '', 0, '0', 2019, '', 'TEKNIK OBP', 'DB', '', 0, '', ''),
-('PUG', '', 'DISEPENSER', '0150', '', 0, '0', 2019, '', 'TEKNIK OBP', 'DB', '', 0, '', ''),
-('PUG', '', 'LEMARI BESI', '0151', '', 0, '0', 2019, '', 'P2', 'DB', '', 0, '', '3 pcs'),
-('PUG', '', 'LEMARI BESI', '0152', '', 0, '0', 2019, '', 'P2', 'DB', '', 0, '', ''),
-('PUG', '', 'DESK MEJA', '0153', '', 0, '0', 2019, '', 'P2', 'DB', '', 0, '', ''),
-('PUG', '', 'DESK MEJA', '0154', '', 0, '0', 2019, '', 'P2', 'DB', '', 0, '', ''),
-('PUG', '', 'LONG DESK', '0155', '', 0, '0', 2019, '', 'ADM TEKNIK', 'DB', '', 0, '', ''),
-('PUG', '', 'KABINET', '0156', '', 0, '0', 2019, '', 'P2', 'DB', '', 0, '', ''),
-('PUG', '', 'KULKAS', '0157', '', 0, '0', 2019, '', 'P2', 'DB', '', 0, '', ''),
-('PUG', '', 'AC', '0158', '', 0, '0', 2019, '', 'CONTROL ROOM', 'DB', '', 0, '', '2 pcs'),
-('PUG', '', 'AC', '0159', '', 0, '0', 2019, '', 'CONTROL ROOM', 'DB', '', 0, '', ''),
-('PUG', '', 'TV', '0160', '', 0, '0', 2019, '', 'CONTROL ROOM', 'DB', '', 0, '', ''),
-('PUG', '', 'DISEPENSER', '0161', '', 0, '0', 2019, '', 'CONTROL ROOM', 'DB', '', 0, '', ''),
-('PUG', '', 'SPEAKER', '0162', '', 0, '0', 2019, '', 'CONTROL ROOM', 'DB', '', 0, '', ''),
-('PUG', '', 'LEMARI BESI', '0163', '', 0, '0', 2019, '', 'CONTROL ROOM', 'DB', '', 0, '', ''),
-('PUG', '', 'LEMARI BESI', '0164', '', 0, '0', 2019, '', 'CONTROL ROOM', 'DB', '', 0, '', ''),
-('PUG', '', 'LEMARI BESI', '0165', '', 0, '0', 2019, '', 'CONTROL ROOM', 'DB', '', 0, '', ''),
-('PUG', '', 'LEMARI', '0166', '', 0, '0', 2019, '', 'QC ATAS', 'DB', '', 0, '', ''),
-('PUG', '', 'LEMARI', '0167', '', 0, '0', 2019, '', 'QC ATAS', 'DB', '', 0, '', ''),
-('PUG', '', 'AC', '0168', '', 0, '0', 2019, '', 'QC BAWAH', 'DB', '', 0, '', ''),
-('PUG', '', 'AC', '0169', '', 0, '0', 2019, '', 'QC BAWAH', 'DB', '', 0, '', ''),
-('PUG', '', 'MEJA', '0170', '', 0, '0', 2019, '', 'QC BAWAH', 'DB', '', 0, '', ''),
-('PUG', '', 'LEMARI', '0171', '', 0, '0', 2019, '', 'QC ATAS', 'DB', '', 0, '', ''),
-('PUG', '', 'LEMARI KACA', '0172', '', 0, '0', 2019, '', 'QC BAWAH', 'DB', '', 0, '', 'Ruangan pak Nur (2 pcs)'),
-('PUG', '', 'LEMARI KACA', '0173', '', 0, '0', 2019, '', 'QC BAWAH', 'DB', '', 0, '', 'Ruangan pak Nur'),
-('PUG', '', 'AC', '0174', '', 0, '0', 2019, '', 'QC ATAS', 'DB', '', 0, '', 'Ruangan pak Nur'),
-('PUG', '', 'AC', '0175', '', 0, '0', 2019, '', 'QC ATAS', 'DB', '', 0, '', 'Ruangan pak Nur'),
-('PUG', '', 'DISEPENSER', '0176', '', 0, '0', 2019, '', 'QC ATAS', 'DB', '', 0, '', 'Ruangan pak Nur (3 pcs)'),
-('PUG', '', 'MEJA', '0177', '', 0, '0', 2019, '', 'QC BAWAH', 'DB', '', 0, '', 'Ruangan pak Nur'),
-('PUG', '', 'MEJA', '0178', '', 0, '0', 2019, '', 'QC ATAS', 'DB', '', 0, '', 'Ruangan pak Nur'),
-('PUG', '', 'MEJA', '0179', '', 0, '0', 2019, '', 'QC ATAS', 'DB', '', 0, '', 'Ruangan kosong'),
-('PUG', '', 'MEJA', '0180', '', 0, '0', 2019, '', 'QC ATAS', 'DB', '', 0, '', 'Ruangan Mbak Yashmikha'),
-('PUG', '', 'PRINTER CANON IX6870', '0181', '', 0, '0', 2019, '', 'QC ATAS', 'DB', '', 0, '', 'Ruangan Mbak Yashmikha'),
-('PUG', '', 'KULKAS', '0182', '', 0, '0', 2019, '', 'QC ATAS', 'DB', '', 0, '', 'Ruangan Mbak Yashmikha (2 pcs)'),
-('PUG', '', 'AC', '0183', '', 0, '0', 2019, '', 'QC ATAS', 'DB', '', 0, '', ''),
-('PUG', '', 'LEMARI BESI', '0184', '', 0, '0', 2019, '', 'QC ATAS', 'DB', '', 0, '', ''),
-('PUG', '', 'LEMARI BESI', '0185', '', 0, '0', 2019, '', 'QC ATAS', 'DB', '', 0, '', ''),
-('PUG', '', 'LEMARI BESI', '0186', '', 0, '0', 2019, '', 'QC ATAS', 'DB', '', 0, '', ''),
-('PUG', '', 'Meja Kantor', '0187', '', 0, '0', 2019, '', 'KANTOR HSSE', 'DB', '', 0, '', ''),
-('PUG', '', 'Meja Kantor', '0188', '', 0, '0', 2019, '', 'KANTOR HSSE', 'DB', '', 0, '', ''),
-('PUG', '', 'Meja Kantor', '0189', '', 0, '0', 2019, '', 'KANTOR HSSE', 'DB', '', 0, '', ''),
-('PUG', '', 'Meja Kantor', '0190', '', 0, '0', 2019, '', 'KANTOR HSSE', 'DB', '', 0, '', ''),
-('PUG', '', 'Meja Kantor', '0191', '', 0, '0', 2019, '', 'KANTOR HSSE', 'DB', '', 0, '', ''),
-('PUG', '', 'Sepeda Pancal', '0192', '', 0, '0', 2019, '', 'QC', 'DB', '', 0, '', ''),
-('PUG', '', 'Sepeda Pancal', '0193', '', 0, '0', 2019, '', 'QC', 'DB', '', 0, '', ''),
-('PUG', '', 'Sepeda Pancal', '0194', '', 0, '0', 2019, '', 'QC', 'DB', '', 0, '', ''),
-('PUG', '', 'Sepeda Pancal', '0195', '', 0, '0', 2019, '', 'QC', 'DB', '', 0, '', ''),
-('PUG', '', 'Sepeda Pancal', '0196', '', 0, '0', 2019, '', 'Control room', 'DB', '', 0, '', 'Ruang rapat'),
-('PUG', '', 'Sepeda Pancal', '0197', '', 0, '0', 2019, '', 'Control room', 'DB', '', 0, '', 'Ruang rapat'),
-('PUG', '', 'DISPENSER', '0198', '', 0, '0', 2019, '', 'P2', 'TR', '', 0, '', 'Ruang rapat'),
-('PUG', '', 'DESK MEJA', '0199', '', 0, '0', 2019, '', 'P2', 'DB', '', 0, '', 'Ruang rapat'),
-('PUG', '', 'SOFA', '0200', '', 0, '0', 2019, '', 'P2', 'DB', '', 0, '', 'Ruang rapat'),
-('PUG', '', 'AC', '0201', '', 0, '0', 2019, '', 'P2', 'DB', '', 0, '', ''),
-('PUG', '', 'AC', '0202', '', 0, '0', 2019, '', 'P2', 'DB', '', 0, '', ''),
-('PUG', '', 'PRINTER STIKER ZEBRA 170Xi4', '0203', '', 0, '0', 2019, '', 'P2', 'DB', '', 0, '', ''),
-('PUG', '', 'MEJA', '0204', '', 0, '0', 2019, '', 'CONTROL ROOM', 'DB', '', 0, '', ''),
-('PUG', '', 'MEJA', '0205', '', 0, '0', 2019, '', 'CONTROL ROOM', 'DB', '', 0, '', ''),
-('PUG', '', 'MEJA', '0206', '', 0, '0', 2019, '', 'CONTROL ROOM', 'DB', '', 0, '', ''),
-('PUG', '', 'MEJA', '0207', '', 0, '0', 2019, '', 'CONTROL ROOM', 'DB', '', 0, '', ''),
-('PUG', '', 'MEJA', '0208', '', 0, '0', 2019, '', 'CONTROL ROOM', 'DB', '', 0, '', ''),
-('PUG', '', 'PRINTER HP PRO MZ03DW', '0209', '', 0, '0', 2019, '', 'CONTROL ROOM', 'DB', '', 0, '', '4 pcs'),
-('PUG', '', 'PRINTER EPSON L220', '0210', '', 0, '0', 2019, '', 'CONTROL ROOM', 'DB', '', 0, '', ''),
-('PUG', '', 'MEJA', '0211', '', 0, '0', 2019, '', 'QC BAWAH', 'DB', '', 0, '', 'Pantry'),
-('PUG', '', 'MEJA', '0212', '', 0, '0', 2019, '', 'QC BAWAH', 'DB', '', 0, '', 'Pantry'),
-('PUG', '', 'RAK MATERIAL', '0213', '', 0, '0', 2019, '', 'QC BAWAH', 'DB', '', 0, '', 'Pantry'),
-('PUG', '', 'RAK MATERIAL', '0214', '', 0, '0', 2019, '', 'QC BAWAH', 'DB', '', 0, '', 'Depan ruang lantai 3 (12 pcs)'),
-('PUG', '', 'RAK MATERIAL', '0215', '', 0, '0', 2019, '', 'QC BAWAH', 'DB', '', 0, '', ''),
-('PUG', '', 'RAK MATERIAL', '0216', '', 0, '0', 2019, '', 'QC BAWAH', 'DB', '', 0, '', ''),
-('PUG', '', 'RAK MATERIAL', '0217', '', 0, '0', 2019, '', 'QC ATAS', 'DB', '', 0, '', ''),
-('PUG', '', 'PAPAN INFORMASI', '0218', '', 0, '0', 2019, '', 'QC BAWAH', 'DB', '', 0, '', ''),
-('PUG', '', 'LEMARI KACA', '0219', '', 0, '0', 2019, '', 'QC ATAS', 'DB', '', 0, '', ''),
-('PUG', '', 'LEMARI KACA', '0220', '', 0, '0', 2019, '', 'QC ATAS', 'DB', '', 0, '', ''),
-('PUG', '', 'LEMARI KACA', '0221', '', 0, '0', 2019, '', 'QC ATAS', 'DB', '', 0, '', ''),
-('PUG', '', 'Sepeda Pancal', '0222', '', 0, '0', 2019, '', 'QC', 'DB', '', 0, '', ''),
-('PUG', '', 'Sepeda Pancal', '0223', '', 0, '0', 2019, '', 'QC', 'DB', '', 0, '', ''),
-('PUG', '', 'Sepeda Pancal', '0224', '', 0, '0', 2019, '', 'QC', 'DB', '', 0, '', ''),
-('PUG', '', 'AC', '0225', '', 0, '0', 2019, '', 'ADM TEKNIK', 'DB', '', 0, '', ''),
-('PUG', '', 'DISPENSER', '0226', '', 0, '0', 2019, '', 'POS 2', 'DB', '', 0, '', ''),
-('PUG', '', 'KULKAS', '0227', '', 0, '0', 2019, '', 'ADM MWH ATAS', 'DB', '', 0, '', ''),
-('PUG', '', 'DISPENSER', '0228', '', 0, '0', 2019, '', 'ADM MWH ATAS', 'DB', '', 0, '', ''),
-('PUG', '', 'DISPENSER', '0229', '', 0, '0', 2019, '', 'ADM MWH ATAS', 'DB', '', 0, '', ''),
-('PUG', '', 'AC', '0230', '', 0, '0', 2019, '', 'MAIN CONTROL ROOM', 'TR', '', 0, '', ''),
-('PUG', '', 'DISPENSER', '0231', '', 0, '0', 2019, '', 'TEKNIK OBP', 'DB', '', 0, '', ''),
-('PUG', '', 'AC', '0232', '', 0, '0', 2019, '', 'TEKNIK OBP', 'DB', '', 0, '', ''),
-('PUG', '', 'AC', '0233', '', 0, '0', 2019, '', 'TEKNIK OBP', 'DB', '', 0, '', ''),
-('PUG', '', 'AC', '0234', '', 0, '0', 2019, '', 'TEKNIK OBP', 'DB', '', 0, '', ''),
-('PUG', '', 'PAPER SHREDDER HEAVY DUTY', '0235', '', 0, '0', 2021, ' 16.275.000 ', 'ADM HR', 'DB', '', 0, '', ''),
-('PUJ', '', 'Kursi tamu merah 1 set', '0001', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 1', 'DB', '', 0, '', 'Lobby (2 pcs)'),
-('PUJ', '', 'Meja tamu', '0002', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 1', 'DB', '', 0, '', 'Lobby'),
-('PUJ', '', 'Meja repsesionis', '0003', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 1', 'DB', '', 0, '', 'Lobby'),
-('PUJ', '', 'Kursi Kerja 1 set', '0004', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 1', 'DS', '', 0, '', 'Lobby (2 pcs)'),
-('PUJ', '', 'Partisi penyimpanan botol oli', '0005', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 1', 'DB', '', 0, '', 'Lobby'),
-('PUJ', '', 'TV LED 60\'', '0006', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 1', 'DB', '', 0, '', 'Lobby ( SARANA PROMOSI )'),
-('PUJ', '', 'Sofa tamu 1 set', '0007', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 1', 'DB', '', 0, '', 'Ruang tamu (3 pcs)'),
-('PUJ', '', 'TV LED 60\'', '0008', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 1', 'DB', '', 0, '', 'Ruang tamu'),
-('PUJ', '', 'Sofa tamu 1 set', '0009', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 1', 'DB', '', 0, '', 'Samping ruang tamu'),
-('PUJ', '', 'Meja Kerja', '0010', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 1', 'DB', '', 0, '', 'Ruang Sekretaris'),
-('PUJ', '', 'Kursi Kerja 1 set', '0011', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 1', 'DB', '', 0, '', 'Ruang Sekretaris (2 pcs)'),
-('PUJ', '', 'Lemari Kabinet', '0012', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 1', 'DB', '', 0, '', 'Ruang Sekretaris'),
-('PUJ', '', 'TV LED 60\'', '0013', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 1', 'DB', '', 0, '', 'Ruang Manager PUJ ( CCTV )'),
-('PUJ', '', 'TV LED 60\'', '0014', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 1', 'DB', '', 0, '', 'Ruang Manager PUJ ( ATG )'),
-('PUJ', '', 'Meja TV', '0015', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 1', 'DB', '', 0, '', 'Ruang Manager PUJ'),
-('PUJ', '', 'Meja kerja', '0016', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 1', 'DB', '', 0, '', 'Ruang Manager PUJ'),
-('PUJ', '', 'Kursi Kerja (1 set)', '0017', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 1', 'DB', '', 0, '', 'Ruang Manager PUJ (4 pcs)'),
-('PUJ', '', 'Proyektor', '0018', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 1', 'DB', '', 0, '', 'Ruang rapat'),
-('PUJ', '', 'Meja Rapat 1 set', '0019', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 1', 'DB', '', 0, '', 'Ruang rapat'),
-('PUJ', '', 'Kursi kantor 1 set', '0020', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 1', 'DB', '', 0, '', 'Ruang rapat (23 pcs)'),
-('PUJ', '', 'TV LED 60\"', '0021', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 2', 'DB', '', 0, '', 'Ruang cozy HR'),
-('PUJ', '', 'Kubikal 1 set', '0022', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 2', 'DS', '', 0, '', 'Office lantai 2'),
-('PUJ', '', 'Kursi kantor 1 set', '0023', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 2', 'DB', '', 0, '', 'Office lantai 2'),
-('PUJ', '', 'Lemari kabinet kecil', '0024', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 2', 'DS', '', 0, '', 'Ruang HR'),
-('PUJ', '', 'Lemari kabinet kecil', '0025', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 2', 'DS', '', 0, '', 'Ruang HR'),
-('PUJ', '', 'Lemari kabinet kecil', '0026', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 2', 'DB', '', 0, '', 'Ruang HR'),
-('PUJ', '', 'Penghancur kertas', '0027', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 2', 'DB', '', 0, '', 'Ruang HR'),
-('PUJ', '', 'Kursi kantor 1 set', '0028', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 2', 'DS', '', 0, '', 'Ruang HR (7 pcs)'),
-('PUJ', '', 'Brankas uang', '0029', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 2', 'DB', '', 0, '', 'Ruang mbak Jo'),
-('PUJ', '', 'Kubikal 1 set', '0030', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 2', 'DS', '', 0, '', 'Ruang Logistik'),
-('PUJ', '', 'Kubikal 1 set', '0031', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 2', 'DS', '', 0, '', 'Ruang Teknik'),
-('PUJ', '', 'Lemari File', '0032', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 2', 'DB', '', 0, '', 'Ruang Teknik'),
-('PUJ', '', 'Sofa tamu (1 set)', '0033', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 2', 'DB', '', 0, '', 'Depan ruang brainz (2 pcs)'),
-('PUJ', '', 'Filling kabinet 1 set', '0034', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 2', 'DB', '', 0, '', 'Ruang brainz'),
-('PUJ', '', 'Lemari kabinet besi', '0035', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 2', 'TR', '', 0, '', 'Ruang brainz'),
-('PUJ', '', 'Lemari kabinet besi', '0036', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 2', 'TR', '', 0, '', 'Ruang brainz'),
-('PUJ', '', 'Proyektor', '0037', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 2', 'TR', '', 0, '', 'Ruang rapat'),
-('PUJ', '', 'Rak 1 set', '0038', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 2', 'DB', '', 0, '', 'Ruang rapat'),
-('PUJ', '', 'Kursi kantor (1 set)', '0039', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 2', 'DB', '', 0, '', 'Ruang rapat (5 pcs)'),
-('PUJ', '', 'Sofa 1 set', '0040', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 2', 'DB', '', 0, '', 'Ruang rokok (6 pcs)'),
-('PUJ', '', 'Lemari kabinet', '0041', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 2', 'DB', '', 0, '', 'Ruang rokok'),
-('PUJ', '', 'Kursi biru 1 set', '0042', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 3', 'DB', '', 0, '', '61 pcs'),
-('PUJ', '', 'Meja kantor 1 set', '0043', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 3', 'DS', '', 0, '', ''),
-('PUJ', '', 'Tangga', '0044', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 3', 'DB', '', 0, '', ''),
-('PUJ', '', 'Meja tenis 1 set', '0045', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 3', 'DB', '', 0, '', ''),
-('PUJ', '', 'Net bulu tangkis 1 set', '0046', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 3', 'DB', '', 0, '', ''),
-('PUJ', '', 'Net bulu tangkis 1 set', '0047', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 3', 'DB', '', 0, '', ''),
-('PUJ', '', 'Lemari kabinet besi', '0048', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 3', 'DJ', '', 0, '', 'Gudang ATK'),
-('PUJ', '', '1 set alat musik', '0049', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 3', 'DB', '', 0, '', 'Ruang musik'),
-('PUJ', '', 'Lemari berkas besi', '0050', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 3', 'DJ', '', 0, '', 'Ruang musik'),
-('PUJ', '', 'Peralatan Gym 1 set', '0051', '', 0, '0', 2022, '', 'Gedung Utama PUJ Lt. 3', 'DB', '', 0, '', '3 unit'),
-('PUJ', '', 'Kursi kerja 1 set', '0052', '', 0, '0', 2022, '', 'Grease Plant', 'DB', '', 0, '', 'Ruang Adm (6 pcs)'),
-('PUJ', '', 'Kursi kerja 1 set', '0053', '', 0, '0', 2022, '', 'Grease Plant', 'DB', '', 0, '', 'Ruang Pak Tantra (2 pcs)'),
-('PUJ', '', 'Meja kerja', '0054', '', 0, '0', 2022, '', 'Grease Plant', 'DB', '', 0, '', 'Ruang Pak Tantra'),
-('PUJ', '', 'Sofa', '0055', '', 0, '0', 2022, '', 'Grease Plant', 'DB', '', 0, '', 'Ruang Pak Tantra'),
-('PUJ', '', 'Meja kaca', '0056', '', 0, '0', 2022, '', 'Grease Plant', 'DB', '', 0, '', 'Ruang Pak Tantra'),
-('PUJ', '', 'Kursi kerja', '0057', '', 0, '0', 2022, '', 'Grease Plant', 'DB', '', 0, '', 'Ruang Pak Karel'),
-('PUJ', '', 'Kursi kerja', '0058', '', 0, '0', 2022, '', 'Grease Plant', 'DB', '', 0, '', 'Ruang Pak Karel'),
-('PUJ', '', 'Meja kerja', '0059', '', 0, '0', 2022, '', 'Grease Plant', 'DB', '', 0, '', 'Ruang Pak Karel'),
-('PUJ', '', 'Kursi kerja (1 set)', '0060', '', 0, '0', 2022, '', 'Grease Plant', 'DB', '', 0, '', 'Ruang Rapat (7 pcs)'),
-('PUJ', '', 'Meja rapat 1 set', '0061', '', 0, '0', 2022, '', 'Grease Plant', 'DB', '', 0, '', 'Ruang Rapat'),
-('PUJ', '', 'Lemari berkas', '0062', '', 0, '0', 2022, '', 'Grease Plant', 'DJ', '', 0, '', 'Ruang Rapat'),
-('PUJ', '', 'Kursi kerja 1 set', '0063', '', 0, '0', 2022, '', 'Grease Plant', 'DB', '', 0, '', 'Ruang PLC  GP (5 pcs)'),
-('PUJ', '', 'Meja kerja bundar', '0064', '', 0, '0', 2022, '', 'Grease Plant', 'DB', '', 0, '', 'Ruang PLC  GP'),
-('PUJ', '', 'Meja kerja 1 set', '0065', '', 0, '0', 2022, '', 'Grease Plant', 'DB', '', 0, '', 'Ruang PLC  GP (2 pcs)'),
-('PUJ', '', 'Kursi kerja 1 set', '0066', '', 0, '0', 2022, '', 'VIM', 'DJ', '', 0, '', '5 pcs'),
-('PUJ', '', 'Meja kerja 1 set', '0067', '', 0, '0', 2022, '', 'VIM', 'DJ', '', 0, '', '3 pcs'),
-('PUJ', '', 'Lemari besi', '0068', '', 0, '0', 2022, '', 'VIM', 'DJ', '', 0, '', ''),
-('PUJ', '', 'Lemari besi', '0069', '', 0, '0', 2022, '', 'VIM', 'DJ', '', 0, '', ''),
-('PUJ', '', 'Kursi kerja 1 set', '0070', '', 0, '0', 2022, '', 'VIM', 'DJ', '', 0, '', '2 pcs'),
-('PUJ', '', 'Meja kerja', '0071', '', 0, '0', 2022, '', 'VIM', 'DJ', '', 0, '', ''),
-('PUJ', '', 'Kursi kerja 1 set', '0072', '', 0, '0', 2022, '', 'New LOBP', 'DJ', '', 0, '', 'New LOBP bawah (4 pcs)'),
-('PUJ', '', 'Meja kerja 1 set', '0073', '', 0, '0', 2022, '', 'New LOBP', 'DJ', '', 0, '', 'New LOBP bawah (2 pcs)'),
-('PUJ', '', 'Kubikal 1 set', '0074', '', 0, '0', 2022, '', 'New LOBP', 'DB', '', 0, '', 'New LOBP Atas (3 unit)'),
-('PUJ', '', 'Kursi kerja 1 set', '0075', '', 0, '0', 2022, '', 'New LOBP', 'DB', '', 0, '', 'New LOBP Atas (21 pcs)'),
-('PUJ', '', 'Meja kerja', '0076', '', 0, '0', 2022, '', 'New LOBP', 'DB', '', 0, '', 'New LOBP Atas'),
-('PUJ', '', 'Lemari besi', '0077', '', 0, '0', 2022, '', 'New LOBP', 'DB', '', 0, '', 'New LOBP Atas'),
-('PUJ', '', 'Lemari besi', '0078', '', 0, '0', 2022, '', 'New LOBP', 'DB', '', 0, '', 'New LOBP Atas'),
-('PUJ', '', 'Lemari besi', '0079', '', 0, '0', 2022, '', 'New LOBP', 'DB', '', 0, '', 'New LOBP Atas'),
-('PUJ', '', 'Lemari besi', '0080', '', 0, '0', 2022, '', 'New LOBP', 'TR', '', 0, '', 'New LOBP Atas'),
-('PUJ', '', 'Meja kotak', '0081', '', 0, '0', 2022, '', 'New LOBP', 'DB', '', 0, '', 'New LOBP Atas'),
-('PUJ', '', 'Lemari', '0082', '', 0, '0', 2022, '', 'New LOBP', 'DB', '', 0, '', 'New LOBP Atas'),
-('PUJ', '', 'Lemari', '0083', '', 0, '0', 2022, '', 'New LOBP', 'DB', '', 0, '', 'New LOBP Atas'),
-('PUJ', '', 'Rak sepatu/helm', '0084', '', 0, '0', 2022, '', 'New LOBP', 'DB', '', 0, '', 'New LOBP Atas'),
-('PUJ', '', 'Lemari besi', '0085', '', 0, '0', 2022, '', 'New LOBP', 'DB', '', 0, '', 'New LOBP Atas'),
-('PUJ', '', 'Kursi kerja 1 set', '0086', '', 0, '0', 2022, '', 'New LOBP', 'DS', '', 0, '', 'Ruang Rapat Ex ruang pak setyo'),
-('PUJ', '', 'Kursi biru', '0087', '', 0, '0', 2022, '', 'New LOBP', 'DB', '', 0, '', 'Ruang Rapat Ex ruang pak setyo'),
-('PUJ', '', 'Meja kerja', '0088', '', 0, '0', 2022, '', 'New LOBP', 'DB', '', 0, '', 'Ruang Rapat Ex ruang pak setyo'),
-('PUJ', '', 'Lemari besi', '0089', '', 0, '0', 2022, '', 'New LOBP', 'DB', '', 0, '', 'Ruang Rapat Ex ruang pak setyo'),
-('PUJ', '', 'Meja kerja', '0090', '', 0, '0', 2022, '', 'New LOBP', 'DS', '', 0, '', 'Ruang rapat'),
-('PUJ', '', 'Meja kerja', '0091', '', 0, '0', 2022, '', 'New LOBP', 'DB', '', 0, '', 'Ruang rapat'),
-('PUJ', '', 'Meja rapat', '0092', '', 0, '0', 2022, '', 'New LOBP', 'DB', '', 0, '', 'Ruang rapat'),
-('PUJ', '', 'Kursi biru 1 set', '0093', '', 0, '0', 2022, '', 'New LOBP', 'DB', '', 0, '', 'Ruang rapat (13 pcs)'),
-('PUJ', '', 'Kursi kerja lipat', '0094', '', 0, '0', 2022, '', 'New LOBP', 'DB', '', 0, '', 'Ruang rapat'),
-('PUJ', '', 'Kursi Kerja', '0095', '', 0, '0', 2022, '', 'New LOBP', 'TR', '', 0, '', 'Ruang rapat');
-INSERT INTO `asset` (`kantor`, `jenis_asset`, `deskripsi_asset`, `no_asset`, `merk_type`, `jumlah`, `ukuran`, `tahun_pengadaan`, `status_kepemilikan`, `lokasi`, `kondisi`, `asal_usul`, `harga`, `gambar`, `keterangan`) VALUES
-('PUJ', '', 'Kursi Kerja', '0096', '', 0, '0', 2022, '', 'New LOBP', 'DB', '', 0, '', 'Ruang rapat'),
-('PUJ', '', 'Lemari besi', '0097', '', 0, '0', 2022, '', 'New LOBP', 'DB', '', 0, '', 'Ruang rapat'),
-('PUJ', '', 'Lemari besi', '0098', '', 0, '0', 2022, '', 'New LOBP', 'DJ', '', 0, '', 'Ruang rapat'),
-('PUJ', '', 'Meja kerja', '0099', '', 0, '0', 2022, '', 'New LOBP', 'DB', '', 0, '', 'Ruang teknik maintenance'),
-('PUJ', '', 'Kursi kerja', '0100', '', 0, '0', 2022, '', 'New LOBP', 'DB', '', 0, '', 'Ruang teknik maintenance'),
-('PUJ', '', 'Meja kerja', '0101', '', 0, '0', 2022, '', 'New LOBP', 'DB', '', 0, '', 'Ruang teknik maintenance'),
-('PUJ', '', 'Meja kerja', '0102', '', 0, '0', 2022, '', 'Control  Room', 'DB', '', 0, '', '8 pcs'),
-('PUJ', '', 'Kursi biriu 1 set', '0103', '', 0, '0', 2022, '', 'Control  Room', 'DB', '', 0, '', '8 pcs'),
-('PUJ', '', 'Lemari berkas', '0104', '', 0, '0', 2022, '', 'Control  Room', 'DB', '', 0, '', ''),
-('PUJ', '', 'Lemari berkas', '0105', '', 0, '0', 2022, '', 'Control  Room', 'DB', '', 0, '', ''),
-('PUJ', '', 'Kursi kerja 1 set', '0106', '', 0, '0', 2022, '', 'Control  Room', 'DB', '', 0, '', '6 pcs'),
-('PUJ', '', 'Kursi kerja 1 set', '0107', '', 0, '0', 2022, '', 'MWH', 'DJ', '', 0, '', '7 pcs'),
-('PUJ', '', 'Meja kerja 1 set', '0108', '', 0, '0', 2022, '', 'MWH', 'DJ', '', 0, '', '4 pcs'),
-('PUJ', '', 'Kursi kerja 1 set', '0109', '', 0, '0', 2022, '', 'MWH', 'DJ', '', 0, '', '2 pcs'),
-('PUJ', '', 'Kursi kerja 1 set', '0110', '', 0, '0', 2022, '', 'MWH', 'DB', '', 0, '', '5 pcs'),
-('PUJ', '', 'Meja kerja 1 set', '0111', '', 0, '0', 2022, '', 'MWH', 'DJ', '', 0, '', '5 pcs'),
-('PUJ', '', 'Meja kerja besi 1 set', '0112', '', 0, '0', 2022, '', 'Filling Drum', 'DB', '', 0, '', '4 pcs'),
-('PUJ', '', 'Kursi kerja', '0113', '', 0, '0', 2022, '', 'Security area New LOBP', 'DJ', '', 0, '', ''),
-('PUJ', '', 'Meja kerja 1 set', '0114', '', 0, '0', 2022, '', 'Ruang CCTV', 'DB', '', 0, '', '4 pcs'),
-('PUJ', '', 'Meja bundar', '0115', '', 0, '0', 2022, '', 'Ruang CCTV', 'DB', '', 0, '', ''),
-('PUJ', '', 'Kursi kerja 1 set', '0116', '', 0, '0', 2022, '', 'Ruang CCTV', 'DS', '', 0, '', '2 pcs'),
-('PUJ', '', 'Kursi Tunggu 1 set', '0117', '', 0, '0', 2022, '', 'Ruang CCTV', 'DS', '', 0, '', '2 pcs'),
-('PUJ', '', 'Kursi biru', '0118', '', 0, '0', 2022, '', 'Ruang CCTV', 'DB', '', 0, '', ''),
-('PUJ', '', 'Kursi putih', '0119', '', 0, '0', 2022, '', 'Ruang CCTV', 'DS', '', 0, '', ''),
-('PUJ', '', 'Lemari Kabinet', '0120', '', 0, '0', 2022, '', 'Ruang CCTV', 'DB', '', 0, '', ''),
-('PUJ', '', 'Lemari Kabinet', '0121', '', 0, '0', 2022, '', 'Ruang CCTV', 'DB', '', 0, '', ''),
-('PUJ', '', 'Kubikal 1 set', '0122', '', 0, '0', 2022, '', 'Ruang HSE', 'DB', '', 0, '', ''),
-('PUJ', '', 'Kursi kerja 1 set', '0123', '', 0, '0', 2022, '', 'Ruang HSE', 'DB', '', 0, '', '6 pcs'),
-('PUJ', '', 'Lemari Kabinet', '0124', '', 0, '0', 2022, '', 'Ruang HSE', 'DB', '', 0, '', ''),
-('PUJ', '', 'Whiteboard kecil', '0125', '', 0, '0', 2022, '', 'Ruang HSE', 'DB', '', 0, '', ''),
-('PUJ', '', 'Lemari kabinet kaca 1 set', '0126', '', 0, '0', 2022, '', 'Ruang HSE', 'DB', '', 0, '', ''),
-('PUJ', '', 'Lemari kabinet kaca dorong', '0127', '', 0, '0', 2022, '', 'Ruang HSE', 'DS', '', 0, '', ''),
-('PUJ', '', 'Sofa 1 set', '0128', '', 0, '0', 2022, '', 'Fire Station', 'DS', '', 0, '', '4 pcs'),
-('PUJ', '', 'Meja kerja 1 set', '0129', '', 0, '0', 2022, '', 'Fire Station', 'DS', '', 0, '', ''),
-('PUJ', '', 'Lemari kabinet kaca dorong', '0130', '', 0, '0', 2022, '', 'Fire Station', 'DS', '', 0, '', ''),
-('PUJ', '', 'Lemari kabinet kaca dorong', '0131', '', 0, '0', 2022, '', 'Gudang HSE', 'DJ', '', 0, '', ''),
-('PUJ', '', 'Lemari kabinet dorong kecil', '0132', '', 0, '0', 2022, '', 'Gudang HSE', 'DJ', '', 0, '', ''),
-('PUJ', '', 'Kursi kerja', '0133', '', 0, '0', 2022, '', 'QC', 'DS', '', 0, '', ''),
-('PUJ', '', 'Meja kantor', '0134', '', 0, '0', 2022, '', 'QC', 'DS', '', 0, '', ''),
-('PUJ', '', 'Lemari kabinet besi', '0135', '', 0, '0', 2022, '', 'QC', 'DS', '', 0, '', ''),
-('PUJ', '', 'Lemari kaca', '0136', '', 0, '0', 2022, '', 'QC', 'DB', '', 0, '', ''),
-('PUJ', '', 'Kursi biru', '0137', '', 0, '0', 2022, '', 'QC', 'DB', '', 0, '', ''),
-('PUJ', '', 'Meja komputer', '0138', '', 0, '0', 2022, '', 'QC', 'DS', '', 0, '', ''),
-('PUJ', '', 'Meja kantor', '0139', '', 0, '0', 2022, '', 'QC', 'DS', '', 0, '', ''),
-('PUJ', '', 'Lemari kabinet kaca dorong kecil', '0140', '', 0, '0', 2022, '', 'QC', 'DJ', '', 0, '', ''),
-('PUJ', '', 'Meja kantor 1 set', '0141', '', 0, '0', 2022, '', 'QC', 'DS', '', 0, '', ''),
-('PUJ', '', 'Laci Dokumen 2 susun', '0142', '', 0, '0', 2022, '', 'QC', 'DS', '', 0, '', ''),
-('PUJ', '', 'Lemari file hitam 1 set', '0143', '', 0, '0', 2022, '', 'QC', 'DS', '', 0, '', ''),
-('PUJ', '', 'Kursi kerja', '0144', '', 0, '0', 2022, '', 'QC', 'DS', '', 0, '', '5 pcs'),
-('PUJ', '', 'Filling kabinet 1 set', '0145', '', 0, '0', 2022, '', 'QC', 'DS', '', 0, '', ''),
-('PUJ', '', 'Lemari Kabinet', '0146', '', 0, '0', 2022, '', 'QC', 'DJ', '', 0, '', ''),
-('PUJ', '', 'Meja kerja', '0147', '', 0, '0', 2022, '', 'Laboratorium Lantai 1', 'DS', '', 0, '', ''),
-('PUJ', '', 'Meja kerja', '0148', '', 0, '0', 2022, '', 'Laboratorium Lantai 1', 'DJ', '', 0, '', ''),
-('PUJ', '', 'Meja kerja', '0149', '', 0, '0', 2022, '', 'Laboratorium Lantai 1', 'DS', '', 0, '', ''),
-('PUJ', '', 'Meja kerja', '0150', '', 0, '0', 2022, '', 'Laboratorium Lantai 1', 'DS', '', 0, '', ''),
-('PUJ', '', 'Kursi kerja 1 set', '0151', '', 0, '0', 2022, '', 'Laboratorium Lantai 1', 'DB', '', 0, '', '3 pcs'),
-('PUJ', '', 'Meja kerja', '0152', '', 0, '0', 2022, '', 'Laboratorium Lantai 1', 'DS', '', 0, '', ''),
-('PUJ', '', 'Kursi kerja', '0153', '', 0, '0', 2022, '', 'Laboratorium Lantai 1', 'DB', '', 0, '', ''),
-('PUJ', '', 'Meja kerja', '0154', '', 0, '0', 2022, '', 'Laboratorium Lantai 1', 'DJ', '', 0, '', ''),
-('PUJ', '', 'Meja kerja', '0155', '', 0, '0', 2022, '', 'Laboratorium Lantai 1', 'DS', '', 0, '', ''),
-('PUJ', '', 'Meja kerja', '0156', '', 0, '0', 2022, '', 'Laboratorium Lantai 1', 'DS', '', 0, '', ''),
-('PUJ', '', 'Meja kerja', '0157', '', 0, '0', 2022, '', 'Laboratorium Lantai 1', 'DS', '', 0, '', ''),
-('PUJ', '', 'Kursi kerja 1 set', '0158', '', 0, '0', 2022, '', 'Laboratorium Lantai 1', 'DB', '', 0, '', '2 pcs'),
-('PUJ', '', 'Kursi kerja', '0159', '', 0, '0', 2022, '', 'Laboratorium Lantai 1', 'DS', '', 0, '', ''),
-('PUJ', '', 'Laci Dokumen 4 susun', '0160', '', 0, '0', 2022, '', 'Laboratorium Lantai 1', 'DS', '', 0, '', ''),
-('PUJ', '', 'Kursi kerja', '0161', '', 0, '0', 2022, '', 'Laboratorium Lantai 1', 'DS', '', 0, '', ''),
-('PUJ', '', 'Kursi kerja', '0162', '', 0, '0', 2022, '', 'Laboratorium Lantai 1', 'DB', '', 0, '', ''),
-('PUJ', '', 'Meja kerja', '0163', '', 0, '0', 2022, '', 'Laboratorium Lantai 1', 'DB', '', 0, '', ''),
-('PUJ', '', 'Kursi kerja', '0164', '', 0, '0', 2022, '', 'Laboratorium Lantai 1', 'DB', '', 0, '', ''),
-('PUJ', '', 'Kursi kerja', '0165', '', 0, '0', 2022, '', 'Laboratorium Lantai 1', 'DB', '', 0, '', ''),
-('PUJ', '', 'Meja kerja', '0166', '', 0, '0', 2022, '', 'Laboratorium Lantai 1', 'DB', '', 0, '', ''),
-('PUJ', '', 'Kursi kerja', '0167', '', 0, '0', 2022, '', 'Laboratorium Lantai 1', 'DB', '', 0, '', ''),
-('PUJ', '', 'Kursi kerja', '0168', '', 0, '0', 2022, '', 'Laboratorium Lantai 1', 'DB', '', 0, '', ''),
-('PUJ', '', 'Meja bundar', '0169', '', 0, '0', 2022, '', 'Laboratorium Lantai 1', 'DS', '', 0, '', ''),
-('PUJ', '', 'Meja kerja', '0170', '', 0, '0', 2022, '', 'Laboratorium Lantai 1', 'DB', '', 0, '', ''),
-('PUJ', '', 'Kursi kerja', '0171', '', 0, '0', 2022, '', 'Laboratorium Lantai 1', 'DB', '', 0, '', ''),
-('PUJ', '', 'Sofa 1 set', '0172', '', 0, '0', 2022, '', 'Laboratorium Lantai 1', 'DB', '', 0, '', 'Ruangan pak Nur (2 pcs)'),
-('PUJ', '', 'Meja tamu', '0173', '', 0, '0', 2022, '', 'Laboratorium Lantai 1', 'DB', '', 0, '', 'Ruangan pak Nur'),
-('PUJ', '', 'Meja kerja', '0174', '', 0, '0', 2022, '', 'Laboratorium Lantai 1', 'DS', '', 0, '', 'Ruangan pak Nur'),
-('PUJ', '', 'Meja kerja', '0175', '', 0, '0', 2022, '', 'Laboratorium Lantai 1', 'DB', '', 0, '', 'Ruangan pak Nur'),
-('PUJ', '', 'Kursi kerja 1 set', '0176', '', 0, '0', 2022, '', 'Laboratorium Lantai 1', 'DB', '', 0, '', 'Ruangan pak Nur (3 pcs)'),
-('PUJ', '', 'Lemari kabinet 1 set', '0177', '', 0, '0', 2022, '', 'Laboratorium Lantai 1', 'DB', '', 0, '', 'Ruangan pak Nur'),
-('PUJ', '', 'Whiteboard', '0178', '', 0, '0', 2022, '', 'Laboratorium Lantai 1', 'DB', '', 0, '', 'Ruangan pak Nur'),
-('PUJ', '', 'Meja kantor', '0179', '', 0, '0', 2022, '', 'Laboratorium Lantai 2', 'DS', '', 0, '', 'Ruangan kosong'),
-('PUJ', '', 'Meja kantor', '0180', '', 0, '0', 2022, '', 'Laboratorium Lantai 2', 'DS', '', 0, '', 'Ruangan Mbak Yashmikha'),
-('PUJ', '', 'Lemari kabinet 1 set', '0181', '', 0, '0', 2022, '', 'Laboratorium Lantai 2', 'DB', '', 0, '', 'Ruangan Mbak Yashmikha'),
-('PUJ', '', 'Kursi kerja 1 set', '0182', '', 0, '0', 2022, '', 'Laboratorium Lantai 2', 'DB', '', 0, '', 'Ruangan Mbak Yashmikha (2 pcs)'),
-('PUJ', '', 'Meja bundar', '0183', '', 0, '0', 2022, '', 'Laboratorium Lantai 2', 'DB', '', 0, '', ''),
-('PUJ', '', 'Kursi kerja', '0184', '', 0, '0', 2022, '', 'Laboratorium Lantai 2', 'DB', '', 0, '', ''),
-('PUJ', '', 'Meja kerja', '0185', '', 0, '0', 2022, '', 'Laboratorium Lantai 2', 'DS', '', 0, '', ''),
-('PUJ', '', 'Kursi kerja', '0186', '', 0, '0', 2022, '', 'Laboratorium Lantai 2', 'DS', '', 0, '', ''),
-('PUJ', '', 'Lemari kabinet besi', '0187', '', 0, '0', 2022, '', 'Laboratorium Lantai 2', 'DS', '', 0, '', ''),
-('PUJ', '', 'Meja kerja', '0188', '', 0, '0', 2022, '', 'Laboratorium Lantai 2', 'DS', '', 0, '', ''),
-('PUJ', '', 'Kursi kerja', '0189', '', 0, '0', 2022, '', 'Laboratorium Lantai 2', 'DB', '', 0, '', ''),
-('PUJ', '', 'Kursi kerja', '0190', '', 0, '0', 2022, '', 'Laboratorium Lantai 2', 'DB', '', 0, '', ''),
-('PUJ', '', 'Meja kerja', '0191', '', 0, '0', 2022, '', 'Laboratorium Lantai 2', 'DS', '', 0, '', ''),
-('PUJ', '', 'Kursi kerja', '0192', '', 0, '0', 2022, '', 'Laboratorium Lantai 2', 'DB', '', 0, '', ''),
-('PUJ', '', 'Kursi kerja', '0193', '', 0, '0', 2022, '', 'Laboratorium Lantai 2', 'DB', '', 0, '', ''),
-('PUJ', '', 'Lemari kabinet besi kaca 1 set', '0194', '', 0, '0', 2022, '', 'Laboratorium Lantai 2', 'DB', '', 0, '', ''),
-('PUJ', '', 'Kursi kerja', '0195', '', 0, '0', 2022, '', 'Laboratorium Lantai 2', 'DB', '', 0, '', ''),
-('PUJ', '', 'Meja kerja 1 set', '0196', '', 0, '0', 2022, '', 'Laboratorium Lantai 2', 'DB', '', 0, '', 'Ruang rapat'),
-('PUJ', '', 'Kursi kerja', '0197', '', 0, '0', 2022, '', 'Laboratorium Lantai 2', 'DB', '', 0, '', 'Ruang rapat'),
-('PUJ', '', 'Kursi biru', '0198', '', 0, '0', 2022, '', 'Laboratorium Lantai 2', 'DB', '', 0, '', 'Ruang rapat'),
-('PUJ', '', 'Whiteboard', '0199', '', 0, '0', 2022, '', 'Laboratorium Lantai 2', 'DS', '', 0, '', 'Ruang rapat'),
-('PUJ', '', 'Meja kerja', '0200', '', 0, '0', 2022, '', 'Laboratorium Lantai 2', 'DS', '', 0, '', 'Ruang rapat'),
-('PUJ', '', 'Meja kerja', '0201', '', 0, '0', 2022, '', 'Laboratorium Lantai 2', 'DS', '', 0, '', ''),
-('PUJ', '', 'Meja kerja', '0202', '', 0, '0', 2022, '', 'Laboratorium Lantai 2', 'DS', '', 0, '', ''),
-('PUJ', '', 'Meja kerja', '0203', '', 0, '0', 2022, '', 'Laboratorium Lantai 2', 'DS', '', 0, '', ''),
-('PUJ', '', 'Meja kerja', '0204', '', 0, '0', 2022, '', 'Laboratorium Lantai 2', 'DS', '', 0, '', ''),
-('PUJ', '', 'Meja kerja', '0205', '', 0, '0', 2022, '', 'Laboratorium Lantai 2', 'DS', '', 0, '', ''),
-('PUJ', '', 'Meja kerja', '0206', '', 0, '0', 2022, '', 'Laboratorium Lantai 2', 'DS', '', 0, '', ''),
-('PUJ', '', 'Meja kerja', '0207', '', 0, '0', 2022, '', 'Laboratorium Lantai 2', 'DS', '', 0, '', ''),
-('PUJ', '', 'Meja komputer', '0208', '', 0, '0', 2022, '', 'Laboratorium Lantai 2', 'DS', '', 0, '', ''),
-('PUJ', '', 'Kursi kerja', '0209', '', 0, '0', 2022, '', 'Laboratorium Lantai 2', 'DB', '', 0, '', '4 pcs'),
-('PUJ', '', 'Meja kerja', '0210', '', 0, '0', 2022, '', 'Laboratorium Lantai 2', 'DS', '', 0, '', ''),
-('PUJ', '', 'Meja bundar', '0211', '', 0, '0', 2022, '', 'Laboratorium Lantai 2', 'DS', '', 0, '', 'Pantry'),
-('PUJ', '', 'Kursi biru', '0212', '', 0, '0', 2022, '', 'Laboratorium Lantai 2', 'DB', '', 0, '', 'Pantry'),
-('PUJ', '', 'Kursi biru', '0213', '', 0, '0', 2022, '', 'Laboratorium Lantai 2', 'DB', '', 0, '', 'Pantry'),
-('PUJ', '', 'Kursi biru 1 set', '0214', '', 0, '0', 2022, '', 'Laboratorium Lantai 3', 'DB', '', 0, '', 'Depan ruang lantai 3 (12 pcs)'),
-('PUJ', '', 'Tangga', '0215', '', 0, '0', 2022, '', 'Laboratorium Lantai 3', 'DS', '', 0, '', ''),
-('PUJ', '', 'Kursi biru', '0216', '', 0, '0', 2022, '', 'Laboratorium Lantai 3', 'DB', '', 0, '', '');
+INSERT INTO `asset` (`kode_asset`, `id_kondisi`, `id_status_kepemilikan`, `id_lokasi`, `id_jenis_asset`, `deskripsi_asset`, `jumlah`, `ukuran`, `tahun_pengadaan`, `asal_usul`, `harga`, `gambar`, `keterangan`, `merk/type`) VALUES
+('OC_0000', 'RB', NULL, 6, NULL, 'Meja Bundar', 3, NULL, 2018, NULL, NULL, NULL, NULL, NULL),
+('OC_0001', 'DB', NULL, 27, NULL, 'Kursi Sova Hitam', 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0002', 'DB', NULL, 27, NULL, 'Meja Sofa', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0003', 'DB', NULL, 27, NULL, 'TV', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0004', 'DB', NULL, 27, NULL, 'Meja Penerima Tamu', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0005', 'DB', NULL, 27, NULL, 'Kursi Sofa Hitam', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0006', 'DB', NULL, 27, NULL, 'Emergency Box', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0007', 'DB', NULL, 27, NULL, 'Kursi Sandaran Merah Tua', 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0008', 'DB', NULL, 27, NULL, 'Laci Kecil Kuning Muda', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0009', 'DB', NULL, 46, NULL, 'Meja Rapat Warna Cokelat', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0010', 'DB', NULL, 46, NULL, 'Kursi Hitam Kulit', 8, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0011', 'DB', NULL, 46, NULL, 'Kursi Sandaran Merah', 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0012', 'DB', NULL, 46, NULL, 'TV', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0013', 'DB', NULL, 46, NULL, 'Rak Tempat Piala', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0014', 'DB', NULL, 46, NULL, 'Piagam Visi & Misi', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0015', 'DB', NULL, 47, NULL, 'Meja Rapat Warna Cokelat', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0016', 'DB', NULL, 47, NULL, 'Kursi Hitam Kulit', 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0017', 'DB', NULL, 47, NULL, 'Kursi Sandaran Merah Tua', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0018', 'DB', NULL, 45, NULL, 'TV & Kabel', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0019', 'DB', NULL, 45, NULL, 'Rak Tempat Piala', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0020', 'DB', NULL, 45, NULL, 'Meja Rapat Warna Cokelat', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0021', 'DB', NULL, 45, NULL, 'Kursi Hitam', 19, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0022', 'DB', NULL, 45, NULL, 'Credense', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0023', 'DB', NULL, 45, NULL, 'Dispenser', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0024', 'DB', NULL, 45, NULL, 'Credensa', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0025', 'DB', NULL, 45, NULL, 'Printer', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0026', 'DB', NULL, 45, NULL, 'Pemanas Air', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0027', 'DB', NULL, 45, NULL, 'White Board', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0028', 'DB', NULL, 45, NULL, 'Projektor', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0029', 'DB', NULL, 48, NULL, 'Meja Rapat Warna Cokelat', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0030', 'DB', NULL, 48, NULL, 'Kursi Hitam', 8, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0031', 'DB', NULL, 48, NULL, 'TV & Kabelnya', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0032', 'DB', NULL, 48, NULL, 'White Board', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0033', 'DB', NULL, 48, NULL, 'Credensa Warna Cokelat', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0034', 'DB', NULL, 49, NULL, 'Meja Rapat Warna Cokelat', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0035', 'DB', NULL, 49, NULL, 'Kursi Hitam', 8, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0036', 'DB', NULL, 49, NULL, 'Kursi Sandaran Merah Tua', 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0037', 'DB', NULL, 49, NULL, 'White Board', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0038', 'DB', NULL, 49, NULL, 'Credensa Warna Cokelat', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0039', 'DB', NULL, 54, NULL, 'Kubikal Kotak Bagian Tengah', 67, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0040', 'DB', NULL, 4, NULL, 'Kubikal Kotak Sebelah Timur', 11, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0041', 'DB', NULL, 6, NULL, 'Kubikal', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0042', 'DB', NULL, 6, NULL, 'Bufet Laci / Cradensa', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0043', 'DB', NULL, 5, NULL, 'Kubikal', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0044', 'DB', NULL, 54, NULL, 'Credensa', 10, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0045', 'DB', NULL, 54, NULL, 'Kursi Hitam', 72, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0046', 'DB', NULL, 54, NULL, 'Kursi Hitam Kulit', 13, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0047', 'DB', NULL, 54, NULL, 'Rak Abu Kecil', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0048', 'DB', NULL, 54, NULL, 'Dispenser Sanken', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0049', 'DB', NULL, 54, NULL, 'Kulkas LG', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0050', 'DB', NULL, 54, NULL, 'Printer HP', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0051', 'DB', NULL, 54, NULL, 'Mesin Tik ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0052', 'DB', NULL, 54, NULL, 'Rak Kayu Kaca', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0053', 'DB', NULL, 54, NULL, 'Lemari Abu Kayu ', 11, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0054', 'DB', NULL, 54, NULL, 'Rak dinding', 8, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0055', 'DB', NULL, 54, NULL, 'Printer Epson Hitam', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0056', 'DB', NULL, 12, NULL, 'Rak Piring Gelas Merah', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0057', 'DB', NULL, 12, NULL, 'Kompor Listrik', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0058', 'DB', NULL, 12, NULL, 'Laci Piring', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0059', 'DB', NULL, 12, NULL, 'Sofa Oranye', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0060', 'DB', NULL, 12, NULL, 'Kursi Sender Merah ', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0061', 'DB', NULL, 12, NULL, 'Sofa Hitam 2', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0062', 'DB', NULL, 12, NULL, 'Kursi Panjang ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0063', 'DB', NULL, 11, NULL, 'Rak Abu Cokelat Kecil', 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0064', 'DB', NULL, 11, NULL, 'Rak Abu Cokelat Besar', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0065', 'DB', NULL, 59, NULL, 'Meja Kerja', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0066', 'DB', NULL, 59, NULL, 'Kursi Kerja', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0067', 'DB', NULL, 59, NULL, 'Kursi Tamu', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0068', 'DB', NULL, 7, NULL, 'PC HP', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0069', 'DB', NULL, 7, NULL, 'Meja Penerima Tamu', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0070', 'DB', NULL, 7, NULL, 'PC HP', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0071', 'DB', NULL, 7, NULL, 'Sofa Cokelat Panjang', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0072', 'DB', NULL, 7, NULL, 'Sofa Cokelat Pendek', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0073', 'DB', NULL, 7, NULL, 'Meja Tamu', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0074', 'DB', NULL, 7, NULL, 'Rak Cokelat Muda', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0075', 'DB', NULL, 7, NULL, 'Kursi Drum PTPL', 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0076', 'DB', NULL, 7, NULL, 'Emergency Box', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0077', 'DB', NULL, 7, NULL, 'Box Cokelat 2', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0078', 'DB', NULL, 7, NULL, 'Kursi Rak Abu Abu', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0079', 'DB', NULL, 7, NULL, 'Kursi Sandar Merah ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0080', 'DB', NULL, 7, NULL, 'Lampu Hias', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0081', 'DB', NULL, 7, NULL, 'TV', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0082', 'DB', NULL, 18, NULL, 'Meja Kerja', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0083', 'DB', NULL, 18, NULL, 'Kursi Kerja Kulit Hitam', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0084', 'DB', NULL, 18, NULL, 'Kursi Tamu Hitam', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0085', 'DB', NULL, 18, NULL, 'Meja Rapat  ', 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0086', 'DB', NULL, 18, NULL, 'Kursi kerja ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0087', 'DB', NULL, 18, NULL, 'White Board', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0088', 'DB', NULL, 18, NULL, 'Projektor', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0089', 'DB', NULL, 18, NULL, 'TV', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0090', 'DB', NULL, 18, NULL, 'Glassboard', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0091', 'DB', NULL, 18, NULL, 'Credensa Warna Cokelat', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0092', 'DB', NULL, 18, NULL, 'Sofa Cokelat Pendek', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0093', 'DB', NULL, 18, NULL, 'Sofa Cokelat Panjang', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0094', 'DB', NULL, 18, NULL, 'Meja Tamu', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0095', 'DB', NULL, 18, NULL, 'Rak Kayu Kuning', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0096', 'DB', NULL, 18, NULL, 'Rak Dinding', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0097', 'DB', NULL, 18, NULL, 'Gantungan', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0098', 'DB', NULL, 18, NULL, 'Lemari Besar Cokelat', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0099', 'DB', NULL, 18, NULL, 'Credense Besar Cokelat', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0100', 'DB', NULL, 18, NULL, 'Kulkas Samsung', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0101', 'DB', NULL, 18, NULL, 'Rak Dinding', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0102', 'DB', NULL, 17, NULL, 'Sofa merah besar', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0103', 'DB', NULL, 17, NULL, 'Sofa merah kecil', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0104', 'DB', NULL, 17, NULL, 'Meja Tamu', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0105', 'DB', NULL, 17, NULL, 'Rak Kuning', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0106', 'DB', NULL, 17, NULL, 'Credense Cokelat Besar', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0107', 'DB', NULL, 17, NULL, 'Kulkas Glacio', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0108', 'DB', NULL, 17, NULL, 'Dispenser', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0109', 'DB', NULL, 17, NULL, 'Meja Kerja ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0110', 'DB', NULL, 17, NULL, 'Kursi Kerja Hitam', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0111', 'DB', NULL, 17, NULL, 'Kursi Tamu Hitam', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0112', 'DB', NULL, 17, NULL, 'PC HP', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0113', 'DB', NULL, 17, NULL, 'TV', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0114', 'DB', NULL, 17, NULL, 'Rak ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0115', 'DB', NULL, 17, NULL, 'Printer', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0116', 'DB', NULL, 17, NULL, 'Rak Dinding', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0117', NULL, NULL, 71, NULL, 'Kursi Kerja', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0118', NULL, NULL, 71, NULL, 'Kursi Sender Merah ', 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0119', NULL, NULL, 71, NULL, 'Meja Kerja', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0120', NULL, NULL, 71, NULL, 'Credensa', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0121', NULL, NULL, 71, NULL, 'Rak Dinding', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0122', NULL, NULL, 71, NULL, 'Glassboard', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0123', NULL, NULL, 71, NULL, 'TV LG', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0124', NULL, NULL, 70, NULL, 'Kursi Kerja', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0125', NULL, NULL, 70, NULL, 'Kursi Sender Merah ', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0126', NULL, NULL, 70, NULL, 'Meja Kerja', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0127', NULL, NULL, 70, NULL, 'Credensa', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0128', NULL, NULL, 70, NULL, 'Rak Dinding', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0129', NULL, NULL, 70, NULL, 'Glassboard', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0130', NULL, NULL, 70, NULL, 'TV LG', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0131', NULL, NULL, 64, NULL, 'Kursi Kerja', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0132', NULL, NULL, 64, NULL, 'Kursi Sender Merah ', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0133', NULL, NULL, 64, NULL, 'Meja Kerja', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0134', NULL, NULL, 64, NULL, 'Credensa', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0135', NULL, NULL, 64, NULL, 'Rak Dinding', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0136', NULL, NULL, 64, NULL, 'Glassboard', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0137', NULL, NULL, 64, NULL, 'TV LG', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0138', NULL, NULL, 65, NULL, 'Kursi Kerja', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0139', NULL, NULL, 65, NULL, 'Kursi Sender Merah ', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0140', NULL, NULL, 65, NULL, 'Meja Kerja', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0141', NULL, NULL, 65, NULL, 'Credensa', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0142', NULL, NULL, 65, NULL, 'Rak Dinding', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0143', NULL, NULL, 65, NULL, 'Glassboard', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0144', NULL, NULL, 65, NULL, 'TV LG', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0145', NULL, NULL, 66, NULL, 'Kursi Kerja', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0146', NULL, NULL, 66, NULL, 'Kursi Sender Merah ', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0147', NULL, NULL, 66, NULL, 'Meja Kerja', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0148', NULL, NULL, 66, NULL, 'Credensa', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0149', NULL, NULL, 66, NULL, 'Rak Dinding', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0150', NULL, NULL, 66, NULL, 'Glassboard', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0151', NULL, NULL, 66, NULL, 'TV LG', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0152', 'DB', NULL, 29, NULL, 'Meja Receptionist', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0153', 'DB', NULL, 29, NULL, 'Sofa Kursi Warna Hitam', 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0154', 'DB', NULL, 29, NULL, 'Kursi Hitam Gagang Besi Alumunium', 11, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0155', 'DB', NULL, 29, NULL, 'Meja Makan', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0156', 'DB', NULL, 29, NULL, 'Kursi Sandaran Merah Tua', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0157', 'DB', NULL, 29, NULL, 'Laci Kecil Warna Kuning Muda', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0158', 'DB', NULL, 29, NULL, 'Tempat untuk Photo', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0159', 'DB', NULL, 29, NULL, 'TV', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0160', 'DB', NULL, 29, NULL, 'Kursi Cokelat', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0161', 'DB', NULL, 29, NULL, 'Emergency Box', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0162', 'DB', NULL, 10, NULL, 'Rak Kaca', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0163', 'DB', NULL, 10, NULL, 'Meja Pajangan Bunga', 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0164', 'DB', NULL, 10, NULL, 'Screen Pajangan PTPL', 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0165', 'DB', NULL, 10, NULL, 'Timbangan', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0166', 'DB', NULL, 10, NULL, 'Laci Biru', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0167', 'DB', NULL, 10, NULL, 'Pajangan In line Blending', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0168', 'DB', NULL, 10, NULL, 'Pajangan Mechanical', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0169', 'DB', NULL, 10, NULL, 'Pajangan Oil Hidraulic Trainer', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0170', 'DB', NULL, 28, NULL, 'Meja Receptionist', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0171', 'DB', NULL, 28, NULL, 'Emergency Box', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0172', 'DB', NULL, 28, NULL, 'Meja Tenis Meja', 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0173', 'DB', NULL, 28, NULL, 'White Board ', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0174', 'TR', NULL, 28, NULL, 'Meja Cokelat ', 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0175', 'DB', NULL, 60, NULL, 'Kursi Kerja Hitam', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0176', 'DB', NULL, 60, NULL, 'Kursi Tamu Hitam', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0177', 'DB', NULL, 60, NULL, 'Meja Kerja ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0178', 'DB', NULL, 60, NULL, 'Credense Hitam Kayu Panjang', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0179', 'DB', NULL, 60, NULL, 'Lemari Dinding', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0180', 'DB', NULL, 60, NULL, 'TV', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0181', 'DB', NULL, 60, NULL, 'Glassboard', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0182', 'DB', NULL, 67, NULL, 'Kursi Kerja Hitam', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0183', 'DB', NULL, 67, NULL, 'Kursi Tamu Hitam', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0184', 'DB', NULL, 67, NULL, 'Meja Kerja ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0185', 'DB', NULL, 67, NULL, 'Credense Hitam Kayu Panjang', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0186', 'DB', NULL, 67, NULL, 'Lemari Dinding', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0187', 'DB', NULL, 67, NULL, 'TV', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0188', 'DB', NULL, 67, NULL, 'Glassboard', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0189', 'DB', NULL, 61, NULL, 'Kursi Kerja Hitam', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0190', 'DB', NULL, 61, NULL, 'Kursi Tamu Hitam', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0191', 'DB', NULL, 61, NULL, 'Meja Kerja ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0192', 'DB', NULL, 61, NULL, 'Credense Hitam Kayu Panjang', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0193', 'DB', NULL, 61, NULL, 'Lemari Dinding', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0194', 'DB', NULL, 61, NULL, 'TV', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0195', 'DB', NULL, 61, NULL, 'Glassboard', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0196', 'DB', NULL, 62, NULL, 'Kursi Kerja Hitam', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0197', 'DB', NULL, 62, NULL, 'Kursi Tamu Hitam', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0198', 'DB', NULL, 62, NULL, 'Meja Kerja ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0199', 'DB', NULL, 62, NULL, 'Credense Hitam Kayu Panjang', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0200', 'DB', NULL, 62, NULL, 'Lemari Dinding', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0201', 'DB', NULL, 62, NULL, 'TV', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0202', 'DB', NULL, 62, NULL, 'Glassboard', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0203', 'DB', NULL, 62, NULL, 'Kursi Biru', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0204', 'DB', NULL, 63, NULL, 'Kursi Kerja Hitam', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0205', 'DB', NULL, 63, NULL, 'Kursi Tamu Hitam', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0206', 'DB', NULL, 63, NULL, 'Meja Kerja ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0207', 'DB', NULL, 63, NULL, 'Credense Hitam Kayu Panjang', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0208', 'DB', NULL, 63, NULL, 'Lemari Dinding', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0209', 'DB', NULL, 63, NULL, 'TV', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0210', 'DB', NULL, 63, NULL, 'Glassboard', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0211', 'DB', NULL, 63, NULL, 'Kursi Hitam  ', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0212', 'DB', NULL, 63, NULL, 'Kursi Merah', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0213', 'DB', NULL, 30, NULL, 'Kursi Kerja Hitam', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0214', 'DB', NULL, 30, NULL, 'Kursi Tamu  ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0215', 'DB', NULL, 30, NULL, 'Meja Kerja ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0216', 'DB', NULL, 30, NULL, 'Credense Kayu ', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0217', 'DB', NULL, 31, NULL, 'Kursi Kerja Hitam', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0218', 'DB', NULL, 31, NULL, 'Kursi Tamu  ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0219', 'DB', NULL, 31, NULL, 'Meja Kerja ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0220', 'DB', NULL, 31, NULL, 'Credense Kayu ', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0221', 'DB', NULL, 32, NULL, 'Kursi Kerja Hitam', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0222', 'DB', NULL, 32, NULL, 'Kursi Tamu  ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0223', 'DB', NULL, 32, NULL, 'Meja Kerja ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0224', 'DB', NULL, 32, NULL, 'Credense Kayu ', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0225', 'DB', NULL, 33, NULL, 'Kursi Kerja Hitam', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0226', 'DB', NULL, 33, NULL, 'Kursi Tamu  ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0227', 'DB', NULL, 33, NULL, 'Meja Kerja ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0228', 'DB', NULL, 33, NULL, 'Credense Kayu ', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0229', 'DB', NULL, 3, NULL, 'Brankas Besar', 8, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0230', 'DB', NULL, 3, NULL, 'Meja Putih Kecil', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0231', 'DB', NULL, 53, NULL, 'Meja Rapat ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0232', 'DB', NULL, 53, NULL, 'Kursi Rapat', 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0233', 'DB', NULL, 53, NULL, 'Laci Kayu', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0234', 'DB', NULL, 53, NULL, 'TV', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0235', 'DB', NULL, 53, NULL, 'Glassboard', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0236', 'DB', NULL, 53, NULL, 'Rak Dinding', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0237', 'DB', NULL, 25, NULL, 'Rak Dinding Kayu', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0238', 'DB', NULL, 25, NULL, 'Kursi Kerja Hitam', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0239', 'DB', NULL, 25, NULL, 'Kursi Tamu', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0240', 'DB', NULL, 25, NULL, 'Meja Kerja ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0241', 'DB', NULL, 25, NULL, 'TV', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0242', 'DB', NULL, 55, NULL, 'Meja Kerja ', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0243', 'DB', NULL, 55, NULL, 'Kursi Kerja  ', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0244', 'DB', NULL, 55, NULL, 'Credense ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0245', 'DB', NULL, 55, NULL, 'TV', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0246', 'DB', NULL, 55, NULL, 'Glassboard', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0247', 'DB', NULL, 55, NULL, 'Rak Dinding', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0248', 'DB', NULL, 1, NULL, 'Credense ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0249', 'DB', NULL, 1, NULL, 'Meja Kaca', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0250', 'DB', NULL, 1, NULL, 'Set Speaker', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0251', 'DB', NULL, 1, NULL, 'Infokus', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0252', 'DB', NULL, 1, NULL, 'Screen Proyektor', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0253', 'DB', NULL, 1, NULL, 'Mimbar Plastik Bening', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0254', 'DB', NULL, 1, NULL, 'Stand Mic', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0255', 'DB', NULL, 1, NULL, 'Kursi acara', 72, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0256', 'DB', NULL, 1, NULL, 'Karpet Merah Sajadah', 14, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0257', 'DB', NULL, 1, NULL, 'Karpet Hijau Sejadah', 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0258', 'DB', NULL, 52, NULL, 'Meja ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0259', 'DB', NULL, 52, NULL, 'Kursi Hitam', 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0260', 'DB', NULL, 52, NULL, 'Kursi Merah Hitam ', 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0261', 'DB', NULL, 52, NULL, 'Kursi Merah', 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0262', 'DB', NULL, 52, NULL, 'TV', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0263', 'DB', NULL, 52, NULL, 'Meja TV', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0264', 'DB', NULL, 52, NULL, 'Rak Cokelat', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0265', 'DB', NULL, 15, NULL, 'Meja Registrasi ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0266', 'DB', NULL, 15, NULL, 'Meja Cokelat Besar', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0267', 'DB', NULL, 15, NULL, 'Kursi Hitam', 29, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0268', 'DB', NULL, 15, NULL, 'Kursi Merah', 36, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0269', 'DB', NULL, 15, NULL, 'Kubikal ', 69, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0270', 'DB', NULL, 15, NULL, 'Dispenser Sanken', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0271', 'DB', NULL, 15, NULL, 'Lemari Kayu ', 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0272', 'DB', NULL, 15, NULL, 'Brankas Uchihan', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0273', 'DB', NULL, 15, NULL, 'Lemari Cokelat Muda', 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0274', 'DB', NULL, 15, NULL, 'Credense Penghargaan Besar', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0275', 'DB', NULL, 15, NULL, 'Credense Penghargaan Kecil', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0276', 'DB', NULL, 15, NULL, 'Kulkas Electrolux', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0277', 'DB', NULL, 15, NULL, 'Lemari Kayu Besar 12 Pintu', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0278', 'DB', NULL, 15, NULL, 'Paper Breaker', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0279', 'DB', NULL, 15, NULL, 'Printer HP', 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0280', 'DB', NULL, 15, NULL, 'Printer EPSON Hitam', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0281', 'DB', NULL, 15, NULL, 'Rak Dinding', 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0282', 'DB', NULL, 15, NULL, 'Credense Cokelat Muda', 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0283', 'DB', NULL, 21, NULL, 'Meja  ', 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0284', 'DB', NULL, 21, NULL, 'Kursi Hitam', 30, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0285', 'DB', NULL, 21, NULL, 'Kursi Kerja Hitam ', 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0286', 'DB', NULL, 21, NULL, 'Kursi Merah', 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0287', 'DB', NULL, 21, NULL, 'TV', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0288', 'DB', NULL, 21, NULL, 'Infokus', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0289', 'DB', NULL, 21, NULL, 'Router ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0290', 'DB', NULL, 21, NULL, 'Speaker', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0291', 'DB', NULL, 21, NULL, 'Stand Mic', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0292', 'DB', NULL, 21, NULL, 'Rak Panjang ', 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0293', 'DB', NULL, 51, NULL, 'TV', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0294', 'DB', NULL, 51, NULL, 'Meja Rapat ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0295', 'DB', NULL, 51, NULL, 'Kursi Rapat', 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0296', 'DB', NULL, 51, NULL, 'TV', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0297', 'DB', NULL, 51, NULL, 'Lemari Dinding', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0298', 'DB', NULL, 51, NULL, 'Lukisan ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0299', 'DB', NULL, 51, NULL, 'Aquarium', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0300', 'DB', NULL, 14, NULL, 'TV ', 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0301', 'DB', NULL, 14, NULL, 'Kubikal ', 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0302', 'DB', NULL, 14, NULL, 'Kursi Kerja Hitam', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0303', 'DB', NULL, 14, NULL, 'Kursi Kerja Oranye', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0304', 'DB', NULL, 14, NULL, 'PC HP', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0305', 'DB', NULL, 14, NULL, 'Lemari Dinding', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0306', 'DB', NULL, 14, NULL, 'Kursi Biru', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0307', 'DB', NULL, 14, NULL, 'Lemari Cokelat Muda', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0308', 'DB', NULL, 50, NULL, 'TV ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0309', 'DB', NULL, 50, NULL, 'Meja ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0310', 'DB', NULL, 50, NULL, 'Kursi Hitam', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0311', 'DB', NULL, 50, NULL, 'Kursi Merah', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0312', 'DB', NULL, 50, NULL, 'Tempat Tidur Periksa Dokter', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0313', 'DB', NULL, 50, NULL, 'TV', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0314', 'DB', NULL, 50, NULL, 'Lemari Dinding', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0315', 'DB', NULL, 50, NULL, 'Tabung Oksigen', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0316', 'DB', NULL, 50, NULL, 'Kursi Roda', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0317', 'DB', NULL, 50, NULL, 'Tangga kecil', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0318', 'DB', NULL, 26, NULL, 'Meja Sofa', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0319', 'DB', NULL, 26, NULL, 'Kursi Warna Hitam', 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0320', 'DB', NULL, 26, NULL, 'Meja Penerima Tamu', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0321', 'DB', NULL, 26, NULL, 'Kursi Warna Hitam', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0322', 'DB', NULL, 26, NULL, 'Kursi Warna Hitam Sandaran', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0323', 'DB', NULL, 26, NULL, 'Laci Warna Kuning Muda', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0324', 'DB', NULL, 26, NULL, 'Kursi Sofa Warna Hitam', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0325', 'DB', NULL, 26, NULL, 'Kursi Merah ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0326', 'DB', NULL, 26, NULL, 'Emergency Box ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0327', 'DB', NULL, 57, NULL, 'Credensa Warna Cokelat Tua', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0328', 'DB', NULL, 57, NULL, 'Sofa Warna Cokelat Muda', 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0329', 'DB', NULL, 58, NULL, 'Meja Kerja Kuning Muda', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0330', 'DB', NULL, 24, NULL, 'Meja Kerja Kuning Muda / Credensa', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0331', 'DB', NULL, 24, NULL, 'Kursi Hitam Kerja', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0332', 'DB', NULL, 24, NULL, 'Kursi Hitam Biru untuk Tamu', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0333', 'DB', NULL, 24, NULL, 'Laci Warna Kuning Muda', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0334', 'DB', NULL, 20, NULL, 'Kotak Kubikal Warna Hijau Muda Pekerja/OS', 44, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0335', 'DB', NULL, 20, NULL, 'Kursi Warna Orange Tua', 20, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0336', 'DB', NULL, 20, NULL, 'Kursi sandaran Biru', 9, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0337', 'DB', NULL, 20, NULL, 'Kursi Kulit warna hitam', 10, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0338', 'DB', NULL, 20, NULL, 'Kursi sandaran merah tua', 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0339', 'DB', NULL, 20, NULL, 'Kursi hitam kecil', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0340', 'DB', NULL, 20, NULL, 'Dispenser', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0341', 'DB', NULL, 20, NULL, 'Credensa warna putih', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0342', 'DB', NULL, 20, NULL, 'Bufet/lemari tempat arsip warna putih', 8, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0343', 'DB', NULL, 20, NULL, 'Printer Merk HP', 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0344', 'DB', NULL, 20, NULL, 'Printer Merk Epson', 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0345', 'DB', NULL, 20, NULL, 'PC merk HP', 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0346', 'DB', NULL, 20, NULL, 'PC merk Dell', 9, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0347', 'DB', NULL, 20, NULL, 'Printer merk Brother APS-2400N', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0348', 'DB', NULL, 20, NULL, 'Tempat sampah', 11, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0349', 'DB', NULL, 20, NULL, 'TV', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0350', 'DB', NULL, 22, NULL, 'Meja Kerja Kuning Muda / Credensa', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0351', 'DB', NULL, 22, NULL, 'Credensa warna putih', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0352', 'DB', NULL, 22, NULL, 'Kursi Tamu Biru', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0353', 'DB', NULL, 22, NULL, 'Kursi Kerja Hitam', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0354', 'DB', NULL, 22, NULL, 'Laci Putih', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0355', 'DB', NULL, 23, NULL, 'Meja Kerja Kuning Muda / Credensa', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0356', 'DB', NULL, 23, NULL, 'Kursi Oranye', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0357', 'DB', NULL, 23, NULL, 'TV', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0358', 'DB', NULL, 23, NULL, 'Lemari Kayu', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0359', 'DB', NULL, 23, NULL, 'Kursi Merah ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0360', 'DB', NULL, 23, NULL, 'PC Dell', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0361', 'DB', NULL, 23, NULL, 'Kursi hitam kulit', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0362', 'DB', NULL, 9, NULL, 'Kotak Kubikal', 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0363', 'DB', NULL, 8, NULL, 'Meja Kulit Hitam besar', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0364', 'DB', NULL, 56, NULL, 'Bufet lemari kaca', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0365', 'DB', NULL, 69, NULL, 'Meja kerja warna Cokelat Muda', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0366', 'DB', NULL, 69, NULL, 'Credensa Warna Cokelat muda', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0367', 'DB', NULL, 69, NULL, 'Kursi Tamu', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0368', 'DB', NULL, 69, NULL, 'Kursi Kerja', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0369', 'DB', NULL, 69, NULL, 'TV', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0370', 'DB', NULL, 69, NULL, 'Cermin', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0371', 'DB', NULL, 69, NULL, 'tempat sampah', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0372', 'DB', NULL, 69, NULL, 'Glassboard', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0373', 'DB', NULL, 69, NULL, 'Lemari Dinding', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0374', 'DB', NULL, 69, NULL, 'Laci kecil', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0375', 'DB', NULL, 36, NULL, 'Meja kerja warna Cokelat Muda', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0376', 'DB', NULL, 36, NULL, 'Credensa Warna Cokelat muda', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0377', 'DB', NULL, 36, NULL, 'Kursi Tamu', 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0378', 'DB', NULL, 36, NULL, 'Kursi Kerja', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0379', 'DB', NULL, 36, NULL, 'TV', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0380', 'DB', NULL, 36, NULL, 'tempat sampah', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0381', 'DB', NULL, 36, NULL, 'Glassboard', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0382', 'DB', NULL, 36, NULL, 'Lemari Dinding', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0383', 'DB', NULL, 36, NULL, 'Laci kecil', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0384', 'DB', NULL, 16, NULL, 'Set Laci Cokelat', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0385', 'DB', NULL, 16, NULL, 'Meja Kayu Kerja Cokelat', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0386', 'DB', NULL, 16, NULL, 'Kursi Tamu Hitam', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0387', 'DB', NULL, 16, NULL, 'Kursi Kerja Hitam', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0388', 'DB', NULL, 16, NULL, 'Sofa Hitam ', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0389', 'DB', NULL, 16, NULL, 'Meja Kaca Cokelat ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0390', 'DB', NULL, 16, NULL, 'Set Lemari Kayu ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0391', 'DB', NULL, 16, NULL, 'Showcase Kecil Putih 1', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0392', 'DB', NULL, 16, NULL, 'TV Samsung ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0393', 'DB', NULL, 16, NULL, 'Set Indovision 1', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0394', 'DB', NULL, 16, NULL, 'Telefon ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0395', 'DB', NULL, 16, NULL, 'Router Cisco ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0396', 'DB', NULL, 16, NULL, 'Kursi Kerja Hitam ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0397', 'DB', NULL, 16, NULL, 'Sofa Hitam Panjang ', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0398', 'DB', NULL, 16, NULL, 'Sofa Hitam Kecil ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0399', 'DB', NULL, 16, NULL, 'Meja Tamu 1', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0400', 'DB', NULL, 16, NULL, 'Infocus', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0401', 'DB', NULL, 16, NULL, 'Kursi Kerja Hitam ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0402', 'DB', NULL, 16, NULL, 'White board', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0403', 'DB', NULL, 16, NULL, 'Meja Kerja Cokelat ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0404', 'DB', NULL, 16, NULL, 'Brankas Putih', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0405', 'DB', NULL, 16, NULL, 'Set Lemari Kayu Kaca', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0406', 'DB', NULL, 16, NULL, 'Kursi Hitam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0407', 'DB', NULL, 16, NULL, 'Mesin TIK Putih', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0408', 'DB', NULL, 16, NULL, 'Laci Kayu', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0409', 'DB', NULL, 16, NULL, 'Lemari Kayu Kaca Hitam', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0410', 'DB', NULL, 16, NULL, 'Sofa Hitam', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0411', 'DB', NULL, 16, NULL, 'Meja Kayu Kaca', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0412', 'DB', NULL, 16, NULL, 'Gantungan', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0413', 'DB', NULL, 13, NULL, 'Kursi Kerja ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0414', 'DB', NULL, 13, NULL, 'Meja Kerja  ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0415', 'DB', NULL, 13, NULL, 'Kursi Tamu  ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0416', 'DB', NULL, 13, NULL, 'Laci Kaca Abu-Abu', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0417', 'DB', NULL, 37, NULL, 'Kursi Kerja ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0418', 'DB', NULL, 37, NULL, 'Meja Kerja  ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0419', 'DB', NULL, 37, NULL, 'Kursi Tamu  ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0420', 'DB', NULL, 37, NULL, 'Laci Kaca Abu-Abu', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0421', 'DB', NULL, 38, NULL, 'Kursi Kerja ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0422', 'DB', NULL, 38, NULL, 'Meja Kerja  ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0423', 'DB', NULL, 38, NULL, 'Kursi Tamu  ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0424', 'DB', NULL, 38, NULL, 'Laci Kaca Abu-Abu', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0425', 'DB', NULL, 35, NULL, 'Set Meja Kerja ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0426', 'DB', NULL, 35, NULL, 'Lemari Kayu  ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0427', 'DB', NULL, 35, NULL, 'Kursi Hitam', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0428', 'DB', NULL, 34, NULL, 'Kursi Kerja ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0429', 'DB', NULL, 34, NULL, 'Kursi Tamu', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0430', 'DB', NULL, 34, NULL, 'White Board', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0431', 'DB', NULL, 34, NULL, 'Meja Kerja  ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0432', 'DB', NULL, 34, NULL, 'Lemari Hitam', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0433', 'DB', NULL, 68, NULL, 'Lemari Dinding ', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0434', 'DB', NULL, 68, NULL, 'TV  ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0435', 'DB', NULL, 68, NULL, 'Kursi Kerja ', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0436', 'DB', NULL, 68, NULL, 'Kursi Tamu', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0437', 'DB', NULL, 68, NULL, 'Credensa ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0438', 'DB', NULL, 68, NULL, 'White board', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0439', 'DB', NULL, 44, NULL, 'Lemari Kayu Dinding', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0440', 'DB', NULL, 44, NULL, 'Laci Kayu', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0441', 'DB', NULL, 44, NULL, 'White Board ', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0442', 'DB', NULL, 2, NULL, 'Credense', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0443', 'DB', NULL, 2, NULL, 'Meja Kayu Kaca', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0444', 'DB', NULL, 42, NULL, 'Credense', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0445', 'DB', NULL, 42, NULL, 'Meja Kayu Kaca', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0446', 'DB', NULL, 42, NULL, 'Kursi Hitam', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0447', 'DB', NULL, 42, NULL, 'Kursi Oranye', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0448', 'DB', NULL, 42, NULL, 'Kursi Biru', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0449', 'DB', NULL, 42, NULL, 'Lemari Dinding ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0450', 'DB', NULL, 42, NULL, 'White board', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0451', 'DB', NULL, 41, NULL, 'Lemari Dinding ', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0452', 'DB', NULL, 41, NULL, 'Credense Cokelat ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0453', 'DB', NULL, 41, NULL, 'Meja Meeting', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0454', 'DB', NULL, 41, NULL, 'Kursi Hitam I', 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0455', 'DB', NULL, 41, NULL, 'Kursi Hitam II', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0456', 'DB', NULL, 41, NULL, 'White Board Roda', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0457', 'DB', NULL, 41, NULL, 'TV', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0458', 'DB', NULL, 19, NULL, 'Lemari Putih', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0459', 'DB', NULL, 19, NULL, 'Laci Hitam Besar', 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0460', 'DB', NULL, 19, NULL, 'Laci Hitam Kecil', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0461', 'DB', NULL, 19, NULL, 'Kotak Kubikal Warna Biru  Pekerja/OS', 32, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0462', 'DB', NULL, 19, NULL, 'Kursi Kerja ', 33, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0463', 'DB', NULL, 19, NULL, 'Credense Kayu Besar', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0464', 'DB', NULL, 19, NULL, 'Laci Hitam Kecil', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0465', 'DB', NULL, 19, NULL, 'Lemari Kayu Putih', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0466', 'DB', NULL, 19, NULL, 'Lemari Dinding ', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0467', 'DB', NULL, 19, NULL, 'Kubikal Finance Besar', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0468', 'DB', NULL, 19, NULL, 'Printer HP', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0469', 'DB', NULL, 19, NULL, 'PC Finance Lenovo', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0470', 'DB', NULL, 19, NULL, 'PC Staff ', 26, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0471', 'DB', NULL, 19, NULL, 'Kulkas Aqua', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0472', 'DB', NULL, 19, NULL, 'Rak Krisbow Oranye Biru', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0473', 'DB', NULL, 19, NULL, 'Laci Putih', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0474', 'DB', NULL, 19, NULL, 'Laci Putih Kecil', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0475', 'DB', NULL, 43, NULL, 'Kursi ', 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0476', 'DB', NULL, 43, NULL, 'Meja Meeting', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0477', 'DB', NULL, 43, NULL, 'TV ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0478', 'DB', NULL, 40, NULL, 'Credense Hitam', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0479', 'DB', NULL, 40, NULL, 'Meja Meeting', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0480', 'DB', NULL, 40, NULL, 'Kursi ', 8, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0481', 'DB', NULL, 40, NULL, 'TV', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0482', 'DB', NULL, 40, NULL, 'Meja TV', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0483', 'DB', NULL, 40, NULL, 'Lemari Dinding ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0484', 'DB', NULL, 39, NULL, 'Meja 1', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0485', 'DB', NULL, 39, NULL, 'Kursi ', 16, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0486', 'DB', NULL, 39, NULL, 'TV ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0487', 'DB', NULL, 39, NULL, 'Infocus', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0488', 'DB', NULL, 39, NULL, 'Lemari Hitam', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0489', 'TR', NULL, 39, NULL, 'Meja Gudang', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0490', 'DB', NULL, 7, NULL, 'Meja Tamu  ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0491', 'DB', NULL, 7, NULL, 'Sofa Tamu', 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0492', 'DB', NULL, 7, NULL, 'Meja Receptionist', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0493', 'DB', NULL, 7, NULL, 'Kursi ', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0494', 'DB', NULL, 7, NULL, 'Laci Hitam', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0495', 'DB', NULL, 7, NULL, 'Laci Cokelat', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0496', 'DB', NULL, 7, NULL, 'Kursi tunggu', 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0497', 'DB', NULL, 7, NULL, 'Lemari Mushola', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0000', 'TR', NULL, 72, NULL, 'Meja Kotak', 3, NULL, 2010, NULL, NULL, NULL, NULL, NULL),
+('PUC_0001', 'DS', NULL, 78, NULL, 'Meja Kantor ', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (150 x 70 x 75)', NULL),
+('PUC_0002', 'DS', NULL, 78, NULL, 'Meja Kantor ', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (150 x 70 x 75)', NULL),
+('PUC_0003', 'DS', NULL, 78, NULL, 'Meja Kantor ', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (140 x 70 x70)', NULL),
+('PUC_0004', 'DS', NULL, 78, NULL, 'Meja Kantor ', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (160 x 70 x 73)', NULL),
+('PUC_0005', 'DS', NULL, 78, NULL, 'Kursi Kantor', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0006', 'DS', NULL, 78, NULL, 'Kursi Kantor', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0007', 'DS', NULL, 78, NULL, 'Kursi Kantor', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0008', 'DS', NULL, 78, NULL, 'Kursi Kantor', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0009', 'DS', NULL, 78, NULL, 'Kursi Kantor', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0010', 'DJ', NULL, 78, NULL, 'Kursi Kantor', NULL, NULL, NULL, NULL, NULL, NULL, 'Warna Biru', NULL),
+('PUC_0011', 'DJ', NULL, 78, NULL, 'Kursi Kantor', NULL, NULL, NULL, NULL, NULL, NULL, 'Warna Biru', NULL),
+('PUC_0012', 'DB', NULL, 78, NULL, 'Lemari Kaca', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (130 x 40 x 140)', NULL),
+('PUC_0013', 'DB', NULL, 78, NULL, 'Lemari Kaca', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (200 x 50 x 107)', NULL),
+('PUC_0014', 'DB', NULL, 78, NULL, 'Lemari Dokumen', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (92 x 46 x 183)', NULL),
+('PUC_0015', 'DB', NULL, 78, NULL, 'Lemari Dokumen', NULL, NULL, 2020, NULL, NULL, NULL, 'Dimensi (92 x 46 x 183)', NULL),
+('PUC_0016', 'DS', NULL, 78, NULL, 'Lemari Kayu', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (200 x 47 x 83)', NULL),
+('PUC_0017', 'DB', NULL, 78, NULL, 'Lemari Kecil', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (40 x 50 x 63)', NULL),
+('PUC_0018', 'DB', NULL, 78, NULL, 'Lemari Kecil', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (40 x 50 x 63)', NULL);
+INSERT INTO `asset` (`kode_asset`, `id_kondisi`, `id_status_kepemilikan`, `id_lokasi`, `id_jenis_asset`, `deskripsi_asset`, `jumlah`, `ukuran`, `tahun_pengadaan`, `asal_usul`, `harga`, `gambar`, `keterangan`, `merk/type`) VALUES
+('PUC_0019', 'DS', NULL, 78, NULL, 'Lemari Loker', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0020', 'DS', NULL, 78, NULL, 'Lemari Loker', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0021', 'DS', NULL, 75, NULL, 'Meja Kantor ', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (160 x 70 x 76)', NULL),
+('PUC_0022', 'DS', NULL, 75, NULL, 'Meja Kantor ', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (120 x 75 x 76)', NULL),
+('PUC_0023', 'DS', NULL, 75, NULL, 'Meja Kantor ', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (80 x 60 x 75)', NULL),
+('PUC_0024', 'DS', NULL, 75, NULL, 'Kursi Kantor', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0025', 'DS', NULL, 75, NULL, 'Kursi Kantor', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0026', 'DS', NULL, 75, NULL, 'Kursi Kantor', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0027', 'DS', NULL, 75, NULL, 'Lemari Dokumen', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (92 x 46 x 92)', NULL),
+('PUC_0028', 'DS', NULL, 75, NULL, 'Lemari Dokumen', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (92 x 46 x 92)', NULL),
+('PUC_0029', 'DS', NULL, 75, NULL, 'Lemari Dokumen', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (92 x 46 x 92)', NULL),
+('PUC_0030', 'DS', NULL, 75, NULL, 'Lemari Dokumen', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (92 x 46 x 92)', NULL),
+('PUC_0031', 'DS', NULL, 75, NULL, 'Lemari Loker', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0032', 'DS', NULL, 75, NULL, 'Lemari Loker', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0033', 'DS', NULL, 76, NULL, 'Meja Kantor ', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (150 x 75 x 76)', NULL),
+('PUC_0034', 'DS', NULL, 76, NULL, 'Meja Kantor ', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (80 x 60 x 75)', NULL),
+('PUC_0035', 'DS', NULL, 76, NULL, 'Kursi Kantor', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0036', 'DS', NULL, 76, NULL, 'Kursi Kantor', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0037', 'DS', NULL, 76, NULL, 'Lemari Dokumen', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (92 x 46 x 92)', NULL),
+('PUC_0038', 'DS', NULL, 76, NULL, 'Loker', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0039', 'DB', NULL, 79, NULL, 'Meja Kantor ', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (152 x 75 x 76)', NULL),
+('PUC_0040', 'DS', NULL, 79, NULL, 'Meja Kantor ', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (152 x 75 x 76)', NULL),
+('PUC_0041', 'DS', NULL, 79, NULL, 'Meja Kantor ', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (152 x 75 x 76)', NULL),
+('PUC_0042', 'DJ', NULL, 79, NULL, 'Meja Kantor ', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (152 x 75 x 76)', NULL),
+('PUC_0043', 'DB', NULL, 79, NULL, 'Meja Kantor ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0044', 'DB', NULL, 79, NULL, 'Meja Kantor ', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (120 x 60 x 75)', NULL),
+('PUC_0045', 'DS', NULL, 79, NULL, 'Kursi Kantor', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0046', 'DS', NULL, 79, NULL, 'Kursi Kantor', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0047', 'DS', NULL, 79, NULL, 'Kursi Kantor', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0048', 'DS', NULL, 79, NULL, 'Kursi Kantor', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0049', 'DS', NULL, 79, NULL, 'Kursi Kantor', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0050', 'DS', NULL, 79, NULL, 'Lemari Dokumen', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (120 x 40 x 180)', NULL),
+('PUC_0051', 'DS', NULL, 79, NULL, 'Lemari Dokumen', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (92 x 46 x 183)', NULL),
+('PUC_0052', 'DS', NULL, 79, NULL, 'Loker', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0053', 'DS', NULL, 79, NULL, 'Loker', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0054', 'DS', NULL, 74, NULL, 'Meja Kantor ', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (152 x 75 x 76)', NULL),
+('PUC_0055', 'DS', NULL, 74, NULL, 'Meja Kantor ', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (120 x 60 x 75)', NULL),
+('PUC_0056', 'DS', NULL, 74, NULL, 'Kursi Kantor', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0057', 'DS', NULL, 74, NULL, 'Lemari Dokumen', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (92 x 46 x 183)', NULL),
+('PUC_0058', 'DS', NULL, 74, NULL, 'Lemari Dokumen', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (92 x 46 x 183)', NULL),
+('PUC_0059', 'DS', NULL, 77, NULL, 'Meja Kantor ', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (160 x 70 x 76)', NULL),
+('PUC_0060', 'DS', NULL, 77, NULL, 'Meja Kantor ', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (120 x 60 x 75)', NULL),
+('PUC_0061', 'DS', NULL, 77, NULL, 'Meja Kantor ', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (120 x 60 x 75)', NULL),
+('PUC_0062', 'DS', NULL, 77, NULL, 'Meja Kantor ', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (120 x 75 x 75)', NULL),
+('PUC_0063', 'DS', NULL, 77, NULL, 'Meja Kantor ', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (80 x 60 x 74)', NULL),
+('PUC_0064', 'DS', NULL, 77, NULL, 'Meja Kantor ', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (183 x 85 x 76)', NULL),
+('PUC_0065', 'DS', NULL, 77, NULL, 'Lemari Dokumen', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (92 x 46 x 183)', NULL),
+('PUC_0066', 'DS', NULL, 77, NULL, 'Lemari Dokumen', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (92 x 46 x 92)', NULL),
+('PUC_0067', 'DS', NULL, 77, NULL, 'Lemari Dokumen', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (92 x 46 x 92)', NULL),
+('PUC_0068', 'DS', NULL, 77, NULL, 'Lemari Dokumen', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (92 x 46 x 92)', NULL),
+('PUC_0069', 'DS', NULL, 77, NULL, 'Loker', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (38 x 38 x 180)', NULL),
+('PUC_0070', 'DS', NULL, 77, NULL, 'Loker', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (38 x 38 x 180)', NULL),
+('PUC_0071', 'DS', NULL, 77, NULL, 'Loker', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0072', 'DS', NULL, 77, NULL, 'Loker', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0073', 'DJ', NULL, 77, NULL, 'Loker', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0074', 'DS', NULL, 83, NULL, 'Meja Kantor ', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (180 x 80 x 76)', NULL),
+('PUC_0075', 'DS', NULL, 83, NULL, 'Lemari Kaca', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (200 x 50 x 117)', NULL),
+('PUC_0076', 'DS', NULL, 83, NULL, 'Lemari Kaca', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (200 x 45 x 188)', NULL),
+('PUC_0077', 'DJ', NULL, 83, NULL, 'Lemari Kaca', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (200 x 45 x 188)', NULL),
+('PUC_0078', 'DS', NULL, 83, NULL, 'Lemari Sampel', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (70 x 95 x 102)', NULL),
+('PUC_0079', 'DS', NULL, 83, NULL, 'Lemari Sampel', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (70 x 95 x 102)', NULL),
+('PUC_0080', 'DS', NULL, 83, NULL, 'Loker', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0081', 'DS', NULL, 80, NULL, 'Meja Kantor ', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (183 x 88 x 76)', NULL),
+('PUC_0082', 'DS', NULL, 80, NULL, 'Meja Kantor ', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (183 x 88 x 76)', NULL),
+('PUC_0083', 'DS', NULL, 80, NULL, 'Meja Kantor ', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (162 x 61 x 76)', NULL),
+('PUC_0084', 'DS', NULL, 80, NULL, 'Meja Kantor ', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (120 x 60 x 74)', NULL),
+('PUC_0085', 'DS', NULL, 80, NULL, 'Meja Kantor ', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (80 x 60 x74)', NULL),
+('PUC_0086', 'DS', NULL, 80, NULL, 'Meja Kantor ', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (160 x 70 x76)', NULL),
+('PUC_0087', 'DS', NULL, 80, NULL, 'Meja Kantor ', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (150 x 75 x 75)', NULL),
+('PUC_0088', 'DS', NULL, 80, NULL, 'Meja Kantor ', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (120 x 70 x 74)', NULL),
+('PUC_0089', 'DS', NULL, 80, NULL, 'Meja Kantor ', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (180 x 80 x 76)', NULL),
+('PUC_0090', 'DS', NULL, 80, NULL, 'Meja Kantor ', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (240 x 120 x 75)', NULL),
+('PUC_0091', 'DS', NULL, 80, NULL, 'Kursi Kantor', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0092', 'DS', NULL, 80, NULL, 'Kursi Kantor', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0093', 'DS', NULL, 80, NULL, 'Kursi Kantor', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0094', 'DS', NULL, 80, NULL, 'Kursi Kantor', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0095', 'DS', NULL, 80, NULL, 'Kursi Kantor', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0096', 'DB', NULL, NULL, NULL, 'Lemari Kaca', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (250 x 45 x 97)', NULL),
+('PUC_0097', 'DB', NULL, NULL, NULL, 'Lemari Kaca', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (200 x 45 x 180)', NULL),
+('PUC_0098', 'DB', NULL, NULL, NULL, 'Lemari Kaca', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (165 x 60 x 115)', NULL),
+('PUC_0099', 'DS', NULL, NULL, NULL, 'Lemari Dokumen', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (92 x 46 x 183)', NULL),
+('PUC_0100', 'DS', NULL, NULL, NULL, 'Lemari Dokumen', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (92 x 46 x 183)', NULL),
+('PUC_0101', 'DS', NULL, NULL, NULL, 'Lemari Dokumen', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (92 x 46 x 183)', NULL),
+('PUC_0102', 'DS', NULL, NULL, NULL, 'Lemari Dokumen', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (92 x 46 x 92)', NULL),
+('PUC_0103', 'DS', NULL, NULL, NULL, 'Lemari Dokumen', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (92 x 46 x 92)', NULL),
+('PUC_0104', 'DS', NULL, NULL, NULL, 'Lemari Dokumen', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (92 x 46 x 92)', NULL),
+('PUC_0105', 'DS', NULL, NULL, NULL, 'Lemari Dokumen', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (92 x 46 x 92)', NULL),
+('PUC_0106', 'DB', NULL, NULL, NULL, 'Loker', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (46 x 63 x 132)', NULL),
+('PUC_0107', 'DS', NULL, NULL, NULL, 'Loker', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (46 x 63 x 132)', NULL),
+('PUC_0108', 'DS', NULL, NULL, NULL, 'Loker', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (46 x 63 x 132)', NULL),
+('PUC_0109', 'DS', NULL, NULL, NULL, 'Loker', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (46 x 63 x 132)', NULL),
+('PUC_0110', 'DS', NULL, NULL, NULL, 'Loker', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (46 x 63 x 132)', NULL),
+('PUC_0111', 'DS', NULL, NULL, NULL, 'Loker', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (83 x 83 x 180)', NULL),
+('PUC_0112', 'DS', NULL, NULL, NULL, 'Loker', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (83 x 83 x 180)', NULL),
+('PUC_0113', 'DS', NULL, NULL, NULL, 'Loker', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (83 x 83 x 180)', NULL),
+('PUC_0114', 'DS', NULL, NULL, NULL, 'Loker', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (83 x 83 x 180)', NULL),
+('PUC_0115', 'DB', NULL, 73, NULL, 'Lemari Data', NULL, NULL, NULL, NULL, NULL, NULL, 'Dimensi (8,4 x 3 x 0,5) meter', NULL),
+('PUC_0116', 'DB', NULL, 73, NULL, 'Kursi Kantor', NULL, NULL, NULL, NULL, NULL, NULL, 'Indachi Type D 581 AL HDT', NULL),
+('PUC_0117', 'DB', NULL, 73, NULL, 'Kursi Kantor', NULL, NULL, NULL, NULL, NULL, NULL, 'Indachi Type D 581 AL HDT', NULL),
+('PUC_0118', 'DB', NULL, 73, NULL, 'Kursi Kantor', NULL, NULL, NULL, NULL, NULL, NULL, 'Indachi Type D 581 AL HDT', NULL),
+('PUC_0119', 'DB', NULL, 73, NULL, 'Kursi Kantor', NULL, NULL, NULL, NULL, NULL, NULL, 'Indachi Type D 2013 CR', NULL),
+('PUC_0120', 'DB', NULL, 73, NULL, 'Kursi Kantor', NULL, NULL, NULL, NULL, NULL, NULL, 'Indachi Type D 2013 CR', NULL),
+('PUC_0121', 'DB', NULL, 73, NULL, 'Kursi Kantor', NULL, NULL, NULL, NULL, NULL, NULL, 'Indachi Type D 2013 CR', NULL),
+('PUC_0122', 'DB', NULL, 73, NULL, 'Kursi Kantor', NULL, NULL, NULL, NULL, NULL, NULL, 'Indachi Type D 2013 CR', NULL),
+('PUC_0123', 'DB', NULL, 73, NULL, 'Kursi Kantor', NULL, NULL, NULL, NULL, NULL, NULL, 'Indachi Type D 2013 CR', NULL),
+('PUC_0124', 'DB', NULL, 73, NULL, 'Kursi Kantor', NULL, NULL, NULL, NULL, NULL, NULL, 'Indachi Type D 2013 CR', NULL),
+('PUC_0125', 'DB', NULL, 73, NULL, 'Kursi Kantor', NULL, NULL, NULL, NULL, NULL, NULL, 'Chairman SC 1109', NULL),
+('PUC_0126', 'DB', NULL, 73, NULL, 'Kursi Kantor', NULL, NULL, NULL, NULL, NULL, NULL, 'Chairman SC 1109', NULL),
+('PUC_0127', 'DB', NULL, 73, NULL, 'Kursi Kantor', NULL, NULL, NULL, NULL, NULL, NULL, 'Chairman SC 1109', NULL),
+('PUC_0128', 'DB', NULL, 73, NULL, 'Kursi Kantor', NULL, NULL, NULL, NULL, NULL, NULL, 'Chairman SC 1109', NULL),
+('PUC_0129', 'DB', NULL, 73, NULL, 'Kursi Kantor', NULL, NULL, NULL, NULL, NULL, NULL, 'Chairman SC 1109', NULL),
+('PUC_0130', 'DB', NULL, 73, NULL, 'Kursi Kantor', NULL, NULL, NULL, NULL, NULL, NULL, 'Chairman SC 1109', NULL),
+('PUC_0131', 'DB', NULL, 73, NULL, 'Screen Proyektor', NULL, NULL, NULL, NULL, NULL, NULL, 'Uk 84 inchi', NULL),
+('PUC_0132', 'DB', NULL, 73, NULL, 'Proyektor', NULL, NULL, NULL, NULL, NULL, NULL, 'EPSON EB-1780W', NULL),
+('PUC_0133', 'DB', NULL, 73, NULL, 'Tangga Lipat Aluminium', NULL, NULL, NULL, NULL, NULL, NULL, 'Panjang 5 meter', NULL),
+('PUC_0134', 'DS', NULL, 73, NULL, 'Lemari Aluminium Kaca', NULL, NULL, NULL, NULL, NULL, NULL, 'Merk Brother', NULL),
+('PUC_0135', 'DS', NULL, 73, NULL, 'Lemari Aluminium Kaca', NULL, NULL, NULL, NULL, NULL, NULL, 'Merk Brother', NULL),
+('PUC_0136', 'DS', NULL, 73, NULL, 'Lemari Aluminium Kaca', NULL, NULL, NULL, NULL, NULL, NULL, 'Merk Brother', NULL),
+('PUC_0137', 'DS', NULL, 73, NULL, 'Lemari Aluminium Kaca', NULL, NULL, NULL, NULL, NULL, NULL, 'Merk Lions', NULL),
+('PUC_0138', 'DS', NULL, 73, NULL, 'Lemari Aluminium Kaca', NULL, NULL, NULL, NULL, NULL, NULL, 'Tempat Piring', NULL),
+('PUC_0139', 'DS', NULL, 73, NULL, 'Lemari Aluminium Kaca', NULL, NULL, NULL, NULL, NULL, NULL, 'Tempat Helm dan rompi', NULL),
+('PUC_0140', 'DS', NULL, 73, NULL, 'Lemari Aluminium Kaca', NULL, NULL, NULL, NULL, NULL, NULL, 'File', NULL),
+('PUC_0141', 'DS', NULL, 73, NULL, 'Lemari Aluminium Kaca', NULL, NULL, NULL, NULL, NULL, NULL, 'File', NULL),
+('PUC_0142', 'DS', NULL, 73, NULL, 'Lemari Aluminium Kaca', NULL, NULL, NULL, NULL, NULL, NULL, 'Rak Sepatu', NULL),
+('PUC_0143', 'DS', NULL, 73, NULL, 'Rak Air Minum Kemasan Galon', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0144', 'TR', NULL, 73, NULL, 'Brankas', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0145', 'DB', NULL, 73, NULL, 'Dispenser', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0146', 'DS', NULL, 82, NULL, 'Pesawat Telepon', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0147', 'DS', NULL, 72, NULL, 'Pesawat Telepon', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0148', 'DS', NULL, 81, NULL, 'Pesawat Telepon', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0149', 'DS', NULL, 73, NULL, 'Pesawat Telepon', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0150', 'DS', NULL, 73, NULL, 'Pesawat Telepon', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0151', 'DS', NULL, 73, NULL, 'Pesawat Telepon', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0152', 'DS', NULL, 73, NULL, 'Pesawat Telepon', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0153', 'DS', NULL, 73, NULL, 'Pesawat Telepon', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0154', 'DS', NULL, 73, NULL, 'Pesawat Telepon', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0155', 'DS', NULL, 73, NULL, 'Pesawat Telepon', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0156', 'DS', NULL, 73, NULL, 'Pesawat Telepon', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0157', 'DS', NULL, 73, NULL, 'Pesawat Telepon', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0158', 'TR', NULL, 73, NULL, 'Lemari', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUC_0159', 'DS', NULL, 81, NULL, 'Kursi Sofa', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0001', 'DB', NULL, 88, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, 'Lobby (2 pcs)', NULL),
+('PUG_0002', 'DB', NULL, 88, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, 'Lobby', NULL),
+('PUG_0003', 'TR', NULL, 84, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, 'Lobby', NULL),
+('PUG_0004', 'DB', NULL, 84, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, 'Lobby (2 pcs)', NULL),
+('PUG_0005', 'DB', NULL, 84, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, 'Lobby', NULL),
+('PUG_0006', 'DB', NULL, 84, NULL, 'KULKAS', NULL, NULL, NULL, NULL, NULL, NULL, 'Lobby ( SARANA PROMOSI )', NULL),
+('PUG_0007', 'TR', NULL, 84, NULL, 'TV 42\"', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang tamu (3 pcs)', NULL),
+('PUG_0008', 'DB', NULL, 84, NULL, 'MEJA', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang tamu', NULL),
+('PUG_0009', 'DB', NULL, 84, NULL, 'MEJA', NULL, NULL, NULL, NULL, NULL, NULL, 'Samping ruang tamu', NULL),
+('PUG_0010', 'DB', NULL, 84, NULL, 'MEJA', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Sekretaris', NULL),
+('PUG_0011', 'DB', NULL, 84, NULL, 'MEJA', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Sekretaris (2 pcs)', NULL),
+('PUG_0012', 'DB', NULL, 84, NULL, 'MEJA', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Sekretaris', NULL),
+('PUG_0013', 'DB', NULL, 84, NULL, 'MESIN KETIK ELEKTRIK', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Manager PUJ ( CCTV )', NULL),
+('PUG_0014', 'DB', NULL, 84, NULL, 'DISEPENSER', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Manager PUJ ( ATG )', NULL),
+('PUG_0015', 'DB', NULL, 104, NULL, 'MEJA ', NULL, NULL, 2020, NULL, NULL, NULL, 'Ruang Manager PUJ', NULL),
+('PUG_0016', 'DB', NULL, 104, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Manager PUJ', NULL),
+('PUG_0017', 'DB', NULL, 94, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Manager PUJ (4 pcs)', NULL),
+('PUG_0018', 'DB', NULL, 94, NULL, 'KULKAS', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang rapat', NULL),
+('PUG_0019', 'DB', NULL, 94, NULL, 'DISEPENSER', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang rapat', NULL),
+('PUG_0020', 'TX', NULL, 94, NULL, 'BU', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang rapat (23 pcs)', NULL),
+('PUG_0021', 'DB', NULL, 94, NULL, 'BUFFET', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang cozy HR', NULL),
+('PUG_0022', 'DB', NULL, 94, NULL, 'BUFFET', NULL, NULL, NULL, NULL, NULL, NULL, 'Office lantai 2', NULL),
+('PUG_0023', 'DB', NULL, 94, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, 'Office lantai 2', NULL),
+('PUG_0024', 'DB', NULL, 102, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang HR', NULL),
+('PUG_0025', 'DB', NULL, 102, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang HR', NULL),
+('PUG_0026', 'DB', NULL, 102, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang HR', NULL),
+('PUG_0027', 'DB', NULL, 102, NULL, 'DISEPENSER', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang HR', NULL),
+('PUG_0028', 'DB', NULL, 102, NULL, 'TV 21\"', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang HR (7 pcs)', NULL),
+('PUG_0029', 'DB', NULL, 102, NULL, 'MEJA RAPAT', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang mbak Jo', NULL),
+('PUG_0030', 'DB', NULL, 102, NULL, 'LCD PROJECTOR PANASONIC', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Logistik', NULL),
+('PUG_0031', 'DB', NULL, 102, NULL, 'WIHITE BOARD', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Teknik', NULL),
+('PUG_0032', 'DB', NULL, 102, NULL, 'LAYAR PROJECTOR', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Teknik', NULL),
+('PUG_0033', 'DB', NULL, 102, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, 'Depan ruang brainz (2 pcs)', NULL),
+('PUG_0034', 'DB', NULL, 102, NULL, 'MEJA', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang brainz', NULL),
+('PUG_0035', 'DB', NULL, 90, NULL, 'LEMARI BESI', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang brainz', NULL),
+('PUG_0036', 'DB', NULL, 90, NULL, 'LEMARI BESI', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang brainz', NULL),
+('PUG_0037', 'DB', NULL, 90, NULL, 'LEMARI BESI', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang rapat', NULL),
+('PUG_0038', 'DB', NULL, 90, NULL, 'LEMARI KACA', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang rapat', NULL),
+('PUG_0039', 'DB', NULL, 90, NULL, 'LEMARI KACA', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang rapat (5 pcs)', NULL),
+('PUG_0040', 'DB', NULL, 91, NULL, 'MEJA', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang rokok (6 pcs)', NULL),
+('PUG_0041', 'DB', NULL, 91, NULL, 'MEJA', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang rokok', NULL),
+('PUG_0042', 'DB', NULL, 91, NULL, 'MEJA', NULL, NULL, NULL, NULL, NULL, NULL, '61 pcs', NULL),
+('PUG_0043', 'DB', NULL, 91, NULL, 'MEJA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0044', 'DB', NULL, 90, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0045', 'DB', NULL, 90, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0046', 'DB', NULL, 91, NULL, 'DISEPENSER', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0047', 'DB', NULL, 90, NULL, 'MEJA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0048', 'DB', NULL, 90, NULL, 'MEJA', NULL, NULL, NULL, NULL, NULL, NULL, 'Gudang ATK', NULL),
+('PUG_0049', 'DB', NULL, 90, NULL, 'LEMARI DOC', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang musik', NULL),
+('PUG_0050', 'DB', NULL, 90, NULL, 'LEMARI DOC', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang musik', NULL),
+('PUG_0051', 'DB', NULL, 90, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, '3 unit', NULL),
+('PUG_0052', 'DB', NULL, 98, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Adm (6 pcs)', NULL),
+('PUG_0053', 'DB', NULL, 98, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Pak Tantra (2 pcs)', NULL),
+('PUG_0054', 'DB', NULL, 98, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Pak Tantra', NULL),
+('PUG_0055', 'DB', NULL, 98, NULL, 'MEJA OVAL', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Pak Tantra', NULL),
+('PUG_0056', 'DB', NULL, 98, NULL, 'MEJA OVAL', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Pak Tantra', NULL),
+('PUG_0057', 'DB', NULL, 98, NULL, 'KULKAS', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Pak Karel', NULL),
+('PUG_0058', 'DB', NULL, 98, NULL, 'TREADMILL', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Pak Karel', NULL),
+('PUG_0059', 'DB', NULL, 98, NULL, 'KARAOKE', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Pak Karel', NULL),
+('PUG_0060', 'DB', NULL, 98, NULL, 'LOKER', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Rapat (7 pcs)', NULL),
+('PUG_0061', 'DB', NULL, 98, NULL, 'LEMARI DOC', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Rapat', NULL),
+('PUG_0062', 'DB', NULL, 103, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Rapat', NULL),
+('PUG_0063', 'TR', NULL, 103, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang PLC  GP (5 pcs)', NULL),
+('PUG_0064', 'DB', NULL, 103, NULL, 'KIPAS', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang PLC  GP', NULL),
+('PUG_0065', 'DB', NULL, 103, NULL, 'TV CCTV', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang PLC  GP (2 pcs)', NULL),
+('PUG_0066', 'DB', NULL, 103, NULL, 'TV CCTV', NULL, NULL, NULL, NULL, NULL, NULL, '5 pcs', NULL),
+('PUG_0067', 'DB', NULL, 103, NULL, 'LEMARI KAYU', NULL, NULL, NULL, NULL, NULL, NULL, '3 pcs', NULL),
+('PUG_0068', 'DB', NULL, 103, NULL, 'MEJA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0069', 'DB', NULL, 103, NULL, 'MEJA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0070', 'DB', NULL, 103, NULL, 'MEJA KACA', NULL, NULL, NULL, NULL, NULL, NULL, '2 pcs', NULL),
+('PUG_0071', 'DB', NULL, 97, NULL, 'LEMARI ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0072', 'DB', NULL, 97, NULL, 'MEJA', NULL, NULL, NULL, NULL, NULL, NULL, 'New LOBP bawah (4 pcs)', NULL),
+('PUG_0073', 'DB', NULL, 97, NULL, 'MEJA', NULL, NULL, NULL, NULL, NULL, NULL, 'New LOBP bawah (2 pcs)', NULL),
+('PUG_0074', 'DB', NULL, 97, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, 'New LOBP Atas (3 unit)', NULL),
+('PUG_0075', 'DJ', NULL, 108, NULL, 'DISEPENSER', NULL, NULL, NULL, NULL, NULL, NULL, 'New LOBP Atas (21 pcs)', NULL),
+('PUG_0076', 'DB', NULL, 108, NULL, 'TREADMILL', NULL, NULL, NULL, NULL, NULL, NULL, 'New LOBP Atas', NULL),
+('PUG_0077', 'DB', NULL, 108, NULL, 'HOME GYM', NULL, NULL, NULL, NULL, NULL, NULL, 'New LOBP Atas', NULL),
+('PUG_0078', 'DB', NULL, 108, NULL, 'BENCH PRESS', NULL, NULL, NULL, NULL, NULL, NULL, 'New LOBP Atas', NULL),
+('PUG_0079', 'DB', NULL, 108, NULL, 'PREACHER CURL', NULL, NULL, NULL, NULL, NULL, NULL, 'New LOBP Atas', NULL),
+('PUG_0080', 'DB', NULL, 108, NULL, 'SMITH MACHINE', NULL, NULL, NULL, NULL, NULL, NULL, 'New LOBP Atas', NULL),
+('PUG_0081', 'DB', NULL, 108, NULL, 'MEJA PINGPONG', NULL, NULL, NULL, NULL, NULL, NULL, 'New LOBP Atas', NULL),
+('PUG_0082', 'DB', NULL, 108, NULL, 'DUMBBLE SET RACK', NULL, NULL, NULL, NULL, NULL, NULL, 'New LOBP Atas', NULL),
+('PUG_0083', 'DB', NULL, 86, NULL, 'MEJA', NULL, NULL, NULL, NULL, NULL, NULL, 'New LOBP Atas', NULL),
+('PUG_0084', 'DS', NULL, 86, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, 'New LOBP Atas', NULL),
+('PUG_0085', 'DB', NULL, 86, NULL, 'LEMARI', NULL, NULL, NULL, NULL, NULL, NULL, 'New LOBP Atas', NULL),
+('PUG_0086', 'DB', NULL, 86, NULL, 'MEJA', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Rapat Ex ruang pak setyo (4 pcs)', NULL),
+('PUG_0087', 'DS', NULL, 86, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Rapat Ex ruang pak setyo', NULL),
+('PUG_0088', 'DB', NULL, 87, NULL, 'MEJA', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Rapat Ex ruang pak setyo', NULL),
+('PUG_0089', 'DB', NULL, 87, NULL, 'MEJA', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Rapat Ex ruang pak setyo', NULL),
+('PUG_0090', 'DB', NULL, 87, NULL, 'MEJA', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang rapat', NULL),
+('PUG_0091', 'DB', NULL, 87, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang rapat', NULL),
+('PUG_0092', 'DB', NULL, 87, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang rapat', NULL),
+('PUG_0093', 'DB', NULL, 87, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang rapat (13 pcs)', NULL),
+('PUG_0094', 'DB', NULL, 87, NULL, 'MEJA', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang rapat', NULL),
+('PUG_0095', 'DB', NULL, 105, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang rapat', NULL),
+('PUG_0096', 'DB', NULL, 105, NULL, 'MEJA', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang rapat', NULL),
+('PUG_0097', 'TR', NULL, 105, NULL, 'PRINTER EPSON', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang rapat', NULL),
+('PUG_0098', 'DB', NULL, 105, NULL, 'BUFFET', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang rapat', NULL),
+('PUG_0099', 'DB', NULL, 105, NULL, 'LEMARI KACA', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang teknik maintenance', NULL),
+('PUG_0100', 'DB', NULL, 105, NULL, 'KABINET', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang teknik maintenance', NULL),
+('PUG_0101', 'DS', NULL, 85, NULL, 'PRINTER EPSON', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang teknik maintenance', NULL),
+('PUG_0102', 'DS', NULL, 85, NULL, 'KULKAS', NULL, NULL, NULL, NULL, NULL, NULL, '8 pcs', NULL),
+('PUG_0103', 'DS', NULL, 85, NULL, 'MEJA', NULL, NULL, NULL, NULL, NULL, NULL, '8 pcs', NULL),
+('PUG_0104', 'DS', NULL, 85, NULL, 'MEJA ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0105', 'DS', NULL, 85, NULL, 'MEJA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0106', 'DS', NULL, 85, NULL, 'MEJA', NULL, NULL, NULL, NULL, NULL, NULL, '6 pcs', NULL),
+('PUG_0107', 'DB', NULL, 85, NULL, 'DISEPENSER', NULL, NULL, NULL, NULL, NULL, NULL, '7 pcs', NULL),
+('PUG_0108', 'DB', NULL, 85, NULL, 'LEMARI DOC', NULL, NULL, NULL, NULL, NULL, NULL, '4 pcs', NULL),
+('PUG_0109', 'DJ', NULL, 85, NULL, 'LEMARI DOC', NULL, NULL, NULL, NULL, NULL, NULL, '2 pcs', NULL),
+('PUG_0110', 'DJ', NULL, 85, NULL, 'LEMARI DOC', NULL, NULL, NULL, NULL, NULL, NULL, '5 pcs', NULL),
+('PUG_0111', 'DB', NULL, 85, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, '5 pcs', NULL),
+('PUG_0112', 'DB', NULL, 85, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, '4 pcs', NULL),
+('PUG_0113', 'DB', NULL, 85, NULL, 'TV SONY 32\"', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0114', 'TR', NULL, 106, NULL, 'TV', NULL, NULL, NULL, NULL, NULL, NULL, '4 pcs', NULL),
+('PUG_0115', 'TR', NULL, 106, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0116', 'DB', NULL, 106, NULL, 'LEMARI DOC', NULL, NULL, NULL, NULL, NULL, NULL, '2 pcs', NULL),
+('PUG_0117', 'DB', NULL, 106, NULL, 'LEMARI', NULL, NULL, NULL, NULL, NULL, NULL, '2 pcs', NULL),
+('PUG_0118', 'DB', NULL, 106, NULL, 'PRINTER HP', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0119', 'DB', NULL, 106, NULL, 'DESK ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0120', 'DB', NULL, 106, NULL, 'DESK ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0121', 'DB', NULL, 106, NULL, 'KABINET BESI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0122', 'DB', NULL, 95, NULL, 'PRINTER', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0123', 'DB', NULL, 95, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, '6 pcs', NULL),
+('PUG_0124', 'DB', NULL, 95, NULL, 'DESK', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0125', 'DB', NULL, 95, NULL, 'DESK', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0126', 'DB', NULL, 95, NULL, 'DESK', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0127', 'DB', NULL, 95, NULL, 'LEMARI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0128', 'DB', NULL, 95, NULL, 'LEMARI', NULL, NULL, NULL, NULL, NULL, NULL, '4 pcs', NULL),
+('PUG_0129', 'DB', NULL, 93, NULL, 'DESK', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0130', 'DB', NULL, 93, NULL, 'DESK', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0131', 'DB', NULL, 93, NULL, 'ROUND DESK', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0132', 'DB', NULL, 93, NULL, 'LEMARI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0133', 'DB', NULL, 93, NULL, 'LEMARI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0134', 'DB', NULL, 93, NULL, 'LEMARI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0135', 'DB', NULL, 93, NULL, 'LEMARI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0136', 'DB', NULL, 93, NULL, 'LEMARI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0137', 'DB', NULL, 93, NULL, 'LEMARI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0138', 'DB', NULL, 93, NULL, 'LEMARI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0139', 'DB', NULL, 93, NULL, 'LEMARI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0140', 'DB', NULL, 93, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0141', 'DB', NULL, 93, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0142', 'DB', NULL, 93, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0143', 'DS', NULL, 107, NULL, 'L DESK', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0144', 'DS', NULL, 107, NULL, 'L DESK', NULL, NULL, NULL, NULL, NULL, NULL, '5 pcs', NULL),
+('PUG_0145', 'DS', NULL, 107, NULL, 'DESK', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0146', 'DS', NULL, 107, NULL, 'DESK', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0147', 'DJ', NULL, 107, NULL, 'LEMARI BESI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0148', 'DB', NULL, 107, NULL, 'LEMARI BESI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0149', 'DB', NULL, 107, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0150', 'DB', NULL, 107, NULL, 'DISEPENSER', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0151', 'DB', NULL, 96, NULL, 'LEMARI BESI', NULL, NULL, NULL, NULL, NULL, NULL, '3 pcs', NULL),
+('PUG_0152', 'DB', NULL, 96, NULL, 'LEMARI BESI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0153', 'DB', NULL, 96, NULL, 'DESK MEJA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0154', 'DB', NULL, 96, NULL, 'DESK MEJA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0155', 'DB', NULL, 88, NULL, 'LONG DESK', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0156', 'DB', NULL, 96, NULL, 'KABINET', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0157', 'DB', NULL, 96, NULL, 'KULKAS', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0158', 'DB', NULL, 89, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, '2 pcs', NULL),
+('PUG_0159', 'DB', NULL, 89, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0160', 'DB', NULL, 89, NULL, 'TV', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0161', 'DB', NULL, 89, NULL, 'DISEPENSER', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0162', 'DB', NULL, 89, NULL, 'SPEAKER', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0163', 'DB', NULL, 89, NULL, 'LEMARI BESI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0164', 'DB', NULL, 89, NULL, 'LEMARI BESI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0165', 'DB', NULL, 89, NULL, 'LEMARI BESI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0166', 'DB', NULL, 100, NULL, 'LEMARI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0167', 'DB', NULL, 100, NULL, 'LEMARI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0168', 'DB', NULL, 101, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0169', 'DB', NULL, 101, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0170', 'DB', NULL, 101, NULL, 'MEJA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0171', 'DB', NULL, 100, NULL, 'LEMARI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0172', 'DB', NULL, 101, NULL, 'LEMARI KACA', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruangan pak Nur (2 pcs)', NULL),
+('PUG_0173', 'DB', NULL, 101, NULL, 'LEMARI KACA', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruangan pak Nur', NULL),
+('PUG_0174', 'DB', NULL, 100, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruangan pak Nur', NULL),
+('PUG_0175', 'DB', NULL, 100, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruangan pak Nur', NULL),
+('PUG_0176', 'DB', NULL, 100, NULL, 'DISEPENSER', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruangan pak Nur (3 pcs)', NULL),
+('PUG_0177', 'DB', NULL, 101, NULL, 'MEJA', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruangan pak Nur', NULL),
+('PUG_0178', 'DB', NULL, 100, NULL, 'MEJA', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruangan pak Nur', NULL),
+('PUG_0179', 'DB', NULL, 100, NULL, 'MEJA', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruangan kosong', NULL),
+('PUG_0180', 'DB', NULL, 100, NULL, 'MEJA', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruangan Mbak Yashmikha', NULL),
+('PUG_0181', 'DB', NULL, 100, NULL, 'PRINTER CANON IX6870', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruangan Mbak Yashmikha', NULL),
+('PUG_0182', 'DB', NULL, 100, NULL, 'KULKAS', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruangan Mbak Yashmikha (2 pcs)', NULL),
+('PUG_0183', 'DB', NULL, 100, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0184', 'DB', NULL, 100, NULL, 'LEMARI BESI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0185', 'DB', NULL, 100, NULL, 'LEMARI BESI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0186', 'DB', NULL, 100, NULL, 'LEMARI BESI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0187', 'DB', NULL, 92, NULL, 'Meja Kantor', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0188', 'DB', NULL, 92, NULL, 'Meja Kantor', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0189', 'DB', NULL, 92, NULL, 'Meja Kantor', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0190', 'DB', NULL, 92, NULL, 'Meja Kantor', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0191', 'DB', NULL, 92, NULL, 'Meja Kantor', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0192', 'DB', NULL, 99, NULL, 'Sepeda Pancal', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0193', 'DB', NULL, 99, NULL, 'Sepeda Pancal', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0194', 'DB', NULL, 99, NULL, 'Sepeda Pancal', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0195', 'DB', NULL, 99, NULL, 'Sepeda Pancal', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0196', 'DB', NULL, 89, NULL, 'Sepeda Pancal', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang rapat', NULL),
+('PUG_0197', 'DB', NULL, 89, NULL, 'Sepeda Pancal', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang rapat', NULL),
+('PUG_0198', 'TR', NULL, 96, NULL, 'DISPENSER', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang rapat', NULL),
+('PUG_0199', 'DB', NULL, 96, NULL, 'DESK MEJA', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang rapat', NULL),
+('PUG_0200', 'DB', NULL, 96, NULL, 'SOFA', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang rapat', NULL),
+('PUG_0201', 'DB', NULL, 96, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0202', 'DB', NULL, 96, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0203', 'DB', NULL, 96, NULL, 'PRINTER STIKER ZEBRA 170Xi4', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0204', 'DB', NULL, 89, NULL, 'MEJA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0205', 'DB', NULL, 89, NULL, 'MEJA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0206', 'DB', NULL, 89, NULL, 'MEJA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0207', 'DB', NULL, 89, NULL, 'MEJA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0208', 'DB', NULL, 89, NULL, 'MEJA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0209', 'DB', NULL, 89, NULL, 'PRINTER HP PRO MZ03DW', NULL, NULL, NULL, NULL, NULL, NULL, '4 pcs', NULL),
+('PUG_0210', 'DB', NULL, 89, NULL, 'PRINTER EPSON L220', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0211', 'DB', NULL, 101, NULL, 'MEJA', NULL, NULL, NULL, NULL, NULL, NULL, 'Pantry', NULL),
+('PUG_0212', 'DB', NULL, 101, NULL, 'MEJA', NULL, NULL, NULL, NULL, NULL, NULL, 'Pantry', NULL),
+('PUG_0213', 'DB', NULL, 101, NULL, 'RAK MATERIAL', NULL, NULL, NULL, NULL, NULL, NULL, 'Pantry', NULL),
+('PUG_0214', 'DB', NULL, 101, NULL, 'RAK MATERIAL', NULL, NULL, NULL, NULL, NULL, NULL, 'Depan ruang lantai 3 (12 pcs)', NULL),
+('PUG_0215', 'DB', NULL, 101, NULL, 'RAK MATERIAL', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0216', 'DB', NULL, 101, NULL, 'RAK MATERIAL', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0217', 'DB', NULL, 100, NULL, 'RAK MATERIAL', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0218', 'DB', NULL, 101, NULL, 'PAPAN INFORMASI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0219', 'DB', NULL, 100, NULL, 'LEMARI KACA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0220', 'DB', NULL, 100, NULL, 'LEMARI KACA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0221', 'DB', NULL, 100, NULL, 'LEMARI KACA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0222', 'DB', NULL, 99, NULL, 'Sepeda Pancal', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0223', 'DB', NULL, 99, NULL, 'Sepeda Pancal', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0224', 'DB', NULL, 99, NULL, 'Sepeda Pancal', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0225', 'DB', NULL, 88, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0226', 'DB', NULL, 97, NULL, 'DISPENSER', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0227', 'DB', NULL, 87, NULL, 'KULKAS', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0228', 'DB', NULL, 87, NULL, 'DISPENSER', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0229', 'DB', NULL, 87, NULL, 'DISPENSER', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0230', 'TR', NULL, 93, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0231', 'DB', NULL, 107, NULL, 'DISPENSER', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0232', 'DB', NULL, 107, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0233', 'DB', NULL, 107, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0234', 'DB', NULL, 107, NULL, 'AC', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUG_0235', 'DB', NULL, 84, NULL, 'PAPER SHREDDER HEAVY DUTY', NULL, NULL, 2021, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0001', 'DB', NULL, 112, NULL, 'Kursi tamu merah 1 set', NULL, NULL, NULL, NULL, NULL, NULL, 'Lobby (2 pcs)', NULL),
+('PUJ_0002', 'DB', NULL, 112, NULL, 'Meja tamu', NULL, NULL, NULL, NULL, NULL, NULL, 'Lobby', NULL),
+('PUJ_0003', 'DB', NULL, 112, NULL, 'Meja repsesionis', NULL, NULL, NULL, NULL, NULL, NULL, 'Lobby', NULL),
+('PUJ_0004', 'DS', NULL, 112, NULL, 'Kursi Kerja 1 set', NULL, NULL, NULL, NULL, NULL, NULL, 'Lobby (2 pcs)', NULL),
+('PUJ_0005', 'DB', NULL, 112, NULL, 'Partisi penyimpanan botol oli', NULL, NULL, NULL, NULL, NULL, NULL, 'Lobby', NULL),
+('PUJ_0006', 'DB', NULL, 112, NULL, 'TV LED 60\'', NULL, NULL, NULL, NULL, NULL, NULL, 'Lobby ( SARANA PROMOSI )', NULL),
+('PUJ_0007', 'DB', NULL, 112, NULL, 'Sofa tamu 1 set', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang tamu (3 pcs)', NULL),
+('PUJ_0008', 'DB', NULL, 112, NULL, 'TV LED 60\'', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang tamu', NULL),
+('PUJ_0009', 'DB', NULL, 112, NULL, 'Sofa tamu 1 set', NULL, NULL, NULL, NULL, NULL, NULL, 'Samping ruang tamu', NULL),
+('PUJ_0010', 'DB', NULL, 112, NULL, 'Meja Kerja', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Sekretaris', NULL),
+('PUJ_0011', 'DB', NULL, 112, NULL, 'Kursi Kerja 1 set', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Sekretaris (2 pcs)', NULL),
+('PUJ_0012', 'DB', NULL, 112, NULL, 'Lemari Kabinet', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Sekretaris', NULL),
+('PUJ_0013', 'DB', NULL, 112, NULL, 'TV LED 60\'', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Manager PUJ ( CCTV )', NULL),
+('PUJ_0014', 'DB', NULL, 112, NULL, 'TV LED 60\'', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Manager PUJ ( ATG )', NULL),
+('PUJ_0015', 'DB', NULL, 112, NULL, 'Meja TV', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Manager PUJ', NULL),
+('PUJ_0016', 'DB', NULL, 112, NULL, 'Meja kerja', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Manager PUJ', NULL),
+('PUJ_0017', 'DB', NULL, 112, NULL, 'Kursi Kerja (1 set)', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Manager PUJ (4 pcs)', NULL),
+('PUJ_0018', 'DB', NULL, 112, NULL, 'Proyektor', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang rapat', NULL),
+('PUJ_0019', 'DB', NULL, 112, NULL, 'Meja Rapat 1 set', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang rapat', NULL),
+('PUJ_0020', 'DB', NULL, 112, NULL, 'Kursi kantor 1 set', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang rapat (23 pcs)', NULL),
+('PUJ_0021', 'DB', NULL, 113, NULL, 'TV LED 60\"', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang cozy HR', NULL),
+('PUJ_0022', 'DS', NULL, 113, NULL, 'Kubikal 1 set', NULL, NULL, NULL, NULL, NULL, NULL, 'Office lantai 2', NULL),
+('PUJ_0023', 'DB', NULL, 113, NULL, 'Kursi kantor 1 set', NULL, NULL, NULL, NULL, NULL, NULL, 'Office lantai 2', NULL),
+('PUJ_0024', 'DS', NULL, 113, NULL, 'Lemari kabinet kecil', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang HR', NULL),
+('PUJ_0025', 'DS', NULL, 113, NULL, 'Lemari kabinet kecil', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang HR', NULL),
+('PUJ_0026', 'DB', NULL, 113, NULL, 'Lemari kabinet kecil', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang HR', NULL),
+('PUJ_0027', 'DB', NULL, 113, NULL, 'Penghancur kertas', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang HR', NULL),
+('PUJ_0028', 'DS', NULL, 113, NULL, 'Kursi kantor 1 set', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang HR (7 pcs)', NULL),
+('PUJ_0029', 'DB', NULL, 113, NULL, 'Brankas uang', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang mbak Jo', NULL),
+('PUJ_0030', 'DS', NULL, 113, NULL, 'Kubikal 1 set', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Logistik', NULL),
+('PUJ_0031', 'DS', NULL, 113, NULL, 'Kubikal 1 set', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Teknik', NULL),
+('PUJ_0032', 'DB', NULL, 113, NULL, 'Lemari File', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Teknik', NULL),
+('PUJ_0033', 'DB', NULL, 113, NULL, 'Sofa tamu (1 set)', NULL, NULL, NULL, NULL, NULL, NULL, 'Depan ruang brainz (2 pcs)', NULL),
+('PUJ_0034', 'DB', NULL, 113, NULL, 'Filling kabinet 1 set', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang brainz', NULL),
+('PUJ_0035', 'TR', NULL, 113, NULL, 'Lemari kabinet besi', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang brainz', NULL),
+('PUJ_0036', 'TR', NULL, 113, NULL, 'Lemari kabinet besi', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang brainz', NULL),
+('PUJ_0037', 'TR', NULL, 113, NULL, 'Proyektor', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang rapat', NULL),
+('PUJ_0038', 'DB', NULL, 113, NULL, 'Rak 1 set', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang rapat', NULL),
+('PUJ_0039', 'DB', NULL, 113, NULL, 'Kursi kantor (1 set)', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang rapat (5 pcs)', NULL),
+('PUJ_0040', 'DB', NULL, 113, NULL, 'Sofa 1 set', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang rokok (6 pcs)', NULL),
+('PUJ_0041', 'DB', NULL, 113, NULL, 'Lemari kabinet', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang rokok', NULL),
+('PUJ_0042', 'DB', NULL, 114, NULL, 'Kursi biru 1 set', NULL, NULL, NULL, NULL, NULL, NULL, '61 pcs', NULL),
+('PUJ_0043', 'DS', NULL, 114, NULL, 'Meja kantor 1 set', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0044', 'DB', NULL, 114, NULL, 'Tangga', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0045', 'DB', NULL, 114, NULL, 'Meja tenis 1 set', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0046', 'DB', NULL, 114, NULL, 'Net bulu tangkis 1 set', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0047', 'DB', NULL, 114, NULL, 'Net bulu tangkis 1 set', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0048', 'DJ', NULL, 114, NULL, 'Lemari kabinet besi', NULL, NULL, NULL, NULL, NULL, NULL, 'Gudang ATK', NULL),
+('PUJ_0049', 'DB', NULL, 114, NULL, '1 set alat musik', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang musik', NULL),
+('PUJ_0050', 'DJ', NULL, 114, NULL, 'Lemari berkas besi', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang musik', NULL),
+('PUJ_0051', 'DB', NULL, 114, NULL, 'Peralatan Gym 1 set', NULL, NULL, NULL, NULL, NULL, NULL, '3 unit', NULL),
+('PUJ_0052', 'DB', NULL, 115, NULL, 'Kursi kerja 1 set', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Adm (6 pcs)', NULL),
+('PUJ_0053', 'DB', NULL, 115, NULL, 'Kursi kerja 1 set', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Pak Tantra (2 pcs)', NULL),
+('PUJ_0054', 'DB', NULL, 115, NULL, 'Meja kerja', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Pak Tantra', NULL),
+('PUJ_0055', 'DB', NULL, 115, NULL, 'Sofa', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Pak Tantra', NULL),
+('PUJ_0056', 'DB', NULL, 115, NULL, 'Meja kaca', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Pak Tantra', NULL),
+('PUJ_0057', 'DB', NULL, 115, NULL, 'Kursi kerja', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Pak Karel', NULL),
+('PUJ_0058', 'DB', NULL, 115, NULL, 'Kursi kerja', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Pak Karel', NULL),
+('PUJ_0059', 'DB', NULL, 115, NULL, 'Meja kerja', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Pak Karel', NULL),
+('PUJ_0060', 'DB', NULL, 115, NULL, 'Kursi kerja (1 set)', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Rapat (7 pcs)', NULL),
+('PUJ_0061', 'DB', NULL, 115, NULL, 'Meja rapat 1 set', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Rapat', NULL),
+('PUJ_0062', 'DJ', NULL, 115, NULL, 'Lemari berkas', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Rapat', NULL),
+('PUJ_0063', 'DB', NULL, 115, NULL, 'Kursi kerja 1 set', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang PLC  GP (5 pcs)', NULL),
+('PUJ_0064', 'DB', NULL, 115, NULL, 'Meja kerja bundar', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang PLC  GP', NULL),
+('PUJ_0065', 'DB', NULL, 115, NULL, 'Meja kerja 1 set', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang PLC  GP (2 pcs)', NULL),
+('PUJ_0066', 'DJ', NULL, 126, NULL, 'Kursi kerja 1 set', NULL, NULL, NULL, NULL, NULL, NULL, '5 pcs', NULL),
+('PUJ_0067', 'DJ', NULL, 126, NULL, 'Meja kerja 1 set', NULL, NULL, NULL, NULL, NULL, NULL, '3 pcs', NULL),
+('PUJ_0068', 'DJ', NULL, 126, NULL, 'Lemari besi', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0069', 'DJ', NULL, 126, NULL, 'Lemari besi', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0070', 'DJ', NULL, 126, NULL, 'Kursi kerja 1 set', NULL, NULL, NULL, NULL, NULL, NULL, '2 pcs', NULL),
+('PUJ_0071', 'DJ', NULL, 126, NULL, 'Meja kerja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0072', 'DJ', NULL, 121, NULL, 'Kursi kerja 1 set', NULL, NULL, NULL, NULL, NULL, NULL, 'New LOBP bawah (4 pcs)', NULL),
+('PUJ_0073', 'DJ', NULL, 121, NULL, 'Meja kerja 1 set', NULL, NULL, NULL, NULL, NULL, NULL, 'New LOBP bawah (2 pcs)', NULL),
+('PUJ_0074', 'DB', NULL, 121, NULL, 'Kubikal 1 set', NULL, NULL, NULL, NULL, NULL, NULL, 'New LOBP Atas (3 unit)', NULL),
+('PUJ_0075', 'DB', NULL, 121, NULL, 'Kursi kerja 1 set', NULL, NULL, NULL, NULL, NULL, NULL, 'New LOBP Atas (21 pcs)', NULL),
+('PUJ_0076', 'DB', NULL, 121, NULL, 'Meja kerja', NULL, NULL, NULL, NULL, NULL, NULL, 'New LOBP Atas', NULL),
+('PUJ_0077', 'DB', NULL, 121, NULL, 'Lemari besi', NULL, NULL, NULL, NULL, NULL, NULL, 'New LOBP Atas', NULL),
+('PUJ_0078', 'DB', NULL, 121, NULL, 'Lemari besi', NULL, NULL, NULL, NULL, NULL, NULL, 'New LOBP Atas', NULL),
+('PUJ_0079', 'DB', NULL, 121, NULL, 'Lemari besi', NULL, NULL, NULL, NULL, NULL, NULL, 'New LOBP Atas', NULL),
+('PUJ_0080', 'TR', NULL, 121, NULL, 'Lemari besi', NULL, NULL, NULL, NULL, NULL, NULL, 'New LOBP Atas', NULL),
+('PUJ_0081', 'DB', NULL, 121, NULL, 'Meja kotak', NULL, NULL, NULL, NULL, NULL, NULL, 'New LOBP Atas', NULL),
+('PUJ_0082', 'DB', NULL, 121, NULL, 'Lemari', NULL, NULL, NULL, NULL, NULL, NULL, 'New LOBP Atas', NULL),
+('PUJ_0083', 'DB', NULL, 121, NULL, 'Lemari', NULL, NULL, NULL, NULL, NULL, NULL, 'New LOBP Atas', NULL),
+('PUJ_0084', 'DB', NULL, 121, NULL, 'Rak sepatu/helm', NULL, NULL, NULL, NULL, NULL, NULL, 'New LOBP Atas', NULL),
+('PUJ_0085', 'DB', NULL, 121, NULL, 'Lemari besi', NULL, NULL, NULL, NULL, NULL, NULL, 'New LOBP Atas', NULL),
+('PUJ_0086', 'DS', NULL, 121, NULL, 'Kursi kerja 1 set', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Rapat Ex ruang pak setyo (4 pcs)', NULL),
+('PUJ_0087', 'DB', NULL, 121, NULL, 'Kursi biru', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Rapat Ex ruang pak setyo', NULL),
+('PUJ_0088', 'DB', NULL, 121, NULL, 'Meja kerja', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Rapat Ex ruang pak setyo', NULL),
+('PUJ_0089', 'DB', NULL, 121, NULL, 'Lemari besi', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang Rapat Ex ruang pak setyo', NULL),
+('PUJ_0090', 'DS', NULL, 121, NULL, 'Meja kerja', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang rapat', NULL),
+('PUJ_0091', 'DB', NULL, 121, NULL, 'Meja kerja', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang rapat', NULL),
+('PUJ_0092', 'DB', NULL, 121, NULL, 'Meja rapat', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang rapat', NULL),
+('PUJ_0093', 'DB', NULL, 121, NULL, 'Kursi biru 1 set', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang rapat (13 pcs)', NULL);
+INSERT INTO `asset` (`kode_asset`, `id_kondisi`, `id_status_kepemilikan`, `id_lokasi`, `id_jenis_asset`, `deskripsi_asset`, `jumlah`, `ukuran`, `tahun_pengadaan`, `asal_usul`, `harga`, `gambar`, `keterangan`, `merk/type`) VALUES
+('PUJ_0094', 'DB', NULL, 121, NULL, 'Kursi kerja lipat', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang rapat', NULL),
+('PUJ_0095', 'TR', NULL, 121, NULL, 'Kursi Kerja', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang rapat', NULL),
+('PUJ_0096', 'DB', NULL, 121, NULL, 'Kursi Kerja', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang rapat', NULL),
+('PUJ_0097', 'DB', NULL, 121, NULL, 'Lemari besi', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang rapat', NULL),
+('PUJ_0098', 'DJ', NULL, 121, NULL, 'Lemari besi', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang rapat', NULL),
+('PUJ_0099', 'DB', NULL, 121, NULL, 'Meja kerja', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang teknik maintenance', NULL),
+('PUJ_0100', 'DB', NULL, 121, NULL, 'Kursi kerja', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang teknik maintenance', NULL),
+('PUJ_0101', 'DB', NULL, 121, NULL, 'Meja kerja', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang teknik maintenance', NULL),
+('PUJ_0102', 'DB', NULL, 109, NULL, 'Meja kerja', NULL, NULL, NULL, NULL, NULL, NULL, '8 pcs', NULL),
+('PUJ_0103', 'DB', NULL, 109, NULL, 'Kursi biriu 1 set', NULL, NULL, NULL, NULL, NULL, NULL, '8 pcs', NULL),
+('PUJ_0104', 'DB', NULL, 109, NULL, 'Lemari berkas', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0105', 'DB', NULL, 109, NULL, 'Lemari berkas', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0106', 'DB', NULL, 109, NULL, 'Kursi kerja 1 set', NULL, NULL, NULL, NULL, NULL, NULL, '6 pcs', NULL),
+('PUJ_0107', 'DJ', NULL, 120, NULL, 'Kursi kerja 1 set', NULL, NULL, NULL, NULL, NULL, NULL, '7 pcs', NULL),
+('PUJ_0108', 'DJ', NULL, 120, NULL, 'Meja kerja 1 set', NULL, NULL, NULL, NULL, NULL, NULL, '4 pcs', NULL),
+('PUJ_0109', 'DJ', NULL, 120, NULL, 'Kursi kerja 1 set', NULL, NULL, NULL, NULL, NULL, NULL, '2 pcs', NULL),
+('PUJ_0110', 'DB', NULL, 120, NULL, 'Kursi kerja 1 set', NULL, NULL, NULL, NULL, NULL, NULL, '5 pcs', NULL),
+('PUJ_0111', 'DJ', NULL, 120, NULL, 'Meja kerja 1 set', NULL, NULL, NULL, NULL, NULL, NULL, '5 pcs', NULL),
+('PUJ_0112', 'DB', NULL, 110, NULL, 'Meja kerja besi 1 set', NULL, NULL, NULL, NULL, NULL, NULL, '4 pcs', NULL),
+('PUJ_0113', 'DJ', NULL, 125, NULL, 'Kursi kerja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0114', 'DB', NULL, 123, NULL, 'Meja kerja 1 set', NULL, NULL, NULL, NULL, NULL, NULL, '4 pcs', NULL),
+('PUJ_0115', 'DB', NULL, 123, NULL, 'Meja bundar', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0116', 'DS', NULL, 123, NULL, 'Kursi kerja 1 set', NULL, NULL, NULL, NULL, NULL, NULL, '2 pcs', NULL),
+('PUJ_0117', 'DS', NULL, 123, NULL, 'Kursi Tunggu 1 set', NULL, NULL, NULL, NULL, NULL, NULL, '2 pcs', NULL),
+('PUJ_0118', 'DB', NULL, 123, NULL, 'Kursi biru', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0119', 'DS', NULL, 123, NULL, 'Kursi putih', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0120', 'DB', NULL, 123, NULL, 'Lemari Kabinet', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0121', 'DB', NULL, 123, NULL, 'Lemari Kabinet', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0122', 'DB', NULL, 124, NULL, 'Kubikal 1 set', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0123', 'DB', NULL, 124, NULL, 'Kursi kerja 1 set', NULL, NULL, NULL, NULL, NULL, NULL, '6 pcs', NULL),
+('PUJ_0124', 'DB', NULL, 124, NULL, 'Lemari Kabinet', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0125', 'DB', NULL, 124, NULL, 'Whiteboard kecil', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0126', 'DB', NULL, 124, NULL, 'Lemari kabinet kaca 1 set', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0127', 'DS', NULL, 124, NULL, 'Lemari kabinet kaca dorong', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0128', 'DS', NULL, 111, NULL, 'Sofa 1 set', NULL, NULL, NULL, NULL, NULL, NULL, '4 pcs', NULL),
+('PUJ_0129', 'DS', NULL, 111, NULL, 'Meja kerja 1 set', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0130', 'DS', NULL, 111, NULL, 'Lemari kabinet kaca dorong', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0131', 'DJ', NULL, 116, NULL, 'Lemari kabinet kaca dorong', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0132', 'DJ', NULL, 116, NULL, 'Lemari kabinet dorong kecil', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0133', 'DS', NULL, 99, NULL, 'Kursi kerja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0134', 'DS', NULL, 99, NULL, 'Meja kantor', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0135', 'DS', NULL, 99, NULL, 'Lemari kabinet besi', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0136', 'DB', NULL, 99, NULL, 'Lemari kaca', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0137', 'DB', NULL, 99, NULL, 'Kursi biru', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0138', 'DS', NULL, 99, NULL, 'Meja komputer', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0139', 'DS', NULL, 99, NULL, 'Meja kantor', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0140', 'DJ', NULL, 99, NULL, 'Lemari kabinet kaca dorong kecil', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0141', 'DS', NULL, 99, NULL, 'Meja kantor 1 set', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0142', 'DS', NULL, 99, NULL, 'Laci Dokumen 2 susun', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0143', 'DS', NULL, 99, NULL, 'Lemari file hitam 1 set', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0144', 'DS', NULL, 99, NULL, 'Kursi kerja', NULL, NULL, NULL, NULL, NULL, NULL, '5 pcs', NULL),
+('PUJ_0145', 'DS', NULL, 99, NULL, 'Filling kabinet 1 set', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0146', 'DJ', NULL, 99, NULL, 'Lemari Kabinet', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0147', 'DS', NULL, 117, NULL, 'Meja kerja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0148', 'DJ', NULL, 117, NULL, 'Meja kerja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0149', 'DS', NULL, 117, NULL, 'Meja kerja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0150', 'DS', NULL, 117, NULL, 'Meja kerja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0151', 'DB', NULL, 117, NULL, 'Kursi kerja 1 set', NULL, NULL, NULL, NULL, NULL, NULL, '3 pcs', NULL),
+('PUJ_0152', 'DS', NULL, 117, NULL, 'Meja kerja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0153', 'DB', NULL, 117, NULL, 'Kursi kerja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0154', 'DJ', NULL, 117, NULL, 'Meja kerja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0155', 'DS', NULL, 117, NULL, 'Meja kerja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0156', 'DS', NULL, 117, NULL, 'Meja kerja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0157', 'DS', NULL, 117, NULL, 'Meja kerja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0158', 'DB', NULL, 117, NULL, 'Kursi kerja 1 set', NULL, NULL, NULL, NULL, NULL, NULL, '2 pcs', NULL),
+('PUJ_0159', 'DS', NULL, 117, NULL, 'Kursi kerja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0160', 'DS', NULL, 117, NULL, 'Laci Dokumen 4 susun', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0161', 'DS', NULL, 117, NULL, 'Kursi kerja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0162', 'DB', NULL, 117, NULL, 'Kursi kerja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0163', 'DB', NULL, 117, NULL, 'Meja kerja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0164', 'DB', NULL, 117, NULL, 'Kursi kerja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0165', 'DB', NULL, 117, NULL, 'Kursi kerja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0166', 'DB', NULL, 117, NULL, 'Meja kerja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0167', 'DB', NULL, 117, NULL, 'Kursi kerja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0168', 'DB', NULL, 117, NULL, 'Kursi kerja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0169', 'DS', NULL, 117, NULL, 'Meja bundar', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0170', 'DB', NULL, 117, NULL, 'Meja kerja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0171', 'DB', NULL, 117, NULL, 'Kursi kerja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0172', 'DB', NULL, 117, NULL, 'Sofa 1 set', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruangan pak Nur (2 pcs)', NULL),
+('PUJ_0173', 'DB', NULL, 117, NULL, 'Meja tamu', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruangan pak Nur', NULL),
+('PUJ_0174', 'DS', NULL, 117, NULL, 'Meja kerja', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruangan pak Nur', NULL),
+('PUJ_0175', 'DB', NULL, 117, NULL, 'Meja kerja', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruangan pak Nur', NULL),
+('PUJ_0176', 'DB', NULL, 117, NULL, 'Kursi kerja 1 set', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruangan pak Nur (3 pcs)', NULL),
+('PUJ_0177', 'DB', NULL, 117, NULL, 'Lemari kabinet 1 set', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruangan pak Nur', NULL),
+('PUJ_0178', 'DB', NULL, 117, NULL, 'Whiteboard', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruangan pak Nur', NULL),
+('PUJ_0179', 'DS', NULL, 118, NULL, 'Meja kantor', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruangan kosong', NULL),
+('PUJ_0180', 'DS', NULL, 118, NULL, 'Meja kantor', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruangan Mbak Yashmikha', NULL),
+('PUJ_0181', 'DB', NULL, 118, NULL, 'Lemari kabinet 1 set', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruangan Mbak Yashmikha', NULL),
+('PUJ_0182', 'DB', NULL, 118, NULL, 'Kursi kerja 1 set', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruangan Mbak Yashmikha (2 pcs)', NULL),
+('PUJ_0183', 'DB', NULL, 118, NULL, 'Meja bundar', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0184', 'DB', NULL, 118, NULL, 'Kursi kerja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0185', 'DS', NULL, 118, NULL, 'Meja kerja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0186', 'DS', NULL, 118, NULL, 'Kursi kerja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0187', 'DS', NULL, 118, NULL, 'Lemari kabinet besi', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0188', 'DS', NULL, 118, NULL, 'Meja kerja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0189', 'DB', NULL, 118, NULL, 'Kursi kerja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0190', 'DB', NULL, 118, NULL, 'Kursi kerja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0191', 'DS', NULL, 118, NULL, 'Meja kerja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0192', 'DB', NULL, 118, NULL, 'Kursi kerja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0193', 'DB', NULL, 118, NULL, 'Kursi kerja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0194', 'DB', NULL, 118, NULL, 'Lemari kabinet besi kaca 1 set', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0195', 'DB', NULL, 118, NULL, 'Kursi kerja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0196', 'DB', NULL, 118, NULL, 'Meja kerja 1 set', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang rapat', NULL),
+('PUJ_0197', 'DB', NULL, 118, NULL, 'Kursi kerja', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang rapat', NULL),
+('PUJ_0198', 'DB', NULL, 118, NULL, 'Kursi biru', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang rapat', NULL),
+('PUJ_0199', 'DS', NULL, 118, NULL, 'Whiteboard', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang rapat', NULL),
+('PUJ_0200', 'DS', NULL, 118, NULL, 'Meja kerja', NULL, NULL, NULL, NULL, NULL, NULL, 'Ruang rapat', NULL),
+('PUJ_0201', 'DS', NULL, 118, NULL, 'Meja kerja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0202', 'DS', NULL, 118, NULL, 'Meja kerja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0203', 'DS', NULL, 118, NULL, 'Meja kerja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0204', 'DS', NULL, 118, NULL, 'Meja kerja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0205', 'DS', NULL, 118, NULL, 'Meja kerja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0206', 'DS', NULL, 118, NULL, 'Meja kerja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0207', 'DS', NULL, 118, NULL, 'Meja kerja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0208', 'DS', NULL, 118, NULL, 'Meja komputer', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0209', 'DB', NULL, 118, NULL, 'Kursi kerja', NULL, NULL, NULL, NULL, NULL, NULL, '4 pcs', NULL),
+('PUJ_0210', 'DS', NULL, 118, NULL, 'Meja kerja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0211', 'DS', NULL, 118, NULL, 'Meja bundar', NULL, NULL, NULL, NULL, NULL, NULL, 'Pantry', NULL),
+('PUJ_0212', 'DB', NULL, 118, NULL, 'Kursi biru', NULL, NULL, NULL, NULL, NULL, NULL, 'Pantry', NULL),
+('PUJ_0213', 'DB', NULL, 118, NULL, 'Kursi biru', NULL, NULL, NULL, NULL, NULL, NULL, 'Pantry', NULL),
+('PUJ_0214', 'DB', NULL, 119, NULL, 'Kursi biru 1 set', NULL, NULL, NULL, NULL, NULL, NULL, 'Depan ruang lantai 3 (12 pcs)', NULL),
+('PUJ_0215', 'DS', NULL, 119, NULL, 'Tangga', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PUJ_0216', 'DB', NULL, 119, NULL, 'Kursi biru', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `asset_all`
+-- (See below for the actual view)
+--
+CREATE TABLE `asset_all` (
+`id_kantor` varchar(10)
+,`jenis_asset` varchar(10)
+,`deskripsi_asset` varchar(255)
+,`kode_asset` varchar(10)
+,`merk/type` varchar(255)
+,`jumlah` int(11)
+,`ukuran` varchar(100)
+,`tahun_pengadaan` year(4)
+,`id_status_kepemilikan` varchar(10)
+,`deskripsi_lokasi` varchar(255)
+,`id_kondisi` varchar(10)
+,`asal_usul` varchar(255)
+,`harga` double
+,`gambar` varchar(255)
+,`keterangan` varchar(255)
+);
 
 -- --------------------------------------------------------
 
@@ -1185,20 +1192,21 @@ INSERT INTO `asset` (`kantor`, `jenis_asset`, `deskripsi_asset`, `no_asset`, `me
 -- (See below for the actual view)
 --
 CREATE TABLE `asset_hapus` (
-`jenis_asset` varchar(30)
+`id_kantor` varchar(10)
+,`jenis_asset` varchar(10)
 ,`deskripsi_asset` varchar(255)
-,`kode_asset` varchar(21)
-,`merk_type` varchar(30)
+,`kode_asset` varchar(10)
+,`merk/type` varchar(255)
 ,`jumlah` int(11)
-,`ukuran` varchar(30)
+,`ukuran` varchar(100)
 ,`tahun_pengadaan` year(4)
-,`status_kepemilikan` varchar(30)
-,`lokasi` varchar(30)
-,`kondisi` varchar(20)
-,`asal_usul` varchar(30)
-,`harga` int(30)
-,`gambar` varchar(30)
-,`keterangan` varchar(30)
+,`id_status_kepemilikan` varchar(10)
+,`deskripsi_lokasi` varchar(255)
+,`id_kondisi` varchar(10)
+,`asal_usul` varchar(255)
+,`harga` double
+,`gambar` varchar(255)
+,`keterangan` varchar(255)
 );
 
 -- --------------------------------------------------------
@@ -1208,43 +1216,21 @@ CREATE TABLE `asset_hapus` (
 -- (See below for the actual view)
 --
 CREATE TABLE `asset_inventaris` (
-`jenis_asset` varchar(30)
+`id_kantor` varchar(10)
+,`jenis_asset` varchar(10)
 ,`deskripsi_asset` varchar(255)
-,`kode_asset` varchar(21)
-,`merk_type` varchar(30)
+,`kode_asset` varchar(10)
+,`merk/type` varchar(255)
 ,`jumlah` int(11)
-,`ukuran` varchar(30)
+,`ukuran` varchar(100)
 ,`tahun_pengadaan` year(4)
-,`status_kepemilikan` varchar(30)
-,`lokasi` varchar(30)
-,`kondisi` varchar(20)
-,`asal_usul` varchar(30)
-,`harga` int(30)
-,`gambar` varchar(30)
-,`keterangan` varchar(30)
-);
-
--- --------------------------------------------------------
-
---
--- Stand-in structure for view `asset_kadaluwarsa`
--- (See below for the actual view)
---
-CREATE TABLE `asset_kadaluwarsa` (
-`jenis_asset` varchar(30)
-,`deskripsi_asset` varchar(255)
-,`kode_asset` varchar(21)
-,`merk_type` varchar(30)
-,`jumlah` int(11)
-,`ukuran` varchar(30)
-,`tahun_pengadaan` year(4)
-,`status_kepemilikan` varchar(30)
-,`lokasi` varchar(30)
-,`kondisi` varchar(20)
-,`asal_usul` varchar(30)
-,`harga` int(30)
-,`gambar` varchar(30)
-,`keterangan` varchar(30)
+,`id_status_kepemilikan` varchar(10)
+,`deskripsi_lokasi` varchar(255)
+,`id_kondisi` varchar(10)
+,`asal_usul` varchar(255)
+,`harga` double
+,`gambar` varchar(255)
+,`keterangan` varchar(255)
 );
 
 -- --------------------------------------------------------
@@ -1254,20 +1240,21 @@ CREATE TABLE `asset_kadaluwarsa` (
 -- (See below for the actual view)
 --
 CREATE TABLE `asset_oc` (
-`jenis_asset` varchar(30)
+`id_kantor` varchar(10)
+,`jenis_asset` varchar(10)
 ,`deskripsi_asset` varchar(255)
-,`kode_asset` varchar(21)
-,`merk_type` varchar(30)
+,`kode_asset` varchar(10)
+,`merk/type` varchar(255)
 ,`jumlah` int(11)
-,`ukuran` varchar(30)
+,`ukuran` varchar(100)
 ,`tahun_pengadaan` year(4)
-,`status_kepemilikan` varchar(30)
-,`lokasi` varchar(30)
-,`kondisi` varchar(20)
-,`asal_usul` varchar(30)
-,`harga` int(30)
-,`gambar` varchar(30)
-,`keterangan` varchar(30)
+,`id_status_kepemilikan` varchar(10)
+,`deskripsi_lokasi` varchar(255)
+,`id_kondisi` varchar(10)
+,`asal_usul` varchar(255)
+,`harga` double
+,`gambar` varchar(255)
+,`keterangan` varchar(255)
 );
 
 -- --------------------------------------------------------
@@ -1277,20 +1264,21 @@ CREATE TABLE `asset_oc` (
 -- (See below for the actual view)
 --
 CREATE TABLE `asset_puc` (
-`jenis_asset` varchar(30)
+`id_kantor` varchar(10)
+,`jenis_asset` varchar(10)
 ,`deskripsi_asset` varchar(255)
-,`kode_asset` varchar(21)
-,`merk_type` varchar(30)
+,`kode_asset` varchar(10)
+,`merk/type` varchar(255)
 ,`jumlah` int(11)
-,`ukuran` varchar(30)
+,`ukuran` varchar(100)
 ,`tahun_pengadaan` year(4)
-,`status_kepemilikan` varchar(30)
-,`lokasi` varchar(30)
-,`kondisi` varchar(20)
-,`asal_usul` varchar(30)
-,`harga` int(30)
-,`gambar` varchar(30)
-,`keterangan` varchar(30)
+,`id_status_kepemilikan` varchar(10)
+,`deskripsi_lokasi` varchar(255)
+,`id_kondisi` varchar(10)
+,`asal_usul` varchar(255)
+,`harga` double
+,`gambar` varchar(255)
+,`keterangan` varchar(255)
 );
 
 -- --------------------------------------------------------
@@ -1300,20 +1288,21 @@ CREATE TABLE `asset_puc` (
 -- (See below for the actual view)
 --
 CREATE TABLE `asset_pug` (
-`jenis_asset` varchar(30)
+`id_kantor` varchar(10)
+,`jenis_asset` varchar(10)
 ,`deskripsi_asset` varchar(255)
-,`kode_asset` varchar(21)
-,`merk_type` varchar(30)
+,`kode_asset` varchar(10)
+,`merk/type` varchar(255)
 ,`jumlah` int(11)
-,`ukuran` varchar(30)
+,`ukuran` varchar(100)
 ,`tahun_pengadaan` year(4)
-,`status_kepemilikan` varchar(30)
-,`lokasi` varchar(30)
-,`kondisi` varchar(20)
-,`asal_usul` varchar(30)
-,`harga` int(30)
-,`gambar` varchar(30)
-,`keterangan` varchar(30)
+,`id_status_kepemilikan` varchar(10)
+,`deskripsi_lokasi` varchar(255)
+,`id_kondisi` varchar(10)
+,`asal_usul` varchar(255)
+,`harga` double
+,`gambar` varchar(255)
+,`keterangan` varchar(255)
 );
 
 -- --------------------------------------------------------
@@ -1323,44 +1312,81 @@ CREATE TABLE `asset_pug` (
 -- (See below for the actual view)
 --
 CREATE TABLE `asset_puj` (
-`jenis_asset` varchar(30)
+`id_kantor` varchar(10)
+,`jenis_asset` varchar(10)
 ,`deskripsi_asset` varchar(255)
-,`kode_asset` varchar(21)
-,`merk_type` varchar(30)
+,`kode_asset` varchar(10)
+,`merk/type` varchar(255)
 ,`jumlah` int(11)
-,`ukuran` varchar(30)
+,`ukuran` varchar(100)
 ,`tahun_pengadaan` year(4)
-,`status_kepemilikan` varchar(30)
-,`lokasi` varchar(30)
-,`kondisi` varchar(20)
-,`asal_usul` varchar(30)
-,`harga` int(30)
-,`gambar` varchar(30)
-,`keterangan` varchar(30)
+,`id_status_kepemilikan` varchar(10)
+,`deskripsi_lokasi` varchar(255)
+,`id_kondisi` varchar(10)
+,`asal_usul` varchar(255)
+,`harga` double
+,`gambar` varchar(255)
+,`keterangan` varchar(255)
 );
 
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `asset_rusak`
+-- Stand-in structure for view `asset_rusak_berat`
 -- (See below for the actual view)
 --
-CREATE TABLE `asset_rusak` (
-`jenis_asset` varchar(30)
+CREATE TABLE `asset_rusak_berat` (
+`id_kantor` varchar(10)
+,`jenis_asset` varchar(10)
 ,`deskripsi_asset` varchar(255)
-,`kode_asset` varchar(21)
-,`merk_type` varchar(30)
+,`kode_asset` varchar(10)
+,`merk/type` varchar(255)
 ,`jumlah` int(11)
-,`ukuran` varchar(30)
+,`ukuran` varchar(100)
 ,`tahun_pengadaan` year(4)
-,`status_kepemilikan` varchar(30)
-,`lokasi` varchar(30)
-,`kondisi` varchar(20)
-,`asal_usul` varchar(30)
-,`harga` int(30)
-,`gambar` varchar(30)
-,`keterangan` varchar(30)
+,`id_status_kepemilikan` varchar(10)
+,`deskripsi_lokasi` varchar(255)
+,`id_kondisi` varchar(10)
+,`asal_usul` varchar(255)
+,`harga` double
+,`gambar` varchar(255)
+,`keterangan` varchar(255)
 );
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `asset_waktu_habis`
+-- (See below for the actual view)
+--
+CREATE TABLE `asset_waktu_habis` (
+`id_kantor` varchar(10)
+,`jenis_asset` varchar(10)
+,`deskripsi_asset` varchar(255)
+,`kode_asset` varchar(10)
+,`merk/type` varchar(255)
+,`jumlah` int(11)
+,`ukuran` varchar(100)
+,`tahun_pengadaan` year(4)
+,`id_status_kepemilikan` varchar(10)
+,`deskripsi_lokasi` varchar(255)
+,`id_kondisi` varchar(10)
+,`asal_usul` varchar(255)
+,`harga` double
+,`gambar` varchar(255)
+,`keterangan` varchar(255)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jenis_asset`
+--
+
+CREATE TABLE `jenis_asset` (
+  `id_jenis_asset` varchar(10) NOT NULL,
+  `jenis_asset` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -1386,11 +1412,218 @@ INSERT INTO `kantor` (`id_kantor`, `nama_kantor`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `kondisi`
+--
+
+CREATE TABLE `kondisi` (
+  `id_kondisi` varchar(10) NOT NULL,
+  `deskripsi_kondisi` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `kondisi`
+--
+
+INSERT INTO `kondisi` (`id_kondisi`, `deskripsi_kondisi`) VALUES
+('DB', ''),
+('DJ', ''),
+('DS', ''),
+('RB', 'Rusak Berat'),
+('TR', ''),
+('TX', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `lokasi`
+--
+
+CREATE TABLE `lokasi` (
+  `id_lokasi` int(11) NOT NULL,
+  `id_kantor` varchar(10) DEFAULT NULL,
+  `deskripsi_lokasi` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `lokasi`
+--
+
+INSERT INTO `lokasi` (`id_lokasi`, `id_kantor`, `deskripsi_lokasi`) VALUES
+(1, 'OC', 'Aula Lantai 7'),
+(2, 'OC', 'Gudang ATK'),
+(3, 'OC', 'Gudang Dokumen'),
+(4, 'OC', 'Kubikal Sebelah Timur'),
+(5, 'OC', 'Kubikal Sekre. Dir. S & M'),
+(6, 'OC', 'Kubikal Sekretaris Direktur Utama'),
+(7, 'OC', 'Lobby Selatan'),
+(8, 'OC', 'Lorong sebelah Barat'),
+(9, 'OC', 'Lorong Sebelah Timur'),
+(10, 'OC', 'Lorong Utara'),
+(11, 'OC', 'Pantry Selatan'),
+(12, 'OC', 'Pantry Utara'),
+(13, 'OC', 'Ruang  Manager Financial Accounting '),
+(14, 'OC', 'Ruang CCTV'),
+(15, 'OC', 'Ruang Corporate Development'),
+(16, 'OC', 'Ruang Direktur FBS'),
+(17, 'OC', 'Ruang Direktur Sales&Marketing'),
+(18, 'OC', 'Ruang Direktur Utama'),
+(19, 'OC', 'Ruang Finance'),
+(20, 'OC', 'Ruang General Affairs'),
+(21, 'OC', 'Ruang ILMA'),
+(22, 'OC', 'Ruang Kerja Manager Asset Management'),
+(23, 'OC', 'Ruang Kerja Manager IT'),
+(24, 'OC', 'Ruang Kerja Manager Strategic Sourcing'),
+(25, 'OC', 'Ruang Komisaris Utama'),
+(26, 'OC', 'Ruang Lobby lt. 8 Sebelah Utara'),
+(27, 'OC', 'Ruang Lobby lt.6'),
+(28, 'OC', 'Ruang Lobby lt.7 Selatan'),
+(29, 'OC', 'Ruang Lobby lt.7 Utara'),
+(30, 'OC', 'Ruang Manager 1'),
+(31, 'OC', 'Ruang Manager 2'),
+(32, 'OC', 'Ruang Manager 3'),
+(33, 'OC', 'Ruang Manager 4'),
+(34, 'OC', 'Ruang Manager Accounting'),
+(35, 'OC', 'Ruang Manager Control Group & Financial Risk Mgt'),
+(36, 'OC', 'Ruang Manager HRD'),
+(37, 'OC', 'Ruang Manager Tax'),
+(38, 'OC', 'Ruang Manager Treasury'),
+(39, 'OC', 'Ruang Meeting A'),
+(40, 'OC', 'Ruang Meeting B'),
+(41, 'OC', 'Ruang Meeting C'),
+(42, 'OC', 'Ruang Meeting Finance'),
+(43, 'OC', 'Ruang Meeting Samping B'),
+(44, 'OC', 'Ruang Millenial'),
+(45, 'OC', 'Ruang Rapat 6A'),
+(46, 'OC', 'Ruang Rapat 6B'),
+(47, 'OC', 'Ruang Rapat 6C'),
+(48, 'OC', 'Ruang Rapat 6D'),
+(49, 'OC', 'Ruang Rapat 6E'),
+(50, 'OC', 'Ruang Rapat A'),
+(51, 'OC', 'Ruang Rapat C'),
+(52, 'OC', 'Ruang Rapat Dewan Komisaris'),
+(53, 'OC', 'Ruang Rapat Komite Audit '),
+(54, 'OC', 'Ruang Sales'),
+(55, 'OC', 'Ruang Sekretaris Dewan Komisaris'),
+(56, 'OC', 'Ruang Sholat '),
+(57, 'OC', 'Ruang Tamu'),
+(58, 'OC', 'Ruang Tempat ATK'),
+(59, 'OC', 'Ruang Trial'),
+(60, 'OC', 'Ruang VP 1'),
+(61, 'OC', 'Ruang VP 2'),
+(62, 'OC', 'Ruang VP 3'),
+(63, 'OC', 'Ruang VP 4'),
+(64, 'OC', 'Ruang VP A'),
+(65, 'OC', 'Ruang VP B'),
+(66, 'OC', 'Ruang VP C'),
+(67, 'OC', 'Ruang VP Corporate Development'),
+(68, 'OC', 'Ruang VP Finance'),
+(69, 'OC', 'Ruang VP General Affairs'),
+(70, 'OC', 'Ruang VP Sales '),
+(71, 'OC', 'Ruang VP SMT '),
+(72, 'PUC', 'Dapur'),
+(73, 'PUC', 'Kantor'),
+(74, 'PUC', 'Office Admin LOBP'),
+(75, 'PUC', 'Office Blending'),
+(76, 'PUC', 'Office DFO'),
+(77, 'PUC', 'Office Lithos'),
+(78, 'PUC', 'Office MWH'),
+(79, 'PUC', 'Office P2'),
+(80, 'PUC', 'Office Teknik'),
+(81, 'PUC', 'R. Man. PUC'),
+(82, 'PUC', 'Receiptionist'),
+(83, 'PUC', 'Ruang Label'),
+(84, 'PUG', 'ADM HR'),
+(85, 'PUG', 'ADM LOBP'),
+(86, 'PUG', 'ADM MWH'),
+(87, 'PUG', 'ADM MWH ATAS'),
+(88, 'PUG', 'ADM TEKNIK'),
+(89, 'PUG', 'CONTROL ROOM'),
+(90, 'PUG', 'HSSE'),
+(91, 'PUG', 'HSSE PUSKODAL'),
+(92, 'PUG', 'KANTOR HSSE'),
+(93, 'PUG', 'MAIN CONTROL ROOM'),
+(94, 'PUG', 'MAN PUG'),
+(95, 'PUG', 'OPERATION HEAD'),
+(96, 'PUG', 'P2'),
+(97, 'PUG', 'POS 2'),
+(98, 'PUG', 'PUSKODAL'),
+(99, 'PUG', 'QC'),
+(100, 'PUG', 'QC ATAS'),
+(101, 'PUG', 'QC BAWAH'),
+(102, 'PUG', 'RAPAT ENDURO'),
+(103, 'PUG', 'SECURITY'),
+(104, 'PUG', 'SEK MAN PUG'),
+(105, 'PUG', 'SPV ADM LOBP'),
+(106, 'PUG', 'SPV FILLING LITHOS& DRUM'),
+(107, 'PUG', 'TEKNIK OBP'),
+(108, 'PUG', 'WORKSHOP'),
+(109, 'PUJ', 'Control  Room'),
+(110, 'PUJ', 'Filling Drum'),
+(111, 'PUJ', 'Fire Station'),
+(112, 'PUJ', 'Gedung Utama PUJ Lt. 1'),
+(113, 'PUJ', 'Gedung Utama PUJ Lt. 2'),
+(114, 'PUJ', 'Gedung Utama PUJ Lt. 3'),
+(115, 'PUJ', 'Grease Plant'),
+(116, 'PUJ', 'Gudang HSE'),
+(117, 'PUJ', 'Laboratorium Lantai 1'),
+(118, 'PUJ', 'Laboratorium Lantai 2'),
+(119, 'PUJ', 'Laboratorium Lantai 3'),
+(120, 'PUJ', 'MWH'),
+(121, 'PUJ', 'New LOBP'),
+(122, 'PUJ', 'QC'),
+(123, 'PUJ', 'Ruang CCTV'),
+(124, 'PUJ', 'Ruang HSE'),
+(125, 'PUJ', 'Security area New LOBP'),
+(126, 'PUJ', 'VIM');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `status_kepemilikan`
+--
+
+CREATE TABLE `status_kepemilikan` (
+  `id_status_kepemilikan` varchar(10) NOT NULL,
+  `deskripsi_status_kepemilikan` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `username` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `nama` varchar(255) NOT NULL,
+  `jenis_kelamin` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`username`, `password`, `nama`, `jenis_kelamin`) VALUES
+('admin', 'admin12345', 'admin', 'Laki-laki');
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `asset_all`
+--
+DROP TABLE IF EXISTS `asset_all`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `asset_all`  AS SELECT `lok`.`id_kantor` AS `id_kantor`, `ast`.`id_jenis_asset` AS `jenis_asset`, `ast`.`deskripsi_asset` AS `deskripsi_asset`, `ast`.`kode_asset` AS `kode_asset`, `ast`.`merk/type` AS `merk/type`, `ast`.`jumlah` AS `jumlah`, `ast`.`ukuran` AS `ukuran`, `ast`.`tahun_pengadaan` AS `tahun_pengadaan`, `sk`.`id_status_kepemilikan` AS `id_status_kepemilikan`, `lok`.`deskripsi_lokasi` AS `deskripsi_lokasi`, `kon`.`id_kondisi` AS `id_kondisi`, `ast`.`asal_usul` AS `asal_usul`, `ast`.`harga` AS `harga`, `ast`.`gambar` AS `gambar`, `ast`.`keterangan` AS `keterangan` FROM ((((`asset` `ast` left join `kondisi` `kon` on(`ast`.`id_kondisi` = `kon`.`id_kondisi`)) left join `status_kepemilikan` `sk` on(`ast`.`id_status_kepemilikan` = `sk`.`id_status_kepemilikan`)) left join `lokasi` `lok` on(`ast`.`id_lokasi` = `lok`.`id_lokasi`)) left join `kantor` `kan` on(`lok`.`id_kantor` = `kan`.`id_kantor`)) ;
+
+-- --------------------------------------------------------
+
+--
 -- Structure for view `asset_hapus`
 --
 DROP TABLE IF EXISTS `asset_hapus`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `asset_hapus`  AS SELECT `asset`.`jenis_asset` AS `jenis_asset`, `asset`.`deskripsi_asset` AS `deskripsi_asset`, concat(`asset`.`kantor`,'/',`asset`.`no_asset`) AS `kode_asset`, `asset`.`merk_type` AS `merk_type`, `asset`.`jumlah` AS `jumlah`, `asset`.`ukuran` AS `ukuran`, `asset`.`tahun_pengadaan` AS `tahun_pengadaan`, `asset`.`status_kepemilikan` AS `status_kepemilikan`, `asset`.`lokasi` AS `lokasi`, `asset`.`kondisi` AS `kondisi`, `asset`.`asal_usul` AS `asal_usul`, `asset`.`harga` AS `harga`, `asset`.`gambar` AS `gambar`, `asset`.`keterangan` AS `keterangan` FROM `asset` WHERE `asset`.`kondisi` = 'rb' OR `asset`.`tahun_pengadaan` <= year(current_timestamp()) - 10 ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `asset_hapus`  AS SELECT `lok`.`id_kantor` AS `id_kantor`, `ast`.`id_jenis_asset` AS `jenis_asset`, `ast`.`deskripsi_asset` AS `deskripsi_asset`, `ast`.`kode_asset` AS `kode_asset`, `ast`.`merk/type` AS `merk/type`, `ast`.`jumlah` AS `jumlah`, `ast`.`ukuran` AS `ukuran`, `ast`.`tahun_pengadaan` AS `tahun_pengadaan`, `sk`.`id_status_kepemilikan` AS `id_status_kepemilikan`, `lok`.`deskripsi_lokasi` AS `deskripsi_lokasi`, `kon`.`id_kondisi` AS `id_kondisi`, `ast`.`asal_usul` AS `asal_usul`, `ast`.`harga` AS `harga`, `ast`.`gambar` AS `gambar`, `ast`.`keterangan` AS `keterangan` FROM ((((`asset` `ast` join `kondisi` `kon` on(`ast`.`id_kondisi` = `kon`.`id_kondisi` and (`ast`.`id_kondisi` = 'RB' or `ast`.`tahun_pengadaan` <= year(curdate()) - 10))) left join `status_kepemilikan` `sk` on(`ast`.`id_status_kepemilikan` = `sk`.`id_status_kepemilikan`)) left join `lokasi` `lok` on(`ast`.`id_lokasi` = `lok`.`id_lokasi`)) left join `kantor` `kan` on(`lok`.`id_kantor` = `kan`.`id_kantor`)) ;
 
 -- --------------------------------------------------------
 
@@ -1399,16 +1632,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `asset_inventaris`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `asset_inventaris`  AS SELECT `asset`.`jenis_asset` AS `jenis_asset`, `asset`.`deskripsi_asset` AS `deskripsi_asset`, concat(`asset`.`kantor`,'/',`asset`.`no_asset`) AS `kode_asset`, `asset`.`merk_type` AS `merk_type`, `asset`.`jumlah` AS `jumlah`, `asset`.`ukuran` AS `ukuran`, `asset`.`tahun_pengadaan` AS `tahun_pengadaan`, `asset`.`status_kepemilikan` AS `status_kepemilikan`, `asset`.`lokasi` AS `lokasi`, `asset`.`kondisi` AS `kondisi`, `asset`.`asal_usul` AS `asal_usul`, `asset`.`harga` AS `harga`, `asset`.`gambar` AS `gambar`, `asset`.`keterangan` AS `keterangan` FROM `asset` ;
-
--- --------------------------------------------------------
-
---
--- Structure for view `asset_kadaluwarsa`
---
-DROP TABLE IF EXISTS `asset_kadaluwarsa`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `asset_kadaluwarsa`  AS SELECT `asset`.`jenis_asset` AS `jenis_asset`, `asset`.`deskripsi_asset` AS `deskripsi_asset`, concat(`asset`.`kantor`,'/',`asset`.`no_asset`) AS `kode_asset`, `asset`.`merk_type` AS `merk_type`, `asset`.`jumlah` AS `jumlah`, `asset`.`ukuran` AS `ukuran`, `asset`.`tahun_pengadaan` AS `tahun_pengadaan`, `asset`.`status_kepemilikan` AS `status_kepemilikan`, `asset`.`lokasi` AS `lokasi`, `asset`.`kondisi` AS `kondisi`, `asset`.`asal_usul` AS `asal_usul`, `asset`.`harga` AS `harga`, `asset`.`gambar` AS `gambar`, `asset`.`keterangan` AS `keterangan` FROM `asset` WHERE `asset`.`tahun_pengadaan` <= year(curdate()) - 10 ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `asset_inventaris`  AS SELECT `lok`.`id_kantor` AS `id_kantor`, `ast`.`id_jenis_asset` AS `jenis_asset`, `ast`.`deskripsi_asset` AS `deskripsi_asset`, `ast`.`kode_asset` AS `kode_asset`, `ast`.`merk/type` AS `merk/type`, `ast`.`jumlah` AS `jumlah`, `ast`.`ukuran` AS `ukuran`, `ast`.`tahun_pengadaan` AS `tahun_pengadaan`, `sk`.`id_status_kepemilikan` AS `id_status_kepemilikan`, `lok`.`deskripsi_lokasi` AS `deskripsi_lokasi`, `kon`.`id_kondisi` AS `id_kondisi`, `ast`.`asal_usul` AS `asal_usul`, `ast`.`harga` AS `harga`, `ast`.`gambar` AS `gambar`, `ast`.`keterangan` AS `keterangan` FROM ((((`asset` `ast` left join `kondisi` `kon` on(`ast`.`id_kondisi` = `kon`.`id_kondisi`)) left join `status_kepemilikan` `sk` on(`ast`.`id_status_kepemilikan` = `sk`.`id_status_kepemilikan`)) left join `lokasi` `lok` on(`ast`.`id_lokasi` = `lok`.`id_lokasi`)) left join `kantor` `kan` on(`lok`.`id_kantor` = `kan`.`id_kantor`)) ;
 
 -- --------------------------------------------------------
 
@@ -1417,7 +1641,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `asset_oc`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `asset_oc`  AS SELECT `asset`.`jenis_asset` AS `jenis_asset`, `asset`.`deskripsi_asset` AS `deskripsi_asset`, concat(`asset`.`kantor`,'/',`asset`.`no_asset`) AS `kode_asset`, `asset`.`merk_type` AS `merk_type`, `asset`.`jumlah` AS `jumlah`, `asset`.`ukuran` AS `ukuran`, `asset`.`tahun_pengadaan` AS `tahun_pengadaan`, `asset`.`status_kepemilikan` AS `status_kepemilikan`, `asset`.`lokasi` AS `lokasi`, `asset`.`kondisi` AS `kondisi`, `asset`.`asal_usul` AS `asal_usul`, `asset`.`harga` AS `harga`, `asset`.`gambar` AS `gambar`, `asset`.`keterangan` AS `keterangan` FROM `asset` WHERE `asset`.`kantor` = 'oc' ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `asset_oc`  AS SELECT `lok`.`id_kantor` AS `id_kantor`, `ast`.`id_jenis_asset` AS `jenis_asset`, `ast`.`deskripsi_asset` AS `deskripsi_asset`, `ast`.`kode_asset` AS `kode_asset`, `ast`.`merk/type` AS `merk/type`, `ast`.`jumlah` AS `jumlah`, `ast`.`ukuran` AS `ukuran`, `ast`.`tahun_pengadaan` AS `tahun_pengadaan`, `sk`.`id_status_kepemilikan` AS `id_status_kepemilikan`, `lok`.`deskripsi_lokasi` AS `deskripsi_lokasi`, `kon`.`id_kondisi` AS `id_kondisi`, `ast`.`asal_usul` AS `asal_usul`, `ast`.`harga` AS `harga`, `ast`.`gambar` AS `gambar`, `ast`.`keterangan` AS `keterangan` FROM ((((`asset` `ast` left join `kondisi` `kon` on(`ast`.`id_kondisi` = `kon`.`id_kondisi`)) left join `status_kepemilikan` `sk` on(`ast`.`id_status_kepemilikan` = `sk`.`id_status_kepemilikan`)) join `lokasi` `lok` on(`ast`.`id_lokasi` = `lok`.`id_lokasi` and `lok`.`id_kantor` = 'OC')) left join `kantor` `kan` on(`lok`.`id_kantor` = `kan`.`id_kantor`)) ORDER BY `ast`.`kode_asset` ASC ;
 
 -- --------------------------------------------------------
 
@@ -1426,7 +1650,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `asset_puc`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `asset_puc`  AS SELECT `asset`.`jenis_asset` AS `jenis_asset`, `asset`.`deskripsi_asset` AS `deskripsi_asset`, concat(`asset`.`kantor`,'/',`asset`.`no_asset`) AS `kode_asset`, `asset`.`merk_type` AS `merk_type`, `asset`.`jumlah` AS `jumlah`, `asset`.`ukuran` AS `ukuran`, `asset`.`tahun_pengadaan` AS `tahun_pengadaan`, `asset`.`status_kepemilikan` AS `status_kepemilikan`, `asset`.`lokasi` AS `lokasi`, `asset`.`kondisi` AS `kondisi`, `asset`.`asal_usul` AS `asal_usul`, `asset`.`harga` AS `harga`, `asset`.`gambar` AS `gambar`, `asset`.`keterangan` AS `keterangan` FROM `asset` WHERE `asset`.`kantor` = 'puc' ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `asset_puc`  AS SELECT `lok`.`id_kantor` AS `id_kantor`, `ast`.`id_jenis_asset` AS `jenis_asset`, `ast`.`deskripsi_asset` AS `deskripsi_asset`, `ast`.`kode_asset` AS `kode_asset`, `ast`.`merk/type` AS `merk/type`, `ast`.`jumlah` AS `jumlah`, `ast`.`ukuran` AS `ukuran`, `ast`.`tahun_pengadaan` AS `tahun_pengadaan`, `sk`.`id_status_kepemilikan` AS `id_status_kepemilikan`, `lok`.`deskripsi_lokasi` AS `deskripsi_lokasi`, `kon`.`id_kondisi` AS `id_kondisi`, `ast`.`asal_usul` AS `asal_usul`, `ast`.`harga` AS `harga`, `ast`.`gambar` AS `gambar`, `ast`.`keterangan` AS `keterangan` FROM ((((`asset` `ast` left join `kondisi` `kon` on(`ast`.`id_kondisi` = `kon`.`id_kondisi`)) left join `status_kepemilikan` `sk` on(`ast`.`id_status_kepemilikan` = `sk`.`id_status_kepemilikan`)) join `lokasi` `lok` on(`ast`.`id_lokasi` = `lok`.`id_lokasi` and `lok`.`id_kantor` = 'PUC')) left join `kantor` `kan` on(`lok`.`id_kantor` = `kan`.`id_kantor`)) ORDER BY `ast`.`kode_asset` ASC ;
 
 -- --------------------------------------------------------
 
@@ -1435,7 +1659,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `asset_pug`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `asset_pug`  AS SELECT `asset`.`jenis_asset` AS `jenis_asset`, `asset`.`deskripsi_asset` AS `deskripsi_asset`, concat(`asset`.`kantor`,'/',`asset`.`no_asset`) AS `kode_asset`, `asset`.`merk_type` AS `merk_type`, `asset`.`jumlah` AS `jumlah`, `asset`.`ukuran` AS `ukuran`, `asset`.`tahun_pengadaan` AS `tahun_pengadaan`, `asset`.`status_kepemilikan` AS `status_kepemilikan`, `asset`.`lokasi` AS `lokasi`, `asset`.`kondisi` AS `kondisi`, `asset`.`asal_usul` AS `asal_usul`, `asset`.`harga` AS `harga`, `asset`.`gambar` AS `gambar`, `asset`.`keterangan` AS `keterangan` FROM `asset` WHERE `asset`.`kantor` = 'pug' ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `asset_pug`  AS SELECT `lok`.`id_kantor` AS `id_kantor`, `ast`.`id_jenis_asset` AS `jenis_asset`, `ast`.`deskripsi_asset` AS `deskripsi_asset`, `ast`.`kode_asset` AS `kode_asset`, `ast`.`merk/type` AS `merk/type`, `ast`.`jumlah` AS `jumlah`, `ast`.`ukuran` AS `ukuran`, `ast`.`tahun_pengadaan` AS `tahun_pengadaan`, `sk`.`id_status_kepemilikan` AS `id_status_kepemilikan`, `lok`.`deskripsi_lokasi` AS `deskripsi_lokasi`, `kon`.`id_kondisi` AS `id_kondisi`, `ast`.`asal_usul` AS `asal_usul`, `ast`.`harga` AS `harga`, `ast`.`gambar` AS `gambar`, `ast`.`keterangan` AS `keterangan` FROM ((((`asset` `ast` left join `kondisi` `kon` on(`ast`.`id_kondisi` = `kon`.`id_kondisi`)) left join `status_kepemilikan` `sk` on(`ast`.`id_status_kepemilikan` = `sk`.`id_status_kepemilikan`)) join `lokasi` `lok` on(`ast`.`id_lokasi` = `lok`.`id_lokasi` and `lok`.`id_kantor` = 'PUG')) left join `kantor` `kan` on(`lok`.`id_kantor` = `kan`.`id_kantor`)) ORDER BY `ast`.`kode_asset` ASC ;
 
 -- --------------------------------------------------------
 
@@ -1444,38 +1668,76 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `asset_puj`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `asset_puj`  AS SELECT `asset`.`jenis_asset` AS `jenis_asset`, `asset`.`deskripsi_asset` AS `deskripsi_asset`, concat(`asset`.`kantor`,'/',`asset`.`no_asset`) AS `kode_asset`, `asset`.`merk_type` AS `merk_type`, `asset`.`jumlah` AS `jumlah`, `asset`.`ukuran` AS `ukuran`, `asset`.`tahun_pengadaan` AS `tahun_pengadaan`, `asset`.`status_kepemilikan` AS `status_kepemilikan`, `asset`.`lokasi` AS `lokasi`, `asset`.`kondisi` AS `kondisi`, `asset`.`asal_usul` AS `asal_usul`, `asset`.`harga` AS `harga`, `asset`.`gambar` AS `gambar`, `asset`.`keterangan` AS `keterangan` FROM `asset` WHERE `asset`.`kantor` = 'puj' ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `asset_puj`  AS SELECT `lok`.`id_kantor` AS `id_kantor`, `ast`.`id_jenis_asset` AS `jenis_asset`, `ast`.`deskripsi_asset` AS `deskripsi_asset`, `ast`.`kode_asset` AS `kode_asset`, `ast`.`merk/type` AS `merk/type`, `ast`.`jumlah` AS `jumlah`, `ast`.`ukuran` AS `ukuran`, `ast`.`tahun_pengadaan` AS `tahun_pengadaan`, `sk`.`id_status_kepemilikan` AS `id_status_kepemilikan`, `lok`.`deskripsi_lokasi` AS `deskripsi_lokasi`, `kon`.`id_kondisi` AS `id_kondisi`, `ast`.`asal_usul` AS `asal_usul`, `ast`.`harga` AS `harga`, `ast`.`gambar` AS `gambar`, `ast`.`keterangan` AS `keterangan` FROM ((((`asset` `ast` left join `kondisi` `kon` on(`ast`.`id_kondisi` = `kon`.`id_kondisi`)) left join `status_kepemilikan` `sk` on(`ast`.`id_status_kepemilikan` = `sk`.`id_status_kepemilikan`)) join `lokasi` `lok` on(`ast`.`id_lokasi` = `lok`.`id_lokasi` and `lok`.`id_kantor` = 'puj')) left join `kantor` `kan` on(`lok`.`id_kantor` = `kan`.`id_kantor`)) ORDER BY `ast`.`kode_asset` ASC ;
 
 -- --------------------------------------------------------
 
 --
--- Structure for view `asset_rusak`
+-- Structure for view `asset_rusak_berat`
 --
-DROP TABLE IF EXISTS `asset_rusak`;
+DROP TABLE IF EXISTS `asset_rusak_berat`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `asset_rusak`  AS SELECT `asset`.`jenis_asset` AS `jenis_asset`, `asset`.`deskripsi_asset` AS `deskripsi_asset`, concat(`asset`.`kantor`,'/',`asset`.`no_asset`) AS `kode_asset`, `asset`.`merk_type` AS `merk_type`, `asset`.`jumlah` AS `jumlah`, `asset`.`ukuran` AS `ukuran`, `asset`.`tahun_pengadaan` AS `tahun_pengadaan`, `asset`.`status_kepemilikan` AS `status_kepemilikan`, `asset`.`lokasi` AS `lokasi`, `asset`.`kondisi` AS `kondisi`, `asset`.`asal_usul` AS `asal_usul`, `asset`.`harga` AS `harga`, `asset`.`gambar` AS `gambar`, `asset`.`keterangan` AS `keterangan` FROM `asset` WHERE `asset`.`kondisi` = 'rb' ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `asset_rusak_berat`  AS SELECT `lok`.`id_kantor` AS `id_kantor`, `ast`.`id_jenis_asset` AS `jenis_asset`, `ast`.`deskripsi_asset` AS `deskripsi_asset`, `ast`.`kode_asset` AS `kode_asset`, `ast`.`merk/type` AS `merk/type`, `ast`.`jumlah` AS `jumlah`, `ast`.`ukuran` AS `ukuran`, `ast`.`tahun_pengadaan` AS `tahun_pengadaan`, `sk`.`id_status_kepemilikan` AS `id_status_kepemilikan`, `lok`.`deskripsi_lokasi` AS `deskripsi_lokasi`, `kon`.`id_kondisi` AS `id_kondisi`, `ast`.`asal_usul` AS `asal_usul`, `ast`.`harga` AS `harga`, `ast`.`gambar` AS `gambar`, `ast`.`keterangan` AS `keterangan` FROM ((((`asset` `ast` join `kondisi` `kon` on(`ast`.`id_kondisi` = `kon`.`id_kondisi` and `ast`.`id_kondisi` = 'RB')) left join `status_kepemilikan` `sk` on(`ast`.`id_status_kepemilikan` = `sk`.`id_status_kepemilikan`)) left join `lokasi` `lok` on(`ast`.`id_lokasi` = `lok`.`id_lokasi`)) left join `kantor` `kan` on(`lok`.`id_kantor` = `kan`.`id_kantor`)) ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `asset_waktu_habis`
+--
+DROP TABLE IF EXISTS `asset_waktu_habis`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `asset_waktu_habis`  AS SELECT `lok`.`id_kantor` AS `id_kantor`, `ast`.`id_jenis_asset` AS `jenis_asset`, `ast`.`deskripsi_asset` AS `deskripsi_asset`, `ast`.`kode_asset` AS `kode_asset`, `ast`.`merk/type` AS `merk/type`, `ast`.`jumlah` AS `jumlah`, `ast`.`ukuran` AS `ukuran`, `ast`.`tahun_pengadaan` AS `tahun_pengadaan`, `sk`.`id_status_kepemilikan` AS `id_status_kepemilikan`, `lok`.`deskripsi_lokasi` AS `deskripsi_lokasi`, `kon`.`id_kondisi` AS `id_kondisi`, `ast`.`asal_usul` AS `asal_usul`, `ast`.`harga` AS `harga`, `ast`.`gambar` AS `gambar`, `ast`.`keterangan` AS `keterangan` FROM ((((`asset` `ast` join `kondisi` `kon` on(`ast`.`id_kondisi` = `kon`.`id_kondisi` and `ast`.`tahun_pengadaan` <= year(curdate()) - 10)) left join `status_kepemilikan` `sk` on(`ast`.`id_status_kepemilikan` = `sk`.`id_status_kepemilikan`)) left join `lokasi` `lok` on(`ast`.`id_lokasi` = `lok`.`id_lokasi`)) left join `kantor` `kan` on(`lok`.`id_kantor` = `kan`.`id_kantor`)) ;
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `account`
---
-ALTER TABLE `account`
-  ADD PRIMARY KEY (`email`);
-
---
 -- Indexes for table `asset`
 --
 ALTER TABLE `asset`
-  ADD PRIMARY KEY (`kantor`,`no_asset`) USING BTREE;
+  ADD PRIMARY KEY (`kode_asset`),
+  ADD KEY `fk_kondisi` (`id_kondisi`),
+  ADD KEY `fk_status_kepemilikan` (`id_status_kepemilikan`),
+  ADD KEY `fk_lokasi` (`id_lokasi`),
+  ADD KEY `fk_jenis_asset` (`id_jenis_asset`);
+
+--
+-- Indexes for table `jenis_asset`
+--
+ALTER TABLE `jenis_asset`
+  ADD PRIMARY KEY (`id_jenis_asset`);
 
 --
 -- Indexes for table `kantor`
 --
 ALTER TABLE `kantor`
   ADD PRIMARY KEY (`id_kantor`);
+
+--
+-- Indexes for table `kondisi`
+--
+ALTER TABLE `kondisi`
+  ADD PRIMARY KEY (`id_kondisi`);
+
+--
+-- Indexes for table `lokasi`
+--
+ALTER TABLE `lokasi`
+  ADD PRIMARY KEY (`id_lokasi`),
+  ADD KEY `fk_kantor_lokasi` (`id_kantor`);
+
+--
+-- Indexes for table `status_kepemilikan`
+--
+ALTER TABLE `status_kepemilikan`
+  ADD PRIMARY KEY (`id_status_kepemilikan`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`username`);
 
 --
 -- Constraints for dumped tables
@@ -1485,7 +1747,16 @@ ALTER TABLE `kantor`
 -- Constraints for table `asset`
 --
 ALTER TABLE `asset`
-  ADD CONSTRAINT `fk_kantor` FOREIGN KEY (`kantor`) REFERENCES `kantor` (`id_kantor`);
+  ADD CONSTRAINT `fk_jenis_asset` FOREIGN KEY (`id_jenis_asset`) REFERENCES `jenis_asset` (`id_jenis_asset`),
+  ADD CONSTRAINT `fk_kondisi` FOREIGN KEY (`id_kondisi`) REFERENCES `kondisi` (`id_kondisi`),
+  ADD CONSTRAINT `fk_lokasi` FOREIGN KEY (`id_lokasi`) REFERENCES `lokasi` (`id_lokasi`),
+  ADD CONSTRAINT `fk_status_kepemilikan` FOREIGN KEY (`id_status_kepemilikan`) REFERENCES `status_kepemilikan` (`id_status_kepemilikan`);
+
+--
+-- Constraints for table `lokasi`
+--
+ALTER TABLE `lokasi`
+  ADD CONSTRAINT `fk_kantor_lokasi` FOREIGN KEY (`id_kantor`) REFERENCES `kantor` (`id_kantor`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

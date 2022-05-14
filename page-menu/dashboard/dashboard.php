@@ -47,7 +47,7 @@
             <div class="small-box bg-primary mr-3">
               <div class="inner">
                   <?php
-                    $sql = "SELECT * FROM asset_rusak";
+                    $sql = "SELECT * FROM asset_rusak_berat";
                     $resultTotal = $conn->query($sql);
                     $totalAssetRusakBerat = mysqli_num_rows($resultTotal);
                   ?>
@@ -64,7 +64,7 @@
             <div class="small-box bg-primary mr-3">
               <div class="inner">
                   <?php
-                    $sql = "SELECT * FROM asset_kadaluwarsa";
+                    $sql = "SELECT * FROM asset_waktu_habis";
                     $resultTotal = $conn->query($sql);
                     $totalAssetUmurHabis = mysqli_num_rows($resultTotal);
                   ?>

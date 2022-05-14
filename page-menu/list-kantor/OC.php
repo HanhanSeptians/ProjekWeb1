@@ -56,13 +56,13 @@
                     <tr>
                       <th scope="col"><h2><?php echo $total ?></h2></th>
                         <?php
-                          $sql1 = "SELECT * FROM `asset_rusak` WHERE kantor = 'OC' ";
+                          $sql1 = "SELECT * FROM `asset_rusak_berat` WHERE id_kantor = 'OC' ";
                           $result1 = $conn->query($sql1);
                           $totalAssetRusakBerat = mysqli_num_rows($result1);
                         ?>
                       <th scope="col"><h2><?php echo $totalAssetRusakBerat ?></h2></th>
                         <?php
-                          $sql2 = "SELECT * FROM `asset_kadaluwarsa` WHERE kantor = 'OC' ";
+                          $sql2 = "SELECT * FROM `asset_waktu_habis` WHERE id_kantor = 'OC' ";
                           $result2 = $conn->query($sql2);
                           $totalAssetUmurHabis = mysqli_num_rows($result2);
                         ?>
@@ -73,7 +73,7 @@
                       <tr>
                         <th>Total</th>
                         <th>Asset Rusak Berat</th>
-                        <th>Asset Umur Habis</th>
+                        <th>Asset Waktu Habis</th>
                       </tr>
                   </tfoot>
                 </table> 
@@ -146,21 +146,23 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <?php
+                    <?php
+                      $sql = "SELECT * FROM `asset_oc`";
+                      $result = $conn->query($sql);
                         if ($result->num_rows > 0) {
                           while ($row = $data_asset->fetch_assoc()) {
                       ?>
                       <td><center><?php echo $no++ ; ?></center></td>
                       <td><?php echo $row["jenis_asset"] ?></td>
                       <td><?php echo $row["deskripsi_asset"] ?></td>
-                      <td><center><?php echo $row["view_kode_asset"] ?></center></td>
-                      <td><?php echo $row["merk_type"] ?></td>
+                      <td><center><?php echo $row["kode_asset"] ?></center></td>
+                      <td><?php echo $row["merk/type"] ?></td>
                       <td><center><?php echo $row["jumlah"] ?></center></td>
                       <td><center><?php echo $row["ukuran"] ?></center></td>
                       <td><center><?php echo $row["tahun_pengadaan"] ?></center></td>
-                      <td><?php echo $row["status_kepemilikan"] ?></td>
-                      <td><?php echo $row["lokasi"] ?></td>
-                      <td><center><?php echo $row["kondisi"] ?></center></td>
+                      <td><?php echo $row["id_status_kepemilikan"] ?></td>
+                      <td><?php echo $row["deskripsi_lokasi"] ?></td>
+                      <td><center><?php echo $row["id_kondisi"] ?></center></td>
                       <td><?php echo $row["asal_usul"] ?></td>
                       <td>Rp. <?php echo $row["harga"] ?></td>
                       <td>
