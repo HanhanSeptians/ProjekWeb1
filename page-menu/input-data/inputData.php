@@ -72,7 +72,9 @@
                 <label>Tahun Pengadaan</label>
                   <input type="year" name="tahun_pengadaan" class="form-control" placeholder="Masukkan Tahun Pengadaan Asset">
               </div>
-              <div class="form-group">
+            </div>
+            <div class="col-sm-6">
+            <div class="form-group">
                 <label>Status Kepemilikan Asset</label>
                   <select type="varchar" class="custom-select rounded-0" name="id_status_kepemilikan">
                   <option class="bg-secondary" value="" disabled selected>Pilih Status Kepemilikan</option>
@@ -87,8 +89,6 @@
                     ?>
                   </select>               
               </div>  
-            </div>
-            <div class="col-sm-6">
               <div class="form-group">
                 <label for="exampleInputEmail1">Lokasi</label>
                   <select type="varchar" class="custom-select rounded-0" name="id_lokasi">
@@ -142,6 +142,7 @@
               <div class="form-group">
                 <label>Kondisi</label>
                   <select type="varchar" class="custom-select rounded-0" name="id_kondisi">
+                  <option class="bg-secondary" value="" disabled selected>Pilih Kondisi Asset</option>
                   <?php
                       $sql = "SELECT * FROM kondisi";
                       $result = $conn->query($sql);
@@ -178,7 +179,7 @@
         
       </div>
       <div class="card-footer">
-        <input type="submit" class="btn btn-primary"></input>
+        <input type="submit" class="btn btn-primary "></input>
       </div>
     </div>
     </form>

@@ -26,11 +26,11 @@
     </div>
     <?php
       if(isset($_GET['kode_asset'])){
-        $kode = $_GET['kode_asset'];
+        $kode_asset = $_GET['kode_asset'];
       }else{
           die("Error! Asset tidak ditemukan");
       }
-      $query = mysqli_query($conn, "SELECT * FROM asset JOIN kantor kantor.id_kantor = asset.id_kantor WHERE kode_asset = $kode");
+      $query = mysqli_query($conn, "SELECT * FROM asset WHERE kode_asset = '$kode_asset'");
       $data = mysqli_fetch_array($query);
     ?>
     <div class="card card-primary ml-4 mr-4">
@@ -38,12 +38,23 @@
         <h3 align="center" class="card-title">Form Edit Asset</h3>
       </div>
       <div class="card-body">
-        <form method="post" action= "" enctype="multipart/form-data">
+        <form method="post" action= "setEdit.php" enctype="multipart/form-data">
           <div class="row">
             <div class="col-sm-6">
-              <div class="form-group">
+            <div class="form-group">
                 <label>Jenis Asset</label>
-                  <input type="varchar" class="form-control" name="jenis_asset" value="<?php echo $data["jenis_asset"] ?> ">
+                  <select type="varchar" class="custom-select rounded-0" name="id_jenis_asset">
+                      <option class="bg-secondary" value="" disabled selected>Pilih Jenis Asset</option>
+                      <?php
+                        $sql = "SELECT * FROM jenis_asset";
+                        $result = $conn->query($sql);
+                          if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                              echo "<option value= $row[id_jenis_asset]>$row[nama_jenis_asset]</option>";
+                            }
+                          }
+                      ?>
+                  </select> 
               </div>
               <div class="form-group">
                 <label>Deskripsi Asset</label>
@@ -55,7 +66,7 @@
               </div>
               <div class="form-group">
                 <label>Merk/ Type</label>
-                  <input type="varchar" class="form-control" name="merk/type" value="<?php echo $data["merk/type"] ?>">
+                  <input type="varchar" class="form-control" name="merk_type" value="<?php echo $data["merk_type"] ?>">
               </div>
               <div class="form-group">
                 <label>Jumlah</label>
@@ -71,24 +82,83 @@
               </div>
               <div class="form-group">
                 <label>Status Kepemilikan Asset</label>
-                  <input type="varchar" class="form-control" name="id_status_kepemilikan" value="<?php echo $data["id_status_kepemilikan"] ?>">
-              </div>  
+                  <select type="varchar" class="custom-select rounded-0" name="id_status_kepemilikan">
+                  <option class="bg-secondary" value="" disabled selected>Pilih Status Kepemilikan</option>
+                  <?php
+                      $sql = "SELECT * FROM status_kepemilikan";
+                      $result = $conn->query($sql);
+                        if ($result->num_rows > 0) {
+                          while ($row = $result->fetch_assoc()) {
+                            echo"<option value=$row[id_status_kepemilikan]>$row[deskripsi_status_kepemilikan]</option>";
+                          }
+                        }
+                    ?>
+                  </select>               
+              </div> 
             </div>
             <div class="col-sm-6">
-              <div class="form-group">
-                <label>Lokasi</label>
-                  <input type="varchar" class="form-control" name="lokasi" value="<?php echo $data["lokasi"] ?>">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Lokasi</label>
+                  <select type="varchar" class="custom-select rounded-0" name="id_lokasi">
+                  <option class="bg-secondary" value="" disabled selected>Pilih Lokasi</option>
+                  <optgroup label="Office Center">
+                    <?php
+                      $sql = "SELECT * FROM lokasi WHERE id_kantor= 'OC'";
+                      $result = $conn->query($sql);
+                        if ($result->num_rows > 0) {
+                          while ($row = $result->fetch_assoc()) {
+                            echo "<option value=$row[id_lokasi]>$row[deskripsi_lokasi]</option>";
+                          }
+                        }
+                    ?>
+                  </optgroup><hr>
+                  <optgroup label="Kantor Production Unit Cilacap">
+                    <?php
+                      $sql = "SELECT * FROM lokasi WHERE id_kantor= 'PUC'";
+                      $result = $conn->query($sql);
+                        if ($result->num_rows > 0) {
+                          while ($row = $result->fetch_assoc()) {
+                            echo "<option value=$row[id_lokasi]>$row[deskripsi_lokasi]</option>";
+                          }
+                        }
+                    ?>
+                  </optgroup><hr>
+                  <optgroup label="Kantor Production Unit Gresik">
+                    <?php
+                      $sql = "SELECT * FROM lokasi WHERE id_kantor= 'PUG'";
+                      $result = $conn->query($sql);
+                        if ($result->num_rows > 0) {
+                          while ($row = $result->fetch_assoc()) {
+                            echo "<option value=$row[id_lokasi]>$row[deskripsi_lokasi]</option>";
+                          }
+                        }
+                    ?>
+                  </optgroup><hr>
+                  <optgroup label="Kantor Production Unit Jakarta">
+                    <?php
+                      $sql = "SELECT * FROM lokasi WHERE id_kantor= 'PUJ'";
+                      $result = $conn->query($sql);
+                        if ($result->num_rows > 0) {
+                          while ($row = $result->fetch_assoc()) {
+                            echo "<option value=$row[id_lokasi]>$row[deskripsi_lokasi]</option>";
+                          }
+                        }
+                    ?>
+                  </optgroup>
+                  </select>
               </div>
               <div class="form-group">
                 <label>Kondisi</label>
-                  <select type="varchar" class="custom-select rounded-0" name="kondisi" >
-                    <option><?php echo $data["kondisi"] ?></option>
-                    <option>DB</option>
-                    <option>DS</option>
-                    <option>DJ</option>
-                    <option>TR</option>
-                    <option>TX</option>
-                    <option>RB</option>
+                  <select type="varchar" class="custom-select rounded-0" name="id_kondisi">
+                  <?php
+                      $sql = "SELECT * FROM kondisi";
+                      $result = $conn->query($sql);
+                        if ($result->num_rows > 0) {
+                          while ($row = $result->fetch_assoc()) {
+                            echo "<option value=$row[id_kondisi]>$row[id_kondisi]</option>";
+                          }
+                        }
+                    ?>
                   </select>
               </div>
               <div class="form-group">
@@ -111,85 +181,17 @@
                 <label>Keterangan</label>
                   <input type="varchar" class="form-control" rows="3" name="keterangan" value="<?php echo $data["keterangan"] ?>"></input>
               </div>
-              <div class="form-group">
-                <label>Kantor</label>
-                  <select type="varchar" class="custom-select rounded-0" name="kantor" >
-                    <option><?php echo $data["kantor"] ?></option>
-                    <option>OC</option>
-                    <option>PUC</option>
-                    <option>PUG</option>
-                    <option>PUJ</option>
-                  </select>
-              </div>
             </div>
           </div>
           <div class="mt-3">
             <input type="submit" class="btn btn-primary" value="Update" name="Update"></input>
-            <button type="submit" class="btn btn-default float-right">Cancel</button>
+
           </div>
         </form>
+        <a href="../../inventaris/inventaris.php">
+              <button class="btn btn-default float-right">Cancel</button>
+            </a>
       </div>
     </div>
   </div>
-  <?php
-    if(isset($_POST['Update'])){
-      $kantor = $_POST['kantor'];
-      $jenis_asset = $_POST['jenis_asset'];
-      $deskripsi_asset = $_POST['deskripsi_asset'];
-      $kode_asset = $_POST['kode_asset'];
-      $merk_type = $_POST['merk/type'];
-      $jumlah = $_POST['jumlah'];
-      $ukuran = $_POST['ukuran'];
-      $tahun_pengadaan = $_POST['tahun_pengadaan'];
-      $id_status_kepemilikan = $_POST['id_status_kepemilikan'];
-      $lokasi = $_POST['lokasi'];
-      $kondisi = $_POST['kondisi'];
-      $asal_usul = $_POST['asal_usul'];
-      $harga = $_POST['harga'];
-      $gambar = $_FILES["gambar"]["name"]; 
-      $keterangan = $_POST['keterangan'];
-
-      if($gambar != ''){
-      $temp_name = $_FILES["gambar"]["tmp_name"];    
-      $folder = "GambarAsset/".$gambar;
-        move_uploaded_file($temp_name, 'GambarAsset/'.$gambar);
-        unlink("./GambarAsset/$data[gambar]");
-        $query="UPDATE `asset` SET jenis_asset='$jenis_asset', deskripsi_asset='$deskripsi_asset',kode_asset='$kode_asset', merk/type='$merk/type', 
-                                   jumlah='$jumlah', ukuran='$ukuran', tahun_pengadaan='$tahun_pengadaan', id_status_kepemilikan='$id_status_kepemilikan', lokasi='$lokasi', 
-                                   kondisi='$kondisi',asal_usul='$asal_usul', harga='$harga', gambar= '$gambar', keterangan='$keterangan' WHERE kode_asset='$kode_asset'";
-        $result = mysqli_query($conn, $query);
-        if($result){
-            echo '<script type ="text/JavaScript">';  
-            echo 'alert("DATA BERHASIL DI UPDATE")';  
-            echo '</script>'; 
-            echo '<meta http-equiv="refresh" content="0.1;url=../inventaris/inventaris.php">';
-            
-        }else{
-            echo '<script type ="text/JavaScript">';  
-            echo 'alert("UPDATE GAGAL")';  
-            echo '</script>'; 
-            echo '<meta http-equiv="refresh" content="0.1;url=editAsset.php">';
-        }
-      }else{
-        $query="UPDATE `asset` SET jenis_asset='$jenis_asset', deskripsi_asset='$deskripsi_asset',kode_asset='$kode_asset', merk/type='$merk/type', 
-                                   jumlah='$jumlah', ukuran='$ukuran', tahun_pengadaan='$tahun_pengadaan', id_status_kepemilikan='$id_status_kepemilikan', lokasi='$lokasi', 
-                                   kondisi='$kondisi',asal_usul='$asal_usul', harga='$harga', keterangan='$keterangan' WHERE kode_asset='$kode_asset'";
-        $result = mysqli_query($conn, $query);
-        if($result){
-            echo '<script type ="text/JavaScript">';  
-            echo 'alert("DATA BERHASIL DI UPDATE")';  
-            echo '</script>'; 
-            echo '<meta http-equiv="refresh" content="0.1;url=../inventaris/inventaris.php">';
-            
-        }else{
-            echo '<script type ="text/JavaScript">';  
-            echo 'alert("UPDATE GAGAL")';  
-            echo '</script>'; 
-            echo '<meta http-equiv="refresh" content="0.1;url=editAsset.php">';
-        }
-
-      }
-    
-    }
-  ?>
 </html>

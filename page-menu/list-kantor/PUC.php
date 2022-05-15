@@ -60,21 +60,21 @@
                           $result1 = $conn->query($sql1);
                           $totalAssetRusakBerat = mysqli_num_rows($result1);
                         ?>
-                      <th scope="col"><h2><?php echo $totalAssetRusakBerat ?></h2></th>
+                      <th scope="col"><center><h2><?php echo $totalAssetRusakBerat ?></h2></center></th>
                         <?php
                           $sql2 = "SELECT * FROM `asset_waktu_habis` WHERE id_kantor = 'PUC' ";
                           $result2 = $conn->query($sql2);
                           $totalAssetUmurHabis = mysqli_num_rows($result2);
                         ?>
-                      <th scope="col"><h2><?php echo $totalAssetUmurHabis ?></h2></th>
+                      <th scope="col"><center><h2><?php echo $totalAssetUmurHabis ?></h2></center></th>
                     </tr>
                   </thead>
                   <tfoot>
-                      <tr>
-                        <th>Total</th>
-                        <th>Asset Rusak Berat</th>
-                        <th>Asset Umur Habis</th>
-                      </tr>
+                    <tr>
+                      <th><h3>Total</h4></th>
+                      <th><center><h4>Asset Rusak Berat</h4></center></th>
+                      <th><center><h4>Asset Umur Habis</h4></center></th>
+                    </tr>
                   </tfoot>
                 </table> 
               </div>  
@@ -92,10 +92,9 @@
             </h3>
           </div>
           <div class="card-body">
-            <i class="fas fa-plus-square"></i>
-              <a href="../input-data/inputData.php" style="color:black;">Tambah Asset Baru</a> <br>
-            <i class="fa-solid fa-file-excel"></i>  
-              <a href="input_item.php" style="color:black;">Tambah Asset dengan Excel</a> <br>
+            <a href="../input-data/inputData.php">
+              <button type="button" class="btn btn-primary"><i class="fa fa-plus"></i> Tambah Asset Baru</button>
+            </a>
           </div>
         </div>
       </div>
@@ -107,10 +106,14 @@
             </h3>
           </div>
         <div class="card-body clearfix">
-          <i class="fa-solid fa-house-crack fa-sm"></i>
-            <a href="../delete-data/assetRusakBeratPUC.php"style="color:black;">Asset Rusak Berat</a> <br>
-          <i class="fa-solid fa-hourglass-end mr-1"></i>
-            <a href="../delete-data/assetUmurHabisPUC.php"style="color:black;">Asset Umur Habis</a>  <br>
+          <div class="mb-2">
+            <a href="../delete-data/assetRusakBeratPUC.php">
+              <button type="button" class="btn btn-danger"><i class="fa fa-circle-exclamation"></i> Asset Rusak Berat</button>
+            </a> <br>
+          </div>
+          <a href="../delete-data/assetUmurHabisPUC.php">
+            <button type="button" class="btn btn-info"><i class="fa fa-clock-rotate-left"></i> Asset Umur Habis</button>
+          </a>  <br>
         </div>
       </div>
     </div>
@@ -181,11 +184,15 @@
                       <td><?php echo $row["keterangan"] ?></td>
                       <td>
                         <a href="../input-data/editAssetPUC.php? kode_asset=<?=$row["kode_asset"]?>">
-                          <button class="bg-primary mr-4" style=" float:left">
+                          <button class="btn-primary mr-4" style=" float:left">
                             <i class="fa-solid fa-pen-to-square fa-sm"></i>
                           </button>
+                        </a> 
+                        <a href="../delete-data/delete.php? kode_asset=<?=$row["kode_asset"]?>">
+                          <button class="btn-danger mt--5" style=" float:right">
+                            <i class="fa-solid fa-trash"></i>
+                          </button>
                         </a>
-                        <button class="bg-danger mt--5" style=" float:right"><i class="fa-solid fa-trash"></i></button>
                       </td>
                     </tr>
                       <?php
