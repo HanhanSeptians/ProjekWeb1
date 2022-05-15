@@ -110,7 +110,7 @@
                 </center>
               <?php  
                 }else{
-                  echo "<img src='../input-data/GambarAsset/$row[gambar]' width='100'/>";
+                  echo "<img src='../../GambarAsset/$row[gambar]' width='100'/>";
                 }
               ?>
             </td>

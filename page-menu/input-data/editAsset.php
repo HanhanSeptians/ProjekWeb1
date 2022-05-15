@@ -17,7 +17,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="../inventaris/inventaris.php">Rekapitulasi Inventaris</a></li>
               <li class="breadcrumb-item active">Edit Asset</li>
             </ol>
           </div>
@@ -35,22 +35,26 @@
     ?>
     <div class="card card-primary ml-4 mr-4">
       <div class="card-header">
-        <h3 align="center" class="card-title">Form Edit Asset</h3>
+        <i class="fa-solid fa-pen-to-square fa-lg"></i><b> Form Edit Asset</b> 
       </div>
       <div class="card-body">
-        <form method="post" action= "setEdit.php" enctype="multipart/form-data">
+        <form id="quickForm" method="post" action= "setEdit.php" enctype="multipart/form-data">
           <div class="row">
             <div class="col-sm-6">
             <div class="form-group">
                 <label>Jenis Asset</label>
                   <select type="varchar" class="custom-select rounded-0" name="id_jenis_asset">
-                      <option class="bg-secondary" value="" disabled selected>Pilih Jenis Asset</option>
+                    <?php
+                        $query = mysqli_query($conn, "SELECT * FROM asset_inventaris WHERE kode_asset = '$kode_asset'");
+                        $hasil = mysqli_fetch_array($query);
+                    ?>
+                    <option disabled selected>Pilih Jenis Asset "Nilai Awal : <?php echo $hasil['jenis_asset']?>"</option>
                       <?php
                         $sql = "SELECT * FROM jenis_asset";
                         $result = $conn->query($sql);
                           if ($result->num_rows > 0) {
                             while ($row = $result->fetch_assoc()) {
-                              echo "<option value= $row[id_jenis_asset]>$row[nama_jenis_asset]</option>";
+                              echo "<option value= $row[id_jenis_asset]>$row[jenis_asset]</option>";
                             }
                           }
                       ?>
@@ -79,11 +83,13 @@
               <div class="form-group">
                 <label>Tahun Pengadaan</label>
                   <input type="year" class="form-control" name="tahun_pengadaan" value="<?php echo $data["tahun_pengadaan"] ?>">
-              </div>
+              </div>         
+            </div>
+            <div class="col-sm-6">
               <div class="form-group">
                 <label>Status Kepemilikan Asset</label>
                   <select type="varchar" class="custom-select rounded-0" name="id_status_kepemilikan">
-                  <option class="bg-secondary" value="" disabled selected>Pilih Status Kepemilikan</option>
+                  <option disabled selected>Pilih Status Kepemilikan "Nilai Awal : <?php echo $hasil['status_kepemilikan']?>"</option>
                   <?php
                       $sql = "SELECT * FROM status_kepemilikan";
                       $result = $conn->query($sql);
@@ -93,16 +99,12 @@
                           }
                         }
                     ?>
-                  </select>               
-              </div> 
-                  <input type="varchar" class="form-control" name="status_kepemilikan" value="<?php echo $data["status_kepemilikan"] ?>">
-              </div>  
-            </div>
-            <div class="col-sm-6">
+                  </select>
+              </div>       
             <div class="form-group">
                 <label for="exampleInputEmail1">Lokasi</label>
                   <select type="varchar" class="custom-select rounded-0" name="id_lokasi">
-                  <option class="bg-secondary" value="" disabled selected>Pilih Lokasi</option>
+                  <option disabled selected>Pilih Jenis Asset "Nilai Awal: <?php echo $hasil['lokasi']?>"</option>
                   <optgroup label="Office Center">
                     <?php
                       $sql = "SELECT * FROM lokasi WHERE id_kantor= 'OC'";
@@ -152,6 +154,7 @@
               <div class="form-group">
                 <label>Kondisi</label>
                   <select type="varchar" class="custom-select rounded-0" name="id_kondisi">
+                    <option><?php echo $hasil['kondisi']?></option>
                   <?php
                       $sql = "SELECT * FROM kondisi";
                       $result = $conn->query($sql);
@@ -187,13 +190,60 @@
           </div>
           <div class="mt-3">
             <input type="submit" class="btn btn-primary" value="Update" name="Update"></input>
-
           </div>
         </form>
-        <a href="../../inventaris/inventaris.php">
-              <button class="btn btn-default float-right">Cancel</button>
-            </a>
       </div>
     </div>
   </div>
 </html>
+<script>
+$(function () {
+  $('#quickForm').validate({
+    rules: {
+      kode_asset: {
+        required: true,
+      },
+      id_jenis_asset: {
+        required: true,
+      },
+      id_status_kepemilikan: {
+        required: true,
+      },
+      id_lokasi: {
+        required: true,
+      },
+      id_kondisi: {
+        required: true,
+      },
+    },
+    messages: {
+      kode_asset: {
+        required: "Kode Asset Tidak Boleh Kosong",
+      },
+      id_jenis_asset: {
+        required: "Lengkapi Jenis Asset",
+      },
+      id_status_kepemilikan: {
+        required: "Lengkapi Status Kepemilikan Asset",
+      },
+      id_lokasi: {
+        required: "Lengkapi Lokasi Asset",
+      },
+      id_kondisi: {
+        required: "Lengkapi Kondisi Asset",
+      },
+    },
+    errorElement: 'span',
+    errorPlacement: function (error, element) {
+      error.addClass('invalid-feedback');
+      element.closest('.form-group').append(error);
+    },
+    highlight: function (element, errorClass, validClass) {
+      $(element).addClass('is-invalid');
+    },
+    unhighlight: function (element, errorClass, validClass) {
+      $(element).removeClass('is-invalid');
+    }
+  });
+});
+</script>

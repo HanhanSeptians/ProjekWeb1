@@ -27,7 +27,7 @@
     </div>
     <div class="card card-primary ml-3 mr-3">
       <div class="card-header">
-        <i class="fa-solid fa-pen-to-square fa-lg"></i><b> Form Pengisian Asset Baru</b>
+        <i class="fa-solid fa-pen-to-square fa-lg"></i> Form Pengisian Asset Baru "Production Office Center"
       </div>
       <div class="card-body">
         <form method="post" action="setInput.php" enctype="multipart/form-data">
@@ -142,12 +142,10 @@
               </div>
             </div>
           </div>
-        
+        </div>
+        <div class="card-footer">
+          <input type="submit" class="btn btn-primary "></input>
+        </div>
       </div>
-      <div class="card-footer">
-        <input type="submit" class="btn btn-primary "></input>
-      </div>
-    </div>
     </form>
- 
 </html>

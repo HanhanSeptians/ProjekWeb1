@@ -6,7 +6,7 @@
   include '../database/koneksi.php';
   include '../navbar/navbar.php';
   $sql = "SELECT * FROM asset";
-  $result = $conn->query($sql);
+  $data = $conn->query($sql);
 ?>
 <html>
   <div class="content-wrapper">
@@ -32,7 +32,7 @@
         </div>
       </div>
       <div class="card-body">
-        <form method="post" action="setInput.php" enctype="multipart/form-data">
+        <form id="quickForm" action="setInput.php" method="post"  enctype="multipart/form-data">
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
@@ -178,12 +178,61 @@
               </div>
             </div>
           </div>
-        
+        </div>
+        <div class="card-footer">
+          <input type="submit" class="btn btn-primary "></input>
+        </div>
       </div>
-      <div class="card-footer">
-        <input type="submit" class="btn btn-primary "></input>
-      </div>
-    </div>
     </form>
- 
 </html>
+<script>
+$(function () {
+  $('#quickForm').validate({
+    rules: {
+      kode_asset: {
+        required: true,
+      },
+      id_jenis_asset: {
+        required: true,
+      },
+      id_status_kepemilikan: {
+        required: true,
+      },
+      id_lokasi: {
+        required: true,
+      },
+      id_kondisi: {
+        required: true,
+      },
+    },
+    messages: {
+      kode_asset: {
+        required: "Kode Asset Tidak Boleh Kosong",
+      },
+      id_jenis_asset: {
+        required: "Lengkapi Jenis Asset",
+      },
+      id_status_kepemilikan: {
+        required: "Lengkapi Status Kepemilikan Asset",
+      },
+      id_lokasi: {
+        required: "Lengkapi Lokasi Asset",
+      },
+      id_kondisi: {
+        required: "Lengkapi Kondisi Asset",
+      },
+    },
+    errorElement: 'span',
+    errorPlacement: function (error, element) {
+      error.addClass('invalid-feedback');
+      element.closest('.form-group').append(error);
+    },
+    highlight: function (element, errorClass, validClass) {
+      $(element).addClass('is-invalid');
+    },
+    unhighlight: function (element, errorClass, validClass) {
+      $(element).removeClass('is-invalid');
+    }
+  });
+});
+</script>

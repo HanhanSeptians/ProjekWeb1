@@ -177,13 +177,13 @@
                           </center>
                         <?php  
                           }else{
-                            echo "<img src='../input-data/GambarAsset/$row[gambar]' width='100'/>";
+                            echo "<img src='../../GambarAsset/$row[gambar]' width='100'/>";
                           }
                         ?>
                       </td>
                       <td><?php echo $row["keterangan"] ?></td>
                       <td>
-                        <a href="../input-data/editAssetPUC.php? kode_asset=<?=$row["kode_asset"]?>">
+                        <a href="../input-data/editAsset.php? kode_asset=<?=$row["kode_asset"]?>">
                           <button class="btn-primary mr-4" style=" float:left">
                             <i class="fa-solid fa-pen-to-square fa-sm"></i>
                           </button>
