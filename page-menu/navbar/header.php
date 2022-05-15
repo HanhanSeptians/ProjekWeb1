@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="../../plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="../../plugins/summernote/summernote-bs4.min.css">
+  <link rel="stylesheet" href="../../plugins/sweetalert2/sweetalert2.min.css">
 
   <!-- jQuery -->
   <script src="../../plugins/jquery/jquery.min.js"></script>

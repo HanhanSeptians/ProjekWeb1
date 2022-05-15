@@ -18,7 +18,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="../inventaris/inventaris.php">Rekapitulasi Inventaris</a></li>
+              <li class="breadcrumb-item"><a href="../list-kantor/OC.php">Office Center</a></li>
               <li class="breadcrumb-item active">Input Asset Baru</li>
             </ol>
           </div>
@@ -27,9 +27,7 @@
     </div>
     <div class="card card-primary ml-3 mr-3">
       <div class="card-header">
-        <div class="card-title">
-          <i class="fa-solid fa-pen-to-square fa-lg"></i><b> Form Pengisian Asset Baru</b> 
-        </div>
+        <i class="fa-solid fa-pen-to-square fa-lg"></i><b> Form Pengisian Asset Baru</b>
       </div>
       <div class="card-body">
         <form method="post" action="setInput.php" enctype="multipart/form-data">
@@ -94,51 +92,17 @@
               <div class="form-group">
                 <label for="exampleInputEmail1">Lokasi</label>
                   <select type="varchar" class="custom-select rounded-0" name="id_lokasi">
-                    <option class="bg-secondary" value="" disabled selected>Pilih Lokasi</option>
-                      <optgroup label="Office Center">
-                        <?php
-                          $sql = "SELECT * FROM lokasi WHERE id_kantor= 'OC'";
-                          $result = $conn->query($sql);
-                            if ($result->num_rows > 0) {
-                              while ($row = $result->fetch_assoc()) {
-                                echo "<option value=$row[id_lokasi]>$row[deskripsi_lokasi]</option>";
-                              }
-                            }
-                        ?>
-                      </optgroup><hr>
-                      <optgroup label="Kantor Production Unit Cilacap">
-                        <?php
-                          $sql = "SELECT * FROM lokasi WHERE id_kantor= 'PUC'";
-                          $result = $conn->query($sql);
-                            if ($result->num_rows > 0) {
-                              while ($row = $result->fetch_assoc()) {
-                                echo "<option value=$row[id_lokasi]>$row[deskripsi_lokasi]</option>";
-                              }
-                            }
-                        ?>
-                      </optgroup><hr>
-                      <optgroup label="Kantor Production Unit Gresik">
-                        <?php
-                          $sql = "SELECT * FROM lokasi WHERE id_kantor= 'PUG'";
-                          $result = $conn->query($sql);
-                            if ($result->num_rows > 0) {
-                              while ($row = $result->fetch_assoc()) {
-                                echo "<option value=$row[id_lokasi]>$row[deskripsi_lokasi]</option>";
-                              }
-                            }
-                        ?>
-                      </optgroup><hr>
-                      <optgroup label="Kantor Production Unit Jakarta">
-                        <?php
-                          $sql = "SELECT * FROM lokasi WHERE id_kantor= 'PUJ'";
-                          $result = $conn->query($sql);
-                            if ($result->num_rows > 0) {
-                              while ($row = $result->fetch_assoc()) {
-                                echo "<option value=$row[id_lokasi]>$row[deskripsi_lokasi]</option>";
-                              }
-                            }
-                        ?>
-                      </optgroup>
+                  <option class="bg-secondary" value="" disabled selected>Pilih Lokasi</option>
+                  <optgroup label="Office Center">
+                    <?php
+                      $sql = "SELECT * FROM lokasi WHERE id_kantor= 'OC'";
+                      $result = $conn->query($sql);
+                        if ($result->num_rows > 0) {
+                          while ($row = $result->fetch_assoc()) {
+                            echo "<option value=$row[id_lokasi]>$row[deskripsi_lokasi]</option>";
+                          }
+                        }
+                    ?>
                   </select>
               </div>
               <div class="form-group">

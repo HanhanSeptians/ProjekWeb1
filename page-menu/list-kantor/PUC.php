@@ -92,7 +92,7 @@
             </h3>
           </div>
           <div class="card-body">
-            <a href="../input-data/inputData.php">
+            <a href="../input-data/inputDataPUC.php">
               <button type="button" class="btn btn-primary"><i class="fa fa-plus"></i> Tambah Asset Baru</button>
             </a>
           </div>
@@ -123,7 +123,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header bg-dark">
-                <h3 class="card-title">Production Unit Cilacap</h3>
+                <i class="fa-solid fa-coins fa-lg"></i> Production Unit Cilacap
               </div>
               <div class="card-body">
                 <table class="table table-bordered table-striped">

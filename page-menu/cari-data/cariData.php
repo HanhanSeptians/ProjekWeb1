@@ -117,12 +117,12 @@
             <td><?php echo $row["keterangan"] ?></td>
             <td>
               <a href="../input-data/editAsset.php? kode_asset=<?=$row["kode_asset"]?>">
-                <button class="bg-primary mr-4" style=" float:left">
+                <button class="btn-primary mr-4" style=" float:left">
                   <i class="fa-solid fa-pen-to-square fa-sm"></i>
                 </button>
               </a> 
               <a href="../delete-data/delete.php? kode_asset=<?=$row["kode_asset"]?>">
-                <button class="bg-danger mt--5" style=" float:right">
+                <button class="btn-danger mt--5" style=" float:right">
                   <i class="fa-solid fa-trash"></i>
                 </button>
               </a>

@@ -23,11 +23,18 @@
       </div>
     </section>
     <?php
+      $batas = 50;
+      $halaman = isset($_GET['halaman'])?(int)$_GET['halaman'] : 1;
+      $halaman_awal = ($halaman>1) ? ($halaman * $batas) - $batas : 0;	
+      $previous = $halaman - 1;
+      $next = $halaman + 1;
       $sql = "SELECT * FROM `asset_hapus`";
       $result = $conn->query($sql);
       $total = mysqli_num_rows($result);
-      $no = 0;
-        if ($result->num_rows > 0) {
+      $total_halaman = ceil($total / $batas);
+      $data_asset = mysqli_query($conn,"SELECT * FROM `asset_hapus` limit $halaman_awal, $batas");
+      $no = $halaman_awal+1;
+        if ($data_asset->num_rows > 0) {
     ?>
     <section class="content">
       <div class="container-fluid">
@@ -35,7 +42,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header bg-dark">
-                <h3 class="card-title"><b>Asset Rusak Berat atau Umur Habis</b></h3>
+                <i class="fa-solid fa-circle-exclamation"></i> Asset Rusak Berat atau Umur Habis
               </div>
               <div class="card-body">
                 <table class="table table-bordered table-striped">
@@ -60,12 +67,11 @@
                     </tr>
                   </thead>
                   <?php
-                    while ($row = $result->fetch_assoc()) {
-                      $no += 1;           
+                    while ($row = $data_asset->fetch_assoc()) {          
                   ?>                
                   <tbody>
                     <tr>
-                      <td><center><?php echo $no ; ?></center></td>
+                      <td><center><?php echo $no++ ; ?></center></td>
                       <td><?php echo $row["jenis_asset"] ?></td>
                       <td><?php echo $row["deskripsi_asset"] ?></td>
                       <td><center><?php echo $row["kode_asset"] ?></center></td>
@@ -96,7 +102,7 @@
                       <td><?php echo $row["keterangan"] ?></td>
                       <td>
                         <center>
-                          <button class="bg-danger"><i class="fa-solid fa-trash"></i></button>
+                          <button class="btn-danger"><i class="fa-solid fa-trash"></i></button>
                         </center>
                       </td>
                     </tr>
@@ -116,11 +122,19 @@
               </div>
               <div class="card-footer clearfix">
                 <ul class="pagination pagination-sm m-0 float-right">
-                  <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                  <li class="page-item">
+                    <a class="page-link" <?php if($halaman > 1){ echo "href='?halaman=$previous'"; } ?>>Previous</a>
+                  </li>
+                  <?php 
+                    for($x=1;$x<=$total_halaman;$x++){
+                  ?> 
+                      <li class="page-item"><a class="page-link" href="?halaman=<?php echo $x ?>"><?php echo $x; ?></a></li>
+                  <?php
+                    }
+                  ?>				
+                  <li class="page-item">
+                    <a  class="page-link" <?php if($halaman < $total_halaman) { echo "href='?halaman=$next'"; } ?>>Next</a>
+                  </li>
                 </ul>
               </div>
             </div>

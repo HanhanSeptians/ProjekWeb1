@@ -45,7 +45,7 @@
       <div class="col-12">
         <div class="card text-white bg-primary mb-3">
           <div class="card-header d-flex p-0">
-            <h3 class="card-title p-2">Today</h3>
+            <h3 class="card-title p-2"> Today</h3>
             <h3 class="card-title p-2" id="date" style="color:lightgrey;"></h3>
           </div>
           <div class="card-body">
@@ -92,7 +92,7 @@
             </h3>
           </div>
           <div class="card-body">
-            <a href="../input-data/inputData.php">
+            <a href="../input-data/inputDataOC.php">
               <button type="button" class="btn btn-primary"><i class="fa fa-plus"></i> Tambah Asset Baru</button>
             </a>
           </div>
@@ -123,7 +123,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header bg-dark">
-                <h3 class="card-title">Production Unit Office Center</h3>
+                <i class="fa-solid fa-coins fa-lg"></i> Production Office Center
               </div>
               <div class="card-body">
                 <table class="table table-bordered table-striped">
