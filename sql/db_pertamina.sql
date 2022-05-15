@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 14, 2022 at 03:59 PM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 8.0.0
+-- Generation Time: May 14, 2022 at 07:45 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_pertamina`
+-- Database: `db_pertamina_2`
 --
 
 -- --------------------------------------------------------
@@ -49,9 +49,9 @@ CREATE TABLE `asset` (
 --
 
 INSERT INTO `asset` (`kode_asset`, `id_kondisi`, `id_status_kepemilikan`, `id_lokasi`, `id_jenis_asset`, `deskripsi_asset`, `jumlah`, `ukuran`, `tahun_pengadaan`, `asal_usul`, `harga`, `gambar`, `keterangan`, `merk_type`) VALUES
-('OC_0000', 'RB', NULL, 6, NULL, 'Meja Bundar', 3, NULL, 2018, NULL, NULL, NULL, NULL, NULL),
-('OC_0001', 'DB', NULL, 27, NULL, 'Kursi Sova Hitam', 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-('OC_0002', 'DB', NULL, 27, NULL, 'Meja Sofa', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0000', 'RB', 'D', 6, 'F', 'Meja Bundar', 3, NULL, 2018, NULL, NULL, NULL, NULL, NULL),
+('OC_0001', 'DB', 'S', 27, 'F', 'Kursi Sova Hitam', 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('OC_0002', 'DB', 'D', 27, 'F', 'Meja Sofa', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('OC_0003', 'DB', NULL, 27, NULL, 'TV', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('OC_0004', 'DB', NULL, 27, NULL, 'Meja Penerima Tamu', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('OC_0005', 'DB', NULL, 27, NULL, 'Kursi Sofa Hitam', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
@@ -1164,21 +1164,93 @@ INSERT INTO `asset` (`kode_asset`, `id_kondisi`, `id_status_kepemilikan`, `id_lo
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `asset_puc`
+-- Stand-in structure for view `asset_hapus`
 -- (See below for the actual view)
 --
-CREATE TABLE `asset_puc` (
+CREATE TABLE `asset_hapus` (
 `id_kantor` varchar(10)
-,`jenis_asset` varchar(10)
+,`jenis_asset` varchar(255)
 ,`deskripsi_asset` varchar(255)
 ,`kode_asset` varchar(10)
 ,`merk_type` varchar(255)
 ,`jumlah` int(11)
 ,`ukuran` varchar(100)
 ,`tahun_pengadaan` year(4)
-,`id_status_kepemilikan` varchar(10)
-,`deskripsi_lokasi` varchar(255)
-,`id_kondisi` varchar(10)
+,`status_kepemilikan` varchar(255)
+,`lokasi` varchar(255)
+,`kondisi` varchar(10)
+,`asal_usul` varchar(255)
+,`harga` double
+,`gambar` varchar(255)
+,`keterangan` varchar(255)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `asset_inventaris`
+-- (See below for the actual view)
+--
+CREATE TABLE `asset_inventaris` (
+`id_kantor` varchar(10)
+,`jenis_asset` varchar(255)
+,`deskripsi_asset` varchar(255)
+,`kode_asset` varchar(10)
+,`merk_type` varchar(255)
+,`jumlah` int(11)
+,`ukuran` varchar(100)
+,`tahun_pengadaan` year(4)
+,`status_kepemilikan` varchar(255)
+,`lokasi` varchar(255)
+,`kondisi` varchar(10)
+,`asal_usul` varchar(255)
+,`harga` double
+,`gambar` varchar(255)
+,`keterangan` varchar(255)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `asset_oc`
+-- (See below for the actual view)
+--
+CREATE TABLE `asset_oc` (
+`id_kantor` varchar(10)
+,`jenis_asset` varchar(255)
+,`deskripsi_asset` varchar(255)
+,`kode_asset` varchar(10)
+,`merk_type` varchar(255)
+,`jumlah` int(11)
+,`ukuran` varchar(100)
+,`tahun_pengadaan` year(4)
+,`status_kepemilikan` varchar(255)
+,`lokasi` varchar(255)
+,`kondisi` varchar(10)
+,`asal_usul` varchar(255)
+,`harga` double
+,`gambar` varchar(255)
+,`keterangan` varchar(255)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `asset_puc`
+-- (See below for the actual view)
+--
+CREATE TABLE `asset_puc` (
+`id_kantor` varchar(10)
+,`jenis_asset` varchar(255)
+,`deskripsi_asset` varchar(255)
+,`kode_asset` varchar(10)
+,`merk_type` varchar(255)
+,`jumlah` int(11)
+,`ukuran` varchar(100)
+,`tahun_pengadaan` year(4)
+,`status_kepemilikan` varchar(255)
+,`lokasi` varchar(255)
+,`kondisi` varchar(10)
 ,`asal_usul` varchar(255)
 ,`harga` double
 ,`gambar` varchar(255)
@@ -1193,16 +1265,16 @@ CREATE TABLE `asset_puc` (
 --
 CREATE TABLE `asset_pug` (
 `id_kantor` varchar(10)
-,`jenis_asset` varchar(10)
+,`jenis_asset` varchar(255)
 ,`deskripsi_asset` varchar(255)
 ,`kode_asset` varchar(10)
 ,`merk_type` varchar(255)
 ,`jumlah` int(11)
 ,`ukuran` varchar(100)
 ,`tahun_pengadaan` year(4)
-,`id_status_kepemilikan` varchar(10)
-,`deskripsi_lokasi` varchar(255)
-,`id_kondisi` varchar(10)
+,`status_kepemilikan` varchar(255)
+,`lokasi` varchar(255)
+,`kondisi` varchar(10)
 ,`asal_usul` varchar(255)
 ,`harga` double
 ,`gambar` varchar(255)
@@ -1217,21 +1289,89 @@ CREATE TABLE `asset_pug` (
 --
 CREATE TABLE `asset_puj` (
 `id_kantor` varchar(10)
-,`jenis_asset` varchar(10)
+,`jenis_asset` varchar(255)
 ,`deskripsi_asset` varchar(255)
 ,`kode_asset` varchar(10)
 ,`merk_type` varchar(255)
 ,`jumlah` int(11)
 ,`ukuran` varchar(100)
 ,`tahun_pengadaan` year(4)
-,`id_status_kepemilikan` varchar(10)
-,`deskripsi_lokasi` varchar(255)
-,`id_kondisi` varchar(10)
+,`status_kepemilikan` varchar(255)
+,`lokasi` varchar(255)
+,`kondisi` varchar(10)
 ,`asal_usul` varchar(255)
 ,`harga` double
 ,`gambar` varchar(255)
 ,`keterangan` varchar(255)
 );
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `asset_rusak_berat`
+-- (See below for the actual view)
+--
+CREATE TABLE `asset_rusak_berat` (
+`id_kantor` varchar(10)
+,`jenis_asset` varchar(255)
+,`deskripsi_asset` varchar(255)
+,`kode_asset` varchar(10)
+,`merk_type` varchar(255)
+,`jumlah` int(11)
+,`ukuran` varchar(100)
+,`tahun_pengadaan` year(4)
+,`status_kepemilikan` varchar(255)
+,`lokasi` varchar(255)
+,`kondisi` varchar(10)
+,`asal_usul` varchar(255)
+,`harga` double
+,`gambar` varchar(255)
+,`keterangan` varchar(255)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `asset_waktu_habis`
+-- (See below for the actual view)
+--
+CREATE TABLE `asset_waktu_habis` (
+`id_kantor` varchar(10)
+,`jenis_asset` varchar(255)
+,`deskripsi_asset` varchar(255)
+,`kode_asset` varchar(10)
+,`merk_type` varchar(255)
+,`jumlah` int(11)
+,`ukuran` varchar(100)
+,`tahun_pengadaan` year(4)
+,`status_kepemilikan` varchar(255)
+,`lokasi` varchar(255)
+,`kondisi` varchar(10)
+,`asal_usul` varchar(255)
+,`harga` double
+,`gambar` varchar(255)
+,`keterangan` varchar(255)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jenis_asset`
+--
+
+CREATE TABLE `jenis_asset` (
+  `id_jenis_asset` varchar(10) NOT NULL,
+  `jenis_asset` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `jenis_asset`
+--
+
+INSERT INTO `jenis_asset` (`id_jenis_asset`, `jenis_asset`) VALUES
+('AM', 'Alat Musik'),
+('E', 'Elektronik'),
+('F', 'Furniture');
 
 -- --------------------------------------------------------
 
@@ -1257,11 +1397,248 @@ INSERT INTO `kantor` (`id_kantor`, `nama_kantor`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `kondisi`
+--
+
+CREATE TABLE `kondisi` (
+  `id_kondisi` varchar(10) NOT NULL,
+  `deskripsi_kondisi` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `kondisi`
+--
+
+INSERT INTO `kondisi` (`id_kondisi`, `deskripsi_kondisi`) VALUES
+('DB', ''),
+('DJ', ''),
+('DS', ''),
+('RB', 'Rusak Berat'),
+('TR', ''),
+('TX', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `lokasi`
+--
+
+CREATE TABLE `lokasi` (
+  `id_lokasi` int(11) NOT NULL,
+  `id_kantor` varchar(10) DEFAULT NULL,
+  `deskripsi_lokasi` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `lokasi`
+--
+
+INSERT INTO `lokasi` (`id_lokasi`, `id_kantor`, `deskripsi_lokasi`) VALUES
+(1, 'OC', 'Aula Lantai 7'),
+(2, 'OC', 'Gudang ATK'),
+(3, 'OC', 'Gudang Dokumen'),
+(4, 'OC', 'Kubikal Sebelah Timur'),
+(5, 'OC', 'Kubikal Sekre. Dir. S & M'),
+(6, 'OC', 'Kubikal Sekretaris Direktur Utama'),
+(7, 'OC', 'Lobby Selatan'),
+(8, 'OC', 'Lorong sebelah Barat'),
+(9, 'OC', 'Lorong Sebelah Timur'),
+(10, 'OC', 'Lorong Utara'),
+(11, 'OC', 'Pantry Selatan'),
+(12, 'OC', 'Pantry Utara'),
+(13, 'OC', 'Ruang  Manager Financial Accounting '),
+(14, 'OC', 'Ruang CCTV'),
+(15, 'OC', 'Ruang Corporate Development'),
+(16, 'OC', 'Ruang Direktur FBS'),
+(17, 'OC', 'Ruang Direktur Sales&Marketing'),
+(18, 'OC', 'Ruang Direktur Utama'),
+(19, 'OC', 'Ruang Finance'),
+(20, 'OC', 'Ruang General Affairs'),
+(21, 'OC', 'Ruang ILMA'),
+(22, 'OC', 'Ruang Kerja Manager Asset Management'),
+(23, 'OC', 'Ruang Kerja Manager IT'),
+(24, 'OC', 'Ruang Kerja Manager Strategic Sourcing'),
+(25, 'OC', 'Ruang Komisaris Utama'),
+(26, 'OC', 'Ruang Lobby lt. 8 Sebelah Utara'),
+(27, 'OC', 'Ruang Lobby lt.6'),
+(28, 'OC', 'Ruang Lobby lt.7 Selatan'),
+(29, 'OC', 'Ruang Lobby lt.7 Utara'),
+(30, 'OC', 'Ruang Manager 1'),
+(31, 'OC', 'Ruang Manager 2'),
+(32, 'OC', 'Ruang Manager 3'),
+(33, 'OC', 'Ruang Manager 4'),
+(34, 'OC', 'Ruang Manager Accounting'),
+(35, 'OC', 'Ruang Manager Control Group & Financial Risk Mgt'),
+(36, 'OC', 'Ruang Manager HRD'),
+(37, 'OC', 'Ruang Manager Tax'),
+(38, 'OC', 'Ruang Manager Treasury'),
+(39, 'OC', 'Ruang Meeting A'),
+(40, 'OC', 'Ruang Meeting B'),
+(41, 'OC', 'Ruang Meeting C'),
+(42, 'OC', 'Ruang Meeting Finance'),
+(43, 'OC', 'Ruang Meeting Samping B'),
+(44, 'OC', 'Ruang Millenial'),
+(45, 'OC', 'Ruang Rapat 6A'),
+(46, 'OC', 'Ruang Rapat 6B'),
+(47, 'OC', 'Ruang Rapat 6C'),
+(48, 'OC', 'Ruang Rapat 6D'),
+(49, 'OC', 'Ruang Rapat 6E'),
+(50, 'OC', 'Ruang Rapat A'),
+(51, 'OC', 'Ruang Rapat C'),
+(52, 'OC', 'Ruang Rapat Dewan Komisaris'),
+(53, 'OC', 'Ruang Rapat Komite Audit '),
+(54, 'OC', 'Ruang Sales'),
+(55, 'OC', 'Ruang Sekretaris Dewan Komisaris'),
+(56, 'OC', 'Ruang Sholat '),
+(57, 'OC', 'Ruang Tamu'),
+(58, 'OC', 'Ruang Tempat ATK'),
+(59, 'OC', 'Ruang Trial'),
+(60, 'OC', 'Ruang VP 1'),
+(61, 'OC', 'Ruang VP 2'),
+(62, 'OC', 'Ruang VP 3'),
+(63, 'OC', 'Ruang VP 4'),
+(64, 'OC', 'Ruang VP A'),
+(65, 'OC', 'Ruang VP B'),
+(66, 'OC', 'Ruang VP C'),
+(67, 'OC', 'Ruang VP Corporate Development'),
+(68, 'OC', 'Ruang VP Finance'),
+(69, 'OC', 'Ruang VP General Affairs'),
+(70, 'OC', 'Ruang VP Sales '),
+(71, 'OC', 'Ruang VP SMT '),
+(72, 'PUC', 'Dapur'),
+(73, 'PUC', 'Kantor'),
+(74, 'PUC', 'Office Admin LOBP'),
+(75, 'PUC', 'Office Blending'),
+(76, 'PUC', 'Office DFO'),
+(77, 'PUC', 'Office Lithos'),
+(78, 'PUC', 'Office MWH'),
+(79, 'PUC', 'Office P2'),
+(80, 'PUC', 'Office Teknik'),
+(81, 'PUC', 'R. Man. PUC'),
+(82, 'PUC', 'Receiptionist'),
+(83, 'PUC', 'Ruang Label'),
+(84, 'PUG', 'ADM HR'),
+(85, 'PUG', 'ADM LOBP'),
+(86, 'PUG', 'ADM MWH'),
+(87, 'PUG', 'ADM MWH ATAS'),
+(88, 'PUG', 'ADM TEKNIK'),
+(89, 'PUG', 'CONTROL ROOM'),
+(90, 'PUG', 'HSSE'),
+(91, 'PUG', 'HSSE PUSKODAL'),
+(92, 'PUG', 'KANTOR HSSE'),
+(93, 'PUG', 'MAIN CONTROL ROOM'),
+(94, 'PUG', 'MAN PUG'),
+(95, 'PUG', 'OPERATION HEAD'),
+(96, 'PUG', 'P2'),
+(97, 'PUG', 'POS 2'),
+(98, 'PUG', 'PUSKODAL'),
+(99, 'PUG', 'QC'),
+(100, 'PUG', 'QC ATAS'),
+(101, 'PUG', 'QC BAWAH'),
+(102, 'PUG', 'RAPAT ENDURO'),
+(103, 'PUG', 'SECURITY'),
+(104, 'PUG', 'SEK MAN PUG'),
+(105, 'PUG', 'SPV ADM LOBP'),
+(106, 'PUG', 'SPV FILLING LITHOS& DRUM'),
+(107, 'PUG', 'TEKNIK OBP'),
+(108, 'PUG', 'WORKSHOP'),
+(109, 'PUJ', 'Control  Room'),
+(110, 'PUJ', 'Filling Drum'),
+(111, 'PUJ', 'Fire Station'),
+(112, 'PUJ', 'Gedung Utama PUJ Lt. 1'),
+(113, 'PUJ', 'Gedung Utama PUJ Lt. 2'),
+(114, 'PUJ', 'Gedung Utama PUJ Lt. 3'),
+(115, 'PUJ', 'Grease Plant'),
+(116, 'PUJ', 'Gudang HSE'),
+(117, 'PUJ', 'Laboratorium Lantai 1'),
+(118, 'PUJ', 'Laboratorium Lantai 2'),
+(119, 'PUJ', 'Laboratorium Lantai 3'),
+(120, 'PUJ', 'MWH'),
+(121, 'PUJ', 'New LOBP'),
+(122, 'PUJ', 'QC'),
+(123, 'PUJ', 'Ruang CCTV'),
+(124, 'PUJ', 'Ruang HSE'),
+(125, 'PUJ', 'Security area New LOBP'),
+(126, 'PUJ', 'VIM'),
+(1001, 'OC', 'OC'),
+(1002, 'PUC', 'PUC'),
+(1003, 'PUG', 'PUG'),
+(1004, 'PUJ', 'PUJ');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `status_kepemilikan`
+--
+
+CREATE TABLE `status_kepemilikan` (
+  `id_status_kepemilikan` varchar(10) NOT NULL,
+  `deskripsi_status_kepemilikan` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `status_kepemilikan`
+--
+
+INSERT INTO `status_kepemilikan` (`id_status_kepemilikan`, `deskripsi_status_kepemilikan`) VALUES
+('D', 'Dimiliki'),
+('S', 'Sewa');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `username` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `nama` varchar(255) NOT NULL,
+  `jenis_kelamin` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`username`, `password`, `nama`, `jenis_kelamin`) VALUES
+('admin', 'admin12345', 'admin', 'Laki-laki');
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `asset_hapus`
+--
+DROP TABLE IF EXISTS `asset_hapus`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `asset_hapus`  AS SELECT `lok`.`id_kantor` AS `id_kantor`, `ja`.`jenis_asset` AS `jenis_asset`, `ast`.`deskripsi_asset` AS `deskripsi_asset`, `ast`.`kode_asset` AS `kode_asset`, `ast`.`merk_type` AS `merk_type`, `ast`.`jumlah` AS `jumlah`, `ast`.`ukuran` AS `ukuran`, `ast`.`tahun_pengadaan` AS `tahun_pengadaan`, `sk`.`deskripsi_status_kepemilikan` AS `status_kepemilikan`, `lok`.`deskripsi_lokasi` AS `lokasi`, `kon`.`id_kondisi` AS `kondisi`, `ast`.`asal_usul` AS `asal_usul`, `ast`.`harga` AS `harga`, `ast`.`gambar` AS `gambar`, `ast`.`keterangan` AS `keterangan` FROM (((((`asset` `ast` left join `jenis_asset` `ja` on(`ast`.`id_jenis_asset` = `ja`.`id_jenis_asset`)) join `kondisi` `kon` on(`ast`.`id_kondisi` = `kon`.`id_kondisi` and (`ast`.`tahun_pengadaan` <= year(curdate()) - 10 or `ast`.`id_kondisi` = 'RB'))) left join `status_kepemilikan` `sk` on(`ast`.`id_status_kepemilikan` = `sk`.`id_status_kepemilikan`)) left join `lokasi` `lok` on(`ast`.`id_lokasi` = `lok`.`id_lokasi`)) left join `kantor` `kan` on(`lok`.`id_kantor` = `kan`.`id_kantor`)) ORDER BY `ast`.`kode_asset` ASC ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `asset_inventaris`
+--
+DROP TABLE IF EXISTS `asset_inventaris`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `asset_inventaris`  AS SELECT `lok`.`id_kantor` AS `id_kantor`, `ja`.`jenis_asset` AS `jenis_asset`, `ast`.`deskripsi_asset` AS `deskripsi_asset`, `ast`.`kode_asset` AS `kode_asset`, `ast`.`merk_type` AS `merk_type`, `ast`.`jumlah` AS `jumlah`, `ast`.`ukuran` AS `ukuran`, `ast`.`tahun_pengadaan` AS `tahun_pengadaan`, `sk`.`deskripsi_status_kepemilikan` AS `status_kepemilikan`, `lok`.`deskripsi_lokasi` AS `lokasi`, `kon`.`id_kondisi` AS `kondisi`, `ast`.`asal_usul` AS `asal_usul`, `ast`.`harga` AS `harga`, `ast`.`gambar` AS `gambar`, `ast`.`keterangan` AS `keterangan` FROM (((((`asset` `ast` left join `jenis_asset` `ja` on(`ast`.`id_jenis_asset` = `ja`.`id_jenis_asset`)) left join `kondisi` `kon` on(`ast`.`id_kondisi` = `kon`.`id_kondisi`)) left join `status_kepemilikan` `sk` on(`ast`.`id_status_kepemilikan` = `sk`.`id_status_kepemilikan`)) left join `lokasi` `lok` on(`ast`.`id_lokasi` = `lok`.`id_lokasi`)) left join `kantor` `kan` on(`lok`.`id_kantor` = `kan`.`id_kantor`)) ORDER BY `ast`.`kode_asset` ASC ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `asset_oc`
+--
+DROP TABLE IF EXISTS `asset_oc`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `asset_oc`  AS SELECT `lok`.`id_kantor` AS `id_kantor`, `ja`.`jenis_asset` AS `jenis_asset`, `ast`.`deskripsi_asset` AS `deskripsi_asset`, `ast`.`kode_asset` AS `kode_asset`, `ast`.`merk_type` AS `merk_type`, `ast`.`jumlah` AS `jumlah`, `ast`.`ukuran` AS `ukuran`, `ast`.`tahun_pengadaan` AS `tahun_pengadaan`, `sk`.`deskripsi_status_kepemilikan` AS `status_kepemilikan`, `lok`.`deskripsi_lokasi` AS `lokasi`, `kon`.`id_kondisi` AS `kondisi`, `ast`.`asal_usul` AS `asal_usul`, `ast`.`harga` AS `harga`, `ast`.`gambar` AS `gambar`, `ast`.`keterangan` AS `keterangan` FROM (((((`asset` `ast` left join `jenis_asset` `ja` on(`ast`.`id_jenis_asset` = `ja`.`id_jenis_asset`)) left join `kondisi` `kon` on(`ast`.`id_kondisi` = `kon`.`id_kondisi`)) left join `status_kepemilikan` `sk` on(`ast`.`id_status_kepemilikan` = `sk`.`id_status_kepemilikan`)) join `lokasi` `lok` on(`ast`.`id_lokasi` = `lok`.`id_lokasi` and `lok`.`id_kantor` = 'OC')) left join `kantor` `kan` on(`lok`.`id_kantor` = `kan`.`id_kantor`)) ORDER BY `ast`.`kode_asset` ASC ;
+
+-- --------------------------------------------------------
+
+--
 -- Structure for view `asset_puc`
 --
 DROP TABLE IF EXISTS `asset_puc`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `asset_puc`  AS SELECT `lok`.`id_kantor` AS `id_kantor`, `ast`.`id_jenis_asset` AS `jenis_asset`, `ast`.`deskripsi_asset` AS `deskripsi_asset`, `ast`.`kode_asset` AS `kode_asset`, `ast`.`merk_type` AS `merk_type`, `ast`.`jumlah` AS `jumlah`, `ast`.`ukuran` AS `ukuran`, `ast`.`tahun_pengadaan` AS `tahun_pengadaan`, `sk`.`id_status_kepemilikan` AS `id_status_kepemilikan`, `lok`.`deskripsi_lokasi` AS `deskripsi_lokasi`, `kon`.`id_kondisi` AS `id_kondisi`, `ast`.`asal_usul` AS `asal_usul`, `ast`.`harga` AS `harga`, `ast`.`gambar` AS `gambar`, `ast`.`keterangan` AS `keterangan` FROM ((((`asset` `ast` left join `kondisi` `kon` on(`ast`.`id_kondisi` = `kon`.`id_kondisi`)) left join `status_kepemilikan` `sk` on(`ast`.`id_status_kepemilikan` = `sk`.`id_status_kepemilikan`)) join `lokasi` `lok` on(`ast`.`id_lokasi` = `lok`.`id_lokasi` and `lok`.`id_kantor` = 'PUC')) left join `kantor` `kan` on(`lok`.`id_kantor` = `kan`.`id_kantor`)) ORDER BY `ast`.`kode_asset` ASC ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `asset_puc`  AS SELECT `lok`.`id_kantor` AS `id_kantor`, `ja`.`jenis_asset` AS `jenis_asset`, `ast`.`deskripsi_asset` AS `deskripsi_asset`, `ast`.`kode_asset` AS `kode_asset`, `ast`.`merk_type` AS `merk_type`, `ast`.`jumlah` AS `jumlah`, `ast`.`ukuran` AS `ukuran`, `ast`.`tahun_pengadaan` AS `tahun_pengadaan`, `sk`.`deskripsi_status_kepemilikan` AS `status_kepemilikan`, `lok`.`deskripsi_lokasi` AS `lokasi`, `kon`.`id_kondisi` AS `kondisi`, `ast`.`asal_usul` AS `asal_usul`, `ast`.`harga` AS `harga`, `ast`.`gambar` AS `gambar`, `ast`.`keterangan` AS `keterangan` FROM (((((`asset` `ast` left join `jenis_asset` `ja` on(`ast`.`id_jenis_asset` = `ja`.`id_jenis_asset`)) left join `kondisi` `kon` on(`ast`.`id_kondisi` = `kon`.`id_kondisi`)) left join `status_kepemilikan` `sk` on(`ast`.`id_status_kepemilikan` = `sk`.`id_status_kepemilikan`)) join `lokasi` `lok` on(`ast`.`id_lokasi` = `lok`.`id_lokasi` and `lok`.`id_kantor` = 'PUC')) left join `kantor` `kan` on(`lok`.`id_kantor` = `kan`.`id_kantor`)) ORDER BY `ast`.`kode_asset` ASC ;
 
 -- --------------------------------------------------------
 
@@ -1270,7 +1647,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `asset_pug`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `asset_pug`  AS SELECT `lok`.`id_kantor` AS `id_kantor`, `ast`.`id_jenis_asset` AS `jenis_asset`, `ast`.`deskripsi_asset` AS `deskripsi_asset`, `ast`.`kode_asset` AS `kode_asset`, `ast`.`merk_type` AS `merk_type`, `ast`.`jumlah` AS `jumlah`, `ast`.`ukuran` AS `ukuran`, `ast`.`tahun_pengadaan` AS `tahun_pengadaan`, `sk`.`id_status_kepemilikan` AS `id_status_kepemilikan`, `lok`.`deskripsi_lokasi` AS `deskripsi_lokasi`, `kon`.`id_kondisi` AS `id_kondisi`, `ast`.`asal_usul` AS `asal_usul`, `ast`.`harga` AS `harga`, `ast`.`gambar` AS `gambar`, `ast`.`keterangan` AS `keterangan` FROM ((((`asset` `ast` left join `kondisi` `kon` on(`ast`.`id_kondisi` = `kon`.`id_kondisi`)) left join `status_kepemilikan` `sk` on(`ast`.`id_status_kepemilikan` = `sk`.`id_status_kepemilikan`)) join `lokasi` `lok` on(`ast`.`id_lokasi` = `lok`.`id_lokasi` and `lok`.`id_kantor` = 'PUG')) left join `kantor` `kan` on(`lok`.`id_kantor` = `kan`.`id_kantor`)) ORDER BY `ast`.`kode_asset` ASC ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `asset_pug`  AS SELECT `lok`.`id_kantor` AS `id_kantor`, `ja`.`jenis_asset` AS `jenis_asset`, `ast`.`deskripsi_asset` AS `deskripsi_asset`, `ast`.`kode_asset` AS `kode_asset`, `ast`.`merk_type` AS `merk_type`, `ast`.`jumlah` AS `jumlah`, `ast`.`ukuran` AS `ukuran`, `ast`.`tahun_pengadaan` AS `tahun_pengadaan`, `sk`.`deskripsi_status_kepemilikan` AS `status_kepemilikan`, `lok`.`deskripsi_lokasi` AS `lokasi`, `kon`.`id_kondisi` AS `kondisi`, `ast`.`asal_usul` AS `asal_usul`, `ast`.`harga` AS `harga`, `ast`.`gambar` AS `gambar`, `ast`.`keterangan` AS `keterangan` FROM (((((`asset` `ast` left join `jenis_asset` `ja` on(`ast`.`id_jenis_asset` = `ja`.`id_jenis_asset`)) left join `kondisi` `kon` on(`ast`.`id_kondisi` = `kon`.`id_kondisi`)) left join `status_kepemilikan` `sk` on(`ast`.`id_status_kepemilikan` = `sk`.`id_status_kepemilikan`)) join `lokasi` `lok` on(`ast`.`id_lokasi` = `lok`.`id_lokasi` and `lok`.`id_kantor` = 'PUG')) left join `kantor` `kan` on(`lok`.`id_kantor` = `kan`.`id_kantor`)) ORDER BY `ast`.`kode_asset` ASC ;
 
 -- --------------------------------------------------------
 
@@ -1279,7 +1656,25 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `asset_puj`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `asset_puj`  AS SELECT `lok`.`id_kantor` AS `id_kantor`, `ast`.`id_jenis_asset` AS `jenis_asset`, `ast`.`deskripsi_asset` AS `deskripsi_asset`, `ast`.`kode_asset` AS `kode_asset`, `ast`.`merk_type` AS `merk_type`, `ast`.`jumlah` AS `jumlah`, `ast`.`ukuran` AS `ukuran`, `ast`.`tahun_pengadaan` AS `tahun_pengadaan`, `sk`.`id_status_kepemilikan` AS `id_status_kepemilikan`, `lok`.`deskripsi_lokasi` AS `deskripsi_lokasi`, `kon`.`id_kondisi` AS `id_kondisi`, `ast`.`asal_usul` AS `asal_usul`, `ast`.`harga` AS `harga`, `ast`.`gambar` AS `gambar`, `ast`.`keterangan` AS `keterangan` FROM ((((`asset` `ast` left join `kondisi` `kon` on(`ast`.`id_kondisi` = `kon`.`id_kondisi`)) left join `status_kepemilikan` `sk` on(`ast`.`id_status_kepemilikan` = `sk`.`id_status_kepemilikan`)) join `lokasi` `lok` on(`ast`.`id_lokasi` = `lok`.`id_lokasi` and `lok`.`id_kantor` = 'puj')) left join `kantor` `kan` on(`lok`.`id_kantor` = `kan`.`id_kantor`)) ORDER BY `ast`.`kode_asset` ASC ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `asset_puj`  AS SELECT `lok`.`id_kantor` AS `id_kantor`, `ja`.`jenis_asset` AS `jenis_asset`, `ast`.`deskripsi_asset` AS `deskripsi_asset`, `ast`.`kode_asset` AS `kode_asset`, `ast`.`merk_type` AS `merk_type`, `ast`.`jumlah` AS `jumlah`, `ast`.`ukuran` AS `ukuran`, `ast`.`tahun_pengadaan` AS `tahun_pengadaan`, `sk`.`deskripsi_status_kepemilikan` AS `status_kepemilikan`, `lok`.`deskripsi_lokasi` AS `lokasi`, `kon`.`id_kondisi` AS `kondisi`, `ast`.`asal_usul` AS `asal_usul`, `ast`.`harga` AS `harga`, `ast`.`gambar` AS `gambar`, `ast`.`keterangan` AS `keterangan` FROM (((((`asset` `ast` left join `jenis_asset` `ja` on(`ast`.`id_jenis_asset` = `ja`.`id_jenis_asset`)) left join `kondisi` `kon` on(`ast`.`id_kondisi` = `kon`.`id_kondisi`)) left join `status_kepemilikan` `sk` on(`ast`.`id_status_kepemilikan` = `sk`.`id_status_kepemilikan`)) join `lokasi` `lok` on(`ast`.`id_lokasi` = `lok`.`id_lokasi` and `lok`.`id_kantor` = 'PUJ')) left join `kantor` `kan` on(`lok`.`id_kantor` = `kan`.`id_kantor`)) ORDER BY `ast`.`kode_asset` ASC ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `asset_rusak_berat`
+--
+DROP TABLE IF EXISTS `asset_rusak_berat`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `asset_rusak_berat`  AS SELECT `lok`.`id_kantor` AS `id_kantor`, `ja`.`jenis_asset` AS `jenis_asset`, `ast`.`deskripsi_asset` AS `deskripsi_asset`, `ast`.`kode_asset` AS `kode_asset`, `ast`.`merk_type` AS `merk_type`, `ast`.`jumlah` AS `jumlah`, `ast`.`ukuran` AS `ukuran`, `ast`.`tahun_pengadaan` AS `tahun_pengadaan`, `sk`.`deskripsi_status_kepemilikan` AS `status_kepemilikan`, `lok`.`deskripsi_lokasi` AS `lokasi`, `kon`.`id_kondisi` AS `kondisi`, `ast`.`asal_usul` AS `asal_usul`, `ast`.`harga` AS `harga`, `ast`.`gambar` AS `gambar`, `ast`.`keterangan` AS `keterangan` FROM (((((`asset` `ast` left join `jenis_asset` `ja` on(`ast`.`id_jenis_asset` = `ja`.`id_jenis_asset`)) join `kondisi` `kon` on(`ast`.`id_kondisi` = `kon`.`id_kondisi` and `ast`.`id_kondisi` = 'RB')) left join `status_kepemilikan` `sk` on(`ast`.`id_status_kepemilikan` = `sk`.`id_status_kepemilikan`)) left join `lokasi` `lok` on(`ast`.`id_lokasi` = `lok`.`id_lokasi`)) left join `kantor` `kan` on(`lok`.`id_kantor` = `kan`.`id_kantor`)) ORDER BY `ast`.`kode_asset` ASC ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `asset_waktu_habis`
+--
+DROP TABLE IF EXISTS `asset_waktu_habis`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `asset_waktu_habis`  AS SELECT `lok`.`id_kantor` AS `id_kantor`, `ja`.`jenis_asset` AS `jenis_asset`, `ast`.`deskripsi_asset` AS `deskripsi_asset`, `ast`.`kode_asset` AS `kode_asset`, `ast`.`merk_type` AS `merk_type`, `ast`.`jumlah` AS `jumlah`, `ast`.`ukuran` AS `ukuran`, `ast`.`tahun_pengadaan` AS `tahun_pengadaan`, `sk`.`deskripsi_status_kepemilikan` AS `status_kepemilikan`, `lok`.`deskripsi_lokasi` AS `lokasi`, `kon`.`id_kondisi` AS `kondisi`, `ast`.`asal_usul` AS `asal_usul`, `ast`.`harga` AS `harga`, `ast`.`gambar` AS `gambar`, `ast`.`keterangan` AS `keterangan` FROM (((((`asset` `ast` left join `jenis_asset` `ja` on(`ast`.`id_jenis_asset` = `ja`.`id_jenis_asset`)) join `kondisi` `kon` on(`ast`.`id_kondisi` = `kon`.`id_kondisi` and `ast`.`tahun_pengadaan` <= year(curdate()) - 10)) left join `status_kepemilikan` `sk` on(`ast`.`id_status_kepemilikan` = `sk`.`id_status_kepemilikan`)) left join `lokasi` `lok` on(`ast`.`id_lokasi` = `lok`.`id_lokasi`)) left join `kantor` `kan` on(`lok`.`id_kantor` = `kan`.`id_kantor`)) ORDER BY `ast`.`kode_asset` ASC ;
 
 --
 -- Indexes for dumped tables
@@ -1296,10 +1691,41 @@ ALTER TABLE `asset`
   ADD KEY `fk_jenis_asset` (`id_jenis_asset`);
 
 --
+-- Indexes for table `jenis_asset`
+--
+ALTER TABLE `jenis_asset`
+  ADD PRIMARY KEY (`id_jenis_asset`);
+
+--
 -- Indexes for table `kantor`
 --
 ALTER TABLE `kantor`
   ADD PRIMARY KEY (`id_kantor`);
+
+--
+-- Indexes for table `kondisi`
+--
+ALTER TABLE `kondisi`
+  ADD PRIMARY KEY (`id_kondisi`);
+
+--
+-- Indexes for table `lokasi`
+--
+ALTER TABLE `lokasi`
+  ADD PRIMARY KEY (`id_lokasi`),
+  ADD KEY `fk_kantor_lokasi` (`id_kantor`);
+
+--
+-- Indexes for table `status_kepemilikan`
+--
+ALTER TABLE `status_kepemilikan`
+  ADD PRIMARY KEY (`id_status_kepemilikan`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`username`);
 
 --
 -- Constraints for dumped tables
@@ -1313,6 +1739,12 @@ ALTER TABLE `asset`
   ADD CONSTRAINT `fk_kondisi` FOREIGN KEY (`id_kondisi`) REFERENCES `kondisi` (`id_kondisi`),
   ADD CONSTRAINT `fk_lokasi` FOREIGN KEY (`id_lokasi`) REFERENCES `lokasi` (`id_lokasi`),
   ADD CONSTRAINT `fk_status_kepemilikan` FOREIGN KEY (`id_status_kepemilikan`) REFERENCES `status_kepemilikan` (`id_status_kepemilikan`);
+
+--
+-- Constraints for table `lokasi`
+--
+ALTER TABLE `lokasi`
+  ADD CONSTRAINT `fk_kantor_lokasi` FOREIGN KEY (`id_kantor`) REFERENCES `kantor` (`id_kantor`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

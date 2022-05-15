@@ -76,14 +76,14 @@
             <div class="col-sm-6">
             <div class="form-group">
                 <label>Status Kepemilikan Asset</label>
-                  <select type="varchar" class="custom-select rounded-0" name="id_status_kepemilikan">
+                  <select type="varchar" class="custom-select rounded-0" name="status_kepemilikan">
                   <option class="bg-secondary" value="" disabled selected>Pilih Status Kepemilikan</option>
                   <?php
                       $sql = "SELECT * FROM status_kepemilikan";
                       $result = $conn->query($sql);
                         if ($result->num_rows > 0) {
                           while ($row = $result->fetch_assoc()) {
-                            echo"<option value=$row[id_status_kepemilikan]>$row[deskripsi_status_kepemilikan]</option>";
+                            echo"<option value=$row[status_kepemilikan]>$row[deskripsi_status_kepemilikan]</option>";
                           }
                         }
                     ?>
@@ -99,7 +99,7 @@
                       $result = $conn->query($sql);
                         if ($result->num_rows > 0) {
                           while ($row = $result->fetch_assoc()) {
-                            echo "<option value=$row[id_lokasi]>$row[deskripsi_lokasi]</option>";
+                            echo "<option value=$row[id_lokasi]>$row[lokasi]</option>";
                           }
                         }
                     ?>
@@ -110,7 +110,7 @@
                       $result = $conn->query($sql);
                         if ($result->num_rows > 0) {
                           while ($row = $result->fetch_assoc()) {
-                            echo "<option value=$row[id_lokasi]>$row[deskripsi_lokasi]</option>";
+                            echo "<option value=$row[id_lokasi]>$row[lokasi]</option>";
                           }
                         }
                     ?>
@@ -121,7 +121,7 @@
                       $result = $conn->query($sql);
                         if ($result->num_rows > 0) {
                           while ($row = $result->fetch_assoc()) {
-                            echo "<option value=$row[id_lokasi]>$row[deskripsi_lokasi]</option>";
+                            echo "<option value=$row[id_lokasi]>$row[lokasi]</option>";
                           }
                         }
                     ?>
@@ -132,7 +132,7 @@
                       $result = $conn->query($sql);
                         if ($result->num_rows > 0) {
                           while ($row = $result->fetch_assoc()) {
-                            echo "<option value=$row[id_lokasi]>$row[deskripsi_lokasi]</option>";
+                            echo "<option value=$row[id_lokasi]>$row[lokasi]</option>";
                           }
                         }
                     ?>
@@ -148,7 +148,7 @@
                       $result = $conn->query($sql);
                         if ($result->num_rows > 0) {
                           while ($row = $result->fetch_assoc()) {
-                            echo "<option value=$row[id_kondisi]>$row[id_kondisi]</option>";
+                            echo "<option value=$row[kondisi]>$row[kondisi]</option>";
                           }
                         }
                     ?>

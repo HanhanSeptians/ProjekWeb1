@@ -33,11 +33,11 @@
       $halaman_awal = ($halaman>1) ? ($halaman * $batas) - $batas : 0;	
       $previous = $halaman - 1;
       $next = $halaman + 1;
-      $sql = "SELECT * FROM `asset_all`";
+      $sql = "SELECT * FROM `asset_inventaris`";
       $result = $conn->query($sql);
       $total = mysqli_num_rows($result);
       $total_halaman = ceil($total / $batas);
-      $data_asset = mysqli_query($conn,"SELECT * FROM `asset_all` limit $halaman_awal, $batas");
+      $data_asset = mysqli_query($conn,"SELECT * FROM `asset_inventaris` limit $halaman_awal, $batas");
       $no = $halaman_awal+1;
     ?>
     <div class="row ml-2 mr-2">
@@ -161,9 +161,9 @@
                       <td><center><?php echo $row["jumlah"] ?></center></td>
                       <td><center><?php echo $row["ukuran"] ?></center></td>
                       <td><center><?php echo $row["tahun_pengadaan"] ?></center></td>
-                      <td><?php echo $row["id_status_kepemilikan"] ?></td>
-                      <td><?php echo $row["deskripsi_lokasi"] ?></td>
-                      <td><center><?php echo $row["id_kondisi"] ?></center></td>
+                      <td><?php echo $row["status_kepemilikan"] ?></td>
+                      <td><?php echo $row["lokasi"] ?></td>
+                      <td><center><?php echo $row["kondisi"] ?></center></td>
                       <td><?php echo $row["asal_usul"] ?></td>
                       <td>Rp. <?php echo $row["harga"] ?></td>
                       <td>

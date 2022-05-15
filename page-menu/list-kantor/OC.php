@@ -163,9 +163,9 @@
                       <td><center><?php echo $row["jumlah"] ?></center></td>
                       <td><center><?php echo $row["ukuran"] ?></center></td>
                       <td><center><?php echo $row["tahun_pengadaan"] ?></center></td>
-                      <td><?php echo $row["id_status_kepemilikan"] ?></td>
-                      <td><?php echo $row["deskripsi_lokasi"] ?></td>
-                      <td><center><?php echo $row["id_kondisi"] ?></center></td>
+                      <td><?php echo $row["status_kepemilikan"] ?></td>
+                      <td><?php echo $row["lokasi"] ?></td>
+                      <td><center><?php echo $row["kondisi"] ?></center></td>
                       <td><?php echo $row["asal_usul"] ?></td>
                       <td>Rp. <?php echo $row["harga"] ?></td>
                       <td>

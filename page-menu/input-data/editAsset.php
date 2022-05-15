@@ -95,6 +95,8 @@
                     ?>
                   </select>               
               </div> 
+                  <input type="varchar" class="form-control" name="status_kepemilikan" value="<?php echo $data["status_kepemilikan"] ?>">
+              </div>  
             </div>
             <div class="col-sm-6">
             <div class="form-group">

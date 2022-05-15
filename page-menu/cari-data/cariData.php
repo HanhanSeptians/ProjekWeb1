@@ -52,7 +52,7 @@
         $keyword = $_POST['keyword'];
         $sql = "SELECT * FROM asset_inventaris WHERE `jenis_asset` LIKE '%$keyword%' OR `deskripsi_asset` LIKE '%$keyword%' OR `kode_asset` LIKE '%$keyword%' 
                 OR `merk_type` LIKE '%$keyword%' OR `jumlah` LIKE '%$keyword%' OR `ukuran` LIKE '%$keyword%' OR `tahun_pengadaan` LIKE '%$keyword%' 
-                OR `id_status_kepemilikan` LIKE '%$keyword%' OR `deskripsi_lokasi` LIKE '%$keyword%' OR id_kondisi LIKE '%$keyword%' OR `asal_usul` LIKE '%$keyword%' 
+                OR `status_kepemilikan` LIKE '%$keyword%' OR `lokasi` LIKE '%$keyword%' OR kondisi LIKE '%$keyword%' OR `asal_usul` LIKE '%$keyword%' 
                 OR `harga` LIKE '%$keyword%'";
         $result = $conn->query($sql);
         $no = 0;
@@ -94,9 +94,9 @@
             <td><center><?php echo $row["jumlah"] ?></center></td>
             <td><center><?php echo $row["ukuran"] ?></center></td>
             <td><center><?php echo $row["tahun_pengadaan"] ?></center></td>
-            <td><?php echo $row["id_status_kepemilikan"] ?></td>
-            <td><?php echo $row["deskripsi_lokasi"] ?></td>
-            <td><center><?php echo $row["id_kondisi"] ?></center></td>
+            <td><?php echo $row["status_kepemilikan"] ?></td>
+            <td><?php echo $row["lokasi"] ?></td>
+            <td><center><?php echo $row["kondisi"] ?></center></td>
             <td><?php echo $row["asal_usul"] ?></td>
             <td>Rp. <?php echo $row["harga"] ?></td>
             <td>
