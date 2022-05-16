@@ -30,6 +30,12 @@
       }else{
           die("Error! Asset tidak ditemukan");
       }
+      if(isset($_GET['btn'])){
+        $btn = $_GET['btn'];
+      }else{
+        die("Tombol tidak Ditemukan");
+      }
+
       $query = mysqli_query($conn, "SELECT * FROM asset WHERE kode_asset = '$kode_asset'");
       $data = mysqli_fetch_array($query);
     ?>
@@ -189,7 +195,7 @@
             </div>
           </div>
           <div class="mt-3">
-            <input type="submit" class="btn btn-primary" value="Update" name="Update"></input>
+            <button type="submit" class="btn btn-primary" name="btn" value="<?php echo $btn ?>" >Update</button>
           </div>
         </form>
       </div>

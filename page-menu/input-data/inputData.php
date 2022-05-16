@@ -180,7 +180,7 @@
           </div>
         </div>
         <div class="card-footer">
-          <input type="submit" class="btn btn-primary "></input>
+          <button type="submit" class="btn btn-primary " value="inputInventaris" name="button">Submit</button>
         </div>
       </div>
     </form>

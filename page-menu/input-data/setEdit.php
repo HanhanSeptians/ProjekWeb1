@@ -15,6 +15,7 @@
     $gambar = $_FILES["gambar"]["name"]; 
     $keterangan = $_POST['keterangan'];
     $merk_type = $_POST['merk_type'];
+    $btn = $_POST['btn'];
 
     $query = mysqli_query($conn, " SELECT * FROM asset WHERE kode_asset = '$kode_asset'");
     $data = mysqli_fetch_array($query);
@@ -32,7 +33,20 @@
             echo '<script type ="text/JavaScript">';  
             echo 'alert("DATA BERHASIL DI UPDATE")';  
             echo '</script>'; 
-            echo '<meta http-equiv="refresh" content="0.1;url=../inventaris/inventaris.php">';
+            if($btn =='btnEditInventaris'){
+              echo '<meta http-equiv="refresh" content="0.1;url=../inventaris/inventaris.php">';
+            }elseif($btn =='btnEditOC'){
+              echo '<meta http-equiv="refresh" content="0.1;url=../list-kantor/OC.php">';
+            }elseif($btn =='btnEditPUC'){
+              echo '<meta http-equiv="refresh" content="0.1;url=../list-kantor/PUC.php">';
+            }elseif($btn =='btnEditPUG'){
+              echo '<meta http-equiv="refresh" content="0.1;url=../list-kantor/PUG.php">';
+            }elseif($btn =='btnEditPUJ'){
+              echo '<meta http-equiv="refresh" content="0.1;url=../list-kantor/PUJ.php">';
+            }else{
+              echo '<meta http-equiv="refresh" content="0.1;url=../inventaris/inventaris.php">';
+            }
+            
         }else{
             echo '<script type ="text/JavaScript">';  
             echo 'alert("UPDATE GAGAL")';  
@@ -49,7 +63,19 @@
             echo '<script type ="text/JavaScript">';  
             echo 'alert("DATA BERHASIL DI UPDATE")';  
             echo '</script>'; 
-            echo '<meta http-equiv="refresh" content="0.1;url=../inventaris/inventaris.php">';
+            if($btn =='btnEditInventaris'){
+              echo '<meta http-equiv="refresh" content="0.1;url=../inventaris/inventaris.php">';
+            }elseif($btn =='btnEditOC'){
+              echo '<meta http-equiv="refresh" content="0.1;url=../list-kantor/OC.php">';
+            }elseif($btn =='btnEditPUC'){
+              echo '<meta http-equiv="refresh" content="0.1;url=../list-kantor/PUC.php">';
+            }elseif($btn =='btnEditPUG'){
+              echo '<meta http-equiv="refresh" content="0.1;url=../list-kantor/PUG.php">';
+            }elseif($btn =='btnEditPUJ'){
+              echo '<meta http-equiv="refresh" content="0.1;url=../list-kantor/PUJ.php">';
+            }else{
+              echo '<meta http-equiv="refresh" content="0.1;url=../inventaris/inventaris.php">';
+            }
         }else{
             echo '<script type ="text/JavaScript">';  
             echo 'alert("UPDATE GAGAL LUR")';  

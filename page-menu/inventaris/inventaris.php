@@ -183,7 +183,7 @@
                       </td>
                       <td><?php echo $row["keterangan"] ?></td>
                       <td>
-                        <a href="../input-data/editAsset.php? kode_asset=<?=$row["kode_asset"]?>">
+                        <a href="../input-data/editAsset.php? kode_asset=<?=$row["kode_asset"]?>& btn=btnEditInventaris">
                           <button class="btn-primary mr-4" style=" float:left">
                             <i class="fa-solid fa-pen-to-square fa-sm"></i>
                           </button>
@@ -205,7 +205,7 @@
                                 </div>
                                 <div class="modal-footer justify-content-between">
                                   <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-                                  <a href="../delete-data/delete.php? kode_asset=<?=$row["kode_asset"]?>">
+                                  <a href="../delete-data/delete.php? kode_asset=<?=$row["kode_asset"]?>&button=hapusInventaris">
                                     <button type="button" class="btn btn-danger">Hapus</button>
                                   </a>
                                   </form>

@@ -15,6 +15,7 @@
   $gambar = $_FILES["gambar"]["name"]; 
   $keterangan = $_POST['keterangan'];
   $merk_type = $_POST['merk_type'];
+  $button = $_POST['button'];
 
   $temp_name = $_FILES["gambar"]["tmp_name"];    
   $folder = "../../GambarAsset/".$gambar;
@@ -26,11 +27,35 @@
       echo '<script type ="text/JavaScript">';  
       echo 'alert("Asset Berhasil Ditambahkan !!!")';  
       echo '</script>'; 
-      echo '<meta http-equiv="refresh" content="0.1;url=../inventaris/inventaris.php">';
+      if($button =='inputInventaris'){
+        echo '<meta http-equiv="refresh" content="0.1;url=../inventaris/inventaris.php">';
+      }elseif($button =='inputOC'){
+        echo '<meta http-equiv="refresh" content="0.1;url=../list-kantor/OC.php">';
+      }elseif($button =='inputPUC'){
+        echo '<meta http-equiv="refresh" content="0.1;url=../list-kantor/PUC.php">';
+      }elseif($button =='inputPUG'){
+        echo '<meta http-equiv="refresh" content="0.1;url=../list-kantor/PUG.php">';
+      }elseif($button =='inputPUJ'){
+        echo '<meta http-equiv="refresh" content="0.1;url=../list-kantor/PUJ.php">';
+      }else{
+        echo '<meta http-equiv="refresh" content="0.1;url=../inventaris/inventaris.php">';
+      }
     }else{
       echo '<script type ="text/JavaScript">';  
       echo 'alert("Kode Asset Tersedia... Asset Gagal Ditambahkan !")';  
       echo '</script>'; 
-      echo '<meta http-equiv="refresh" content="0.1;url=inputData.php">';
+      if($button =='inputInventaris'){
+        echo '<meta http-equiv="refresh" content="0.1;url=inputData.php">';
+      }elseif($button =='inputOC'){
+        echo '<meta http-equiv="refresh" content="0.1;url=inputDataOC.php">';
+      }elseif($button =='inputPUC'){
+        echo '<meta http-equiv="refresh" content="0.1;url=inputDataPUC.php">';
+      }elseif($button =='inputPUG'){
+        echo '<meta http-equiv="refresh" content="0.1;url=inputDataPUG.php">';
+      }elseif($button =='inputPUJ'){
+        echo '<meta http-equiv="refresh" content="0.1;url=inputDataPUJ.php">';
+      }else{
+        echo '<meta http-equiv="refresh" content="0.1;url=inputData.php">';
+      }
     }
 ?>
