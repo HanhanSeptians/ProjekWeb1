@@ -23,7 +23,7 @@
       </div>
     </section>
     <?php
-      $sql = "SELECT * FROM `asset_puc` WHERE kondisi ='RB'";
+      $sql = "SELECT * FROM `asset_rusak_berat` WHERE id_kantor = 'PUC'";
       $result = $conn->query($sql);
       $total = mysqli_num_rows($result);
       $no = 0;
@@ -65,8 +65,8 @@
                   ?>                
                   <tbody>
                     <tr>
-                      <td><center><?php echo $no ?></center></td>
-                      <td><?php echo $row["jenis_asset"] ?></td>
+                      <td><center><?php echo $no++ ; ?></center></td>
+                      <td><?php echo $row["$no"] ?></td>
                       <td><?php echo $row["deskripsi_asset"] ?></td>
                       <td><center><?php echo $row["kode_asset"] ?></center></td>
                       <td><?php echo $row["merk_type"] ?></td>

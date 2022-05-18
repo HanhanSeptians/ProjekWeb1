@@ -17,12 +17,11 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Inventaris</h1>
+            <h1>Rekapitulasi Inventaris</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">List Kantor</a></li>
-              <li class="breadcrumb-item active">Inventaris</li>
+              <li class="breadcrumb-item active">Rekapitulasi Inventaris</li>
             </ol>
           </div>
         </div>
@@ -56,24 +55,24 @@
                     <tr>
                       <th scope="col"><h2><?php echo $total ?></h2></th>
                         <?php
-                          $sql1 = "SELECT * FROM `asset_rusak`";
+                          $sql1 = "SELECT * FROM `asset_rusak_berat`";
                           $result1 = $conn->query($sql1);
                           $totalAssetRusakBerat = mysqli_num_rows($result1);
                         ?>
-                      <th scope="col"><h2><?php echo $totalAssetRusakBerat ?></h2></th>
+                      <th scope="col"><center><h2><?php echo $totalAssetRusakBerat ?></h2></center></th>
                         <?php
-                          $sql2 = "SELECT * FROM `asset_kadaluwarsa`";
+                          $sql2 = "SELECT * FROM `asset_waktu_habis`";
                           $result2 = $conn->query($sql2);
                           $totalAssetUmurHabis = mysqli_num_rows($result2);
                         ?>
-                      <th scope="col"><h2><?php echo $totalAssetUmurHabis ?></h2></th>
+                      <th scope="col"><center><h2><?php echo $totalAssetUmurHabis ?></h2></center></th>
                     </tr>
                   </thead>
                   <tfoot>
                       <tr>
-                        <th>Total</th>
-                        <th>Asset Rusak Berat</th>
-                        <th>Asset Umur Habis</th>
+                        <th><h3>Total</h4></th>
+                        <th><center><h4>Asset Rusak Berat</h4></center></th>
+                        <th><center><h4>Asset Umur Habis</h4></center></th>
                       </tr>
                   </tfoot>
                 </table>  
@@ -92,10 +91,9 @@
             </h3>
           </div>
           <div class="card-body">
-            <i class="fas fa-plus-square"></i>
-              <a href="../input-data/inputData.php" style="color:black;">Tambah Asset Baru</a> <br>
-            <i class="fa-solid fa-file-excel"></i>  
-              <a href="input_item.php" style="color:black;">Tambah Asset dengan Excel</a> <br>
+            <a href="../input-data/inputData.php">
+              <button type="button" class="btn btn-primary"><i class="fa fa-plus"></i> Tambah Asset Baru</button>
+            </a>
           </div>
         </div>
       </div>
@@ -107,10 +105,14 @@
             </h3>
           </div>
         <div class="card-body clearfix">
-          <i class="fa-solid fa-house-crack fa-sm"></i>
-            <a href="../delete-data/assetRusakBerat.php"style="color:black;">Asset Rusak Berat</a> <br>
-          <i class="fa-solid fa-hourglass-end mr-1"></i>
-            <a href="../delete-data/assetUmurHabis.php"style="color:black;">Asset Umur Habis</a>  <br>
+          <div class="mb-2">
+            <a href="../delete-data/assetRusakBerat.php">
+              <button type="button" class="btn btn-danger"><i class="fa fa-circle-exclamation"></i> Asset Rusak Berat</button>
+            </a> <br>
+          </div>
+          <a href="../delete-data/assetUmurHabis.php">
+            <button type="button" class="btn btn-info"><i class="fa fa-clock-rotate-left"></i> Asset Umur Habis</button>
+          </a>  <br>
         </div>
       </div>
     </div>
@@ -120,7 +122,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header bg-dark">
-                <h3 class="card-title">Semua Asset</h3>
+                <h3 class="card-title">Rekapitulasi Inventaris</h3>
               </div>
               <div class="card-body">
                 <table class="table table-bordered table-striped">
@@ -146,13 +148,15 @@
                   </thead>
                   <tbody>
                       <?php
+                      $sql = "SELECT * FROM `asset_inventaris`";
+                      $result = $conn->query($sql);
                         if ($result->num_rows > 0) {
                           while ($row = $data_asset->fetch_assoc()) {
                       ?>
                       <td><center><?php echo $no++ ; ?></center></td>
                       <td><?php echo $row["jenis_asset"] ?></td>
                       <td><?php echo $row["deskripsi_asset"] ?></td>
-                      <td><center><?php echo $row["view_kode_asset"] ?></center></td>
+                      <td><center><?php echo $row["kode_asset"] ?></center></td>
                       <td><?php echo $row["merk_type"] ?></td>
                       <td><center><?php echo $row["jumlah"] ?></center></td>
                       <td><center><?php echo $row["ukuran"] ?></center></td>
@@ -173,22 +177,42 @@
                           </center>
                         <?php  
                           }else{
-                            echo "<img src='../input-data/GambarAsset/$row[gambar]' width='100'/>";
+                            echo "<img src='../../GambarAsset/$row[gambar]' width='100'/>";
                           }
                         ?>
                       </td>
                       <td><?php echo $row["keterangan"] ?></td>
                       <td>
-                        <a href="../input-data/editAsset.php? kode_asset=<?=$row["kode_asset"]?>">
-                          <button class="bg-primary mr-4" style=" float:left">
+                        <a href="../input-data/editAsset.php? kode_asset=<?=$row["kode_asset"]?>& btn=btnEditInventaris">
+                          <button class="btn-primary mr-4" style=" float:left">
                             <i class="fa-solid fa-pen-to-square fa-sm"></i>
                           </button>
                         </a> 
-                        <a href="../delete-data/delete.php? kode_asset=<?=$row["kode_asset"]?>">
-                          <button class="bg-danger mt--5" style=" float:right">
-                            <i class="fa-solid fa-trash"></i>
-                          </button>
-                        </a>
+                        <button class="btn-danger mt--5" style=" float:right" data-toggle="modal" data-target="#modalHapus<?php echo $row["kode_asset"]?>">
+                          <i class="fa-solid fa-trash"></i>
+                        </button>
+                          <div class="modal fade" id="modalHapus<?php echo $row["kode_asset"]?>">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header bg-danger">
+                                  <h4 class="modal-title"><center>Hapus Item</center></h4>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  <p><h5>Yakin Untuk Menghapus Asset "<?php echo  $row["deskripsi_asset"] ?>" ?</h5></p>
+                                </div>
+                                <div class="modal-footer justify-content-between">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                                  <a href="../delete-data/delete.php? kode_asset=<?=$row["kode_asset"]?>&button=hapusInventaris">
+                                    <button type="button" class="btn btn-danger">Hapus</button>
+                                  </a>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                       </td>
                     </tr>
                       <?php

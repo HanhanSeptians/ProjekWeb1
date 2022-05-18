@@ -50,7 +50,7 @@
     <?php
       if(isset($_POST['keyword'])){
         $keyword = $_POST['keyword'];
-        $sql = "SELECT * FROM asset WHERE `jenis_asset` LIKE '%$keyword%' OR `deskripsi_asset` LIKE '%$keyword%' OR `kode_asset` LIKE '%$keyword%' 
+        $sql = "SELECT * FROM asset_inventaris WHERE `jenis_asset` LIKE '%$keyword%' OR `deskripsi_asset` LIKE '%$keyword%' OR `kode_asset` LIKE '%$keyword%' 
                 OR `merk_type` LIKE '%$keyword%' OR `jumlah` LIKE '%$keyword%' OR `ukuran` LIKE '%$keyword%' OR `tahun_pengadaan` LIKE '%$keyword%' 
                 OR `status_kepemilikan` LIKE '%$keyword%' OR `lokasi` LIKE '%$keyword%' OR kondisi LIKE '%$keyword%' OR `asal_usul` LIKE '%$keyword%' 
                 OR `harga` LIKE '%$keyword%'";
@@ -110,19 +110,19 @@
                 </center>
               <?php  
                 }else{
-                  echo "<img src='../input-data/GambarAsset/$row[gambar]' width='100'/>";
+                  echo "<img src='../../GambarAsset/$row[gambar]' width='100'/>";
                 }
               ?>
             </td>
             <td><?php echo $row["keterangan"] ?></td>
             <td>
               <a href="../input-data/editAsset.php? kode_asset=<?=$row["kode_asset"]?>">
-                <button class="bg-primary mr-4" style=" float:left">
+                <button class="btn-primary mr-4" style=" float:left">
                   <i class="fa-solid fa-pen-to-square fa-sm"></i>
                 </button>
               </a> 
               <a href="../delete-data/delete.php? kode_asset=<?=$row["kode_asset"]?>">
-                <button class="bg-danger mt--5" style=" float:right">
+                <button class="btn-danger mt--5" style=" float:right">
                   <i class="fa-solid fa-trash"></i>
                 </button>
               </a>

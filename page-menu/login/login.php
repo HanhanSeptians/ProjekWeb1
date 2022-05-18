@@ -26,7 +26,11 @@
               <p class="text-primary"><center><h3 class="text-primary"><b>Login</b></h3></center></p><hr>
               <form action="login_sc.php" method="post">
                 <div class="input-group mb-3 mt-3">
+<<<<<<< HEAD
                   <input type="text" class="form-control" placeholder="Masukkan Username" name="username">
+=======
+                  <input type="username" class="form-control" placeholder="Masukkan Username" name="username">
+>>>>>>> e64dd5a2fd1029be794e0048112007eff0b0c731
                     <div class="input-group-append">
                       <div class="input-group-text">
                         <span class="fas fa-user"></span>

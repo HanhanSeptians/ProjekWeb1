@@ -23,7 +23,7 @@
       </div>
     </section>
     <?php
-      $sql = "SELECT * FROM `asset_kadaluwarsa`";
+      $sql = "SELECT * FROM `asset_waktu_habis`";
       $result = $conn->query($sql);
       $total = mysqli_num_rows($result);
       $no = 0;
@@ -65,7 +65,7 @@
                   ?>                
                   <tbody>
                     <tr>
-                      <td><center><?php echo $no ?></center></td>
+                      <td><center><?php echo $no ; ?></center></td>
                       <td><?php echo $row["jenis_asset"] ?></td>
                       <td><?php echo $row["deskripsi_asset"] ?></td>
                       <td><center><?php echo $row["kode_asset"] ?></center></td>

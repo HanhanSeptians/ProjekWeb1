@@ -44,13 +44,17 @@
 
     $pdf->SetFont('Arial','',7);
     //Show data barang from database
-    $sql = "SELECT * FROM asset where kantor='PUC'";
+    $sql = "SELECT * FROM asset_puc";
 
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             //Numbers are right-aligned so we give 'R' after new line parameter
             
+<<<<<<< HEAD
+=======
+            $pdf->Cell(18 ,5,$row['id_kantor'],1,0,'C');
+>>>>>>> e64dd5a2fd1029be794e0048112007eff0b0c731
             $pdf->Cell(25 ,5,$row['jenis_asset'],1,0,'C');
             $pdf->Cell(50 ,5,$row['deskripsi_asset'],1,0,'C');
             $pdf->Cell(25 ,5,$row['kode_asset'],1,0,'C');

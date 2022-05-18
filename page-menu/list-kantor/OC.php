@@ -45,7 +45,7 @@
       <div class="col-12">
         <div class="card text-white bg-primary mb-3">
           <div class="card-header d-flex p-0">
-            <h3 class="card-title p-2">Today</h3>
+            <h3 class="card-title p-2"> Today</h3>
             <h3 class="card-title p-2" id="date" style="color:lightgrey;"></h3>
           </div>
           <div class="card-body">
@@ -56,25 +56,25 @@
                     <tr>
                       <th scope="col"><h2><?php echo $total ?></h2></th>
                         <?php
-                          $sql1 = "SELECT * FROM `asset_rusak` WHERE kantor = 'OC' ";
+                          $sql1 = "SELECT * FROM `asset_rusak_berat` WHERE id_kantor = 'OC' ";
                           $result1 = $conn->query($sql1);
                           $totalAssetRusakBerat = mysqli_num_rows($result1);
                         ?>
-                      <th scope="col"><h2><?php echo $totalAssetRusakBerat ?></h2></th>
+                      <th scope="col"><center><h2><?php echo $totalAssetRusakBerat ?></h2></center></th>
                         <?php
-                          $sql2 = "SELECT * FROM `asset_kadaluwarsa` WHERE kantor = 'OC' ";
+                          $sql2 = "SELECT * FROM `asset_waktu_habis` WHERE id_kantor = 'OC' ";
                           $result2 = $conn->query($sql2);
                           $totalAssetUmurHabis = mysqli_num_rows($result2);
                         ?>
-                      <th scope="col"><h2><?php echo $totalAssetUmurHabis ?></h2></th>
+                      <th scope="col"><center><h2><?php echo $totalAssetUmurHabis ?></h2></center></th>
                     </tr>
                   </thead>
                   <tfoot>
-                      <tr>
-                        <th>Total</th>
-                        <th>Asset Rusak Berat</th>
-                        <th>Asset Umur Habis</th>
-                      </tr>
+                    <tr>
+                      <th><h3>Total</h4></th>
+                      <th><center><h4>Asset Rusak Berat</h4></center></th>
+                      <th><center><h4>Asset Umur Habis</h4></center></th>
+                    </tr>
                   </tfoot>
                 </table> 
               </div>  
@@ -92,10 +92,9 @@
             </h3>
           </div>
           <div class="card-body">
-            <i class="fas fa-plus-square"></i>
-              <a href="../input-data/inputData.php" style="color:black;">Tambah Asset Baru</a> <br>
-            <i class="fa-solid fa-file-excel"></i>  
-              <a href="input_item.php" style="color:black;">Tambah Asset dengan Excel</a> <br>
+            <a href="../input-data/inputDataOC.php">
+              <button type="button" class="btn btn-primary"><i class="fa fa-plus"></i> Tambah Asset Baru</button>
+            </a>
           </div>
         </div>
       </div>
@@ -107,10 +106,14 @@
             </h3>
           </div>
         <div class="card-body clearfix">
-          <i class="fa-solid fa-house-crack fa-sm"></i>
-            <a href="../delete-data/assetRusakBeratPUC.php"style="color:black;">Asset Rusak Berat</a> <br>
-          <i class="fa-solid fa-hourglass-end mr-1"></i>
-            <a href="../delete-data/assetUmurHabisPUC.php"style="color:black;">Asset Umur Habis</a>  <br>
+          <div class="mb-2">
+            <a href="../delete-data/assetRusakBeratOC.php">
+              <button type="button" class="btn btn-danger"><i class="fa fa-circle-exclamation"></i> Asset Rusak Berat</button>
+            </a> <br>
+          </div>
+          <a href="../delete-data/assetUmurHabisOC.php">
+            <button type="button" class="btn btn-info"><i class="fa fa-clock-rotate-left"></i> Asset Umur Habis</button>
+          </a>  <br>
         </div>
       </div>
     </div>
@@ -120,7 +123,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header bg-dark">
-                <h3 class="card-title">Production Unit Office Center</h3>
+                <i class="fa-solid fa-coins fa-lg"></i> Production Office Center
               </div>
               <div class="card-body">
                 <table class="table table-bordered table-striped">
@@ -146,14 +149,16 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <?php
+                    <?php
+                      $sql = "SELECT * FROM `asset_oc`";
+                      $result = $conn->query($sql);
                         if ($result->num_rows > 0) {
                           while ($row = $data_asset->fetch_assoc()) {
                       ?>
                       <td><center><?php echo $no++ ; ?></center></td>
                       <td><?php echo $row["jenis_asset"] ?></td>
                       <td><?php echo $row["deskripsi_asset"] ?></td>
-                      <td><center><?php echo $row["view_kode_asset"] ?></center></td>
+                      <td><center><?php echo $row["kode_asset"] ?></center></td>
                       <td><?php echo $row["merk_type"] ?></td>
                       <td><center><?php echo $row["jumlah"] ?></center></td>
                       <td><center><?php echo $row["ukuran"] ?></center></td>
@@ -174,18 +179,42 @@
                           </center>
                         <?php  
                           }else{
-                            echo "<img src='../input-data/GambarAsset/$row[gambar]' width='100'/>";
+                            echo "<img src='../../GambarAsset/$row[gambar]' width='100'/>";
                           }
                         ?>
                       </td>
                       <td><?php echo $row["keterangan"] ?></td>
                       <td>
-                        <a href="../input-data/editAssetOC.php? kode_asset=<?=$row["kode_asset"]?>">
-                          <button class="bg-primary mr-4" style=" float:left">
+                        <a href="../input-data/editAsset.php? kode_asset=<?=$row["kode_asset"]?>& btn=btnEditOC">
+                          <button class="btn-primary mr-4" style=" float:left">
                             <i class="fa-solid fa-pen-to-square fa-sm"></i>
                           </button>
-                        </a>
-                        <button class="bg-danger mt--5" style=" float:right"><i class="fa-solid fa-trash"></i></button>
+                        </a> 
+                        <button class="btn-danger mt--5" style=" float:right" data-toggle="modal" data-target="#modalHapus<?php echo $row["kode_asset"]?>">
+                          <i class="fa-solid fa-trash"></i>
+                        </button>
+                          <div class="modal fade" id="modalHapus<?php echo $row["kode_asset"]?>">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header bg-danger">
+                                  <h4 class="modal-title"><center>Hapus Item</center></h4>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  <p><h5>Yakin Untuk Menghapus Asset "<?php echo  $row["deskripsi_asset"] ?>" ?</h5></p>
+                                </div>
+                                <div class="modal-footer justify-content-between">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                                  <a href="../delete-data/delete.php? kode_asset=<?=$row["kode_asset"]?>&button=hapusOC">
+                                    <button type="button" class="btn btn-danger">Hapus</button>
+                                  </a>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                       </td>
                     </tr>
                       <?php
@@ -229,4 +258,158 @@
   m = n.getMonth() + 1;
   d = n.getDate();
   document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
+</script>
+<script>
+  $(function() {
+    var Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000
+    });
+
+    $('.swalDefaultSuccess').click(function() {
+      Toast.fire({
+        icon: 'success',
+        title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+      })
+    });
+    $('.swalDefaultInfo').click(function() {
+      Toast.fire({
+        icon: 'info',
+        title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+      })
+    });
+    $('.swalDefaultError').click(function() {
+      Toast.fire({
+        icon: 'error',
+        title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+      })
+    });
+    $('.swalDefaultWarning').click(function() {
+      Toast.fire({
+        icon: 'warning',
+        title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+      })
+    });
+    $('.swalDefaultQuestion').click(function() {
+      Toast.fire({
+        icon: 'question',
+        title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+      })
+    });
+
+    $('.toastrDefaultSuccess').click(function() {
+      toastr.success('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
+    });
+    $('.toastrDefaultInfo').click(function() {
+      toastr.info('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
+    });
+    $('.toastrDefaultError').click(function() {
+      toastr.error('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
+    });
+    $('.toastrDefaultWarning').click(function() {
+      toastr.warning('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
+    });
+
+    $('.toastsDefaultDefault').click(function() {
+      $(document).Toasts('create', {
+        title: 'Toast Title',
+        body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+      })
+    });
+    $('.toastsDefaultTopLeft').click(function() {
+      $(document).Toasts('create', {
+        title: 'Toast Title',
+        position: 'topLeft',
+        body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+      })
+    });
+    $('.toastsDefaultBottomRight').click(function() {
+      $(document).Toasts('create', {
+        title: 'Toast Title',
+        position: 'bottomRight',
+        body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+      })
+    });
+    $('.toastsDefaultBottomLeft').click(function() {
+      $(document).Toasts('create', {
+        title: 'Toast Title',
+        position: 'bottomLeft',
+        body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+      })
+    });
+    $('.toastsDefaultAutohide').click(function() {
+      $(document).Toasts('create', {
+        title: 'Toast Title',
+        autohide: true,
+        delay: 750,
+        body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+      })
+    });
+    $('.toastsDefaultNotFixed').click(function() {
+      $(document).Toasts('create', {
+        title: 'Toast Title',
+        fixed: false,
+        body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+      })
+    });
+    $('.toastsDefaultFull').click(function() {
+      $(document).Toasts('create', {
+        body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.',
+        title: 'Toast Title',
+        subtitle: 'Subtitle',
+        icon: 'fas fa-envelope fa-lg',
+      })
+    });
+    $('.toastsDefaultFullImage').click(function() {
+      $(document).Toasts('create', {
+        body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.',
+        title: 'Toast Title',
+        subtitle: 'Subtitle',
+        image: '../../dist/img/user3-128x128.jpg',
+        imageAlt: 'User Picture',
+      })
+    });
+    $('.toastsDefaultSuccess').click(function() {
+      $(document).Toasts('create', {
+        class: 'bg-success',
+        title: 'Toast Title',
+        subtitle: 'Subtitle',
+        body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+      })
+    });
+    $('.toastsDefaultInfo').click(function() {
+      $(document).Toasts('create', {
+        class: 'bg-info',
+        title: 'Toast Title',
+        subtitle: 'Subtitle',
+        body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+      })
+    });
+    $('.toastsDefaultWarning').click(function() {
+      $(document).Toasts('create', {
+        class: 'bg-warning',
+        title: 'Toast Title',
+        subtitle: 'Subtitle',
+        body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+      })
+    });
+    $('.toastsDefaultDanger').click(function() {
+      $(document).Toasts('create', {
+        class: 'bg-danger',
+        title: 'Toast Title',
+        subtitle: 'Subtitle',
+        body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+      })
+    });
+    $('.toastsDefaultMaroon').click(function() {
+      $(document).Toasts('create', {
+        class: 'bg-maroon',
+        title: 'Toast Title',
+        subtitle: 'Subtitle',
+        body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+      })
+    });
+  });
 </script>
