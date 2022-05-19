@@ -11,19 +11,22 @@
     $pdf->AddPage();
 
     //set font to arial, bold, 14pt
-    $pdf->SetFont('Arial','B',12);
+    $pdf->SetFont('Arial','B',20);
 
     //Cell(width , height , text , border , end line , [align] )
-    $pdf->Image("../../dist/img/pertaminafix.png",18,5,25,15);
-    $pdf->Cell(420 ,8,'Kantor Pusat OC',0,1,'C');
+    $pdf->Image("../../dist/img/pertaminafix.png",150,10,25,15);
+    $pdf->Cell(420 ,8,'PT. Pertamina Lubricants',0,1,'C');
     $pdf->Cell(130 ,5,'',0,1);
+    $pdf->SetFont('Arial','B',16);
+    $pdf->Cell(420 ,8,'Rekapitulasi Inventaris Asset',0,1,'C');
     $pdf->Cell(130 ,5,'',0,1);
-    $pdf->Cell(420 ,5,'Daftar Asset',0,1,'C');//end of line
+    $pdf->SetFont('Arial','B',14);
+    $pdf->Cell(420 ,5,'Office Center',0,1,'C');//end of line
     $pdf->Cell(130 ,5,'',0,1);
     
     
     $pdf->SetFont('Arial','B',7);  
-    $pdf->Cell(18 ,5,'Kantor',1,0,'C');
+    // $pdf->Cell(18 ,5,'Kantor',1,0,'C');
     $pdf->Cell(25 ,5,'Jenis Asset',1,0,'C');
     $pdf->Cell(50 ,5,'Deskripsi Asset',1,0,'C');
     $pdf->Cell(25 ,5,'Kode Asset ',1,0,'C');
@@ -49,7 +52,11 @@
         while ($row = $result->fetch_assoc()) {
             //Numbers are right-aligned so we give 'R' after new line parameter
             
+<<<<<<< HEAD
+            // $pdf->Cell(18 ,5,$row['kantor'],1,0,'C');
+=======
             $pdf->Cell(18 ,5,$row['id_kantor'],1,0,'C');
+>>>>>>> e64dd5a2fd1029be794e0048112007eff0b0c731
             $pdf->Cell(25 ,5,$row['jenis_asset'],1,0,'C');
             $pdf->Cell(50 ,5,$row['deskripsi_asset'],1,0,'C');
             $pdf->Cell(25 ,5,$row['kode_asset'],1,0,'C');
