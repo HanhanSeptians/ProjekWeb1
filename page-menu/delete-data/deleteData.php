@@ -102,8 +102,32 @@
                       <td><?php echo $row["keterangan"] ?></td>
                       <td>
                         <center>
-                          <button class="btn-danger"><i class="fa-solid fa-trash"></i></button>
+                        <button class="btn-danger mt--5" data-toggle="modal" data-target="#modalHapus<?php echo $row["kode_asset"]?>">
+                          <i class="fa-solid fa-trash"></i>
+                        </button>
                         </center>
+                          <div class="modal fade" id="modalHapus<?php echo $row["kode_asset"]?>">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header bg-danger">
+                                  <h4 class="modal-title"><center>Hapus Item</center></h4>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  <p><h5>Yakin Untuk Menghapus Asset "<?php echo  $row["deskripsi_asset"] ?>" ?</h5></p>
+                                </div>
+                                <div class="modal-footer justify-content-between">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                                  <a href="../delete-data/delete.php? kode_asset=<?=$row["kode_asset"]?>&button=hapusData">
+                                    <button type="button" class="btn btn-danger">Hapus</button>
+                                  </a>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                       </td>
                     </tr>
       <?php

@@ -107,11 +107,11 @@
           </div>
         <div class="card-body clearfix">
           <div class="mb-2">
-            <a href="../delete-data/assetRusakBeratOC.php">
+            <a href="../delete-data/assetRusakBerat.php? btn=RBOC">
               <button type="button" class="btn btn-danger"><i class="fa fa-circle-exclamation"></i> Asset Rusak Berat</button>
             </a> <br>
           </div>
-          <a href="../delete-data/assetUmurHabisOC.php">
+          <a href="../delete-data/assetUmurHabis.php? btn=UHOC">
             <button type="button" class="btn btn-info"><i class="fa fa-clock-rotate-left"></i> Asset Umur Habis</button>
           </a>  <br>
         </div>

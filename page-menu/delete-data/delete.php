@@ -33,9 +33,16 @@
                 echo '<meta http-equiv="refresh" content="0.1;url=../list-kantor/PUG.php">';
             }elseif($button =='hapusPUJ'){
                 echo '<meta http-equiv="refresh" content="0.1;url=../list-kantor/PUJ.php">';
+            }elseif($button =='hapusData'){
+                echo '<meta http-equiv="refresh" content="0.1;url=deleteData.php">';
+            }elseif($button =='hapusCari'){
+                echo '<meta http-equiv="refresh" content="0.1;url=../cari-data/cariData.php">';
+            }elseif($button =='hapusRB'){
+                echo '<meta http-equiv="refresh" content="0.1;url=../inventaris/inventaris.php">';
+            }elseif($button =='hapusUmurHabis'){
+                echo '<meta http-equiv="refresh" content="0.1;url=../inventaris/inventaris.php">';
             }else{
-                echo $button;
-                // echo '<meta http-equiv="refresh" content="0.1;url=../inventaris/inventaris.php">';
+                echo '<meta http-equiv="refresh" content="0.1;url=../inventaris/inventaris.php">';
             }
         }else{
             echo "Asset Gagal Dihapus !";
@@ -57,9 +64,16 @@
                 echo '<meta http-equiv="refresh" content="0.1;url=../list-kantor/PUG.php">';
             }elseif($button =='hapusPUJ'){
                 echo '<meta http-equiv="refresh" content="0.1;url=../list-kantor/PUJ.php">';
+            }elseif($button =='hapusData'){
+                echo '<meta http-equiv="refresh" content="0.1;url=deleteData.php">';
+            }elseif($button =='hapusCari'){
+                echo '<meta http-equiv="refresh" content="0.1;url=../cari-data/cariData.php">';
+            }elseif($button =='hapusRB'){
+                echo '<meta http-equiv="refresh" content="0.1;url=../inventaris/inventaris.php">';
+            }elseif($button =='hapusUmurHabis'){
+                echo '<meta http-equiv="refresh" content="0.1;url=../inventaris/inventaris.php">';
             }else{
-                echo $button;
-                // echo '<meta http-equiv="refresh" content="0.1;url=../inventaris/inventaris.php">';
+                echo '<meta http-equiv="refresh" content="0.1;url=../inventaris/inventaris.php">';
             }
         }else{
             echo "Asset Gagal Dihapus !";

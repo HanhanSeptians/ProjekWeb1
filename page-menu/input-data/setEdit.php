@@ -43,6 +43,8 @@
               echo '<meta http-equiv="refresh" content="0.1;url=../list-kantor/PUG.php">';
             }elseif($btn =='btnEditPUJ'){
               echo '<meta http-equiv="refresh" content="0.1;url=../list-kantor/PUJ.php">';
+            }elseif($btn =='btnEditCari'){
+              echo '<meta http-equiv="refresh" content="0.1;url=../cari-data/cariData.php">';
             }else{
               echo '<meta http-equiv="refresh" content="0.1;url=../inventaris/inventaris.php">';
             }
@@ -73,6 +75,8 @@
               echo '<meta http-equiv="refresh" content="0.1;url=../list-kantor/PUG.php">';
             }elseif($btn =='btnEditPUJ'){
               echo '<meta http-equiv="refresh" content="0.1;url=../list-kantor/PUJ.php">';
+            }elseif($btn =='btnEditCari'){
+              echo '<meta http-equiv="refresh" content="0.1;url=../cari-data/cariData.php">';
             }else{
               echo '<meta http-equiv="refresh" content="0.1;url=../inventaris/inventaris.php">';
             }

@@ -23,7 +23,25 @@
       </div>
     </section>
     <?php
+    if(isset($_GET['btn'])){
+      $button = $_GET['btn'];
+    }else{
+      die("Error! Tombol tidak ditemukan");
+    }
+
+    if($button == 'RBInventaris'){
       $sql = "SELECT * FROM `asset_rusak_berat`";
+    }elseif($button == 'RBOC'){
+      $sql = "SELECT * FROM `asset_rusak_berat`WHERE id_kantor = 'OC'";
+    }elseif($button == 'RBPUC'){
+      $sql = "SELECT * FROM `asset_rusak_berat`WHERE id_kantor = 'PUC'";
+    }elseif($button == 'RBPUG'){
+      $sql = "SELECT * FROM `asset_rusak_berat`WHERE id_kantor = 'PUG'";
+    }elseif($button == 'RBPUJ'){
+      $sql = "SELECT * FROM `asset_rusak_berat`WHERE id_kantor = 'PUJ'";
+    }else{
+      $sql = "SELECT * FROM `asset_rusak_berat`";
+    }
       $result = $conn->query($sql);
       $total = mysqli_num_rows($result);
       $no = 0;
@@ -35,7 +53,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header bg-dark">
-                <h3 class="card-title"><b>Asset Rusak Berat</b></h3>
+                <i class="fa-solid fa-circle-exclamation"></i> Asset Rusak Berat
               </div>
               <div class="card-body">
                 <table class="table table-bordered table-striped">
@@ -96,8 +114,32 @@
                       <td><?php echo $row["keterangan"] ?></td>
                       <td>
                         <center>
-                          <button class="bg-danger"><i class="fa-solid fa-trash"></i></button>
+                        <button class="btn-danger mt--5" data-toggle="modal" data-target="#modalHapus<?php echo $row["kode_asset"]?>">
+                          <i class="fa-solid fa-trash"></i>
+                        </button>
                         </center>
+                          <div class="modal fade" id="modalHapus<?php echo $row["kode_asset"]?>">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header bg-danger">
+                                  <h4 class="modal-title"><center>Hapus Item</center></h4>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  <p><h5>Yakin Untuk Menghapus Asset "<?php echo  $row["deskripsi_asset"] ?>" ?</h5></p>
+                                </div>
+                                <div class="modal-footer justify-content-between">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                                  <a href="../delete-data/delete.php? kode_asset=<?=$row["kode_asset"]?>&button=hapusRB">
+                                    <button type="button" class="btn btn-danger">Hapus</button>
+                                  </a>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                       </td>
                     </tr>
       <?php
