@@ -122,7 +122,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header bg-dark">
-                <h3 class="card-title">Rekapitulasi Inventaris</h3>
+                <i class="fa-solid fa-coins fa-lg"></i> Rekapitulasi Inventaris
               </div>
               <div class="card-body">
                 <table class="table table-bordered table-striped">

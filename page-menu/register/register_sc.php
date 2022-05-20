@@ -7,10 +7,12 @@
 
         $insert = mysqli_query($conn,"INSERT INTO user(nama,username,password,jenis_kelamin) VALUES ('$nama', '$username', '$password', '$jenis_kelamin')");
         if($insert){
-            echo '<center>berhasil upload</center>';
-            header("location:../login/login.php");
+          echo '<script type ="text/JavaScript">';  
+          echo 'alert("Registrasi Berhasil")';  
+          echo '</script>';
+          echo '<meta http-equiv="refresh" content="0.1;url=../login/login.php">';
         }else{
-            echo '<center>Registrasi gagal. Username Telah Tersedia, Silahkan Pilih Username yang lain</center>';
+            echo '<center>Registrasi Gagal ! Username Telah Tersedia</center>';
         }
         
 ?>

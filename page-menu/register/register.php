@@ -17,7 +17,7 @@
               <div class="card-body p-4">
                 <h1 class="text-primary"><center>Register</center></h1><hr>
                 <p class="text-medium-emphasis">*Silahkan registrasi akun untuk masuk kedalam aplikasi</p>
-                <form action="register_sc.php" method="post">
+                <form id="quickForm" action="register_sc.php" method="post">
                   <p>Nama :</p>
                   <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Masukkan Nama" name="nama">
@@ -65,6 +65,7 @@
                   </div>
                 </form>
               </div>
+              <div class="mt-2 ml-4">Sudah Punya Akun? <a href="../login/login.php"><u><b>Login Disini</b></u></a></div>
             </div>
           </div>
         </div>
@@ -72,3 +73,48 @@
     </div>
   </body>
 </html>
+<script>
+$(function () {
+  $('#quickForm').validate({
+    rules: {
+      nama: {
+        required: true,
+      },
+      jenis_kelamin: {
+        required: true,
+      },
+      username: {
+        required: true,
+      },
+      password: {
+        required: true,
+      },
+    },
+    messages: {
+      nama: {
+        required: "Nama Tidak Boleh Kosong",
+      },
+      jenis_kelamin: {
+        required: "Jenis Kelamin Tidak Boleh Kosong",
+      },
+      username: {
+        required: "Username Tidak Boleh Kosong",
+      },
+      password: {
+        required: "Password Tidak Boleh Kosong",
+      },
+    },
+    errorElement: 'span',
+    errorPlacement: function (error, element) {
+      error.addClass('invalid-feedback');
+      element.closest('.form-group').append(error);
+    },
+    highlight: function (element, errorClass, validClass) {
+      $(element).addClass('is-invalid');
+    },
+    unhighlight: function (element, errorClass, validClass) {
+      $(element).removeClass('is-invalid');
+    }
+  });
+});
+</script>
