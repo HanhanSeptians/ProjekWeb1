@@ -39,7 +39,7 @@
     $pdf->Cell(18 ,5,'Kondisi ',1,0,'C');
     $pdf->Cell(35 ,5,'Asal Usul ',1,0,'C');
     $pdf->Cell(18 ,5,'Harga ',1,0,'C');
-   // $pdf->Cell(39 ,5,'gambar ',1,0,'C');
+    $pdf->Cell(39 ,5,'gambar ',1,0,'C');
     $pdf->Cell(55 ,5,'Keterangan ',1,1,'C');
 
 
@@ -52,11 +52,7 @@
         while ($row = $result->fetch_assoc()) {
             //Numbers are right-aligned so we give 'R' after new line parameter
             
-<<<<<<< HEAD
-            // $pdf->Cell(18 ,5,$row['kantor'],1,0,'C');
-=======
-            $pdf->Cell(18 ,5,$row['id_kantor'],1,0,'C');
->>>>>>> e64dd5a2fd1029be794e0048112007eff0b0c731
+ 
             $pdf->Cell(25 ,5,$row['jenis_asset'],1,0,'C');
             $pdf->Cell(50 ,5,$row['deskripsi_asset'],1,0,'C');
             $pdf->Cell(25 ,5,$row['kode_asset'],1,0,'C');
@@ -69,7 +65,7 @@
             $pdf->Cell(18 ,5,$row['kondisi'],1,0,'C');
             $pdf->Cell(35 ,5,$row['asal_usul'],1,0,'C');
             $pdf->Cell(18 ,5,$row['harga'],1,0,'C');
-            //$pdf->Image("../../dist/img/".$row['gambar'],18,$pdf->GetY()+3,25,15);
+            $pdf->Image("../../GambarAsset/".$row['gambar'],18,$pdf->GetY()+3,25,15);
             $pdf->Cell(55 ,5,$row['keterangan'],1,1,'C');
            
     }

@@ -53,10 +53,7 @@
         while ($row = $result->fetch_assoc()) {
             //Numbers are right-aligned so we give 'R' after new line parameter
             
-<<<<<<< HEAD
-=======
-            $pdf->Cell(18 ,5,$row['id_kantor'],1,0,'C');
->>>>>>> e64dd5a2fd1029be794e0048112007eff0b0c731
+        
             $pdf->Cell(25 ,5,$row['jenis_asset'],1,0,'C');
             $pdf->Cell(45 ,5,$row['deskripsi_asset'],1,0,'C');
             $pdf->Cell(25 ,5,$row['kode_asset'],1,0,'C');
