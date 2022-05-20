@@ -19,7 +19,8 @@
 
   $temp_name = $_FILES["gambar"]["tmp_name"];    
   $folder = "../../GambarAsset/".$gambar;
-  move_uploaded_file($temp_name, '../../GambarAsset/'.$gambar);
+  //move_uploaded_file($temp_name, '../../GambarAsset/'.$gambar);
+  move_uploaded_file($temp_name, $folder);
   $query = "INSERT INTO `asset` (`kode_asset`, `id_kondisi`, `id_status_kepemilikan`, `id_lokasi`, `id_jenis_asset`, `deskripsi_asset`, `jumlah`, `ukuran`, `tahun_pengadaan`, `asal_usul`, `harga`, `gambar`, `keterangan`, `merk_type`) 
                         VALUES ('$kode_asset', '$id_kondisi', '$id_status_kepemilikan', '$id_lokasi', '$id_jenis_asset', '$deskripsi_asset', '$jumlah', '$ukuran', '$tahun_pengadaan', '$asal_usul', '$harga', '$gambar', '$keterangan', '$merk_type')" ;
   $result = mysqli_query($conn, $query);
