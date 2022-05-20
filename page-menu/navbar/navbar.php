@@ -116,6 +116,14 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a href="../maintenance/maintenance.php" class="nav-link">
+                  <i class="nav-icon fa-solid fa-screwdriver-wrench text-white"></i>
+                  <p class="text-white">
+                    Pemeliharaan Asset
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="../delete-data/deleteData.php" class="nav-link">
                   <i class="nav-icon fa-solid fa-trash-can text-white"></i>
                   <p class="text-white">

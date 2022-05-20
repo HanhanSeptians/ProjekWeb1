@@ -143,6 +143,7 @@
                       <th style="width: 150px"><h6 align="center"><b>Harga</b></h6></th>
                       <th style="width: 120px"><h6 align="center"><b>Gambar</b></h6></th>
                       <th style="width: 120px"><h6 align="center"><b>Keterangan</b></h6></th>
+                      <th style="width: 120px"><h6 align="center"><b>Tanggal Pemeliharaan</b></h6></th>
                       <th style="width: 120px"><h6 align="center"><b>Aksi</b></h6></th>
                     </tr>
                   </thead>
@@ -182,6 +183,7 @@
                         ?>
                       </td>
                       <td><?php echo $row["keterangan"] ?></td>
+                      <td><?php echo $row["tanggal_pemeliharaan"] ?></td>
                       <td>
                         <a href="../input-data/editAsset.php? kode_asset=<?=$row["kode_asset"]?>& btn=btnEditInventaris">
                           <button class="btn-primary mr-4" style=" float:left">

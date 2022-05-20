@@ -3,28 +3,20 @@
 	if($_SESSION['status']!="login"){
 		header("location:../login/login.php?pesan=belum_login");
 	}
-  ?>
-<?php
-    include '../database/koneksi.php';
-    include '../navbar/navbar.php';
+  include '../database/koneksi.php';
+  include '../navbar/navbar.php';
 ?>
 <html>
-  <style>
-    .mt--5 {
-      margin-top : -30px;
-    }
-  </style>
   <div class="content-wrapper">
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Kantor Production Unit Gresik</h1>
+            <h1>Pemeliharaan Asset</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">List Kantor</a></li>
-              <li class="breadcrumb-item active">Kantor Production Unit Gresik</li>
+              <li class="breadcrumb-item"><a href="#">Pemeliharaan Asset</a></li>
             </ol>
           </div>
         </div>
@@ -36,96 +28,21 @@
       $halaman_awal = ($halaman>1) ? ($halaman * $batas) - $batas : 0;	
       $previous = $halaman - 1;
       $next = $halaman + 1;
-      $sql = "SELECT * FROM `asset_pug`";
+      $sql = "SELECT * FROM `asset_pemeliharaan`";
       $result = $conn->query($sql);
       $total = mysqli_num_rows($result);
       $total_halaman = ceil($total / $batas);
-      $data_asset = mysqli_query($conn,"SELECT * FROM asset_pug limit $halaman_awal, $batas");
+      $data_asset = mysqli_query($conn,"SELECT * FROM `asset_pemeliharaan` limit $halaman_awal, $batas");
       $no = $halaman_awal+1;
+        if ($data_asset->num_rows > 0) {
     ?>
-    <div class="row ml-2 mr-2">
-      <div class="col-12">
-        <div class="card text-white bg-primary mb-3">
-          <div class="card-header d-flex p-0">
-            <h3 class="card-title p-2">Today</h3>
-            <h3 class="card-title p-2" id="date" style="color:lightgrey;"></h3>
-          </div>
-          <div class="card-body">
-            <div class="tab-content">
-              <div class="tab-pane active" id="tab_1">
-                <table class="table table-borderless">
-                  <thead>
-                    <tr>
-                      <th scope="col"><h2><?php echo $total ?></h2></th>
-                        <?php
-                          $sql1 = "SELECT * FROM `asset_rusak_berat` WHERE id_kantor = 'PUG' ";
-                          $result1 = $conn->query($sql1);
-                          $totalAssetRusakBerat = mysqli_num_rows($result1);
-                        ?>
-                      <th scope="col"><center><h2><?php echo $totalAssetRusakBerat ?></h2></center></th>
-                        <?php
-                          $sql2 = "SELECT * FROM `asset_waktu_habis` WHERE id_kantor = 'PUG'";
-                          $result2 = $conn->query($sql2);
-                          $totalAssetUmurHabis = mysqli_num_rows($result2);
-                        ?>
-                      <th scope="col"><center><h2><?php echo $totalAssetUmurHabis ?></h2></center></th>
-                    </tr>
-                  </thead>
-                  <tfoot>
-                    <tr>
-                      <th><h3>Total</h4></th>
-                      <th><center><h4>Asset Rusak Berat</h4></center></th>
-                      <th><center><h4>Asset Umur Habis</h4></center></th>
-                    </tr>
-                  </tfoot>
-                </table> 
-              </div>  
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row ml-2 mr-2">
-      <div class="col-md-6">
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title"> 
-              <b>Add Item</b>
-            </h3>
-          </div>
-          <div class="card-body">
-            <a href="../input-data/inputDataPUG.php">
-              <button type="button" class="btn btn-primary"><i class="fa fa-plus"></i> Tambah Asset Baru</button>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card ">
-          <div class="card-header">
-            <h3 class="card-title">
-              <b>Low Stock Reminder</b>
-            </h3>
-          </div>
-        <div class="card-body clearfix">
-          <div class="mb-2">
-            <a href="../delete-data/assetRusakBerat.php? btn=RBPUG">
-              <button type="button" class="btn btn-danger"><i class="fa fa-circle-exclamation"></i> Asset Rusak Berat</button>
-            </a> <br>
-          </div>
-          <a href="../delete-data/assetUmurHabis.php? btn=UHPUG">
-            <button type="button" class="btn btn-info"><i class="fa fa-clock-rotate-left"></i> Asset Umur Habis</button>
-          </a>  <br>
-        </div>
-      </div>
-    </div>
     <section class="content">
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
             <div class="card">
               <div class="card-header bg-dark">
-                <i class="fa-solid fa-coins fa-lg"></i> Production Unit Gresik
+                <i class="fa-solid fa-circle-exclamation"></i> Asset yang Memerlukan Pemeliharaan 
               </div>
               <div class="card-body">
                 <table class="table table-bordered table-striped">
@@ -146,16 +63,16 @@
                       <th style="width: 150px"><h6 align="center"><b>Harga</b></h6></th>
                       <th style="width: 120px"><h6 align="center"><b>Gambar</b></h6></th>
                       <th style="width: 120px"><h6 align="center"><b>Keterangan</b></h6></th>
+                      <th style="width: 120px"><h6 align="center"><b>Pemeliharaan</b></h6></th>
                       <th style="width: 120px"><h6 align="center"><b>Tanggal Pemeliharaan</b></h6></th>
                       <th style="width: 120px"><h6 align="center"><b>Aksi</b></h6></th>
                     </tr>
                   </thead>
+                  <?php
+                    while ($row = $data_asset->fetch_assoc()) {          
+                  ?>                
                   <tbody>
                     <tr>
-                      <?php
-                        if ($result->num_rows > 0) {
-                          while ($row = $data_asset->fetch_assoc()) {
-                      ?>
                       <td><center><?php echo $no++ ; ?></center></td>
                       <td><?php echo $row["jenis_asset"] ?></td>
                       <td><?php echo $row["deskripsi_asset"] ?></td>
@@ -185,16 +102,14 @@
                         ?>
                       </td>
                       <td><?php echo $row["keterangan"] ?></td>
+                      <td><?php echo $row["pemeliharaan"] ?></td>
                       <td><?php echo $row["tanggal_pemeliharaan"] ?></td>
                       <td>
-                        <a href="../input-data/editAsset.php? kode_asset=<?=$row["kode_asset"]?>& btn=btnEditPUG">
-                          <button class="btn-primary mr-4" style=" float:left">
-                            <i class="fa-solid fa-pen-to-square fa-sm"></i>
-                          </button>
-                        </a> 
-                        <button class="btn-danger mt--5" style=" float:right" data-toggle="modal" data-target="#modalHapus<?php echo $row["kode_asset"]?>">
-                          <i class="fa-solid fa-trash"></i>
+                        <center>
+                        <button class="btn-success mt--5" data-toggle="modal" data-target="#modalHapus<?php echo $row["kode_asset"]?>">
+                            <i class="fa-solid fa-square-check"></i>
                         </button>
+                        </center>
                           <div class="modal fade" id="modalHapus<?php echo $row["kode_asset"]?>">
                             <div class="modal-dialog">
                               <div class="modal-content">
@@ -209,7 +124,7 @@
                                 </div>
                                 <div class="modal-footer justify-content-between">
                                   <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-                                  <a href="../delete-data/delete.php? kode_asset=<?=$row["kode_asset"]?>&button=hapusPUG">
+                                  <a href="check.php? kode_asset=<?=$row["kode_asset"]?>&button=hapusData">
                                     <button type="button" class="btn btn-danger">Hapus</button>
                                   </a>
                                   </form>
@@ -219,13 +134,17 @@
                           </div>
                       </td>
                     </tr>
-                      <?php
-                          }
-                        } else {
-                          echo "0 results";
-                        }
-                        $conn->close();
-                      ?>
+      <?php
+                    }
+        }else {
+      ?>
+          <div class="mt-5">
+              <center><h4>Tidak ada Asset Rusak Berat atau Umur Habis</h4></center>
+          </div> 
+      <?php   
+        }
+        $conn->close();
+      ?>
                   </tbody>
                 </table>
               </div>
@@ -253,11 +172,3 @@
     </section>
   </div>
 </html>
-
-<script>
-  n =  new Date();
-  y = n.getFullYear();
-  m = n.getMonth() + 1;
-  d = n.getDate();
-  document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
-</script>
