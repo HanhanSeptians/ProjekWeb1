@@ -88,10 +88,8 @@
               </div>
               <div class="form-group">
                 <label>Tahun Pengadaan</label>
-                  <input type="year" class="form-control" name="tahun_pengadaan" value="<?php echo $data["tahun_pengadaan"] ?>">
-              </div>         
-            </div>
-            <div class="col-sm-6">
+                  <input type="input" class="form-control" name="tahun_pengadaan" value="<?php echo $data["tahun_pengadaan"] ?>">
+              </div> 
               <div class="form-group">
                 <label>Status Kepemilikan Asset</label>
                   <select type="varchar" class="custom-select rounded-0" name="id_status_kepemilikan">
@@ -106,8 +104,18 @@
                         }
                     ?>
                   </select>
-              </div>       
-            <div class="form-group">
+              </div>         
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Pemeliharaan</label>
+                  <input type="input" class="form-control" name="pemeliharaan" value="<?php echo $data["pemeliharaan"] ?>">
+              </div> 
+              <div class="form-group">
+                <label>Tanggal Pemeliharaan</label>
+                  <input type="date" class="form-control" name="tanggal_pemeliharaan" value="<?php echo $data["tanggal_pemeliharaan"] ?>">
+              </div> 
+              <div class="form-group">
                 <label for="exampleInputEmail1">Lokasi</label>
                   <select type="varchar" class="custom-select rounded-0" name="id_lokasi">
                   <option disabled selected>Pilih Jenis Asset "Nilai Awal: <?php echo $hasil['lokasi']?>"</option>

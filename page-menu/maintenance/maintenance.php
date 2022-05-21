@@ -23,16 +23,54 @@
       </div>
     </section>
     <?php
+      if(isset($_GET['btn'])){
+        $button = $_GET['btn'];
+      }else{
+        $button = 'MInventaris';
+      }
       $batas = 50;
       $halaman = isset($_GET['halaman'])?(int)$_GET['halaman'] : 1;
       $halaman_awal = ($halaman>1) ? ($halaman * $batas) - $batas : 0;	
       $previous = $halaman - 1;
       $next = $halaman + 1;
-      $sql = "SELECT * FROM `asset_pemeliharaan`";
-      $result = $conn->query($sql);
-      $total = mysqli_num_rows($result);
-      $total_halaman = ceil($total / $batas);
-      $data_asset = mysqli_query($conn,"SELECT * FROM `asset_pemeliharaan` limit $halaman_awal, $batas");
+      if($button == 'MInventaris'){
+        $sql = "SELECT * FROM `asset_pemeliharaan`";
+        $result = $conn->query($sql);
+        $total = mysqli_num_rows($result);
+        $total_halaman = ceil($total / $batas);
+        $data_asset = mysqli_query($conn,"SELECT * FROM `asset_pemeliharaan` WHERE id_kantor = 'OC' OR id_kantor = 'PUC' OR id_kantor = 'PUG' OR id_kantor = 'PUJ' limit $halaman_awal, $batas");
+      }elseif($button == 'MOC'){
+        $sql = "SELECT * FROM `asset_pemeliharaan` WHERE id_kantor = 'OC'";
+        $result = $conn->query($sql);
+        $total = mysqli_num_rows($result);
+        $total_halaman = ceil($total / $batas);
+        $data_asset = mysqli_query($conn,"SELECT * FROM `asset_pemeliharaan` WHERE id_kantor = 'OC' limit $halaman_awal, $batas");
+      }elseif($button == 'MPUC'){
+        $sql = "SELECT * FROM `asset_pemeliharaan` WHERE id_kantor = 'PUC'";
+        $result = $conn->query($sql);
+        $total = mysqli_num_rows($result);
+        $total_halaman = ceil($total / $batas);
+        $data_asset = mysqli_query($conn,"SELECT * FROM `asset_pemeliharaan` WHERE id_kantor = 'PUC' limit $halaman_awal, $batas");
+      }elseif($button == 'MPUG'){
+        $sql = "SELECT * FROM `asset_pemeliharaan` WHERE id_kantor = 'PUG'";
+        $result = $conn->query($sql);
+        $total = mysqli_num_rows($result);
+        $total_halaman = ceil($total / $batas);
+        $data_asset = mysqli_query($conn,"SELECT * FROM `asset_pemeliharaan` WHERE id_kantor = 'PUG' limit $halaman_awal, $batas");
+      }elseif($button == 'MPUJ'){
+        $sql = "SELECT * FROM `asset_pemeliharaan` WHERE id_kantor = 'PUJ'";
+        $result = $conn->query($sql);
+        $total = mysqli_num_rows($result);
+        $total_halaman = ceil($total / $batas);
+        $data_asset = mysqli_query($conn,"SELECT * FROM `asset_pemeliharaan` WHERE id_kantor = 'PUJ' limit $halaman_awal, $batas");
+      }else{
+        $sql = "SELECT * FROM `asset_pemeliharaan`";
+        $result = $conn->query($sql);
+        $total = mysqli_num_rows($result);
+        $total_halaman = ceil($total / $batas);
+        $data_asset = mysqli_query($conn,"SELECT * FROM `asset_pemeliharaan` limit $halaman_awal, $batas");
+      }
+
       $no = $halaman_awal+1;
         if ($data_asset->num_rows > 0) {
     ?>
@@ -42,7 +80,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header bg-dark">
-                <i class="fa-solid fa-circle-exclamation"></i> Asset yang Memerlukan Pemeliharaan 
+                <i class="fa-solid fa-screwdriver-wrench"></i> Asset yang Memerlukan Pemeliharaan 
               </div>
               <div class="card-body">
                 <table class="table table-bordered table-striped">
@@ -62,10 +100,9 @@
                       <th style="width: 200px"><h6 align="center"><b>Asal-usul</b></h6></th>
                       <th style="width: 150px"><h6 align="center"><b>Harga</b></h6></th>
                       <th style="width: 120px"><h6 align="center"><b>Gambar</b></h6></th>
-                      <th style="width: 120px"><h6 align="center"><b>Keterangan</b></h6></th>
                       <th style="width: 120px"><h6 align="center"><b>Pemeliharaan</b></h6></th>
                       <th style="width: 120px"><h6 align="center"><b>Tanggal Pemeliharaan</b></h6></th>
-                      <th style="width: 120px"><h6 align="center"><b>Aksi</b></h6></th>
+                      <th style="width: 150px"><h6 align="center"><b>Aksi</b></h6></th>
                     </tr>
                   </thead>
                   <?php
@@ -101,9 +138,8 @@
                           }
                         ?>
                       </td>
-                      <td><?php echo $row["keterangan"] ?></td>
                       <td><?php echo $row["pemeliharaan"] ?></td>
-                      <td><?php echo $row["tanggal_pemeliharaan"] ?></td>
+                      <td><center><?php echo $row["tanggal_pemeliharaan"] ?></center></td>
                       <td>
                         <center>
                         <button class="btn-success mt--5" data-toggle="modal" data-target="#modalHapus<?php echo $row["kode_asset"]?>">
@@ -113,19 +149,19 @@
                           <div class="modal fade" id="modalHapus<?php echo $row["kode_asset"]?>">
                             <div class="modal-dialog">
                               <div class="modal-content">
-                                <div class="modal-header bg-danger">
-                                  <h4 class="modal-title"><center>Hapus Item</center></h4>
+                                <div class="modal-header bg-success">
+                                  <h4 class="modal-title"><center>Maintenance</center></h4>
                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                   </button>
                                 </div>
                                 <div class="modal-body">
-                                  <p><h5>Yakin Untuk Menghapus Asset "<?php echo  $row["deskripsi_asset"] ?>" ?</h5></p>
+                                  <p><h5>Apakah Asset "<?php echo  $row["deskripsi_asset"] ?>" telah Dimaintenance?</h5></p>
                                 </div>
                                 <div class="modal-footer justify-content-between">
                                   <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-                                  <a href="check.php? kode_asset=<?=$row["kode_asset"]?>&button=hapusData">
-                                    <button type="button" class="btn btn-danger">Hapus</button>
+                                  <a href="check.php? kode_asset=<?=$row["kode_asset"]?>&button=<?php echo $button ?>">
+                                    <button type="button" class="btn btn-success">Sudah</button>
                                   </a>
                                   </form>
                                 </div>
@@ -139,7 +175,7 @@
         }else {
       ?>
           <div class="mt-5">
-              <center><h4>Tidak ada Asset Rusak Berat atau Umur Habis</h4></center>
+              <center><h4>Tidak ada Asset yang Harus Dimaintenance</h4></center>
           </div> 
       <?php   
         }

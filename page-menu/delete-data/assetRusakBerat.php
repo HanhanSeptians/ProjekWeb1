@@ -74,7 +74,8 @@
                       <th style="width: 150px"><h6 align="center"><b>Harga</b></h6></th>
                       <th style="width: 120px"><h6 align="center"><b>Gambar</b></h6></th>
                       <th style="width: 120px"><h6 align="center"><b>Keterangan</b></h6></th>
-                      <th style="width: 120px"><h6 align="center"><b>Aksi</b></h6></th>
+                      <th style="width: 120px"><h6 align="center"><b>Tanggal Pemeliharaan</b></h6></th>
+                      <th style="width: 150px"><h6 align="center"><b>Aksi</b></h6></th>
                     </tr>
                   </thead>
                   <?php
@@ -112,6 +113,7 @@
                         ?>
                       </td>
                       <td><?php echo $row["keterangan"] ?></td>
+                      <td><center><?php echo $row["tanggal_pemeliharaan"] ?></center></td>
                       <td>
                         <center>
                         <button class="btn-danger mt--5" data-toggle="modal" data-target="#modalHapus<?php echo $row["kode_asset"]?>">

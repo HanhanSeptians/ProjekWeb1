@@ -72,11 +72,9 @@
               </div>
               <div class="form-group">
                 <label>Tahun Pengadaan</label>
-                  <input type="year" name="tahun_pengadaan" class="form-control" placeholder="Masukkan Tahun Pengadaan Asset">
+                  <input type="input" name="tahun_pengadaan" class="form-control" placeholder="Masukkan Tahun Pengadaan Asset">
               </div>
-            </div>
-            <div class="col-sm-6">
-            <div class="form-group">
+              <div class="form-group">
                 <label>Status Kepemilikan Asset</label>
                   <select type="varchar" class="custom-select rounded-0" name="id_status_kepemilikan">
                   <option class="bg-secondary" value="" disabled selected>Pilih Status Kepemilikan</option>
@@ -90,6 +88,16 @@
                         }
                     ?>
                   </select>               
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Pemeliharaan</label>
+                  <input type="input" name="pemeliharaan" class="form-control" placeholder="Masukkan Deskripsi Pemeliharaan">
+              </div>
+              <div class="form-group">
+                <label>Tanggal Pemeliharaan</label>
+                  <input type="date" name="tanggal_pemeliharaan" class="form-control" placeholder="Masukkan Tanggal Pemeliharaan Asset">
               </div>  
               <div class="form-group">
                 <label for="exampleInputEmail1">Lokasi</label>

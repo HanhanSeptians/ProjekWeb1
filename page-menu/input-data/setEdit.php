@@ -10,6 +10,8 @@
     $jumlah = $_POST['jumlah'];
     $ukuran = $_POST['ukuran'];
     $tahun_pengadaan = $_POST['tahun_pengadaan'];
+    $pemeliharaan = $_POST['pemeliharaan'];
+    $tanggal_pemeliharaan = $_POST['tanggal_pemeliharaan'];
     $asal_usul = $_POST['asal_usul'];
     $harga = $_POST['harga'];
     $gambar = $_FILES["gambar"]["name"]; 
@@ -27,7 +29,7 @@
         $query="UPDATE `asset` SET kode_asset='$kode_asset',id_kondisi='$id_kondisi',id_status_kepemilikan='$id_status_kepemilikan',
                                    id_lokasi='$id_lokasi',id_jenis_asset='$id_jenis_asset', deskripsi_asset='$deskripsi_asset',jumlah='$jumlah', 
                                    ukuran='$ukuran',tahun_pengadaan='$tahun_pengadaan',asal_usul='$asal_usul',harga='$harga',gambar= '$gambar',
-                                   keterangan='$keterangan', merk_type='$merk_type' WHERE kode_asset='$kode_asset'";
+                                   keterangan='$keterangan', merk_type='$merk_type', pemeliharaan='$pemeliharaan', tanggal_pemeliharaan='$tanggal_pemeliharaan' WHERE kode_asset='$kode_asset'";
         $result = mysqli_query($conn, $query);
         if($result){
             echo '<script type ="text/JavaScript">';  
@@ -59,7 +61,7 @@
         $query="UPDATE `asset` SET kode_asset='$kode_asset',id_kondisi='$id_kondisi',id_status_kepemilikan='$id_status_kepemilikan',
         id_lokasi='$id_lokasi',id_jenis_asset='$id_jenis_asset', deskripsi_asset='$deskripsi_asset',jumlah='$jumlah', 
         ukuran='$ukuran',tahun_pengadaan='$tahun_pengadaan',asal_usul='$asal_usul',harga='$harga',
-        keterangan='$keterangan', merk_type='$merk_type' WHERE kode_asset='$kode_asset'";
+        keterangan='$keterangan', merk_type='$merk_type', pemeliharaan='$pemeliharaan', tanggal_pemeliharaan='$tanggal_pemeliharaan' WHERE kode_asset='$kode_asset'";
         $result = mysqli_query($conn, $query);
         if($result){
             echo '<script type ="text/JavaScript">';  

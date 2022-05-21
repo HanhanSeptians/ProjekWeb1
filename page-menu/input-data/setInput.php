@@ -10,6 +10,8 @@
   $jumlah = $_POST['jumlah'];
   $ukuran = $_POST['ukuran'];
   $tahun_pengadaan = $_POST['tahun_pengadaan'];
+  $pemeliharaan = $_POST['pemeliharaan'];
+  $tanggal_pemeliharaan = $_POST['tanggal_pemeliharaan'];
   $asal_usul = $_POST['asal_usul'];
   $harga = $_POST['harga'];
   $gambar = $_FILES["gambar"]["name"]; 
@@ -21,8 +23,8 @@
   $folder = "../../GambarAsset/".$gambar;
   //move_uploaded_file($temp_name, '../../GambarAsset/'.$gambar);
   move_uploaded_file($temp_name, $folder);
-  $query = "INSERT INTO `asset` (`kode_asset`, `id_kondisi`, `id_status_kepemilikan`, `id_lokasi`, `id_jenis_asset`, `deskripsi_asset`, `jumlah`, `ukuran`, `tahun_pengadaan`, `asal_usul`, `harga`, `gambar`, `keterangan`, `merk_type`) 
-                        VALUES ('$kode_asset', '$id_kondisi', '$id_status_kepemilikan', '$id_lokasi', '$id_jenis_asset', '$deskripsi_asset', '$jumlah', '$ukuran', '$tahun_pengadaan', '$asal_usul', '$harga', '$gambar', '$keterangan', '$merk_type')" ;
+  $query = "INSERT INTO `asset` (`kode_asset`, `id_kondisi`, `id_status_kepemilikan`, `id_lokasi`, `id_jenis_asset`, `deskripsi_asset`, `jumlah`, `ukuran`, `tahun_pengadaan`, `asal_usul`, `harga`, `gambar`, `keterangan`, `merk_type`, `pemeliharaan`, `tanggal_pemeliharaan`) 
+                        VALUES ('$kode_asset', '$id_kondisi', '$id_status_kepemilikan', '$id_lokasi', '$id_jenis_asset', '$deskripsi_asset', '$jumlah', '$ukuran', '$tahun_pengadaan', '$asal_usul', '$harga', '$gambar', '$keterangan', '$merk_type', '$pemeliharaan', '$tanggal_pemeliharaan')" ;
   $result = mysqli_query($conn, $query);
     if($result){
       echo '<script type ="text/JavaScript">';  

@@ -9,7 +9,7 @@
 <html>
   <style>
     .mt--5 {
-      margin-top : -30px;
+      margin-top : -26px;
     }
   </style>
   <div class="content-wrapper">
@@ -95,6 +95,23 @@
               <button type="button" class="btn btn-primary"><i class="fa fa-plus"></i> Tambah Asset Baru</button>
             </a>
           </div>
+          <div class="card-header">
+            <h3 class="card-title">
+              <b>Maintenance Reminder</b>
+            </h3>
+          </div>
+          <?php
+            $sqlpelihara = "SELECT * FROM `asset_pemeliharaan`";
+            $maintenance = $conn->query($sqlpelihara);
+            $totalMaintenance = mysqli_num_rows($maintenance);
+          ?>
+          <div class="card-body">
+            <a href="../maintenance/maintenance.php? btn=MInventaris">
+              <button type="button" class="btn btn-success text-white"><i class="fa fa-screwdriver-wrench"></i> Maintenance Asset
+                <span class="badge badge-warning"><?php echo $totalMaintenance?></span>
+              </button>
+            </a>
+          </div>
         </div>
       </div>
       <div class="col-md-6">
@@ -144,7 +161,7 @@
                       <th style="width: 120px"><h6 align="center"><b>Gambar</b></h6></th>
                       <th style="width: 120px"><h6 align="center"><b>Keterangan</b></h6></th>
                       <th style="width: 120px"><h6 align="center"><b>Tanggal Pemeliharaan</b></h6></th>
-                      <th style="width: 120px"><h6 align="center"><b>Aksi</b></h6></th>
+                      <th style="width: 300px"><h6 align="center"><b>Aksi</b></h6></th>
                     </tr>
                   </thead>
                   <tbody>
@@ -183,14 +200,14 @@
                         ?>
                       </td>
                       <td><?php echo $row["keterangan"] ?></td>
-                      <td><?php echo $row["tanggal_pemeliharaan"] ?></td>
+                      <td><center><?php echo $row["tanggal_pemeliharaan"] ?></center></td>
                       <td>
                         <a href="../input-data/editAsset.php? kode_asset=<?=$row["kode_asset"]?>& btn=btnEditInventaris">
-                          <button class="btn-primary mr-4" style=" float:left">
+                          <button class="btn-primary mr-4 btn-xs" style=" float:left">
                             <i class="fa-solid fa-pen-to-square fa-sm"></i>
                           </button>
                         </a> 
-                        <button class="btn-danger mt--5" style=" float:right" data-toggle="modal" data-target="#modalHapus<?php echo $row["kode_asset"]?>">
+                        <button class="btn-danger mt--5 btn-xs" style=" float:right" data-toggle="modal" data-target="#modalHapus<?php echo $row["kode_asset"]?>">
                           <i class="fa-solid fa-trash"></i>
                         </button>
                           <div class="modal fade" id="modalHapus<?php echo $row["kode_asset"]?>">

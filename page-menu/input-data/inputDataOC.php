@@ -30,7 +30,7 @@
         <i class="fa-solid fa-pen-to-square fa-lg"></i> Form Pengisian Asset Baru "Production Office Center"
       </div>
       <div class="card-body">
-        <form method="post" action="setInput.php" enctype="multipart/form-data">
+        <form method="post" id="quickForm" action="setInput.php" enctype="multipart/form-data">
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
@@ -72,9 +72,7 @@
                 <label>Tahun Pengadaan</label>
                   <input type="year" name="tahun_pengadaan" class="form-control" placeholder="Masukkan Tahun Pengadaan Asset">
               </div>
-            </div>
-            <div class="col-sm-6">
-            <div class="form-group">
+              <div class="form-group">
                 <label>Status Kepemilikan Asset</label>
                   <select type="varchar" class="custom-select rounded-0" name="id_status_kepemilikan">
                   <option class="bg-secondary" value="" disabled selected>Pilih Status Kepemilikan</option>
@@ -88,6 +86,16 @@
                         }
                     ?>
                   </select>               
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Pemeliharaan</label>
+                  <input type="input" name="pemeliharaan" class="form-control" placeholder="Masukkan Deskripsi Pemeliharaan">
+              </div>
+              <div class="form-group">
+                <label>Tanggal Pemeliharaan</label>
+                  <input type="date" name="tanggal_pemeliharaan" class="form-control" placeholder="Masukkan Tanggal Pemeliharaan Asset">
               </div>  
               <div class="form-group">
                 <label for="exampleInputEmail1">Lokasi</label>
@@ -149,3 +157,54 @@
       </div>
     </form>
 </html>
+<script>
+$(function () {
+  $('#quickForm').validate({
+    rules: {
+      kode_asset: {
+        required: true,
+      },
+      id_jenis_asset: {
+        required: true,
+      },
+      id_status_kepemilikan: {
+        required: true,
+      },
+      id_lokasi: {
+        required: true,
+      },
+      id_kondisi: {
+        required: true,
+      },
+    },
+    messages: {
+      kode_asset: {
+        required: "Kode Asset Tidak Boleh Kosong",
+      },
+      id_jenis_asset: {
+        required: "Lengkapi Jenis Asset",
+      },
+      id_status_kepemilikan: {
+        required: "Lengkapi Status Kepemilikan Asset",
+      },
+      id_lokasi: {
+        required: "Lengkapi Lokasi Asset",
+      },
+      id_kondisi: {
+        required: "Lengkapi Kondisi Asset",
+      },
+    },
+    errorElement: 'span',
+    errorPlacement: function (error, element) {
+      error.addClass('invalid-feedback');
+      element.closest('.form-group').append(error);
+    },
+    highlight: function (element, errorClass, validClass) {
+      $(element).addClass('is-invalid');
+    },
+    unhighlight: function (element, errorClass, validClass) {
+      $(element).removeClass('is-invalid');
+    }
+  });
+});
+</script>
