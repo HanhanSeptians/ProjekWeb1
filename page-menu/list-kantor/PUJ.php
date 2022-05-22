@@ -140,7 +140,6 @@
         </div>
       </div>
     </div>
-    <section class="content">
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
@@ -149,7 +148,7 @@
                 <i class="fa-solid fa-coins fa-lg"></i> Production Unit Jakarta
               </div>
               <div class="card-body">
-                <table class="table table-bordered table-striped">
+                <table class="table table-bordered table-striped table-responsive">
                   <thead>
                     <tr class="bg-primary">
                       <th><h6 align="center"><b>No</b></h6></th>
@@ -208,14 +207,22 @@
                       <td><?php echo $row["keterangan"] ?></td>
                       <td><center><?php echo $row["tanggal_pemeliharaan"] ?></center></td>
                       <td>
-                        <a href="../input-data/editAsset.php? kode_asset=<?=$row["kode_asset"]?>& btn=btnEditPUJ">
-                          <button class="btn-primary mr-4 btn-xs" style=" float:left">
-                            <i class="fa-solid fa-pen-to-square fa-sm"></i>
-                          </button>
-                        </a> 
-                        <button class="btn-danger mt--5 btn-xs" style=" float:right" data-toggle="modal" data-target="#modalHapus<?php echo $row["kode_asset"]?>">
-                          <i class="fa-solid fa-trash"></i>
-                        </button>
+                        <div>
+                          <center>
+                            <a href="../input-data/editAsset.php? kode_asset=<?=$row["kode_asset"]?>& btn=btnEditPUJ">
+                              <button class="btn-primary btn btn-md">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                              </button>
+                            </a> 
+                          </center>
+                        </div>
+                        <div class="mt-2">
+                          <center>
+                            <button class="btn-danger btn btn-md" data-toggle="modal" data-target="#modalHapus<?php echo $row["kode_asset"]?>">
+                              <i class="fa-solid fa-trash"></i>
+                            </button>
+                          </center>
+                        </div>
                           <div class="modal fade" id="modalHapus<?php echo $row["kode_asset"]?>">
                             <div class="modal-dialog">
                               <div class="modal-content">

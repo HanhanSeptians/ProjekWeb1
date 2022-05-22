@@ -54,13 +54,15 @@
                         $query = mysqli_query($conn, "SELECT * FROM asset_inventaris WHERE kode_asset = '$kode_asset'");
                         $hasil = mysqli_fetch_array($query);
                     ?>
-                    <option disabled selected>Pilih Jenis Asset "Nilai Awal : <?php echo $hasil['jenis_asset']?>"</option>
+                    <option value="<?php echo $hasil['id_jenis_asset'] ?>" selected='selected'><?php echo $hasil['jenis_asset']?></option>
                       <?php
                         $sql = "SELECT * FROM jenis_asset";
                         $result = $conn->query($sql);
                           if ($result->num_rows > 0) {
                             while ($row = $result->fetch_assoc()) {
-                              echo "<option value= $row[id_jenis_asset]>$row[jenis_asset]</option>";
+                              if($row['id_jenis_asset'] != $hasil['id_jenis_asset']){
+                                echo "<option value= $row[id_jenis_asset]>$row[jenis_asset]</option>";
+                              }
                             }
                           }
                       ?>
@@ -93,13 +95,15 @@
               <div class="form-group">
                 <label>Status Kepemilikan Asset</label>
                   <select type="varchar" class="custom-select rounded-0" name="id_status_kepemilikan">
-                  <option disabled selected>Pilih Status Kepemilikan "Nilai Awal : <?php echo $hasil['status_kepemilikan']?>"</option>
+                  <option value="<?php echo $hasil['id_status_kepemilikan'] ?>" selected='selected'><?php echo $hasil['status_kepemilikan']?></option>
                   <?php
                       $sql = "SELECT * FROM status_kepemilikan";
                       $result = $conn->query($sql);
                         if ($result->num_rows > 0) {
                           while ($row = $result->fetch_assoc()) {
-                            echo"<option value=$row[id_status_kepemilikan]>$row[deskripsi_status_kepemilikan]</option>";
+                            if($row['id_status_kepemilikan'] != $hasil['id_status_kepemilikan']){
+                              echo"<option value=$row[id_status_kepemilikan]>$row[deskripsi_status_kepemilikan]</option>";
+                            }
                           }
                         }
                     ?>
@@ -118,14 +122,16 @@
               <div class="form-group">
                 <label for="exampleInputEmail1">Lokasi</label>
                   <select type="varchar" class="custom-select rounded-0" name="id_lokasi">
-                  <option disabled selected>Pilih Jenis Asset "Nilai Awal: <?php echo $hasil['lokasi']?>"</option>
+                  <option value="<?php echo $hasil['id_lokasi'] ?>" selected='selected'><?php echo $hasil['lokasi']?></option>
                   <optgroup label="Office Center">
                     <?php
                       $sql = "SELECT * FROM lokasi WHERE id_kantor= 'OC'";
                       $result = $conn->query($sql);
                         if ($result->num_rows > 0) {
                           while ($row = $result->fetch_assoc()) {
-                            echo "<option value=$row[id_lokasi]>$row[deskripsi_lokasi]</option>";
+                            if($row['id_lokasi'] != $hasil['id_lokasi']){
+                              echo "<option value=$row[id_lokasi]>$row[deskripsi_lokasi]</option>";
+                            }
                           }
                         }
                     ?>
@@ -136,7 +142,9 @@
                       $result = $conn->query($sql);
                         if ($result->num_rows > 0) {
                           while ($row = $result->fetch_assoc()) {
-                            echo "<option value=$row[id_lokasi]>$row[deskripsi_lokasi]</option>";
+                            if($row['id_lokasi'] != $hasil['id_lokasi']){
+                              echo "<option value=$row[id_lokasi]>$row[deskripsi_lokasi]</option>";
+                            }
                           }
                         }
                     ?>
@@ -147,7 +155,9 @@
                       $result = $conn->query($sql);
                         if ($result->num_rows > 0) {
                           while ($row = $result->fetch_assoc()) {
-                            echo "<option value=$row[id_lokasi]>$row[deskripsi_lokasi]</option>";
+                            if($row['id_lokasi'] != $hasil['id_lokasi']){
+                              echo "<option value=$row[id_lokasi]>$row[deskripsi_lokasi]</option>";
+                            }
                           }
                         }
                     ?>
@@ -158,7 +168,9 @@
                       $result = $conn->query($sql);
                         if ($result->num_rows > 0) {
                           while ($row = $result->fetch_assoc()) {
-                            echo "<option value=$row[id_lokasi]>$row[deskripsi_lokasi]</option>";
+                            if($row['id_lokasi'] != $hasil['id_lokasi']){
+                              echo "<option value=$row[id_lokasi]>$row[deskripsi_lokasi]</option>";
+                            }
                           }
                         }
                     ?>
@@ -174,7 +186,9 @@
                       $result = $conn->query($sql);
                         if ($result->num_rows > 0) {
                           while ($row = $result->fetch_assoc()) {
-                            echo "<option value=$row[id_kondisi]>$row[id_kondisi]</option>";
+                            if($row['id_kondisi'] != $hasil['kondisi']){
+                              echo "<option value=$row[id_kondisi]>$row[id_kondisi]</option>";
+                            }
                           }
                         }
                     ?>

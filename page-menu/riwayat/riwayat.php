@@ -34,7 +34,6 @@ include '../navbar/navbar.php';
   $no = 1;
   if ($result->num_rows > 0) {
   ?>
-    <section class="content">
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
@@ -43,22 +42,22 @@ include '../navbar/navbar.php';
                 <i class="fa-solid fa-clock-rotate-left"></i> Aktivitas Terbaru
               </div>
               <div class="card-body">
-                <table class="table table-bordered table-striped">
+                <table class="table table-bordered table-striped table-responsive">
                   <thead>
                     <tr class="bg-primary">
-                      <th align=center style="width: 10px">
+                      <th>
                         <h6 align="center"><b>No</b></h6>
                       </th>
-                      <th style="width: 30px">
+                      <th>
                         <h6 align="center"><b>Tanggal</b></h6>
                       </th>
-                      <th style="width: 30px">
+                      <th>
                         <h6 align="center"><b>Kantor</b></h6>
                       </th>
-                      <th style="width: 120px">
+                      <th>
                         <h6 align="center"><b>Aktivitas</b></h6>
                       </th>
-                      <th style="width: 120px">
+                      <th>
                         <h6 align="center"><b>Kode Asset</b></h6>
                       </th>
                     </tr>
@@ -92,7 +91,7 @@ include '../navbar/navbar.php';
                 </table>
                 <div class="mt-5">
                   <a href="bersihkanHistory.php? bersihkan=bersihkan">
-                    <button class="btn-secondary">Bersihkan</button>
+                    <button class="btn-secondary btn btn-md">Bersihkan</button>
                   </a>
                 </div>
               <?php
@@ -112,7 +111,6 @@ include '../navbar/navbar.php';
           </div>
         </div>
       </div>
-    </section>
 </div>
 
 </html>

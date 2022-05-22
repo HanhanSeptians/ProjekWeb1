@@ -42,7 +42,6 @@
       $no = $halaman_awal+1;
         if ($data_asset->num_rows > 0) {
     ?>
-    <section class="content">
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
@@ -51,7 +50,7 @@
                 <i class="fa-solid fa-circle-exclamation"></i> Request Penghapusan Asset dari Kantor Cabang
               </div>
               <div class="card-body">
-                <table class="table table-bordered table-striped">
+                <table class="table table-bordered table-striped table-responsive">
                   <thead>
                     <tr class="bg-primary">
                       <th><h6 align="center"><b>No</b></h6></th>
@@ -111,9 +110,9 @@
                       <td>
                         <div>
                           <center>
-                          <button class="btn-primary mt--5 btn-xs" data-toggle="modal" data-target="#modalHapus<?php echo $row["kode_asset"]?>">
-                            <i class="fa-solid fa-circle-check fa-sm"></i> Accept
-                          </button>
+                            <button class="btn-success btn btn-xs" data-toggle="modal" data-target="#modalHapus<?php echo $row["kode_asset"]?>">
+                              <i class="fa-solid fa-circle-check"></i> Accept
+                            </button>
                           </center>
                             <div class="modal fade" id="modalHapus<?php echo $row["kode_asset"]?>">
                               <div class="modal-dialog">
@@ -141,8 +140,8 @@
                           <div class="mt-2">
                             <center>
                               <a href="denied.php? kode_asset=<?=$row["kode_asset"] ?>">
-                                <button class=" btn-danger btn-xs">
-                                  <i class="fa-solid fa-circle-xmark fa-sm"></i> Denied
+                                <button class=" btn-danger btn btn-xs">
+                                  <i class="fa-solid fa-circle-xmark"></i> Deny
                                 </button>
                               </a>
                             </center>
@@ -184,6 +183,5 @@
           </div>
         </div>
       </div>
-    </section>
   </div>
 </html>

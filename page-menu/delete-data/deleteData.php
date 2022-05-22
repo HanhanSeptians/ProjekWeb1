@@ -51,7 +51,7 @@
                 <i class="fa-solid fa-circle-exclamation"></i> Asset Rusak Berat atau Umur Habis
               </div>
               <div class="card-body">
-                <table class="table table-bordered table-striped">
+                <table class="table table-bordered table-striped table-responsive">
                   <thead>
                     <tr class="bg-primary">
                       <th><h6 align="center"><b>No</b></h6></th>
@@ -110,9 +110,9 @@
                       <td><center><?php echo $row["tanggal_pemeliharaan"] ?></center></td>
                       <td>
                         <center>
-                        <button class="btn-danger mt--5" data-toggle="modal" data-target="#modalHapus<?php echo $row["kode_asset"]?>">
-                          <i class="fa-solid fa-trash"></i>
-                        </button>
+                          <button class="btn-danger btn btn-md" data-toggle="modal" data-target="#modalHapus<?php echo $row["kode_asset"]?>">
+                            <i class="fa-solid fa-trash"></i>
+                          </button>
                         </center>
                           <div class="modal fade" id="modalHapus<?php echo $row["kode_asset"]?>">
                             <div class="modal-dialog">

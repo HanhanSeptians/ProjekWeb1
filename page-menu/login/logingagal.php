@@ -42,7 +42,7 @@
                     </div>
                 </div>
                 <center><p class="mt-3 text-danger"><i>Username atau Password Salah !</i></p></center>
-                <p class="mt-5">Belum Punya Akun?<a href="../register/register.php"><u> Register Disini</u> </a></p>
+                <!-- <p class="mt-5">Belum Punya Akun?<a href="../register/register.php"><u> Register Disini</u> </a></p> -->
                 <div>
                     <button type="submit" class="btn btn-primary btn-block"> Sign In</button>
                   </a>

@@ -19,7 +19,6 @@
         $query="UPDATE asset SET status_request_hapus = 1 WHERE kode_asset = '$kode'";
         $result = mysqli_query($conn, $query);
         if($result){
-            unlink("../../GambarAsset/$data[gambar]");
             echo '<script type ="text/JavaScript">';  
             echo 'alert("Request Berhasil Dikirimkan")';  
             echo '</script>'; 
@@ -33,10 +32,22 @@
                 echo '<meta http-equiv="refresh" content="0.1;url=../list-kantor/PUJ.php">';
             }elseif($button =='hapusCari'){
                 echo '<meta http-equiv="refresh" content="0.1;url=../cari-data/cariData.php">';
-            }elseif($button =='hapusRB'){
+            }elseif($button =='RBOC'){
                 echo '<meta http-equiv="refresh" content="0.1;url=../list-kantor/OC.php">';
-            }elseif($button =='hapusUmurHabis'){
+            }elseif($button =='UHOC'){
                 echo '<meta http-equiv="refresh" content="0.1;url=../list-kantor/OC.php">';
+            }elseif($button =='RBPUC'){
+                echo '<meta http-equiv="refresh" content="0.1;url=../list-kantor/PUC.php">';
+            }elseif($button =='UHPUC'){
+                echo '<meta http-equiv="refresh" content="0.1;url=../list-kantor/PUC.php">';
+            }elseif($button =='RBPUG'){
+                echo '<meta http-equiv="refresh" content="0.1;url=../list-kantor/PUG.php">';
+            }elseif($button =='UHPUG'){
+                echo '<meta http-equiv="refresh" content="0.1;url=../list-kantor/PUG.php">';
+            }elseif($button =='RBPUJ'){
+                echo '<meta http-equiv="refresh" content="0.1;url=../list-kantor/PUJ.php">';
+            }elseif($button =='UHPUJ'){
+                echo '<meta http-equiv="refresh" content="0.1;url=../list-kantor/PUJ.php">';
             }
         }else{
             echo "Asset Gagal Dihapus !";
@@ -58,10 +69,22 @@
                 echo '<meta http-equiv="refresh" content="0.1;url=../list-kantor/PUJ.php">';
             }elseif($button =='hapusCari'){
                 echo '<meta http-equiv="refresh" content="0.1;url=../cari-data/cariData.php">';
-            }elseif($button =='hapusRB'){
+            }elseif($button =='RBOC'){
                 echo '<meta http-equiv="refresh" content="0.1;url=../list-kantor/OC.php">';
-            }elseif($button =='hapusUmurHabis'){
+            }elseif($button =='UHOC'){
                 echo '<meta http-equiv="refresh" content="0.1;url=../list-kantor/OC.php">';
+            }elseif($button =='RBPUC'){
+                echo '<meta http-equiv="refresh" content="0.1;url=../list-kantor/PUC.php">';
+            }elseif($button =='UHPUC'){
+                echo '<meta http-equiv="refresh" content="0.1;url=../list-kantor/PUC.php">';
+            }elseif($button =='RBPUG'){
+                echo '<meta http-equiv="refresh" content="0.1;url=../list-kantor/PUG.php">';
+            }elseif($button =='UHPUG'){
+                echo '<meta http-equiv="refresh" content="0.1;url=../list-kantor/PUG.php">';
+            }elseif($button =='RBPUJ'){
+                echo '<meta http-equiv="refresh" content="0.1;url=../list-kantor/PUJ.php">';
+            }elseif($button =='UHPUJ'){
+                echo '<meta http-equiv="refresh" content="0.1;url=../list-kantor/PUJ.php">';
             }
         }else{
             echo "Asset Gagal Dihapus !";

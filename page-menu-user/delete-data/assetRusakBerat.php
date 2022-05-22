@@ -144,7 +144,7 @@
                                 </div>
                                 <div class="modal-footer justify-content-between">
                                   <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-                                  <a href="../delete-data/delete.php? kode_asset=<?=$row["kode_asset"]?>&button=hapusRB">
+                                  <a href="../delete-data/delete.php? kode_asset=<?=$row["kode_asset"]?>&button=<?php echo $button?>">
                                     <button type="button" class="btn btn-danger">Request</button>
                                   </a>
                                   </form>

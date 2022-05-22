@@ -139,16 +139,15 @@
         </div>
       </div>
     </div>
-    <section class="content">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-12">
+          <div class="col">
             <div class="card">
               <div class="card-header bg-dark">
                 <i class="fa-solid fa-coins fa-lg"></i> Rekapitulasi Inventaris
               </div>
               <div class="card-body">
-                <table class="table table-bordered table-striped">
+                <table class="table table-bordered table-striped table-responsive">
                   <thead>
                     <tr class="bg-primary">
                       <th><h6 align="center"><b>No</b></h6></th>
@@ -166,7 +165,7 @@
                       <th><h6 align="center"><b>Harga</b></h6></th>
                       <th><h6 align="center"><b>Gambar</b></h6></th>
                       <th><h6 align="center"><b>Keterangan</b></h6></th>
-                      <th><h6 align="center"><b>Tanggal Pemeliharaan</b></h6></th>
+                      <th><h6 align="center"><b>Maintenance</b></h6></th>
                       <th><h6 align="center"><b>Aksi</b></h6></th>
                     </tr>
                   </thead>
@@ -208,14 +207,22 @@
                       <td><?php echo $row["keterangan"] ?></td>
                       <td><center><?php echo $row["tanggal_pemeliharaan"] ?></center></td>
                       <td>
-                        <a href="../input-data/editAsset.php? kode_asset=<?=$row["kode_asset"]?>& btn=btnEditInventaris">
-                          <button class="btn-primary mr-4 btn-xs" style=" float:left">
-                            <i class="fa-solid fa-pen-to-square fa-sm"></i>
-                          </button>
-                        </a> 
-                        <button class="btn-danger btn-xs mt--5" style=" float:right" data-toggle="modal" data-target="#modalHapus<?php echo $row["kode_asset"]?>">
-                          <i class="fa-solid fa-trash"></i>
-                        </button>
+                        <div>
+                          <a href="../input-data/editAsset.php? kode_asset=<?=$row["kode_asset"]?>& btn=btnEditInventaris">
+                            <center>
+                              <button class="btn btn-primary btn-md">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                              </button>
+                            </center>
+                          </a> 
+                        </div>
+                        <div class="mt-2">
+                          <center>
+                            <button class="btn btn-danger btn-md"  data-toggle="modal" data-target="#modalHapus<?php echo $row["kode_asset"]?>">
+                              <i class="fa-solid fa-trash"></i>
+                            </button>
+                          </center>
+                        </div>
                           <div class="modal fade" id="modalHapus<?php echo $row["kode_asset"]?>">
                             <div class="modal-dialog">
                               <div class="modal-content">
@@ -271,7 +278,6 @@
           </div>
         </div>
       </div>
-    </section>
   </div>
 </html>
 
