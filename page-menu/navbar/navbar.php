@@ -106,6 +106,22 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a href="../request-delete-data/requestDeleteData.php" class="nav-link">
+                <i class="nav-icon text-white fa-solid fa-check-to-slot"></i>
+                  <p class="text-white">
+                    Request Hapus Asset
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../riwayat/riwayat.php" class="nav-link">
+                <i class="nav-icon fa-solid fa-clock-rotate-left text-white"></i>
+                  <p class="text-white">
+                    Riwayat Aktivitas
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="../cari-data/cariData.php" class="nav-link">
                   <i class="nav-icon fa-solid fa-magnifying-glass text-white"></i>
                   <p class="text-white">

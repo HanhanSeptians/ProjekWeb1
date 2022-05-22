@@ -3,6 +3,12 @@
     if($_SESSION['status']!="login"){
       header("location:../login/login.php?pesan=belum_login");
     }
+    if($_SESSION['jenis_akun'] != "Admin Kantor Pusat"){
+      echo '<script type ="text/JavaScript">';  
+      echo 'alert("Maaf, Anda bukan Admin Pusat")';  
+      echo '</script>'; 
+      echo '<meta http-equiv="refresh" content="0.1;url=../../page-menu-user/dashboard/dashboard.php">';
+    }
   include '../database/koneksi.php';
   include '../navbar/navbar.php';
 ?>
@@ -62,23 +68,23 @@
       <table class="table table-bordered table-striped">
         <thead>
           <tr class="bg-primary">
-            <th align = center style="width: 10px"><h6 align="center"><b>No</b></h6></th>
-            <th style="width: 150px"><h6 align="center"><b>Jenis Asset</b></h6></th>
-            <th style="width: 150px"><h6 align="center"><b>Deskripsi Asset</b></h6></th>
-            <th style="width: 120px"><h6 align="center"><b>Kode Asset</b></h6></th>
-            <th style="width: 120px"><h6 align="center"><b>Merk/ Type</b></h6></th>
-            <th style="width: 30px"><h6 align="center"><b>Jumlah</b></h6></th>
-            <th style="width: 30px"><h6 align="center"><b>Ukuran</b></h6></th>
-            <th style="width: 100px"><h6 align="center"><b>Tahun Pengadaan</b></h6></th>
-            <th style="width: 250px"><h6 align="center"><b>Status Kepemilikan</b></h6></th>
-            <th style="width: 100px"><h6 align="center"><b>Lokasi</b></h6></th>
-            <th style="width: 150px"><h6 align="center"><b>Kondisi</b></h6></th>
-            <th style="width: 200px"><h6 align="center"><b>Asal-usul</b></h6></th>
-            <th style="width: 150px"><h6 align="center"><b>Harga</b></h6></th>
-            <th style="width: 120px"><h6 align="center"><b>Gambar</b></h6></th>
-            <th style="width: 120px"><h6 align="center"><b>Keterangan</b></h6></th>
-            <th style="width: 120px"><h6 align="center"><b>Tanggal Pemeliharaan</b></h6></th>
-            <th style="width: 150px"><h6 align="center"><b>Aksi</b></h6></th>
+            <th><h6 align="center"><b>No</b></h6></th>
+            <th><h6 align="center"><b>Jenis Asset</b></h6></th>
+            <th><h6 align="center"><b>Deskripsi Asset</b></h6></th>
+            <th><h6 align="center"><b>Kode Asset</b></h6></th>
+            <th><h6 align="center"><b>Merk/ Type</b></h6></th>
+            <th><h6 align="center"><b>Jumlah</b></h6></th>
+            <th><h6 align="center"><b>Ukuran</b></h6></th>
+            <th><h6 align="center"><b>Tahun Pengadaan</b></h6></th>
+            <th><h6 align="center"><b>Status Kepemilikan</b></h6></th>
+            <th><h6 align="center"><b>Lokasi</b></h6></th>
+            <th><h6 align="center"><b>Kondisi</b></h6></th>
+            <th><h6 align="center"><b>Asal-usul</b></h6></th>
+            <th><h6 align="center"><b>Harga</b></h6></th>
+            <th><h6 align="center"><b>Gambar</b></h6></th>
+            <th><h6 align="center"><b>Keterangan</b></h6></th>
+            <th><h6 align="center"><b>Tanggal Pemeliharaan</b></h6></th>
+            <th><h6 align="center"><b>Aksi</b></h6></th>
           </tr>
         </thead>
         <tbody>

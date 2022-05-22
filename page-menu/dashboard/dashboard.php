@@ -3,8 +3,16 @@ session_start();
 if ($_SESSION['status'] != "login") {
   header("location:../login/login.php?pesan=belum_login");
 }
+if($_SESSION['jenis_akun'] != "Admin Kantor Pusat"){
+  echo '<script type ="text/JavaScript">';  
+  echo 'alert("Maaf, Anda bukan Admin Pusat")';  
+  echo '</script>'; 
+  echo '<meta http-equiv="refresh" content="0.1;url=../../page-menu-user/dashboard/dashboard.php">';
+}
+
 include '../database/koneksi.php';
 include '../navbar/navbar.php';
+
 ?>
 <html>
 <div class="content-wrapper">

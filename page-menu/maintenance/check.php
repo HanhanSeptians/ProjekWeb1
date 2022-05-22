@@ -8,7 +8,19 @@
     if(isset($_GET['button'])){
         $button = $_GET['button'];
     }
-    $query="UPDATE asset SET tanggal_pemeliharaan = DATE_ADD(curdate(), INTERVAL 14 DAY) WHERE kode_asset = '$kode'";
+    $query1 = "SELECT * FROM asset WHERE kode_asset = '$kode'";
+    $result1 = mysqli_query($conn, $query1);
+    $row = $result1->fetch_assoc();
+    $jenis_asset = $row['id_jenis_asset'];
+    if($jenis_asset == 'AlatBerat'){
+        $query = "UPDATE asset SET tanggal_pemeliharaan = DATE_ADD(curdate(), INTERVAL 4 MONTH) WHERE kode_asset = '$kode'";
+    }elseif($jenis_asset == 'AssetKtr'){
+        $query = "UPDATE asset SET tanggal_pemeliharaan = DATE_ADD(curdate(), INTERVAL 1 MONTH) WHERE kode_asset = '$kode'";
+    }elseif($jenis_asset == 'Tanah'){
+        $query = "UPDATE asset SET tanggal_pemeliharaan = DATE_ADD(curdate(), INTERVAL 1 YEAR) WHERE kode_asset = '$kode'";
+    }elseif($jenis_asset == 'KDR'){
+        $query = "UPDATE asset SET tanggal_pemeliharaan = DATE_ADD(curdate(), INTERVAL 3 MONTH) WHERE kode_asset = '$kode'";
+    }
     $result = mysqli_query($conn, $query);
         if($result){
             echo '<script type ="text/JavaScript">';  

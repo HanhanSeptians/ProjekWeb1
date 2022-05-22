@@ -41,7 +41,7 @@
                       </div>
                     </div>
                 </div>
-                <p>Belum Punya Akun?<a href="../register/register.php"><u> Register Disini</u> </a></p>
+                <!-- <p>Belum Punya Akun?<a href="../register/register.php"><u> Register Disini</u> </a></p> -->
                 <div>
                     <button type="submit" class="btn btn-primary btn-block"> Sign In</button>
                   </a>
