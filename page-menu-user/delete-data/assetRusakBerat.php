@@ -43,7 +43,6 @@
       $no = 0;
         if ($result->num_rows > 0) {
     ?>
-    <section class="content">
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
@@ -52,7 +51,7 @@
                 <i class="fa-solid fa-circle-exclamation"></i> Asset Rusak Berat
               </div>
               <div class="card-body">
-                <table class="table table-bordered table-striped">
+                <table class="table table-bordered table-striped table-responsive">
                   <thead>
                     <tr class="bg-primary">
                       <th><h6 align="center"><b>No</b></h6></th>
@@ -115,16 +114,16 @@
                           if($row["status_request_hapus"]==1){
                         ?>
                           <center>
-                            <button class="btn-success btn-xs">
-                              <i class="fa-solid fa-trash fa-sm"></i> Requested
+                            <button class="btn-success btn btn-md">
+                              <i class="fa-solid fa-trash"></i> Requested
                             </button>
                           </center>
                         <?php
                           }else{
                         ?>
                         <center>
-                          <button class="btn-danger btn-xs" data-toggle="modal" data-target="#modalHapus<?php echo $row["kode_asset"]?>">
-                            <i class="fa-solid fa-trash fa-sm"></i> Request
+                          <button class="btn-danger btn-md btn" data-toggle="modal" data-target="#modalHapus<?php echo $row["kode_asset"]?>">
+                            <i class="fa-solid fa-trash"></i> Request
                           </button>
                         </center>
                         <?php
@@ -168,19 +167,9 @@
                   </tbody>
                 </table>
               </div>
-              <div class="card-footer clearfix">
-                <ul class="pagination pagination-sm m-0 float-right">
-                  <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
-                </ul>
-              </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
   </div>
 </html>

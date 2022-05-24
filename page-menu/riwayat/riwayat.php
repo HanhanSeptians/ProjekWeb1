@@ -45,21 +45,11 @@ include '../navbar/navbar.php';
                 <table class="table table-bordered table-striped table-responsive">
                   <thead>
                     <tr class="bg-primary">
-                      <th>
-                        <h6 align="center"><b>No</b></h6>
-                      </th>
-                      <th>
-                        <h6 align="center"><b>Tanggal</b></h6>
-                      </th>
-                      <th>
-                        <h6 align="center"><b>Kantor</b></h6>
-                      </th>
-                      <th>
-                        <h6 align="center"><b>Aktivitas</b></h6>
-                      </th>
-                      <th>
-                        <h6 align="center"><b>Kode Asset</b></h6>
-                      </th>
+                      <th><h6 align="center"><b>No</b></h6></th>
+                      <th style="width: 25% ;"><h6 align="center"><b>Tanggal</b></h6></th>
+                      <th style="width: 30% ;"><h6 align="center"><b>Kantor</b></h6></th>
+                      <th style="width: 30% ;"><h6 align="center"><b>Aktivitas</b></h6></th>
+                      <th style="width: 30% ;"><h6 align="center"><b>Kode Asset</b></h6></th>
                     </tr>
                   </thead>
                   <?php

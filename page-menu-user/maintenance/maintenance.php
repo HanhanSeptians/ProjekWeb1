@@ -69,7 +69,6 @@
       $no = $halaman_awal+1;
         if ($data_asset->num_rows > 0) {
     ?>
-    <section class="content">
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
@@ -78,7 +77,7 @@
                 <i class="fa-solid fa-screwdriver-wrench"></i> Asset yang Memerlukan Pemeliharaan 
               </div>
               <div class="card-body">
-                <table class="table table-bordered table-striped">
+                <table class="table table-bordered table-striped table-responsive">
                   <thead>
                     <tr class="bg-primary">
                       <th><h6 align="center"><b>No</b></h6></th>
@@ -137,9 +136,9 @@
                       <td><center><?php echo $row["tanggal_pemeliharaan"] ?></center></td>
                       <td>
                         <center>
-                        <button class="btn-success mt--5" data-toggle="modal" data-target="#modalHapus<?php echo $row["kode_asset"]?>">
-                            <i class="fa-solid fa-square-check"></i>
-                        </button>
+                          <button class="btn-success btn btn-md" data-toggle="modal" data-target="#modalHapus<?php echo $row["kode_asset"]?>">
+                              <i class="fa-solid fa-square-check"></i>
+                          </button>
                         </center>
                           <div class="modal fade" id="modalHapus<?php echo $row["kode_asset"]?>">
                             <div class="modal-dialog">
@@ -200,6 +199,5 @@
           </div>
         </div>
       </div>
-    </section>
   </div>
 </html>

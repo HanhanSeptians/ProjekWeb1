@@ -59,7 +59,7 @@
         if ($result->num_rows > 0) {
     ?>
     <div class="card-body">  
-      <table class="table table-bordered table-striped">
+      <table class="table table-bordered table-striped table-responsive">
         <thead>
           <tr class="bg-primary">
             <th><h6 align="center"><b>No</b></h6></th>
@@ -118,23 +118,35 @@
             <td><?php echo $row["keterangan"] ?></td>
             <td><center><?php echo $row["tanggal_pemeliharaan"] ?></center></td>
             <td>
-              <a href="../input-data/editAsset.php? kode_asset=<?=$row["kode_asset"]?>& btn=btnEditCari">
-                <button class="btn-primary mr-4 btn-xs" style=" float:left">
-                  <i class="fa-solid fa-pen-to-square fa-sm"></i>
-                </button>
-              </a> 
+              <div>
+                <center>
+                  <a href="../input-data/editAsset.php? kode_asset=<?=$row["kode_asset"]?>& btn=btnEditCari">
+                    <button class="btn-primary btn btn-md">
+                      <i class="fa-solid fa-pen-to-square"></i>
+                    </button>
+                  </a> 
+                </center>
+              </div>
               <?php 
                 if($row["status_request_hapus"]==1){
               ?>
-                <button class="btn-success mt--5 btn-xs" style=" float:right">
-                  <i class="fa-solid fa-trash"></i>
-                </button>
+              <div class="mt-2">
+                <center>
+                  <button class="btn-success btn btn-md">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </center>
+              </div>
               <?php
                 }else{
               ?>
-                <button class="btn-danger mt--5 btn-xs" style=" float:right" data-toggle="modal" data-target="#modalHapus<?php echo $row["kode_asset"]?>">
-                  <i class="fa-solid fa-trash"></i>
-                </button>
+              <div class="mt-2">
+                <center>
+                  <button class="btn-danger btn btn-md" data-toggle="modal" data-target="#modalHapus<?php echo $row["kode_asset"]?>">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </center>
+              </div>
               <?php
                 }
               ?> 

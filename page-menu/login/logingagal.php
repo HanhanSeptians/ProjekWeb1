@@ -13,6 +13,7 @@
       <div class="login-logo">
           <img src="../../dist/img/pertaminafix.png" width="350" height="250">
       </div>
+      <center>
       <div class="login-box">
         <div class="login-logo">
           <a href="#"><b>PT.Pertamina Lubricants</a>
@@ -52,7 +53,8 @@
             </div>
           </div>
         </div>
-      </div>
+      </div>        
+      </center>
     </div>
   </body>
 </html>
